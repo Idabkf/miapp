@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Semester 1</key>
+	<array>
+		<dict>
+			<key>lecture</key>
+			<string>Einführung in die Programmierung</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+		</dict>
+	</array>
+	<key>Semester 2</key>
+	<array>
+		<dict>
+			<key>lecture</key>
+			<string>Programmierung und Modellierung</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Algorithmen und Datenstrukturen</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Rechnerarchitektur</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+		</dict>
+	</array>
+	<key>Semester 3</key>
+	<array/>
+	<key>Semester 4</key>
+	<array/>
+	<key>Semester 5</key>
+	<array/>
+	<key>Semester 6</key>
+	<array/>
+	<key>Semester 7</key>
+	<array/>
+	<key>Semester 8</key>
+	<array/>
+	<key>Semester 9</key>
+	<array/>
+</dict>
+</plist>
