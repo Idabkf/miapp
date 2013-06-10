@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>P1</key>
+	<array>
+		<string>Einführung in die Programmierung</string>
+		<dict>
+			<key>title</key>
+			<string>Einführung in die Programmierung</string>
+			<key>ects</key>
+			<integer>9</integer>
+			<key>graded</key>
+			<true/>
+			<key>wise</key>
+			<true/>
+			<key>sose</key>
+			<false/>
+			<key>link</key>
+			<string></string>
+			<key>type</key>
+			<string>Vorlesung</string>
+			<key>sws</key>
+			<string>4+2</string>
+		</dict>
+	</array>
+	<key>P2</key>
+	<array>
+		<string>Programmierung und Modellierung</string>
+		<dict>
+			<key>title</key>
+			<string>Programmierung und Modellierung</string>
+			<key>ects</key>
+			<integer>6</integer>
+			<key>graded</key>
+			<true/>
+			<key>wise</key>
+			<false/>
+			<key>sose</key>
+			<true/>
+			<key>link</key>
+			<string></string>
+			<key>type</key>
+			<string>Vorlesung</string>
+			<key>sws</key>
+			<string>2+3</string>
+		</dict>
+	</array>
+	<key>P3</key>
+	<array>
+		<string>Algorithmen und Datenstrukturen</string>
+		<dict>
+			<key>title</key>
+			<string>Algorithmen und Datenstrukturen</string>
+			<key>ects</key>
+			<integer>6</integer>
+			<key>graded</key>
+			<true/>
+			<key>wise</key>
+			<false/>
+			<key>sose</key>
+			<true/>
+			<key>link</key>
+			<string></string>
+			<key>type</key>
+			<string>Vorlesung</string>
+			<key>sws</key>
+			<string>3+2</string>
+		</dict>
+	</array>
+	<key>P4</key>
+	<array>
+		<string>Rechnerarchitektur</string>
+		<dict>
+			<key>title</key>
+			<string>Rechnerarchitektur</string>
+			<key>ects</key>
+			<integer>6</integer>
+			<key>graded</key>
+			<true/>
+			<key>wise</key>
+			<false/>
+			<key>sose</key>
+			<true/>
+			<key>link</key>
+			<string></string>
+			<key>type</key>
+			<string>Vorlesung</string>
+			<key>sws</key>
+			<string>3+2</string>
+		</dict>
+	</array>
+</dict>
+</plist>
