@@ -52,7 +52,7 @@ NSString *s9;
     arry7 = [blist objectForKey:@"Semester 7"];
     arry8 = [blist objectForKey:@"Semester 8"];
     arry9 = [blist objectForKey:@"Semester 9"];
-    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
+     self.navigationItem.rightBarButtonItem = self.editButtonItem;
         
        
     //arry =[[NSMutableArray alloc] initWithContentsOfFile:blist];
