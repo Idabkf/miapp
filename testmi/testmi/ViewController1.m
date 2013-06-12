@@ -52,7 +52,6 @@ NSString *s9;
     arry7 = [blist objectForKey:@"Semester 7"];
     arry8 = [blist objectForKey:@"Semester 8"];
     arry9 = [blist objectForKey:@"Semester 9"];
-<<<<<<< HEAD
     
     //UIBarButtonItem *left=[[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(edit)];
    // self.navigationItem.leftBarButtonItem=left;
@@ -60,8 +59,6 @@ NSString *s9;
     
     
     
-=======
->>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
     //self.navigationItem.rightBarButtonItem = self.editButtonItem;
         
        
@@ -145,7 +142,7 @@ switch (section) {
             break;
     }
     
-    
+   
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

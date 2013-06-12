@@ -10,6 +10,10 @@
 		2489AC5E1767BF9800B758B8 /* icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2489AC5D1767BF9800B758B8 /* icon1.png */; };
 		2489AC631767D01B00B758B8 /* PickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2489AC621767D01B00B758B8 /* PickerViewController.m */; };
 		248A4C0A1767EC200089623A /* icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 248A4C091767EC200089623A /* icon2.png */; };
+		248A4C0C1768C5A50089623A /* icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 248A4C0B1768C5A50089623A /* icon3.png */; };
+		248A4C0E1768C6720089623A /* textedit.png in Resources */ = {isa = PBXBuildFile; fileRef = 248A4C0D1768C6720089623A /* textedit.png */; };
+		248A4C101768C6EE0089623A /* icon4.png in Resources */ = {isa = PBXBuildFile; fileRef = 248A4C0F1768C6EE0089623A /* icon4.png */; };
+		248A4C121768D5760089623A /* icon5.png in Resources */ = {isa = PBXBuildFile; fileRef = 248A4C111768D5760089623A /* icon5.png */; };
 		2493AE8817653DAD007EAC2E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2493AE8717653DAD007EAC2E /* UIKit.framework */; };
 		2493AE8A17653DAD007EAC2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2493AE8917653DAD007EAC2E /* Foundation.framework */; };
 		2493AE8C17653DAD007EAC2E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2493AE8B17653DAD007EAC2E /* CoreGraphics.framework */; };
@@ -33,6 +37,10 @@
 		2489AC611767D01B00B758B8 /* PickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerViewController.h; sourceTree = "<group>"; };
 		2489AC621767D01B00B758B8 /* PickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerViewController.m; sourceTree = "<group>"; };
 		248A4C091767EC200089623A /* icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.png; sourceTree = "<group>"; };
+		248A4C0B1768C5A50089623A /* icon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon3.png; sourceTree = "<group>"; };
+		248A4C0D1768C6720089623A /* textedit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textedit.png; sourceTree = "<group>"; };
+		248A4C0F1768C6EE0089623A /* icon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon4.png; sourceTree = "<group>"; };
+		248A4C111768D5760089623A /* icon5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon5.png; sourceTree = "<group>"; };
 		2493AE8417653DAD007EAC2E /* testmi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testmi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2493AE8717653DAD007EAC2E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2493AE8917653DAD007EAC2E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -52,11 +60,7 @@
 		2493AEB1176545A4007EAC2E /* Blist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Blist.plist; sourceTree = "<group>"; };
 		249E7463176564A700908577 /* lecture.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lecture.plist; sourceTree = "<group>"; };
 		B6AB53D11767195A002166BA /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		B6AB53D317672069002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/PageViewController.h; sourceTree = "<group>"; };
-=======
-		B6AB53D317672069002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/PageViewController.h; sourceTree = "<group>"; };
->>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
 		B6AB53DC17674056002166BA /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 		B6AB53DD17674056002166BA /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +109,10 @@
 		2493AE8D17653DAD007EAC2E /* testmi */ = {
 			isa = PBXGroup;
 			children = (
+				248A4C111768D5760089623A /* icon5.png */,
+				248A4C0F1768C6EE0089623A /* icon4.png */,
+				248A4C0D1768C6720089623A /* textedit.png */,
+				248A4C0B1768C5A50089623A /* icon3.png */,
 				248A4C091767EC200089623A /* icon2.png */,
 				2489AC5D1767BF9800B758B8 /* icon1.png */,
 				2493AE9617653DAE007EAC2E /* AppDelegate.h */,
@@ -119,11 +127,8 @@
 				B6AB53D11767195A002166BA /* PageViewController.m */,
 				B6AB53DC17674056002166BA /* ViewController2.h */,
 				B6AB53DD17674056002166BA /* ViewController2.m */,
-<<<<<<< HEAD
 				2489AC611767D01B00B758B8 /* PickerViewController.h */,
 				2489AC621767D01B00B758B8 /* PickerViewController.m */,
-=======
->>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
 			);
 			path = testmi;
 			sourceTree = "<group>";
@@ -201,11 +206,12 @@
 				2493AEB2176545A4007EAC2E /* Blist.plist in Resources */,
 				249E7464176564A700908577 /* lecture.plist in Resources */,
 				B6AB53D51767206B002166BA /* PageViewController.h in Resources */,
-<<<<<<< HEAD
 				2489AC5E1767BF9800B758B8 /* icon1.png in Resources */,
 				248A4C0A1767EC200089623A /* icon2.png in Resources */,
-=======
->>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
+				248A4C0C1768C5A50089623A /* icon3.png in Resources */,
+				248A4C0E1768C6720089623A /* textedit.png in Resources */,
+				248A4C101768C6EE0089623A /* icon4.png in Resources */,
+				248A4C121768D5760089623A /* icon5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,10 +227,7 @@
 				2493AEAC17653DF1007EAC2E /* ViewController1.m in Sources */,
 				B6AB53D21767195A002166BA /* PageViewController.m in Sources */,
 				B6AB53DE17674057002166BA /* ViewController2.m in Sources */,
-<<<<<<< HEAD
 				2489AC631767D01B00B758B8 /* PickerViewController.m in Sources */,
-=======
->>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

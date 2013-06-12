@@ -8,7 +8,7 @@
 
 #import "PickerViewController.h"
 
-@interface PickerViewController ()
+@interface PickerViewController ()<UIAlertViewDelegate>
 
 @end
 
@@ -19,6 +19,8 @@
 @synthesize fach;
 @synthesize select;
 @synthesize speicher,SemesterField,FachField;
+NSString *adfach;
+NSString *semesteranzahl;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -34,14 +36,19 @@
 {
     [super viewDidLoad];
    
-    self.picker.frame = CGRectMake(0, 480, 320, 260); 
+    self.picker.frame = CGRectMake(0, 480, 320, 260);
+    NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+    FachField .text = [mydefault stringForKey:@"AF"];
+    SemesterField.text = [mydefault stringForKey:@"SA"];
     
     fach  = [[NSMutableArray alloc] init];
+    [fach addObject:@"-"];
     [fach addObject:@"KW"];
     [fach addObject:@"MMI"];
     [fach addObject:@"MG"];
     [fach addObject:@"BWL"];
     semester  = [[NSMutableArray alloc] init];
+    [semester addObject:@"-"];
     [semester addObject:@"1"];
     [semester addObject:@"2"];
     [semester addObject:@"3"];
@@ -55,7 +62,7 @@
     
     picker.hidden = YES;
     
-    [self.view addSubview:picker];
+   // [self.view addSubview:picker];
     FachField.backgroundColor = [UIColor whiteColor];
     SemesterField.backgroundColor = [UIColor whiteColor];
        
@@ -98,17 +105,7 @@
 
 - (IBAction)SpeicherAction:(id)sender {
     
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [UIView beginAnimations:nil context:context];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationDuration:0.6];
-    self.picker.frame = CGRectMake(0, 480, 320, 260);
-    
-    [UIView setAnimationDelegate:self];
-    // 动画完毕后调用animationFinished
-    //[UIView setAnimationDidStopSelector:@selector(animationFinished)];
-    [UIView commitAnimations];
-    
+       
     NSInteger fachRow = [picker selectedRowInComponent:FachComponent];
     NSInteger cemestRow = [picker selectedRowInComponent:SemesterComponent];
     
@@ -118,9 +115,41 @@
     NSString *title = [[NSString alloc] initWithFormat:@"Anwndungsfach:%@", afach];
     NSString *message = [[NSString alloc] initWithFormat:@"%@Semester", asemester];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel",nil];
+     
     [alert show];
+    
+    
 }
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [UIView beginAnimations:nil context:context];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationDuration:0.6];
+        self.picker.frame = CGRectMake(0, 480, 320, 260);
+        
+        [UIView setAnimationDelegate:self];
+       
+        //[UIView setAnimationDidStopSelector:@selector(animationFinished)];
+        [UIView commitAnimations];
+        NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+        NSInteger fachRow = [picker selectedRowInComponent:FachComponent];
+        NSInteger cemestRow = [picker selectedRowInComponent:SemesterComponent];
+
+        adfach = [self.fach objectAtIndex:fachRow];
+        semesteranzahl = [self.semester objectAtIndex:cemestRow];
+        [mydefault setObject:adfach forKey:@"AF"];
+        [mydefault setObject:semesteranzahl forKey:@"SA"];
+         [mydefault synchronize];
+        picker.hidden = YES;
+
+    }
+    //else {
+        
+    //}
+}
+
 
 #pragma mark -
 #pragma mark Picker Date Source Methods
@@ -158,12 +187,7 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
    if (component == FachComponent) {
-        /*NSString *selectedState = [self.fach objectAtIndex:row];
-        NSArray *array = [list objectForKey:selectedState];
-        self.semester = array;
-        [picker selectRow:0 inComponent:SemesterComponent animated:YES];
-        [picker reloadComponent:SemesterComponent];*/
-        NSInteger fachRow = [picker selectedRowInComponent:FachComponent];
+                NSInteger fachRow = [picker selectedRowInComponent:FachComponent];
        NSString *afach= [self.fach objectAtIndex:fachRow];
         FachField.text = afach;
        

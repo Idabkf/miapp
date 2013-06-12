@@ -25,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *FachField;
 @property (weak, nonatomic) IBOutlet UILabel *SemesterField;
 
-- (IBAction)Fieldaction:(id)sender;
 
 
 @end
