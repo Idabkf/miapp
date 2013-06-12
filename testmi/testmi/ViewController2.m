@@ -98,7 +98,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+<<<<<<< HEAD
 
+=======
+#warning Potentially incomplete method implementation.
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
     // Return the number of sections.
     return gradeArray.count;
 }

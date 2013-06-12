@@ -9,7 +9,10 @@
 #import "PageViewController.h"
 #import "ViewController1.h"
 #import "ViewController2.h"
+<<<<<<< HEAD
 #import "PickerViewController.h"
+=======
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
 
 @interface PageViewController ()
 
@@ -72,10 +75,13 @@
         UIViewController *ViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"view2"];
         return ViewController;
     }
+<<<<<<< HEAD
     if (pageindex == 2) {
         UIViewController *ViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"view3"];
         return ViewController;
     }
+=======
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
     else return nil;
 
 }
@@ -90,6 +96,7 @@
 (UIPageViewController *)pageViewController viewControllerBeforeViewController:
 (UIViewController *)viewController
 {
+<<<<<<< HEAD
     
     if ([viewController isKindOfClass: [PickerViewController class]]) {
         pageindex = 0;
@@ -111,6 +118,13 @@
             return nil;
 ;
         
+=======
+    if ([viewController isKindOfClass: [ViewController2 class]]) {
+        pageindex = 0;
+        return [self viewControllerAtIndex:pageindex];
+    } else {
+        return nil;
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
     }
 }
 
@@ -121,6 +135,7 @@
     if ([viewController isKindOfClass: [ViewController1 class]]) {
         pageindex = 1;
         return [self viewControllerAtIndex:pageindex];
+<<<<<<< HEAD
     }
     if ([viewController isKindOfClass: [PickerViewController class]]) {
         pageindex = 0;
@@ -131,12 +146,19 @@
         return [self viewControllerAtIndex:pageindex];
     }
 else {
+=======
+    } else {
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
         return nil;
     }
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController{
+<<<<<<< HEAD
     return 3;
+=======
+    return 2;
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
 }
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController{

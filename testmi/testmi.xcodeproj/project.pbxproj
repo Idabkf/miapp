@@ -52,7 +52,11 @@
 		2493AEB1176545A4007EAC2E /* Blist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Blist.plist; sourceTree = "<group>"; };
 		249E7463176564A700908577 /* lecture.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lecture.plist; sourceTree = "<group>"; };
 		B6AB53D11767195A002166BA /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		B6AB53D317672069002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/PageViewController.h; sourceTree = "<group>"; };
+=======
+		B6AB53D317672069002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/PageViewController.h; sourceTree = "<group>"; };
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
 		B6AB53DC17674056002166BA /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 		B6AB53DD17674056002166BA /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -115,8 +119,11 @@
 				B6AB53D11767195A002166BA /* PageViewController.m */,
 				B6AB53DC17674056002166BA /* ViewController2.h */,
 				B6AB53DD17674056002166BA /* ViewController2.m */,
+<<<<<<< HEAD
 				2489AC611767D01B00B758B8 /* PickerViewController.h */,
 				2489AC621767D01B00B758B8 /* PickerViewController.m */,
+=======
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
 			);
 			path = testmi;
 			sourceTree = "<group>";
@@ -194,8 +201,11 @@
 				2493AEB2176545A4007EAC2E /* Blist.plist in Resources */,
 				249E7464176564A700908577 /* lecture.plist in Resources */,
 				B6AB53D51767206B002166BA /* PageViewController.h in Resources */,
+<<<<<<< HEAD
 				2489AC5E1767BF9800B758B8 /* icon1.png in Resources */,
 				248A4C0A1767EC200089623A /* icon2.png in Resources */,
+=======
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +221,10 @@
 				2493AEAC17653DF1007EAC2E /* ViewController1.m in Sources */,
 				B6AB53D21767195A002166BA /* PageViewController.m in Sources */,
 				B6AB53DE17674057002166BA /* ViewController2.m in Sources */,
+<<<<<<< HEAD
 				2489AC631767D01B00B758B8 /* PickerViewController.m in Sources */,
+=======
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

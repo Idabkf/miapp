@@ -13,7 +13,7 @@
 @end
 
 @implementation ViewController1
-@synthesize semester,lecture,blist,arry1,arry2,arry3,arry4,arry5,arry6,arry7,arry8,arry9;
+@synthesize lecturename,semester,lecture,blist,arry1,arry2,arry3,arry4,arry5,arry6,arry7,arry8,arry9;
 NSString *s1;
 NSString *s2;
 NSString*s3;
@@ -52,17 +52,7 @@ NSString *s9;
     arry7 = [blist objectForKey:@"Semester 7"];
     arry8 = [blist objectForKey:@"Semester 8"];
     arry9 = [blist objectForKey:@"Semester 9"];
-<<<<<<< HEAD
-    
-    //UIBarButtonItem *left=[[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(edit)];
-   // self.navigationItem.leftBarButtonItem=left;
- 
-    
-    
-    
-=======
->>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
-    //self.navigationItem.rightBarButtonItem = self.editButtonItem;
+     self.navigationItem.rightBarButtonItem = self.editButtonItem;
         
        
     //arry =[[NSMutableArray alloc] initWithContentsOfFile:blist];
@@ -76,28 +66,11 @@ NSString *s9;
   //  [self.tableView setEditing:YES animated:YES];
 }
 
-
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return YES;
-}
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [tableView setEditing:YES animated:YES];
-    return UITableViewCellEditingStyleDelete;
-}
-
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView setEditing:NO animated:YES];
+    
     
 }
-
-- (BOOL)tableView: (UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return NO;
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -156,10 +129,9 @@ switch (section) {
     // Configure the cell...
     if ( cell ==nil ){
         cell =[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
     }
    
-   cell.showsReorderControl =YES;      
+   
     
   switch (indexPath.section) {
       case 0:
@@ -315,17 +287,4 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
      */
 }
 
-- (IBAction)Edit:(id)sender {
-    
-    if(self.editing)
-    {
-        [super setEditing:NO animated:NO];
-       
-    }
-    else
-    {
-        [super setEditing:YES animated:YES];
-        
-    }
-}
 @end;

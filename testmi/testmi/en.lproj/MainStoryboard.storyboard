@@ -13,21 +13,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cyan="0.15094662410000001" magenta="0.0" yellow="0.24774749090000001" black="0.0" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="Oub-6D-tys">
+<<<<<<< HEAD
                             <rect key="frame" x="0.0" y="0.0" width="320" height="48"/>
+=======
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBZ-sx-0UU">
                                     <constraints>
+<<<<<<< HEAD
                                         <constraint firstAttribute="width" constant="34" id="icF-Y8-bOQ"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <state key="normal" backgroundImage="icon1.png">
+=======
+                                        <constraint firstAttribute="height" constant="33" id="GFg-yP-h48"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Edit">
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
                                         <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <state key="highlighted">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
+<<<<<<< HEAD
                                     <connections>
                                         <action selector="Edit:" destination="jjT-ZU-HoM" eventType="touchUpInside" id="6g7-S1-q9m"/>
                                     </connections>
@@ -48,11 +60,23 @@
                                 <constraint firstItem="eBZ-sx-0UU" firstAttribute="top" secondItem="Oub-6D-tys" secondAttribute="top" constant="20" symbolic="YES" type="default" id="XgJ-yi-gPq"/>
                                 <constraint firstItem="qZX-pk-J6S" firstAttribute="bottom" secondItem="Oub-6D-tys" secondAttribute="bottom" type="default" id="so0-9C-EZJ"/>
                                 <constraint firstItem="eBZ-sx-0UU" firstAttribute="leading" secondItem="qZX-pk-J6S" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="vbt-Lg-Lc6"/>
+=======
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" cyan="0.15094662410000001" magenta="0.0" yellow="0.24774749090000001" black="0.0" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="eBZ-sx-0UU" firstAttribute="bottom" secondItem="Oub-6D-tys" secondAttribute="bottom" type="default" id="E1v-Tw-dYD"/>
+                                <constraint firstAttribute="trailing" secondItem="eBZ-sx-0UU" secondAttribute="trailing" constant="15" id="kZ1-l0-AyV"/>
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
                             </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="e1i-ZF-okc">
+<<<<<<< HEAD
                                 <rect key="frame" x="0.0" y="84" width="320" height="46"/>
+=======
+                                <rect key="frame" x="0.0" y="80" width="320" height="46"/>
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="10" y="1" width="300" height="43"/>
@@ -68,6 +92,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="4Os-P0-oBc"/>
+<<<<<<< HEAD
                     <connections>
                         <outlet property="edit" destination="eBZ-sx-0UU" id="1tu-CQ-fwh"/>
                     </connections>
@@ -75,6 +100,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8I-I7-DVI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1217" y="38"/>
+=======
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k8I-I7-DVI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="879" y="38"/>
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7PN-L2-W1T">
@@ -109,6 +140,7 @@
             </objects>
             <point key="canvasLocation" x="495" y="38"/>
         </scene>
+<<<<<<< HEAD
         <!--Picker View Controller-->
         <scene sceneID="rgi-S2-cym">
             <objects>
@@ -245,6 +277,8 @@
             </objects>
             <point key="canvasLocation" x="844" y="30"/>
         </scene>
+=======
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
         <!--View Controller2-->
         <scene sceneID="EjI-5Q-DSc">
             <objects>
@@ -297,7 +331,11 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67p-vj-HPZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+<<<<<<< HEAD
             <point key="canvasLocation" x="1560" y="20"/>
+=======
+            <point key="canvasLocation" x="1242" y="38"/>
+>>>>>>> 895fb4496fce63daf6701963638260dc6d10c000
         </scene>
     </scenes>
     <resources>
