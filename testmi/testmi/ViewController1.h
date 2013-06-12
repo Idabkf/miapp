@@ -10,9 +10,9 @@
 
 @interface ViewController1 : UITableViewController
 @property(nonatomic,strong) NSMutableDictionary *blist;
-@property(nonatomic,strong) NSMutableArray *lecturename;
+
 @property(nonatomic,strong) NSArray *semester;
-@property (nonatomic,strong) NSMutableArray *arry;
+
 @property (nonatomic,strong) NSMutableArray *arry1;
 @property (nonatomic,strong) NSMutableArray *arry2;
 @property (nonatomic,strong) NSMutableArray *arry3;
@@ -23,4 +23,9 @@
 @property (nonatomic,strong) NSMutableArray *arry8;
 @property (nonatomic,strong) NSMutableArray *arry9;
 @property NSInteger *lecture;
+
+@property (weak, nonatomic) IBOutlet UIButton *edit;
+- (IBAction)Edit:(id)sender;
+
+
 @end

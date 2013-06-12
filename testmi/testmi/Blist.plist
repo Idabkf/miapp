@@ -8,9 +8,9 @@
 			<key>lecture</key>
 			<string>Einführung in die Programmierung</string>
 			<key>passed</key>
-			<false/>
+			<true/>
 			<key>grade</key>
-			<string>0</string>
+			<string>1.3</string>
 			<key>ects</key>
 			<integer>9</integer>
 		</dict>
@@ -18,9 +18,9 @@
 			<key>lecture</key>
 			<string>Analysis1</string>
 			<key>passed</key>
-			<false/>
+			<true/>
 			<key>grade</key>
-			<string>0</string>
+			<string>1.3</string>
 			<key>ects</key>
 			<integer>9</integer>
 		</dict>
@@ -28,19 +28,19 @@
 			<key>lecture</key>
 			<string>Digitale Medien</string>
 			<key>passed</key>
-			<false/>
+			<true/>
 			<key>grade</key>
-			<string>0</string>
+			<string>1.0</string>
 			<key>ects</key>
 			<string>6</string>
 		</dict>
 		<dict>
 			<key>lecture</key>
-			<string>Grundbegriff der Psychologie Teil 1</string>
+			<string>Grundbegriffe der Psychologie Teil 1</string>
 			<key>passed</key>
-			<false/>
+			<true/>
 			<key>grade</key>
-			<string>0</string>
+			<string>2.0</string>
 			<key>ects</key>
 			<integer>3</integer>
 		</dict>

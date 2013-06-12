@@ -1,0 +1,186 @@
+//
+//  PickerViewController.m
+//  testmi
+//
+//  Created by danqing liu on 13-6-11.
+//  Copyright (c) 2013年 danqing liu. All rights reserved.
+//
+
+#import "PickerViewController.h"
+
+@interface PickerViewController ()
+
+@end
+
+@implementation PickerViewController
+@synthesize picker;
+@synthesize list;
+@synthesize semester;
+@synthesize fach;
+@synthesize select;
+@synthesize speicher,SemesterField,FachField;
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+   
+    self.picker.frame = CGRectMake(0, 480, 320, 260); 
+    
+    fach  = [[NSMutableArray alloc] init];
+    [fach addObject:@"KW"];
+    [fach addObject:@"MMI"];
+    [fach addObject:@"MG"];
+    [fach addObject:@"BWL"];
+    semester  = [[NSMutableArray alloc] init];
+    [semester addObject:@"1"];
+    [semester addObject:@"2"];
+    [semester addObject:@"3"];
+    [semester addObject:@"4"];
+    [semester addObject:@"5"];
+    [semester addObject:@"6"];
+    [semester addObject:@"7"];
+    [semester addObject:@"8"];
+    [semester addObject:@"9"];
+    
+    
+    picker.hidden = YES;
+    
+    [self.view addSubview:picker];
+    FachField.backgroundColor = [UIColor whiteColor];
+    SemesterField.backgroundColor = [UIColor whiteColor];
+       
+}
+
+- (void)viewDidUnload
+{
+    [self cancelLocatePicker];
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+    self.picker = nil;
+    self.list = nil;
+    self.fach = nil;
+    self.semester = nil;
+    
+}
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)SelectAction:(id)sender {
+    picker.hidden = NO;
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.6];
+    [self.view exchangeSubviewAtIndex:0 withSubviewAtIndex:1];
+    self.picker.frame = CGRectMake(0, 245, 320, 260);
+    
+    [UIView setAnimationDelegate:self];
+    
+   // [UIView setAnimationDidStopSelector:@selector(animationFinished)];
+    [UIView commitAnimations];
+}
+
+
+- (IBAction)SpeicherAction:(id)sender {
+    
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:0.6];
+    self.picker.frame = CGRectMake(0, 480, 320, 260);
+    
+    [UIView setAnimationDelegate:self];
+    // 动画完毕后调用animationFinished
+    //[UIView setAnimationDidStopSelector:@selector(animationFinished)];
+    [UIView commitAnimations];
+    
+    NSInteger fachRow = [picker selectedRowInComponent:FachComponent];
+    NSInteger cemestRow = [picker selectedRowInComponent:SemesterComponent];
+    
+    NSString *afach= [self.fach objectAtIndex:fachRow];
+    NSString *asemester = [self.semester objectAtIndex:cemestRow];
+    
+    NSString *title = [[NSString alloc] initWithFormat:@"Anwndungsfach:%@", afach];
+    NSString *message = [[NSString alloc] initWithFormat:@"%@Semester", asemester];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    [alert show];
+}
+
+#pragma mark -
+#pragma mark Picker Date Source Methods
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 2;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    if (component == FachComponent) {
+        return [self.fach count];
+    }
+    if (component == SemesterComponent) {
+        return [self.semester count];
+    }
+    return 0;
+}
+
+#pragma mark Picker Delegate Methods
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    if (component == FachComponent) {
+        return [self.fach objectAtIndex:row];
+    }
+    if (component == SemesterComponent) {
+        return [self.semester objectAtIndex:row];
+    }
+    return 0;
+}
+-(void)cancelLocatePicker
+{
+    //[self.picker cancelpicker];
+    self.picker.delegate = nil;
+    self.picker = nil;
+}
+
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+   if (component == FachComponent) {
+        /*NSString *selectedState = [self.fach objectAtIndex:row];
+        NSArray *array = [list objectForKey:selectedState];
+        self.semester = array;
+        [picker selectRow:0 inComponent:SemesterComponent animated:YES];
+        [picker reloadComponent:SemesterComponent];*/
+        NSInteger fachRow = [picker selectedRowInComponent:FachComponent];
+       NSString *afach= [self.fach objectAtIndex:fachRow];
+        FachField.text = afach;
+       
+    }
+    if (component == SemesterComponent){
+      NSInteger cemest = [picker selectedRowInComponent:SemesterComponent];
+    
+    
+    NSString *asemester = [self.semester objectAtIndex:cemest];
+   
+    SemesterField.text = asemester;
+    }
+}
+
+
+
+
+
+
+@end
