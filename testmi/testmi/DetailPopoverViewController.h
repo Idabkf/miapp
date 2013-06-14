@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PopoverViewController : UIViewController
+@interface DetailPopoverViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) NSString *titleString;
 @end

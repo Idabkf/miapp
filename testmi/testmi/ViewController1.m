@@ -7,7 +7,7 @@
 //
 
 #import "ViewController1.h"
-#import "PopoverViewController.h"
+#import "DetailPopoverViewController.h"
 #import "FPPopoverController.h"
 
 @interface ViewController1 ()
@@ -306,7 +306,9 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //popover
-     PopoverViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"popover"];
+    
+    DetailPopoverViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"popover"];
+    
     NSString *title;
      //title
     switch (indexPath.section) {

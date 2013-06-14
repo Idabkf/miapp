@@ -35,7 +35,14 @@
 		B6AB542B1769F2ED002166BA /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB54231769F2ED002166BA /* FPPopoverView.m */; };
 		B6AB542C1769F2ED002166BA /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB54251769F2ED002166BA /* FPTouchView.m */; };
 		B6AB542D1769F2ED002166BA /* popover.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB54281769F2ED002166BA /* popover.m */; };
-		B6AB542E1769F8D7002166BA /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB53F01769DF13002166BA /* PopoverViewController.m */; };
+		B6AB5439176B6C0B002166BA /* ARCMacros.h in Resources */ = {isa = PBXBuildFile; fileRef = B6AB5436176B6C00002166BA /* ARCMacros.h */; };
+		B6AB543A176B6C0E002166BA /* FPPopover.h in Resources */ = {isa = PBXBuildFile; fileRef = B6AB5438176B6C07002166BA /* FPPopover.h */; };
+		B6AB543D176B6C17002166BA /* FPPopoverController.h in Resources */ = {isa = PBXBuildFile; fileRef = B6AB543C176B6C13002166BA /* FPPopoverController.h */; };
+		B6AB5440176B6C24002166BA /* FPPopoverView.h in Resources */ = {isa = PBXBuildFile; fileRef = B6AB543F176B6C1E002166BA /* FPPopoverView.h */; };
+		B6AB5443176B6C31002166BA /* FPTouchView.h in Resources */ = {isa = PBXBuildFile; fileRef = B6AB5442176B6C2B002166BA /* FPTouchView.h */; };
+		B6AB5446176B6C3C002166BA /* popover-Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = B6AB5445176B6C37002166BA /* popover-Prefix.pch */; };
+		B6AB5449176B6C43002166BA /* popover.h in Resources */ = {isa = PBXBuildFile; fileRef = B6AB5448176B6C40002166BA /* popover.h */; };
+		B6AB544C176B6D44002166BA /* DetailPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB544B176B6D44002166BA /* DetailPopoverViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,24 +76,24 @@
 		B6AB53D317672069002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/PageViewController.h; sourceTree = "<group>"; };
 		B6AB53DC17674056002166BA /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 		B6AB53DD17674056002166BA /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
-		B6AB53EF1769DF12002166BA /* PopoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
-		B6AB53F01769DF13002166BA /* PopoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
 		B6AB540D1769F20E002166BA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		B6AB54101769F20F002166BA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		B6AB54111769F20F002166BA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B6AB54121769F20F002166BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B6AB541D1769F2ED002166BA /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
-		B6AB541E1769F2ED002166BA /* FPPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopover.h; sourceTree = "<group>"; };
 		B6AB541F1769F2ED002166BA /* FPPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopover.m; sourceTree = "<group>"; };
-		B6AB54201769F2ED002166BA /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
 		B6AB54211769F2ED002166BA /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
-		B6AB54221769F2ED002166BA /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
 		B6AB54231769F2ED002166BA /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
-		B6AB54241769F2ED002166BA /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
 		B6AB54251769F2ED002166BA /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
-		B6AB54261769F2ED002166BA /* popover-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "popover-Prefix.pch"; sourceTree = "<group>"; };
-		B6AB54271769F2ED002166BA /* popover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = popover.h; sourceTree = "<group>"; };
 		B6AB54281769F2ED002166BA /* popover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = popover.m; sourceTree = "<group>"; };
+		B6AB5435176B6C00002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/ARCMacros.h; sourceTree = "<group>"; };
+		B6AB5437176B6C07002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/FPPopover.h; sourceTree = "<group>"; };
+		B6AB543B176B6C13002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/FPPopoverController.h; sourceTree = "<group>"; };
+		B6AB543E176B6C1E002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/FPPopoverView.h; sourceTree = "<group>"; };
+		B6AB5441176B6C2B002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/FPTouchView.h; sourceTree = "<group>"; };
+		B6AB5444176B6C37002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/popover-Prefix.pch"; sourceTree = "<group>"; };
+		B6AB5447176B6C40002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/popover.h; sourceTree = "<group>"; };
+		B6AB544A176B6D44002166BA /* DetailPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPopoverViewController.h; sourceTree = "<group>"; };
+		B6AB544B176B6D44002166BA /* DetailPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailPopoverViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				B6AB541C1769F2ED002166BA /* Popover */,
-				B6AB53EF1769DF12002166BA /* PopoverViewController.h */,
-				B6AB53F01769DF13002166BA /* PopoverViewController.m */,
 				248A4C111768D5760089623A /* icon5.png */,
 				248A4C0F1768C6EE0089623A /* icon4.png */,
 				248A4C0D1768C6720089623A /* textedit.png */,
@@ -158,6 +163,8 @@
 				B6AB53DD17674056002166BA /* ViewController2.m */,
 				2489AC611767D01B00B758B8 /* PickerViewController.h */,
 				2489AC621767D01B00B758B8 /* PickerViewController.m */,
+				B6AB544A176B6D44002166BA /* DetailPopoverViewController.h */,
+				B6AB544B176B6D44002166BA /* DetailPopoverViewController.m */,
 			);
 			path = testmi;
 			sourceTree = "<group>";
@@ -189,17 +196,17 @@
 		B6AB541C1769F2ED002166BA /* Popover */ = {
 			isa = PBXGroup;
 			children = (
-				B6AB541D1769F2ED002166BA /* ARCMacros.h */,
-				B6AB541E1769F2ED002166BA /* FPPopover.h */,
+				B6AB5436176B6C00002166BA /* ARCMacros.h */,
+				B6AB5438176B6C07002166BA /* FPPopover.h */,
 				B6AB541F1769F2ED002166BA /* FPPopover.m */,
-				B6AB54201769F2ED002166BA /* FPPopoverController.h */,
+				B6AB543C176B6C13002166BA /* FPPopoverController.h */,
 				B6AB54211769F2ED002166BA /* FPPopoverController.m */,
-				B6AB54221769F2ED002166BA /* FPPopoverView.h */,
+				B6AB543F176B6C1E002166BA /* FPPopoverView.h */,
 				B6AB54231769F2ED002166BA /* FPPopoverView.m */,
-				B6AB54241769F2ED002166BA /* FPTouchView.h */,
+				B6AB5442176B6C2B002166BA /* FPTouchView.h */,
 				B6AB54251769F2ED002166BA /* FPTouchView.m */,
-				B6AB54261769F2ED002166BA /* popover-Prefix.pch */,
-				B6AB54271769F2ED002166BA /* popover.h */,
+				B6AB5445176B6C37002166BA /* popover-Prefix.pch */,
+				B6AB5448176B6C40002166BA /* popover.h */,
 				B6AB54281769F2ED002166BA /* popover.m */,
 			);
 			name = Popover;
@@ -271,6 +278,13 @@
 				248A4C0E1768C6720089623A /* textedit.png in Resources */,
 				248A4C101768C6EE0089623A /* icon4.png in Resources */,
 				248A4C121768D5760089623A /* icon5.png in Resources */,
+				B6AB5439176B6C0B002166BA /* ARCMacros.h in Resources */,
+				B6AB543A176B6C0E002166BA /* FPPopover.h in Resources */,
+				B6AB543D176B6C17002166BA /* FPPopoverController.h in Resources */,
+				B6AB5440176B6C24002166BA /* FPPopoverView.h in Resources */,
+				B6AB5443176B6C31002166BA /* FPTouchView.h in Resources */,
+				B6AB5446176B6C3C002166BA /* popover-Prefix.pch in Resources */,
+				B6AB5449176B6C43002166BA /* popover.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +306,7 @@
 				B6AB542B1769F2ED002166BA /* FPPopoverView.m in Sources */,
 				B6AB542C1769F2ED002166BA /* FPTouchView.m in Sources */,
 				B6AB542D1769F2ED002166BA /* popover.m in Sources */,
-				B6AB542E1769F8D7002166BA /* PopoverViewController.m in Sources */,
+				B6AB544C176B6D44002166BA /* DetailPopoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +335,62 @@
 				B6AB53D317672069002166BA /* en */,
 			);
 			name = PageViewController.h;
+			sourceTree = "<group>";
+		};
+		B6AB5436176B6C00002166BA /* ARCMacros.h */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6AB5435176B6C00002166BA /* en */,
+			);
+			name = ARCMacros.h;
+			sourceTree = "<group>";
+		};
+		B6AB5438176B6C07002166BA /* FPPopover.h */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6AB5437176B6C07002166BA /* en */,
+			);
+			name = FPPopover.h;
+			sourceTree = "<group>";
+		};
+		B6AB543C176B6C13002166BA /* FPPopoverController.h */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6AB543B176B6C13002166BA /* en */,
+			);
+			name = FPPopoverController.h;
+			sourceTree = "<group>";
+		};
+		B6AB543F176B6C1E002166BA /* FPPopoverView.h */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6AB543E176B6C1E002166BA /* en */,
+			);
+			name = FPPopoverView.h;
+			sourceTree = "<group>";
+		};
+		B6AB5442176B6C2B002166BA /* FPTouchView.h */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6AB5441176B6C2B002166BA /* en */,
+			);
+			name = FPTouchView.h;
+			sourceTree = "<group>";
+		};
+		B6AB5445176B6C37002166BA /* popover-Prefix.pch */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6AB5444176B6C37002166BA /* en */,
+			);
+			name = "popover-Prefix.pch";
+			sourceTree = "<group>";
+		};
+		B6AB5448176B6C40002166BA /* popover.h */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6AB5447176B6C40002166BA /* en */,
+			);
+			name = popover.h;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

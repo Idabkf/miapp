@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Sandra Zollner. All rights reserved.
 //
 
-#import "PopoverViewController.h"
+#import "DetailPopoverViewController.h"
 
-@interface PopoverViewController ()
+@interface DetailPopoverViewController ()
 
 @end
 
-@implementation PopoverViewController
+@implementation DetailPopoverViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
     self.titleLabel.text = self.titleString;
-
+    
 	// Do any additional setup after loading the view.
 }
 
