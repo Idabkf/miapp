@@ -142,11 +142,11 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NxE-pr-SbB">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="BCR-cS-xo2"/>
-                                    <constraint firstAttribute="width" constant="58" id="DVV-3z-kOY"/>
+                                    <constraint firstAttribute="height" constant="46" id="oqZ-Lh-wCe"/>
+                                    <constraint firstAttribute="width" constant="75" id="wrx-9N-Ey3"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="italicSystem" pointSize="14"/>
-                                <state key="normal" backgroundImage="textedit.png">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Edit" backgroundImage="icon2.png">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <state key="highlighted">
@@ -206,27 +206,28 @@
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WnN-Oo-3O3" firstAttribute="leading" secondItem="v26-L3-gYP" secondAttribute="leading" type="default" id="1Os-eu-G0T"/>
+                            <constraint firstItem="gdp-hQ-Rve" firstAttribute="top" secondItem="ymh-G9-MI7" secondAttribute="top" constant="67" id="50b-wt-MTY"/>
                             <constraint firstItem="gdp-hQ-Rve" firstAttribute="leading" secondItem="ymh-G9-MI7" secondAttribute="leading" constant="12" id="65Z-ZC-L5L"/>
-                            <constraint firstItem="NxE-pr-SbB" firstAttribute="top" secondItem="ymh-G9-MI7" secondAttribute="top" constant="58" id="6GC-yr-wrM"/>
                             <constraint firstItem="7Mx-az-mir" firstAttribute="top" secondItem="ymh-G9-MI7" secondAttribute="top" constant="9" id="7bi-70-0xI"/>
                             <constraint firstItem="r9s-DH-GpA" firstAttribute="leading" secondItem="0i1-qN-brn" secondAttribute="leading" type="default" id="82z-og-TLQ"/>
-                            <constraint firstItem="WnN-Oo-3O3" firstAttribute="top" secondItem="ymh-G9-MI7" secondAttribute="top" constant="154" id="C1V-iD-faH"/>
+                            <constraint firstItem="NxE-pr-SbB" firstAttribute="leading" secondItem="ymh-G9-MI7" secondAttribute="leading" constant="30" id="CHA-Tz-Wtr"/>
+                            <constraint firstItem="WnN-Oo-3O3" firstAttribute="centerY" secondItem="NxE-pr-SbB" secondAttribute="centerY" type="default" id="F9c-hC-bld"/>
                             <constraint firstItem="v26-L3-gYP" firstAttribute="leading" secondItem="ukP-ax-Irt" secondAttribute="leading" type="default" id="KiC-e1-Wyw"/>
                             <constraint firstItem="7Mx-az-mir" firstAttribute="centerX" secondItem="Vc2-Bv-TIp" secondAttribute="centerX" type="default" id="Lm6-st-f3j"/>
                             <constraint firstItem="0i1-qN-brn" firstAttribute="leading" secondItem="gdp-hQ-Rve" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="PtX-js-zYM"/>
-                            <constraint firstItem="NxE-pr-SbB" firstAttribute="centerY" secondItem="gdp-hQ-Rve" secondAttribute="centerY" type="default" id="S86-Cq-O66"/>
                             <constraint firstItem="r9s-DH-GpA" firstAttribute="top" secondItem="ymh-G9-MI7" secondAttribute="top" constant="107" id="WBu-lV-MY4"/>
                             <constraint firstItem="r9s-DH-GpA" firstAttribute="trailing" secondItem="0i1-qN-brn" secondAttribute="trailing" type="default" id="Wqs-dT-OeL"/>
-                            <constraint firstAttribute="trailing" secondItem="NxE-pr-SbB" secondAttribute="trailing" constant="25" id="YCf-LA-Cpb"/>
                             <constraint firstItem="Vc2-Bv-TIp" firstAttribute="trailing" secondItem="ymh-G9-MI7" secondAttribute="trailing" type="default" id="gGS-0Z-Cpe"/>
                             <constraint firstItem="0i1-qN-brn" firstAttribute="top" secondItem="ymh-G9-MI7" secondAttribute="top" constant="62" id="h7Y-La-TTW"/>
                             <constraint firstItem="0i1-qN-brn" firstAttribute="centerY" secondItem="ukP-ax-Irt" secondAttribute="centerY" type="default" id="lBg-uN-FdD"/>
+                            <constraint firstItem="NxE-pr-SbB" firstAttribute="top" secondItem="ymh-G9-MI7" secondAttribute="top" constant="152" id="mPK-jZ-oWV"/>
                             <constraint firstItem="r9s-DH-GpA" firstAttribute="baseline" secondItem="T4a-Iu-1SL" secondAttribute="baseline" type="default" id="nbo-ft-D3T"/>
-                            <constraint firstItem="NxE-pr-SbB" firstAttribute="trailing" secondItem="WnN-Oo-3O3" secondAttribute="trailing" type="default" id="p7u-fh-bpv"/>
+                            <constraint firstAttribute="trailing" secondItem="WnN-Oo-3O3" secondAttribute="trailing" constant="25" id="qaA-qy-HoH"/>
                             <constraint firstItem="r9s-DH-GpA" firstAttribute="top" secondItem="v26-L3-gYP" secondAttribute="top" type="default" id="tO7-om-CGi"/>
                             <constraint firstItem="Vc2-Bv-TIp" firstAttribute="bottom" secondItem="ymh-G9-MI7" secondAttribute="bottom" type="default" id="vhs-Sg-yLU"/>
                             <constraint firstItem="T4a-Iu-1SL" firstAttribute="leading" secondItem="ymh-G9-MI7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="woC-hE-log"/>
                             <constraint firstItem="Vc2-Bv-TIp" firstAttribute="leading" secondItem="ymh-G9-MI7" secondAttribute="leading" type="default" id="xhE-rx-azX"/>
+                            <constraint firstItem="WnN-Oo-3O3" firstAttribute="baseline" secondItem="NxE-pr-SbB" secondAttribute="baseline" type="default" id="ziN-ee-ahK"/>
                         </constraints>
                     </view>
                     <connections>
@@ -368,7 +369,6 @@
     <resources>
         <image name="icon1.png" width="32" height="32"/>
         <image name="icon2.png" width="32" height="32"/>
-        <image name="textedit.png" width="512" height="512"/>
     </resources>
     <classes>
         <class className="DetailPopoverViewController" superclassName="UIViewController">

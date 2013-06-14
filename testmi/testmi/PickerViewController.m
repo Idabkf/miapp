@@ -42,13 +42,13 @@ NSString *semesteranzahl;
     SemesterField.text = [mydefault stringForKey:@"SA"];
     
     fach  = [[NSMutableArray alloc] init];
-    [fach addObject:@"-"];
+    [fach addObject:@"Fach"];
     [fach addObject:@"KW"];
     [fach addObject:@"MMI"];
     [fach addObject:@"MG"];
     [fach addObject:@"BWL"];
     semester  = [[NSMutableArray alloc] init];
-    [semester addObject:@"-"];
+    [semester addObject:@"Semester"];
     [semester addObject:@"1"];
     [semester addObject:@"2"];
     [semester addObject:@"3"];
