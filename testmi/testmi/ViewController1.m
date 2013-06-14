@@ -7,6 +7,8 @@
 //
 
 #import "ViewController1.h"
+#import "DetailPopoverViewController.h"
+#import "FPPopoverController.h"
 
 @interface ViewController1 ()
 
@@ -303,13 +305,58 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    //popover
+    
+    DetailPopoverViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"popover"];
+    
+    NSString *title;
+     //title
+    switch (indexPath.section) {
+        case 0:
+            title =[arry1 objectAtIndex:[indexPath row]][@"lecture"];
+            break;
+        case 1:
+            title =[arry2 objectAtIndex:[indexPath row]][@"lecture"];
+                        break;
+        case 2:
+            title=[arry3 objectAtIndex:[indexPath row]][@"lecture"];
+                       break;
+        case 3:
+            title =[arry4 objectAtIndex:[indexPath row]][@"lecture"];
+                        break;
+        case 4:
+            title=[arry5 objectAtIndex:[indexPath row]][@"lecture"];
+                       break;
+        case 5:
+            title=[arry6 objectAtIndex:[indexPath row]][@"lecture"];
+           break;
+        case 6:
+            title =[arry7 objectAtIndex:[indexPath row]][@"lecture"];
+            break;
+        case 7:
+            title =[arry8 objectAtIndex:[indexPath row]][@"lecture"];
+            break;
+        case 8:
+            title=[arry9 objectAtIndex:[indexPath row]][@"lecture"];
+            break;
+        default:break;
+    }
+    
+     viewController.title = nil;
+    viewController.titleString = title;
+     //e[viewController.titleLabel setText:title];
+     
+     FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:viewController];
+     
+     popover.tint = FPPopoverDefaultTint;
+     popover.border = YES;
+     //popover.tint = FPPopoverWhiteTint;
+     
+     popover.contentSize = CGSizeMake(290, 400);
+     
+     popover.arrowDirection = FPPopoverNoArrow;
+     [popover presentPopoverFromPoint: CGPointMake(self.view.center.x, self.view.center.y - 20 - popover.contentSize.height/2) ];
+     
 }
 
 - (IBAction)Edit:(id)sender {

@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>popover.xcscheme</key>
+		<key>FPPopover.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>testmi.xcscheme</key>
+		<key>PEM.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -17,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2493AE8317653DAD007EAC2E</key>
+		<key>B6E88B2617574F1800023621</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B6AB540B1769F20E002166BA</key>
+		<key>B6E88B6A1757513700023621</key>
 		<dict>
 			<key>primary</key>
 			<true/>

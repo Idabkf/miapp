@@ -205,4 +205,18 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
      */
 }
 
+- (IBAction)Edit:(id)sender {
+    
+    if(self.editing)
+    {
+        [super setEditing:NO animated:NO];
+        
+    }
+    else
+    {
+        [super setEditing:YES animated:YES];
+        
+    }
+}
+
 @end
