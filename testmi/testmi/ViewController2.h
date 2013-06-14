@@ -12,4 +12,8 @@
 @property (nonatomic,strong) NSMutableDictionary *dataDictionary;
 @property (nonatomic, strong) NSArray *gradeArray;
 @property (nonatomic, strong) NSMutableDictionary *GradesAndLectures;
+
+@property (weak, nonatomic) IBOutlet UIButton *edit;
+- (IBAction)Edit:(id)sender;
+
 @end

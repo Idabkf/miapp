@@ -30,6 +30,12 @@
 		B6AB53D21767195A002166BA /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB53D11767195A002166BA /* PageViewController.m */; };
 		B6AB53D51767206B002166BA /* PageViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = B6AB53D417672069002166BA /* PageViewController.h */; };
 		B6AB53DE17674057002166BA /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB53DD17674056002166BA /* ViewController2.m */; };
+		B6AB54291769F2ED002166BA /* FPPopover.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB541F1769F2ED002166BA /* FPPopover.m */; };
+		B6AB542A1769F2ED002166BA /* FPPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB54211769F2ED002166BA /* FPPopoverController.m */; };
+		B6AB542B1769F2ED002166BA /* FPPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB54231769F2ED002166BA /* FPPopoverView.m */; };
+		B6AB542C1769F2ED002166BA /* FPTouchView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB54251769F2ED002166BA /* FPTouchView.m */; };
+		B6AB542D1769F2ED002166BA /* popover.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB54281769F2ED002166BA /* popover.m */; };
+		B6AB542E1769F8D7002166BA /* PopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB53F01769DF13002166BA /* PopoverViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +69,24 @@
 		B6AB53D317672069002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/PageViewController.h; sourceTree = "<group>"; };
 		B6AB53DC17674056002166BA /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
 		B6AB53DD17674056002166BA /* ViewController2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController2.m; sourceTree = "<group>"; };
+		B6AB53EF1769DF12002166BA /* PopoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopoverViewController.h; sourceTree = "<group>"; };
+		B6AB53F01769DF13002166BA /* PopoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopoverViewController.m; sourceTree = "<group>"; };
+		B6AB540D1769F20E002166BA /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		B6AB54101769F20F002166BA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		B6AB54111769F20F002166BA /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B6AB54121769F20F002166BA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B6AB541D1769F2ED002166BA /* ARCMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCMacros.h; sourceTree = "<group>"; };
+		B6AB541E1769F2ED002166BA /* FPPopover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopover.h; sourceTree = "<group>"; };
+		B6AB541F1769F2ED002166BA /* FPPopover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopover.m; sourceTree = "<group>"; };
+		B6AB54201769F2ED002166BA /* FPPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverController.h; sourceTree = "<group>"; };
+		B6AB54211769F2ED002166BA /* FPPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverController.m; sourceTree = "<group>"; };
+		B6AB54221769F2ED002166BA /* FPPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPPopoverView.h; sourceTree = "<group>"; };
+		B6AB54231769F2ED002166BA /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
+		B6AB54241769F2ED002166BA /* FPTouchView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPTouchView.h; sourceTree = "<group>"; };
+		B6AB54251769F2ED002166BA /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
+		B6AB54261769F2ED002166BA /* popover-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "popover-Prefix.pch"; sourceTree = "<group>"; };
+		B6AB54271769F2ED002166BA /* popover.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = popover.h; sourceTree = "<group>"; };
+		B6AB54281769F2ED002166BA /* popover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = popover.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +126,8 @@
 				2493AE8717653DAD007EAC2E /* UIKit.framework */,
 				2493AE8917653DAD007EAC2E /* Foundation.framework */,
 				2493AE8B17653DAD007EAC2E /* CoreGraphics.framework */,
+				B6AB540D1769F20E002166BA /* Cocoa.framework */,
+				B6AB540F1769F20F002166BA /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -109,6 +135,9 @@
 		2493AE8D17653DAD007EAC2E /* testmi */ = {
 			isa = PBXGroup;
 			children = (
+				B6AB541C1769F2ED002166BA /* Popover */,
+				B6AB53EF1769DF12002166BA /* PopoverViewController.h */,
+				B6AB53F01769DF13002166BA /* PopoverViewController.m */,
 				248A4C111768D5760089623A /* icon5.png */,
 				248A4C0F1768C6EE0089623A /* icon4.png */,
 				248A4C0D1768C6720089623A /* textedit.png */,
@@ -145,6 +174,36 @@
 				2493AE9D17653DAF007EAC2E /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B6AB540F1769F20F002166BA /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6AB54101769F20F002166BA /* AppKit.framework */,
+				B6AB54111769F20F002166BA /* CoreData.framework */,
+				B6AB54121769F20F002166BA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		B6AB541C1769F2ED002166BA /* Popover */ = {
+			isa = PBXGroup;
+			children = (
+				B6AB541D1769F2ED002166BA /* ARCMacros.h */,
+				B6AB541E1769F2ED002166BA /* FPPopover.h */,
+				B6AB541F1769F2ED002166BA /* FPPopover.m */,
+				B6AB54201769F2ED002166BA /* FPPopoverController.h */,
+				B6AB54211769F2ED002166BA /* FPPopoverController.m */,
+				B6AB54221769F2ED002166BA /* FPPopoverView.h */,
+				B6AB54231769F2ED002166BA /* FPPopoverView.m */,
+				B6AB54241769F2ED002166BA /* FPTouchView.h */,
+				B6AB54251769F2ED002166BA /* FPTouchView.m */,
+				B6AB54261769F2ED002166BA /* popover-Prefix.pch */,
+				B6AB54271769F2ED002166BA /* popover.h */,
+				B6AB54281769F2ED002166BA /* popover.m */,
+			);
+			name = Popover;
+			path = ../Popover;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +287,12 @@
 				B6AB53D21767195A002166BA /* PageViewController.m in Sources */,
 				B6AB53DE17674057002166BA /* ViewController2.m in Sources */,
 				2489AC631767D01B00B758B8 /* PickerViewController.m in Sources */,
+				B6AB54291769F2ED002166BA /* FPPopover.m in Sources */,
+				B6AB542A1769F2ED002166BA /* FPPopoverController.m in Sources */,
+				B6AB542B1769F2ED002166BA /* FPPopoverView.m in Sources */,
+				B6AB542C1769F2ED002166BA /* FPTouchView.m in Sources */,
+				B6AB542D1769F2ED002166BA /* popover.m in Sources */,
+				B6AB542E1769F8D7002166BA /* PopoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
