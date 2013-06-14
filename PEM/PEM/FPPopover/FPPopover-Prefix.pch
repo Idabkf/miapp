@@ -1,7 +1,0 @@
-//
-// Prefix header for all source files of the 'FPPopover' target in the 'FPPopover' project
-//
-
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-#endif
