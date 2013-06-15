@@ -26,7 +26,12 @@
 		2493AEA117653DAF007EAC2E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2493AE9F17653DAF007EAC2E /* MainStoryboard.storyboard */; };
 		2493AEAC17653DF1007EAC2E /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2493AEAB17653DF1007EAC2E /* ViewController1.m */; };
 		2493AEB2176545A4007EAC2E /* Blist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2493AEB1176545A4007EAC2E /* Blist.plist */; };
+		249DCBC6176BFD8800FA259F /* icon8.png in Resources */ = {isa = PBXBuildFile; fileRef = 249DCBC5176BFD8800FA259F /* icon8.png */; };
 		249E7464176564A700908577 /* lecture.plist in Resources */ = {isa = PBXBuildFile; fileRef = 249E7463176564A700908577 /* lecture.plist */; };
+		24E1A39E176BE98C00250DC8 /* lmu.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E1A39D176BE98B00250DC8 /* lmu.png */; };
+		24E1A3A0176BE9AB00250DC8 /* icon6.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E1A39F176BE9AB00250DC8 /* icon6.png */; };
+		24E1A3A3176BEA0A00250DC8 /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E1A3A2176BEA0A00250DC8 /* StartView.m */; };
+		24E1A3A5176BF50400250DC8 /* icon7.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E1A3A4176BF50400250DC8 /* icon7.png */; };
 		B6AB53D21767195A002166BA /* PageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB53D11767195A002166BA /* PageViewController.m */; };
 		B6AB53D51767206B002166BA /* PageViewController.h in Resources */ = {isa = PBXBuildFile; fileRef = B6AB53D417672069002166BA /* PageViewController.h */; };
 		B6AB53DE17674057002166BA /* ViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB53DD17674056002166BA /* ViewController2.m */; };
@@ -71,7 +76,13 @@
 		2493AEAA17653DF1007EAC2E /* ViewController1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController1.h; sourceTree = "<group>"; };
 		2493AEAB17653DF1007EAC2E /* ViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController1.m; sourceTree = "<group>"; };
 		2493AEB1176545A4007EAC2E /* Blist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Blist.plist; sourceTree = "<group>"; };
+		249DCBC5176BFD8800FA259F /* icon8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon8.png; sourceTree = "<group>"; };
 		249E7463176564A700908577 /* lecture.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lecture.plist; sourceTree = "<group>"; };
+		24E1A39D176BE98B00250DC8 /* lmu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lmu.png; sourceTree = "<group>"; };
+		24E1A39F176BE9AB00250DC8 /* icon6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon6.png; sourceTree = "<group>"; };
+		24E1A3A1176BEA0A00250DC8 /* StartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartView.h; sourceTree = "<group>"; };
+		24E1A3A2176BEA0A00250DC8 /* StartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartView.m; sourceTree = "<group>"; };
+		24E1A3A4176BF50400250DC8 /* icon7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon7.png; sourceTree = "<group>"; };
 		B6AB53D11767195A002166BA /* PageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageViewController.m; sourceTree = "<group>"; };
 		B6AB53D317672069002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/PageViewController.h; sourceTree = "<group>"; };
 		B6AB53DC17674056002166BA /* ViewController2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController2.h; sourceTree = "<group>"; };
@@ -85,13 +96,13 @@
 		B6AB54231769F2ED002166BA /* FPPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPPopoverView.m; sourceTree = "<group>"; };
 		B6AB54251769F2ED002166BA /* FPTouchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPTouchView.m; sourceTree = "<group>"; };
 		B6AB54281769F2ED002166BA /* popover.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = popover.m; sourceTree = "<group>"; };
-		B6AB5435176B6C00002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/ARCMacros.h; sourceTree = "<group>"; };
-		B6AB5437176B6C07002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/FPPopover.h; sourceTree = "<group>"; };
-		B6AB543B176B6C13002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/FPPopoverController.h; sourceTree = "<group>"; };
-		B6AB543E176B6C1E002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/FPPopoverView.h; sourceTree = "<group>"; };
-		B6AB5441176B6C2B002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/FPTouchView.h; sourceTree = "<group>"; };
-		B6AB5444176B6C37002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = "en.lproj/popover-Prefix.pch"; sourceTree = "<group>"; };
-		B6AB5447176B6C40002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/popover.h; sourceTree = "<group>"; };
+		B6AB5435176B6C00002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/ARCMacros.h; sourceTree = "<group>"; };
+		B6AB5437176B6C07002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/FPPopover.h; sourceTree = "<group>"; };
+		B6AB543B176B6C13002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/FPPopoverController.h; sourceTree = "<group>"; };
+		B6AB543E176B6C1E002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/FPPopoverView.h; sourceTree = "<group>"; };
+		B6AB5441176B6C2B002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/FPTouchView.h; sourceTree = "<group>"; };
+		B6AB5444176B6C37002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = "en.lproj/popover-Prefix.pch"; sourceTree = "<group>"; };
+		B6AB5447176B6C40002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/popover.h; sourceTree = "<group>"; };
 		B6AB544A176B6D44002166BA /* DetailPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPopoverViewController.h; sourceTree = "<group>"; };
 		B6AB544B176B6D44002166BA /* DetailPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailPopoverViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +160,10 @@
 				248A4C0B1768C5A50089623A /* icon3.png */,
 				248A4C091767EC200089623A /* icon2.png */,
 				2489AC5D1767BF9800B758B8 /* icon1.png */,
+				24E1A39F176BE9AB00250DC8 /* icon6.png */,
+				24E1A3A4176BF50400250DC8 /* icon7.png */,
+				249DCBC5176BFD8800FA259F /* icon8.png */,
+				24E1A39D176BE98B00250DC8 /* lmu.png */,
 				2493AE9617653DAE007EAC2E /* AppDelegate.h */,
 				2493AEB1176545A4007EAC2E /* Blist.plist */,
 				2493AE9717653DAE007EAC2E /* AppDelegate.m */,
@@ -165,6 +180,8 @@
 				2489AC621767D01B00B758B8 /* PickerViewController.m */,
 				B6AB544A176B6D44002166BA /* DetailPopoverViewController.h */,
 				B6AB544B176B6D44002166BA /* DetailPopoverViewController.m */,
+				24E1A3A1176BEA0A00250DC8 /* StartView.h */,
+				24E1A3A2176BEA0A00250DC8 /* StartView.m */,
 			);
 			path = testmi;
 			sourceTree = "<group>";
@@ -285,6 +302,10 @@
 				B6AB5443176B6C31002166BA /* FPTouchView.h in Resources */,
 				B6AB5446176B6C3C002166BA /* popover-Prefix.pch in Resources */,
 				B6AB5449176B6C43002166BA /* popover.h in Resources */,
+				24E1A39E176BE98C00250DC8 /* lmu.png in Resources */,
+				24E1A3A0176BE9AB00250DC8 /* icon6.png in Resources */,
+				24E1A3A5176BF50400250DC8 /* icon7.png in Resources */,
+				249DCBC6176BFD8800FA259F /* icon8.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,6 +328,7 @@
 				B6AB542C1769F2ED002166BA /* FPTouchView.m in Sources */,
 				B6AB542D1769F2ED002166BA /* popover.m in Sources */,
 				B6AB544C176B6D44002166BA /* DetailPopoverViewController.m in Sources */,
+				24E1A3A3176BEA0A00250DC8 /* StartView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

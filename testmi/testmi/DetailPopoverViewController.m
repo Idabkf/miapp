@@ -8,7 +8,7 @@
 
 #import "DetailPopoverViewController.h"
 
-@interface DetailPopoverViewController ()
+@interface DetailPopoverViewController ()<UIAlertViewDelegate>
 
 @end
 
