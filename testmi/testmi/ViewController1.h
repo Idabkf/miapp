@@ -7,8 +7,29 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Lecture.h"
+#import "Semester.h"
+@interface ViewController1 : UITableViewController<NSXMLParserDelegate>
+{
+    NSURLConnection *connection;
+    NSMutableData *xmlData;
+}
+@property NSMutableDictionary *semestersdic;
 
-@interface ViewController1 : UITableViewController
+@property int level;
+@property BOOL tr;
+@property int td;
+@property BOOL inTd;
+@property Lecture *currentLecture;
+@property NSMutableString *tmp;
+
+- (void)fetchEntries;
+
+
+
+
+//@property(nonatomic,strong) NSArray *semester;
+@property(nonatomic,strong) Semester *i_semester;
 @property(nonatomic,strong) NSMutableDictionary *blist;
 
 @property(nonatomic,strong) NSArray *semester;
@@ -23,6 +44,9 @@
 @property (nonatomic,strong) NSMutableArray *arry8;
 @property (nonatomic,strong) NSMutableArray *arry9;
 @property NSInteger *lecture;
+
+-(void)createPList;
+
 
 @property (weak, nonatomic) IBOutlet UIButton *edit;
 - (IBAction)Edit:(id)sender;

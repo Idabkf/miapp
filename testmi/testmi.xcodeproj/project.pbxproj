@@ -27,6 +27,8 @@
 		2493AEAC17653DF1007EAC2E /* ViewController1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2493AEAB17653DF1007EAC2E /* ViewController1.m */; };
 		2493AEB2176545A4007EAC2E /* Blist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2493AEB1176545A4007EAC2E /* Blist.plist */; };
 		249DCBC6176BFD8800FA259F /* icon8.png in Resources */ = {isa = PBXBuildFile; fileRef = 249DCBC5176BFD8800FA259F /* icon8.png */; };
+		249DCBC9176C5FB700FA259F /* Lecture.m in Sources */ = {isa = PBXBuildFile; fileRef = 249DCBC8176C5FB700FA259F /* Lecture.m */; };
+		249DCBCC176C5FD300FA259F /* Semester.m in Sources */ = {isa = PBXBuildFile; fileRef = 249DCBCB176C5FD300FA259F /* Semester.m */; };
 		249E7464176564A700908577 /* lecture.plist in Resources */ = {isa = PBXBuildFile; fileRef = 249E7463176564A700908577 /* lecture.plist */; };
 		24E1A39E176BE98C00250DC8 /* lmu.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E1A39D176BE98B00250DC8 /* lmu.png */; };
 		24E1A3A0176BE9AB00250DC8 /* icon6.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E1A39F176BE9AB00250DC8 /* icon6.png */; };
@@ -77,6 +79,10 @@
 		2493AEAB17653DF1007EAC2E /* ViewController1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController1.m; sourceTree = "<group>"; };
 		2493AEB1176545A4007EAC2E /* Blist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Blist.plist; sourceTree = "<group>"; };
 		249DCBC5176BFD8800FA259F /* icon8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon8.png; sourceTree = "<group>"; };
+		249DCBC7176C5FB700FA259F /* Lecture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lecture.h; sourceTree = "<group>"; };
+		249DCBC8176C5FB700FA259F /* Lecture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Lecture.m; sourceTree = "<group>"; };
+		249DCBCA176C5FD300FA259F /* Semester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Semester.h; sourceTree = "<group>"; };
+		249DCBCB176C5FD300FA259F /* Semester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Semester.m; sourceTree = "<group>"; };
 		249E7463176564A700908577 /* lecture.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = lecture.plist; sourceTree = "<group>"; };
 		24E1A39D176BE98B00250DC8 /* lmu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lmu.png; sourceTree = "<group>"; };
 		24E1A39F176BE9AB00250DC8 /* icon6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon6.png; sourceTree = "<group>"; };
@@ -182,6 +188,10 @@
 				B6AB544B176B6D44002166BA /* DetailPopoverViewController.m */,
 				24E1A3A1176BEA0A00250DC8 /* StartView.h */,
 				24E1A3A2176BEA0A00250DC8 /* StartView.m */,
+				249DCBC7176C5FB700FA259F /* Lecture.h */,
+				249DCBC8176C5FB700FA259F /* Lecture.m */,
+				249DCBCA176C5FD300FA259F /* Semester.h */,
+				249DCBCB176C5FD300FA259F /* Semester.m */,
 			);
 			path = testmi;
 			sourceTree = "<group>";
@@ -329,6 +339,8 @@
 				B6AB542D1769F2ED002166BA /* popover.m in Sources */,
 				B6AB544C176B6D44002166BA /* DetailPopoverViewController.m in Sources */,
 				24E1A3A3176BEA0A00250DC8 /* StartView.m in Sources */,
+				249DCBC9176C5FB700FA259F /* Lecture.m in Sources */,
+				249DCBCC176C5FD300FA259F /* Semester.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
