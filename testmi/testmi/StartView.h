@@ -14,10 +14,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *Fachlabel;
 @property (weak, nonatomic) IBOutlet UILabel *Semesterlabel;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
-- (IBAction)SelectAction:(id)sender;
-- (IBAction)SpeicherAction:(id)sender;
+//- (IBAction)SelectAction:(id)sender;
+
+- (IBAction)StartAction:(id)sender;
 
 @property (strong, nonatomic) NSDictionary *list;
 @property (strong, nonatomic) NSMutableArray *semester;
 @property (strong, nonatomic) NSMutableArray *fach;
+
 @end

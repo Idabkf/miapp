@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *FachField;
 @property (weak, nonatomic) IBOutlet UILabel *SemesterField;
 
+@property (strong, nonatomic) UIWindow *window;
 
 
 @end

@@ -72,10 +72,10 @@
         UIViewController *ViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"view2"];
         return ViewController;
     }
-    if (pageindex == 2) {
-        UIViewController *ViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"view3"];
+   /* if (pageindex == 2) {
+    UIViewController *ViewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"view3"];
         return ViewController;
-    }
+    }*/
     else return nil;
 
 }
@@ -101,10 +101,10 @@
         return [self viewControllerAtIndex:pageindex];
     }
    
-    if ([viewController isKindOfClass: [ViewController1 class]]) {
+   /* if ([viewController isKindOfClass: [ViewController1 class]]) {
         pageindex = 2;
         return [self viewControllerAtIndex:pageindex];
-    }
+    }*/
 
         else {
             
@@ -127,17 +127,17 @@
         pageindex =0;
         return [self viewControllerAtIndex:pageindex];
     }
-    if ([viewController isKindOfClass: [ViewController2 class]]) {
+   /* if ([viewController isKindOfClass: [ViewController2 class]]) {
         pageindex = 2;
         return [self viewControllerAtIndex:pageindex];
-    }
+    }*/
 else {
         return nil;
     }
 }
 
 - (NSInteger)presentationCountForPageViewController:(UIPageViewController *)pageViewController{
-    return 3;
+    return 2;
 }
 
 - (NSInteger)presentationIndexForPageViewController:(UIPageViewController *)pageViewController{
