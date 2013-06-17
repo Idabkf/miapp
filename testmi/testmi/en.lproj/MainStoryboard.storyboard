@@ -737,8 +737,7 @@
         <class className="StartView" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StartView.h"/>
             <relationships>
-                <relationship kind="action" name="SelectAction:"/>
-                <relationship kind="action" name="SpeicherAction:"/>
+                <relationship kind="action" name="StartAction:"/>
                 <relationship kind="outlet" name="Fachlabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="Semesterlabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
