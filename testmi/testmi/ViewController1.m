@@ -455,6 +455,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     }
     */
     
+    title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     if([title isEqualToString: @"Seminar zu ausgewählten Themen der Informatik"]){
         
         PopoverTable *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"table"];
