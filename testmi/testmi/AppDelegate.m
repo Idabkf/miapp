@@ -10,6 +10,7 @@
 
 @implementation AppDelegate
 
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstStart"]){
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstStart"];

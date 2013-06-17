@@ -7,8 +7,9 @@
 //
 
 #import "PickerViewController.h"
+#import "ViewController1.h"
 
-@interface PickerViewController ()<UIAlertViewDelegate>
+@interface PickerViewController ()<UIAlertViewDelegate> 
 
 @end
 
@@ -115,7 +116,7 @@ NSString *semesteranzahl;
     NSString *title = [[NSString alloc] initWithFormat:@"Anwndungsfach:%@", afach];
     NSString *message = [[NSString alloc] initWithFormat:@"%@Semester", asemester];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:@"Cancel",nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
      
     [alert show];
     
@@ -143,7 +144,11 @@ NSString *semesteranzahl;
         [mydefault setObject:semesteranzahl forKey:@"SA"];
          [mydefault synchronize];
         picker.hidden = YES;
-
+    
+        
+        
+        
+    
     }
     //else {
         

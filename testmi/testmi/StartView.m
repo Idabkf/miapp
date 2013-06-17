@@ -35,18 +35,19 @@ NSString *semesteranzahl;
 {
     [super viewDidLoad];
 	self.picker.frame = CGRectMake(0, 480, 320, 260);
-    NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+    
+    /*NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
      Fachlabel.text = [mydefault stringForKey:@"AF"];
-    Semesterlabel.text = [mydefault stringForKey:@"SA"];
+    Semesterlabel.text = [mydefault stringForKey:@"SA"];*/
     
     fach  = [[NSMutableArray alloc] init];
-    [fach addObject:@"Fach"];
+   // [fach addObject:@"Fach"];
     [fach addObject:@"KW"];
     [fach addObject:@"MMI"];
     [fach addObject:@"MG"];
     [fach addObject:@"BWL"];
     semester  = [[NSMutableArray alloc] init];
-    [semester addObject:@"Semester"];
+   // [semester addObject:@"Semester"];
     [semester addObject:@"1"];
     [semester addObject:@"2"];
     [semester addObject:@"3"];
@@ -56,9 +57,11 @@ NSString *semesteranzahl;
     [semester addObject:@"7"];
     [semester addObject:@"8"];
     [semester addObject:@"9"];
+        picker.delegate = self;
+    picker.dataSource = self;
     
     
-    picker.hidden = YES;
+   // picker.hidden = YES;
 
 }
 
@@ -67,8 +70,7 @@ NSString *semesteranzahl;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (IBAction)SelectAction:(id)sender {
+/*- (IBAction)SelectAction:(id)sender {
     picker.hidden = NO;
     
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -98,7 +100,7 @@ NSString *semesteranzahl;
     
     [alert show];
     
-    
+ 
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
@@ -127,7 +129,7 @@ NSString *semesteranzahl;
     //else {
     
     //}
-}
+}*/
 
 #pragma mark -
 #pragma mark Picker Date Source Methods
@@ -169,6 +171,8 @@ NSString *semesteranzahl;
         NSString *afach= [self.fach objectAtIndex:fachRow];
         Fachlabel.text = afach;
         
+        
+        
     }
     if (component == SemesterComponent){
         NSInteger cemest = [picker selectedRowInComponent:SemesterComponent];
@@ -181,6 +185,20 @@ NSString *semesteranzahl;
 }
 
 
+
+
+
+- (IBAction)StartAction:(id)sender {
+    NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+    NSInteger fachRow = [picker selectedRowInComponent:FachComponent];
+    NSInteger cemestRow = [picker selectedRowInComponent:SemesterComponent];
+    
+    adfach = [self.fach objectAtIndex:fachRow];
+    semesteranzahl = [self.semester objectAtIndex:cemestRow];
+    [mydefault setObject:adfach forKey:@"AF"];
+    [mydefault setObject:semesteranzahl forKey:@"SA"];
+    [mydefault synchronize];
+}
 
 
 
