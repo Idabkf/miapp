@@ -14,7 +14,8 @@
     NSURLConnection *connection;
     NSMutableData *xmlData;
 }
-@property NSMutableDictionary *semestersdic;
+@property NSMutableDictionary *semestersdicParser;
+@property NSMutableDictionary *semestersdicView;
 
 @property int level;
 @property BOOL tr;
@@ -22,6 +23,9 @@
 @property BOOL inTd;
 @property Lecture *currentLecture;
 @property NSMutableString *tmp;
+
+@property NSString *plistLocation;
+@property NSMutableDictionary *currentLecture1;
 
 - (void)fetchEntries;
 
