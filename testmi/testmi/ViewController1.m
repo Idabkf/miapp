@@ -38,8 +38,11 @@ NSString *s9;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+<<<<<<< HEAD
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResetMenu:)];
     [self.view addGestureRecognizer:longPressGesture];
+=======
+>>>>>>> ef7c6b9a1d590576c3559f2ddfe8f3f3afd5064d
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -509,6 +512,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         
     }
 }
+<<<<<<< HEAD
 - (void)showResetMenu:(UILongPressGestureRecognizer *)gestureRecognizer{
     //if(self.editing)
     //{
@@ -521,6 +525,9 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     //self.button2.backgroundColor = (UIColor *)[ UIImage imageNamed:@"icon 6.png"];
     // }
 }
+=======
+
+>>>>>>> ef7c6b9a1d590576c3559f2ddfe8f3f3afd5064d
 - (void)fetchEntries
 {
     // Create a new data container for the stuff that comes back from the service
