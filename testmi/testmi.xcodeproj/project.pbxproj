@@ -50,6 +50,9 @@
 		B6AB5446176B6C3C002166BA /* popover-Prefix.pch in Resources */ = {isa = PBXBuildFile; fileRef = B6AB5445176B6C37002166BA /* popover-Prefix.pch */; };
 		B6AB5449176B6C43002166BA /* popover.h in Resources */ = {isa = PBXBuildFile; fileRef = B6AB5448176B6C40002166BA /* popover.h */; };
 		B6AB544C176B6D44002166BA /* DetailPopoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6AB544B176B6D44002166BA /* DetailPopoverViewController.m */; };
+		B6ED49DD176F1A8200AB0CD5 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = B6ED49DC176F1A8200AB0CD5 /* cross.png */; };
+		B6ED49E0176F38ED00AB0CD5 /* PopoverTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B6ED49DF176F38EC00AB0CD5 /* PopoverTable.m */; };
+		B6ED49E2176F3E6F00AB0CD5 /* optionsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6ED49E1176F3E6E00AB0CD5 /* optionsList.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +114,11 @@
 		B6AB5447176B6C40002166BA /* en */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = en; path = en.lproj/popover.h; sourceTree = "<group>"; };
 		B6AB544A176B6D44002166BA /* DetailPopoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPopoverViewController.h; sourceTree = "<group>"; };
 		B6AB544B176B6D44002166BA /* DetailPopoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailPopoverViewController.m; sourceTree = "<group>"; };
+		B6ED49DA176F148100AB0CD5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B6ED49DC176F1A8200AB0CD5 /* cross.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cross.png; sourceTree = "<group>"; };
+		B6ED49DE176F38E800AB0CD5 /* PopoverTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverTable.h; sourceTree = "<group>"; };
+		B6ED49DF176F38EC00AB0CD5 /* PopoverTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverTable.m; sourceTree = "<group>"; };
+		B6ED49E1176F3E6E00AB0CD5 /* optionsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = optionsList.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +138,7 @@
 		2493AE7B17653DAD007EAC2E = {
 			isa = PBXGroup;
 			children = (
+				B6ED49DA176F148100AB0CD5 /* QuartzCore.framework */,
 				2493AE8D17653DAD007EAC2E /* testmi */,
 				2493AE8617653DAD007EAC2E /* Frameworks */,
 				2493AE8517653DAD007EAC2E /* Products */,
@@ -161,6 +170,7 @@
 			children = (
 				B6AB541C1769F2ED002166BA /* Popover */,
 				248A4C111768D5760089623A /* icon5.png */,
+				B6ED49DC176F1A8200AB0CD5 /* cross.png */,
 				248A4C0F1768C6EE0089623A /* icon4.png */,
 				248A4C0D1768C6720089623A /* textedit.png */,
 				248A4C0B1768C5A50089623A /* icon3.png */,
@@ -192,6 +202,9 @@
 				249DCBC8176C5FB700FA259F /* Lecture.m */,
 				249DCBCA176C5FD300FA259F /* Semester.h */,
 				249DCBCB176C5FD300FA259F /* Semester.m */,
+				B6ED49DE176F38E800AB0CD5 /* PopoverTable.h */,
+				B6ED49DF176F38EC00AB0CD5 /* PopoverTable.m */,
+				B6ED49E1176F3E6E00AB0CD5 /* optionsList.plist */,
 			);
 			path = testmi;
 			sourceTree = "<group>";
@@ -316,6 +329,8 @@
 				24E1A3A0176BE9AB00250DC8 /* icon6.png in Resources */,
 				24E1A3A5176BF50400250DC8 /* icon7.png in Resources */,
 				249DCBC6176BFD8800FA259F /* icon8.png in Resources */,
+				B6ED49DD176F1A8200AB0CD5 /* cross.png in Resources */,
+				B6ED49E2176F3E6F00AB0CD5 /* optionsList.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +356,7 @@
 				24E1A3A3176BEA0A00250DC8 /* StartView.m in Sources */,
 				249DCBC9176C5FB700FA259F /* Lecture.m in Sources */,
 				249DCBCC176C5FD300FA259F /* Semester.m in Sources */,
+				B6ED49E0176F38ED00AB0CD5 /* PopoverTable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
