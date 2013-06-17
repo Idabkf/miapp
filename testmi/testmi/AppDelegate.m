@@ -18,7 +18,7 @@
     
     UIViewController *mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"view4"];
     
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+  //  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = mainViewController;
     
 }else{
