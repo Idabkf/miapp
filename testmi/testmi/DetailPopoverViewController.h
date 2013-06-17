@@ -8,13 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailPopoverViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@interface DetailPopoverViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) NSString *titleString;
-@property (weak, nonatomic) IBOutlet UILabel *gradeLabel;
-@property (weak, nonatomic) IBOutlet UIPickerView *picker;
-@property (strong, nonatomic) NSArray *gradeArray;
-@property (strong, nonatomic) NSArray *noGradeArray;
-- (IBAction)selectGradeAction:(id)sender;
-- (IBAction)saveAction:(id)sender;
 @end

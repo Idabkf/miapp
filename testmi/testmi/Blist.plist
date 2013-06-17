@@ -124,18 +124,7 @@
 	<key>Semester 4</key>
 	<array/>
 	<key>Semester 5</key>
-	<array>
-		<dict>
-			<key>lecture</key>
-			<string>Seminar zu ausgewählten Themen der Informatik</string>
-			<key>passed</key>
-			<true/>
-			<key>grade</key>
-			<string>1.3</string>
-			<key>ects</key>
-			<integer>6</integer>
-		</dict>
-	</array>
+	<array/>
 	<key>Semester 6</key>
 	<array/>
 	<key>Semester 7</key>

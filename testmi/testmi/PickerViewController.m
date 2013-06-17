@@ -110,14 +110,11 @@ NSString *semesteranzahl;
     NSInteger fachRow = [picker selectedRowInComponent:FachComponent];
     NSInteger cemestRow = [picker selectedRowInComponent:SemesterComponent];
     
-   // NSString *afach= [self.fach objectAtIndex:fachRow];
-    //NSString *asemester = [self.semester objectAtIndex:cemestRow];
-    NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
-    NSString *fach1 = [mydefault stringForKey:@"AF"];
-    NSString *sem = [mydefault stringForKey:@"SA"];
+    NSString *afach= [self.fach objectAtIndex:fachRow];
+    NSString *asemester = [self.semester objectAtIndex:cemestRow];
     
-    NSString *title = [[NSString alloc] initWithFormat:@"Anwndungsfach:%@", fach1];
-    NSString *message = [[NSString alloc] initWithFormat:@"%@Semester", sem];
+    NSString *title = [[NSString alloc] initWithFormat:@"Anwndungsfach:%@", afach];
+    NSString *message = [[NSString alloc] initWithFormat:@"%@Semester", asemester];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
      
@@ -138,10 +135,10 @@ NSString *semesteranzahl;
         //[UIView setAnimationDidStopSelector:@selector(animationFinished)];
         [UIView commitAnimations];
         NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
-        //NSInteger fachRow = [picker selectedRowInComponent:FachComponent];
-        //NSInteger cemestRow = [picker selectedRowInComponent:SemesterComponent];
+       // NSInteger fachRow = [picker selectedRowInComponent:FachComponent];
+       // NSInteger cemestRow = [picker selectedRowInComponent:SemesterComponent];
 
-        //adfach = [self.fach objectAtIndex:fachRow];
+       // adfach = [self.fach objectAtIndex:fachRow];
         //semesteranzahl = [self.semester objectAtIndex:cemestRow];
         [mydefault setObject:FachField.text  forKey:@"AF"];
         [mydefault setObject:SemesterField.text forKey:@"SA"];
@@ -198,9 +195,7 @@ NSString *semesteranzahl;
                 NSInteger fachRow = [picker selectedRowInComponent:FachComponent];
        NSString *afach= [self.fach objectAtIndex:fachRow];
         FachField.text = afach;
-       NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
-       [mydefault setObject:FachField.text  forKey:@"AF"];
-       [mydefault synchronize];
+       
     }
     if (component == SemesterComponent){
       NSInteger cemest = [picker selectedRowInComponent:SemesterComponent];
@@ -209,9 +204,6 @@ NSString *semesteranzahl;
     NSString *asemester = [self.semester objectAtIndex:cemest];
    
     SemesterField.text = asemester;
-        NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
-        [mydefault setObject:SemesterField.text  forKey:@"SA"];
-        [mydefault synchronize];
     }
 }
 

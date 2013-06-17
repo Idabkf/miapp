@@ -11,8 +11,8 @@
 #define SemesterComponent 1
 
 @interface StartView : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
-@property (weak, nonatomic) IBOutlet UILabel *Fachlabel;
-@property (weak, nonatomic) IBOutlet UILabel *Semesterlabel;
+@property (weak, nonatomic) NSString *Fach;
+@property (weak, nonatomic) NSString *Semester;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 //- (IBAction)SelectAction:(id)sender;
 

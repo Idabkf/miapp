@@ -18,7 +18,7 @@
 @synthesize semester;
 @synthesize fach;
 
-@synthesize Semesterlabel,Fachlabel;
+
 NSString *adfach;
 NSString *semesteranzahl;
 
@@ -36,10 +36,7 @@ NSString *semesteranzahl;
     [super viewDidLoad];
 	self.picker.frame = CGRectMake(0, 480, 320, 260);
     
-    /*NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
-     Fachlabel.text = [mydefault stringForKey:@"AF"];
-    Semesterlabel.text = [mydefault stringForKey:@"SA"];*/
-    
+       
     fach  = [[NSMutableArray alloc] init];
    // [fach addObject:@"Fach"];
     [fach addObject:@"KW"];
@@ -169,7 +166,7 @@ NSString *semesteranzahl;
     if (component == FachComponent) {
         NSInteger fachRow = [picker selectedRowInComponent:FachComponent];
         NSString *afach= [self.fach objectAtIndex:fachRow];
-        Fachlabel.text = afach;
+       // Fachlabel.text = afach;
         
         
         
@@ -180,7 +177,7 @@ NSString *semesteranzahl;
         
         NSString *asemester = [self.semester objectAtIndex:cemest];
         
-        Semesterlabel.text = asemester;
+        //Semesterlabel.text = asemester;
     }
 }
 
@@ -198,6 +195,7 @@ NSString *semesteranzahl;
     [mydefault setObject:adfach forKey:@"AF"];
     [mydefault setObject:semesteranzahl forKey:@"SA"];
     [mydefault synchronize];
+    
 }
 
 
