@@ -53,6 +53,7 @@
 		B6ED49DD176F1A8200AB0CD5 /* cross.png in Resources */ = {isa = PBXBuildFile; fileRef = B6ED49DC176F1A8200AB0CD5 /* cross.png */; };
 		B6ED49E0176F38ED00AB0CD5 /* PopoverTable.m in Sources */ = {isa = PBXBuildFile; fileRef = B6ED49DF176F38EC00AB0CD5 /* PopoverTable.m */; };
 		B6ED49E2176F3E6F00AB0CD5 /* optionsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6ED49E1176F3E6E00AB0CD5 /* optionsList.plist */; };
+		B6ED49E417709EAF00AB0CD5 /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B6ED49E317709EAE00AB0CD5 /* background.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		B6ED49DE176F38E800AB0CD5 /* PopoverTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverTable.h; sourceTree = "<group>"; };
 		B6ED49DF176F38EC00AB0CD5 /* PopoverTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverTable.m; sourceTree = "<group>"; };
 		B6ED49E1176F3E6E00AB0CD5 /* optionsList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = optionsList.plist; sourceTree = "<group>"; };
+		B6ED49E317709EAE00AB0CD5 /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				B6AB541C1769F2ED002166BA /* Popover */,
 				248A4C111768D5760089623A /* icon5.png */,
+				B6ED49E317709EAE00AB0CD5 /* background.jpg */,
 				B6ED49DC176F1A8200AB0CD5 /* cross.png */,
 				248A4C0F1768C6EE0089623A /* icon4.png */,
 				248A4C0D1768C6720089623A /* textedit.png */,
@@ -331,6 +334,7 @@
 				249DCBC6176BFD8800FA259F /* icon8.png in Resources */,
 				B6ED49DD176F1A8200AB0CD5 /* cross.png in Resources */,
 				B6ED49E2176F3E6F00AB0CD5 /* optionsList.plist in Resources */,
+				B6ED49E417709EAF00AB0CD5 /* background.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

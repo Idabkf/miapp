@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController1.h"
 
 @implementation AppDelegate
 
@@ -18,6 +19,9 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     
     UIViewController *mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"view4"];
+    
+    ViewController1 *ViewController = [[ViewController1 alloc] init];
+    [ViewController fetchEntries];
     
   //  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = mainViewController;

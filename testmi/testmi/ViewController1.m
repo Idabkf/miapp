@@ -26,6 +26,13 @@ NSString*s6;
 NSString *s7;
 NSString*s8;
 NSString *s9;
+
+-(id)init{
+    self = [super init];
+    [self fetchEntries];
+    return self;
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -38,6 +45,8 @@ NSString *s9;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResetMenu:)];
     [self.view addGestureRecognizer:longPressGesture];
     
@@ -62,7 +71,8 @@ NSString *s9;
     
     [self fetchEntries];
 
-   
+    [NSThread sleepForTimeInterval:10.0f];
+    
     self.title = @"Semester Plan";
     NSString *vlFile= [[NSBundle mainBundle] pathForResource:@"Blist" ofType:@"plist"];
    
@@ -460,21 +470,8 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     if([title isEqualToString: @"Seminar zu ausgewählten Themen der Informatik"]){
         
-        PopoverTable *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"table"];
-        viewController.title = nil;
-        viewController.titleString = title;
-        //e[viewController.titleLabel setText:title];
-        
-        FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:viewController];
-        
-        popover.tint = FPPopoverDefaultTint;
-        popover.border = YES;
-        //popover.tint = FPPopoverWhiteTint;
-        
-        popover.contentSize = CGSizeMake(290, 380);
-        
-        popover.arrowDirection = FPPopoverNoArrow;
-        [popover presentPopoverFromPoint: CGPointMake(self.view.center.x, self.view.center.y - 20 - popover.contentSize.height/2) ];
+        [self performSegueWithIdentifier:@"options" sender:self];
+
         return;
         
     }
@@ -495,6 +492,30 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
      [popover presentPopoverFromPoint: CGPointMake(self.view.center.x, self.view.center.y - 20 - popover.contentSize.height/2) ];
      
 }
+
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if ([segue.identifier isEqualToString:@"options"])
+    {
+        NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+        NSInteger levelInt = selectedRowIndex.section +1;
+        NSString *level = [NSString stringWithFormat:@"%i", levelInt];
+        NSMutableDictionary *semesterDic = [self.semestersdicView objectForKey:level];
+        NSMutableArray *lecturesArray = [semesterDic objectForKey:@"lectures"];
+        NSMutableDictionary *lectureDic = [lecturesArray objectAtIndex: selectedRowIndex.row];
+        NSString *title = [lectureDic objectForKey:@"title"];
+        title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        
+        PopoverTable *viewController = segue.destinationViewController;
+        title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        viewController.titleString = title;
+
+    }
+}
+
 
 - (IBAction)Edit:(id)sender {
     
