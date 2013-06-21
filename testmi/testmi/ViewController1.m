@@ -45,7 +45,6 @@ NSString *s9;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResetMenu:)];
     [self.view addGestureRecognizer:longPressGesture];

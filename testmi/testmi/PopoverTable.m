@@ -7,6 +7,8 @@
 //
 
 #import "PopoverTable.h"
+#import "DetailPopoverViewController.h"
+#import "FPPopoverController.h"
 
 @interface PopoverTable ()
 
@@ -119,15 +121,30 @@
 
 #pragma mark - Table view delegate
 
+#pragma mark - Table view delegate
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    //popover
+    
+    DetailPopoverViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"popover"];
+
+    
+    viewController.title = nil;
+    viewController.titleString = [lectures objectAtIndex:[indexPath row]][@"lecture"];
+    //e[viewController.titleLabel setText:title];
+    
+    FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:viewController];
+    
+    popover.tint = FPPopoverDefaultTint;
+    popover.border = YES;
+    //popover.tint = FPPopoverWhiteTint;
+    
+    popover.contentSize = CGSizeMake(290, 380);
+    
+    popover.arrowDirection = FPPopoverNoArrow;
+    [popover presentPopoverFromPoint: CGPointMake(self.view.center.x, self.view.center.y - 20 - popover.contentSize.height/2) ];
+    
 }
 
 @end
