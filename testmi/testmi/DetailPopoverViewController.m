@@ -13,12 +13,24 @@
 @end
 
 @implementation DetailPopoverViewController
-@synthesize picker, gradeArray, noGradeArray, gradeLabel;
+@synthesize semestersdicView, picker, gradeArray, noGradeArray, gradeLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
+        NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistLocation];
+        NSPropertyListFormat format;
+        NSString *errorDesc = nil;
+        self.semestersdicView = (NSMutableDictionary *)[NSPropertyListSerialization
+                                                 propertyListFromData:plistXML
+                                                 mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                                 format:&format
+                                                 errorDescription:&errorDesc];
         // Custom initialization
     }
     return self;
@@ -28,10 +40,9 @@
 {
     [super viewDidLoad];
     self.titleLabel.text = self.titleString;
+    
     self.gradeArray = [[NSArray alloc] initWithObjects:
-                         @"Nicht Bestanden", @"1.0", @"1.3",@"1.7",@"2.0",@"2.3",@"2.7",@"3.0",@"3.3",@"3.7",@"4.0", nil];
-    self.noGradeArray = [[NSArray alloc] initWithObjects:
-                       @"Nicht Bestanden", @"Bestanden", nil];
+                         @"Nicht Bestanden", @"Bestanden - Unbenotet", @"1.0", @"1.3",@"1.7",@"2.0",@"2.3",@"2.7",@"3.0",@"3.3",@"3.7",@"4.0", nil];
 	// Do any additional setup after loading the view.
 }
 

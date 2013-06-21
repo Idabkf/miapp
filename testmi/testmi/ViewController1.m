@@ -17,6 +17,7 @@
 
 @implementation ViewController1
 @synthesize semester,lecture,blist,arry1,arry2,arry3,arry4,arry5,arry6,arry7,arry8,arry9;
+@synthesize semestersdicView;
 NSString *s1;
 NSString *s2;
 NSString*s3;
@@ -42,6 +43,21 @@ NSString *s9;
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
+    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistLocation];
+    NSPropertyListFormat format;
+    NSString *errorDesc = nil;
+    self.semestersdicView = (NSMutableDictionary *)[NSPropertyListSerialization
+                                                    propertyListFromData:plistXML
+                                                    mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                                    format:&format
+                                                    errorDescription:&errorDesc];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -60,7 +76,7 @@ NSString *s9;
     NSPropertyListFormat format;
     NSString *errorDesc = nil;
     NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:self.plistLocation];
-    self.semestersdicView = (NSDictionary *)[NSPropertyListSerialization
+    self.semestersdicView = (NSMutableDictionary *)[NSPropertyListSerialization
                                              propertyListFromData:plistXML
                                              mutabilityOption:NSPropertyListMutableContainersAndLeaves
                                              format:&format
@@ -70,7 +86,7 @@ NSString *s9;
     
     [self fetchEntries];
 
-    [NSThread sleepForTimeInterval:10.0f];
+    //[NSThread sleepForTimeInterval:10.0f];
     
     self.title = @"Semester Plan";
     NSString *vlFile= [[NSBundle mainBundle] pathForResource:@"Blist" ofType:@"plist"];
@@ -116,9 +132,7 @@ NSString *s9;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     
-    
-    
-    
+
     [self.semestersdicParser writeToFile:self.plistLocation atomically: YES];
     
     NSLog(@"WRITE TO FILE: %@", self.plistLocation);
@@ -315,8 +329,10 @@ NSString *s9;
      break;
      }
      */
-    cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
-    cell.textLabel.backgroundColor = [UIColor colorWithRed:0.2 green:0.768 blue:0.45 alpha:1];
+    if([[lectureDic objectForKey:@"passed"] isEqualToString:@"YES"]){
+        cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
+        cell.textLabel.backgroundColor = [UIColor colorWithRed:0.2 green:0.768 blue:0.45 alpha:1];
+    }
     
     
     
@@ -399,7 +415,7 @@ NSString *s9;
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
     
     NSInteger levelIntdest = destinationIndexPath.section +1;
-    NSLog(@"%i",levelIntdest);
+    NSLog(@" start %i",levelIntdest);
     
     NSInteger levelIntsource = sourceIndexPath.section +1;
     NSLog(@"%i",levelIntsource);
@@ -417,14 +433,19 @@ NSString *s9;
     //lecture in richtigen Semester speichern
     NSMutableDictionary *semesterneu =  [self.semestersdicView objectForKey:[NSString stringWithFormat:@"%i", levelIntdest ]];
     NSMutableArray *lecturesneu = [semesterneu objectForKey:@"lectures"];
-    [lecturesneu addObject:lecturemoved];
+    [lecturesneu insertObject:lecturemoved atIndex:destinationIndexPath.row];
+    //[lecturesneu addObject:lecturemoved];
     
     //alten platz löschen
     [lecturesalt removeObjectAtIndex:sourceIndexPath.row];
     
     NSLog(@"Lectures ALT!!!!!!!!!!!!!!!! %@", lecturesalt);
-    NSLog(@"Lectures NEU!!!!!!!!!!!!!!!! %@", lecturesneu);
+    NSMutableDictionary *semester =  [self.semestersdicView objectForKey:[NSString stringWithFormat:@"%i", levelIntdest ]];
+    NSMutableArray *lectures = [semester objectForKey:@"lectures"];
+    NSLog(@"Lectures NEU!!!!!!!!!!!!!!!! %@", lectures);
+        NSLog(@"Lectures NEU!!!!!!!!!!!!!!!! %@", lecturesneu);
     
+    [self.semestersdicView writeToFile:self.plistLocation atomically: YES];
     
     
     [tableView endUpdates];
@@ -512,7 +533,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
      popover.tint = FPPopoverDefaultTint;
      popover.border = YES;
      //popover.tint = FPPopoverWhiteTint;
-     
+    
      popover.contentSize = CGSizeMake(290, 380);
      
      popover.arrowDirection = FPPopoverNoArrow;
@@ -739,6 +760,10 @@ didStartElement:(NSString *)elementName
         else if (self.td == 4) {
             //self.currentLecture.ects = self.tmp;
             [self.currentLecture1 setObject:self.tmp forKey:@"ects"];
+            
+            [self.currentLecture1 setObject:@"" forKey:@"grade"];
+            [self.currentLecture1 setObject:@"" forKey:@"otherGrade"];
+            [self.currentLecture1 setObject:@"NO" forKey:@"passed"];
             
             /*
              //semester objekt anhand von dic erstellt aber hier sitzt doch nur ein array

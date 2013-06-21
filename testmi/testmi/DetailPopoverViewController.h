@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface DetailPopoverViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>
+@property NSMutableDictionary *semestersdicView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) NSString *titleString;
 @property (weak, nonatomic) IBOutlet UILabel *gradeLabel;
