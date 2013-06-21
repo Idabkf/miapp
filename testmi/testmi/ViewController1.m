@@ -398,11 +398,39 @@ NSString *s9;
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
     
-        
-        [tableView endUpdates];
+    NSInteger levelIntdest = destinationIndexPath.section +1;
+    NSLog(@"%i",levelIntdest);
+    
+    NSInteger levelIntsource = sourceIndexPath.section +1;
+    NSLog(@"%i",levelIntsource);
+    NSLog(@"zeile : % i",sourceIndexPath.row);
+    
+    //Lecture holen
+    NSMutableDictionary *semesteralt =  [self.semestersdicView objectForKey:[NSString stringWithFormat:@"%i", levelIntsource ]];
+    NSMutableArray *lecturesalt = [semesteralt objectForKey:@"lectures"];
+    NSMutableDictionary *lecturemoved = [lecturesalt  objectAtIndex:sourceIndexPath.row ];
     
     
-    }
+    NSLog(@"%@",[lecturemoved objectForKey:@"title"]);
+    
+    
+    //lecture in richtigen Semester speichern
+    NSMutableDictionary *semesterneu =  [self.semestersdicView objectForKey:[NSString stringWithFormat:@"%i", levelIntdest ]];
+    NSMutableArray *lecturesneu = [semesterneu objectForKey:@"lectures"];
+    [lecturesneu addObject:lecturemoved];
+    
+    //alten platz löschen
+    [lecturesalt removeObjectAtIndex:sourceIndexPath.row];
+    
+    NSLog(@"Lectures ALT!!!!!!!!!!!!!!!! %@", lecturesalt);
+    NSLog(@"Lectures NEU!!!!!!!!!!!!!!!! %@", lecturesneu);
+    
+    
+    
+    [tableView endUpdates];
+    
+    
+}
 
 - (NSIndexPath *)tableView:(UITableView *)tableView
 targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
