@@ -532,6 +532,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="saveAction:" destination="rCz-bs-yk9" eventType="touchUpInside" id="V4g-Mj-qx6"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93725496529999996" green="0.97254908080000002" blue="0.91372555489999996" alpha="1" colorSpace="deviceRGB"/>
@@ -553,6 +556,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="picker" destination="eSd-x6-00k" id="5ae-Mn-VCy"/>
+                        <outlet property="save" destination="9IK-yO-XZD" id="T6d-6s-ep8"/>
                         <outlet property="titleLabel" destination="maU-Ed-S8v" id="gab-Vn-qFT"/>
                     </connections>
                 </viewController>
@@ -593,7 +597,7 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <segue destination="jjT-ZU-HoM" kind="modal" id="j0e-NC-smh"/>
+                                        <segue destination="O72-Kg-jC9" kind="modal" id="haw-Tc-PLJ"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Sy-j7-SW9">
@@ -654,71 +658,12 @@
         <image name="icon8.png" width="256" height="256"/>
         <image name="lmu.png" width="185" height="188"/>
     </resources>
-    <classes>
-        <class className="DetailPopoverViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailPopoverViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="saveAction:"/>
-                <relationship kind="action" name="selectGradeAction:"/>
-                <relationship kind="outlet" name="gradeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PageViewController.h"/>
-        </class>
-        <class className="PickerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PickerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="SelectAction:"/>
-                <relationship kind="action" name="SpeicherAction:"/>
-                <relationship kind="outlet" name="FachField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="SemesterField" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="select" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="speicher" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="PopoverTable" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PopoverTable.h"/>
-            <relationships>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="StartView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartView.h"/>
-            <relationships>
-                <relationship kind="action" name="StartAction:"/>
-                <relationship kind="outlet" name="Fachlabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="Semesterlabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="ViewController1" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController1.h"/>
-            <relationships>
-                <relationship kind="action" name="Edit:"/>
-                <relationship kind="outlet" name="edit" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="ViewController2" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController2.h"/>
-            <relationships>
-                <relationship kind="action" name="Edit:"/>
-                <relationship kind="outlet" name="edit" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="996-sQ-8lM"/>
+        <segue reference="lbU-M6-IbT"/>
     </inferredMetricsTieBreakers>
 </document>

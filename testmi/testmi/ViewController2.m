@@ -24,7 +24,7 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void) updateTable
 {
     NSLog(@"willAppear");
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -34,24 +34,22 @@
     NSPropertyListFormat format;
     NSString *errorDesc = nil;
     semestersdicView = (NSMutableDictionary *)[NSPropertyListSerialization
-                                                    propertyListFromData:plistXML
-                                                    mutabilityOption:NSPropertyListMutableContainersAndLeaves
-                                                    format:&format
-                                                    errorDescription:&errorDesc];
+                                               propertyListFromData:plistXML
+                                               mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                               format:&format
+                                               errorDescription:&errorDesc]; 
     self.gradeArray = [[NSArray alloc] initWithObjects:@"1.0",@"1.3",@"1.7",@"2.0",@"2.3",@"2.7",@"3.0",@"3.3",@"3.7",@"4.0",@"Noch keine Note",@"Unbenotete Fächer",nil];
     self.GradesAndLectures = [NSMutableDictionary dictionaryWithObjects: [NSArray arrayWithObjects: [NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],nil]
                                                            forKeys: gradeArray];
-
     //iterate all semesters
     for(id key in semestersdicView){
         
         NSMutableDictionary *semester = semestersdicView[key];
         NSMutableArray *lecturesArray = [semester objectForKey:@"lectures"];
-
+        
         
         //iterate all lectures
         for(int i= 0; i < lecturesArray.count; i++){
-            NSLog(@"lectures at %i %@", i, [lecturesArray objectAtIndex:i]);
             
             //iterate all grades
             for (int j= 0; j < gradeArray.count; j++){
@@ -83,11 +81,24 @@
                     
                     NSMutableArray *lecturesArray1 = [self.GradesAndLectures objectForKey:[gradeArray objectAtIndex:j]];
                     [lecturesArray1 addObject:[lecturesArray objectAtIndex:i]];
-                    NSLog(@"lectures bla bla %@", lecturesArray1);
                 }
+            
+                if([[lecturesArray objectAtIndex:i] [@"otherGrade"] isEqualToString:[gradeArray objectAtIndex:j]])
+                {
+                    NSMutableArray *lecturesArray1 = [self.GradesAndLectures objectForKey:[gradeArray objectAtIndex:j]];
+                    [lecturesArray1 removeObject:[lecturesArray objectAtIndex:i]];
+                }
+                
             }
         }
     }
+    [self.tableView endUpdates];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self updateTable];
 }
 
 - (void)viewDidLoad
@@ -110,8 +121,8 @@
     
     dataDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
     
-    gradeArray = [[NSArray alloc] initWithObjects:@"1.0",@"1.3",@"1.7",@"2.0",@"2.3",@"2.7",@"3.0",@"3.3",@"3.7",@"4.0",@"Noch keine Note",@"Unbenotete Fächer",nil];
-    GradesAndLectures = [NSMutableDictionary dictionaryWithObjects: [NSArray arrayWithObjects: [NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],nil]
+    self.gradeArray = [[NSArray alloc] initWithObjects:@"1.0",@"1.3",@"1.7",@"2.0",@"2.3",@"2.7",@"3.0",@"3.3",@"3.7",@"4.0",@"Noch keine Note",@"Unbenotete Fächer",nil];
+    self.GradesAndLectures = [NSMutableDictionary dictionaryWithObjects: [NSArray arrayWithObjects: [NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],nil]
                                                      forKeys: gradeArray];
 
 
@@ -160,6 +171,11 @@
 
     cell.textLabel.text = [lectures objectAtIndex:indexPath.row][@"title"];
 
+    if(![[lectures objectAtIndex:indexPath.row][@"otherGrade"] isEqualToString:@""]){
+        cell.contentView.backgroundColor=[UIColor lightGrayColor];
+        cell.textLabel.backgroundColor = [UIColor lightGrayColor];
+    }
+    
     return cell;
 }
 
@@ -168,13 +184,6 @@
 
 }
 
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
-    
-    
-    [tableView endUpdates];
-    
-    
-}
 
 - (NSIndexPath *)tableView:(UITableView *)tableView
 targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
@@ -186,6 +195,24 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 {
     
     return YES;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
+    
+        NSMutableArray *lecturesWithGradeX = [self.GradesAndLectures objectForKey:[gradeArray objectAtIndex:sourceIndexPath.section]];
+        NSMutableDictionary *lecture = [lecturesWithGradeX objectAtIndex:sourceIndexPath.row];
+    
+        [lecture setObject: [gradeArray objectAtIndex:destinationIndexPath.section] forKey:@"otherGrade"];
+        NSLog(@"new lecture grade %@", lecture);
+
+        [lecturesWithGradeX removeObject:lecture];
+    
+        NSMutableArray *lecturesWithGradeY = [self.GradesAndLectures objectForKey:[gradeArray objectAtIndex:destinationIndexPath.section]];
+    [lecturesWithGradeY insertObject:lecture atIndex:destinationIndexPath.row];
+
+    
+    [tableView endUpdates];
+    
 }
 
 

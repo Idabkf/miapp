@@ -17,4 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *edit;
 - (IBAction)Edit:(id)sender;
 
+- (void) updateTable;
+
 @end
