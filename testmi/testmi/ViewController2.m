@@ -13,7 +13,7 @@
 @end
 
 @implementation ViewController2
-@synthesize semestersdicView, gradeArray, dataDictionary, GradesAndLectures;
+@synthesize semestersdicView, gradeArray, GradesAndLectures;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,7 +26,8 @@
 
 - (void) updateTable
 {
-    NSLog(@"willAppear");
+    
+    //get data of plist
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
@@ -39,6 +40,7 @@
                                                format:&format
                                                errorDescription:&errorDesc]; 
     self.gradeArray = [[NSArray alloc] initWithObjects:@"1.0",@"1.3",@"1.7",@"2.0",@"2.3",@"2.7",@"3.0",@"3.3",@"3.7",@"4.0",@"Noch keine Note",@"Unbenotete Fächer",nil];
+    
     self.GradesAndLectures = [NSMutableDictionary dictionaryWithObjects: [NSArray arrayWithObjects: [NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],nil]
                                                            forKeys: gradeArray];
     //iterate all semesters
@@ -54,7 +56,6 @@
             //iterate all grades
             for (int j= 0; j < gradeArray.count; j++){
                 
-                //NSLog(@"%@",[semester objectAtIndex:i][@"grade"]);
                 
                 //if grade of lecture is 1.0 for example, the name of the lecture is added to the dictionary with key 1.0
                 if(
@@ -92,7 +93,7 @@
             }
         }
     }
-    [self.tableView endUpdates];
+    [self.tableView reloadData];
     
 }
 
@@ -105,28 +106,9 @@
 {
     [super viewDidLoad];
 
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
-    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistLocation];
-    NSPropertyListFormat format;
-    NSString *errorDesc = nil;
-    self.semestersdicView = (NSMutableDictionary *)[NSPropertyListSerialization
-                                                    propertyListFromData:plistXML
-                                                    mutabilityOption:NSPropertyListMutableContainersAndLeaves
-                                                    format:&format
-                                                    errorDescription:&errorDesc];
-    
-    NSString *path= [[NSBundle mainBundle] pathForResource:@"Blist" ofType:@"plist"];
-    
-    dataDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
-    
-    self.gradeArray = [[NSArray alloc] initWithObjects:@"1.0",@"1.3",@"1.7",@"2.0",@"2.3",@"2.7",@"3.0",@"3.3",@"3.7",@"4.0",@"Noch keine Note",@"Unbenotete Fächer",nil];
-    self.GradesAndLectures = [NSMutableDictionary dictionaryWithObjects: [NSArray arrayWithObjects: [NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],nil]
-                                                     forKeys: gradeArray];
+    [self updateTable];
 
 
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -174,6 +156,9 @@
     if(![[lectures objectAtIndex:indexPath.row][@"otherGrade"] isEqualToString:@""]){
         cell.contentView.backgroundColor=[UIColor lightGrayColor];
         cell.textLabel.backgroundColor = [UIColor lightGrayColor];
+    }else {
+        cell.contentView.backgroundColor=[UIColor whiteColor];
+        cell.textLabel.backgroundColor = [UIColor whiteColor];
     }
     
     return cell;
@@ -200,11 +185,14 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
     
         NSMutableArray *lecturesWithGradeX = [self.GradesAndLectures objectForKey:[gradeArray objectAtIndex:sourceIndexPath.section]];
+    //get the selected lecture
         NSMutableDictionary *lecture = [lecturesWithGradeX objectAtIndex:sourceIndexPath.row];
     
+    //grade is set as otherGrade because it's not the real grade
         [lecture setObject: [gradeArray objectAtIndex:destinationIndexPath.section] forKey:@"otherGrade"];
         NSLog(@"new lecture grade %@", lecture);
 
+    //removed from the other list
         [lecturesWithGradeX removeObject:lecture];
     
         NSMutableArray *lecturesWithGradeY = [self.GradesAndLectures objectForKey:[gradeArray objectAtIndex:destinationIndexPath.section]];
@@ -259,6 +247,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

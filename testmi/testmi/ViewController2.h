@@ -10,7 +10,6 @@
 
 @interface ViewController2 : UITableViewController
 @property NSMutableDictionary *semestersdicView;
-@property (nonatomic,strong) NSMutableDictionary *dataDictionary;
 @property (nonatomic, strong) NSArray *gradeArray;
 @property (nonatomic, strong) NSMutableDictionary *GradesAndLectures;
 

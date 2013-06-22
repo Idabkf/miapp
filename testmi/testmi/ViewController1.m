@@ -178,6 +178,9 @@
     if([[lectureDic objectForKey:@"passed"] isEqualToString:@"YES"]){
         cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
         cell.textLabel.backgroundColor = [UIColor colorWithRed:0.2 green:0.768 blue:0.45 alpha:1];
+    } else {
+        cell.contentView.backgroundColor=[UIColor whiteColor];
+        cell.textLabel.backgroundColor = [UIColor whiteColor];
     }
     
     
@@ -291,9 +294,10 @@
     NSLog(@"Lectures NEU!!!!!!!!!!!!!!!! %@", lectures);
         NSLog(@"Lectures NEU!!!!!!!!!!!!!!!! %@", lecturesneu);
     
+    //write data into plist ***important***
     [self.semestersdicView writeToFile:self.plistLocation atomically: YES];
     
-    
+    [self.tableView reloadData];
     [tableView endUpdates];
     
     
@@ -352,11 +356,13 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
      
      popover.arrowDirection = FPPopoverNoArrow;
      [popover presentPopoverFromPoint: CGPointMake(self.view.center.x, self.view.center.y - 20 - popover.contentSize.height/2) ];
-     
+    [self.tableView reloadData];
+     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 - (void) dismissPopover
 {
+    [self.tableView reloadData];
     [popover dismissPopoverAnimated:YES];
 }
 

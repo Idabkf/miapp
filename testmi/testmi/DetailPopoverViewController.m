@@ -141,6 +141,7 @@
         }
         
     }
+    [self.delegate.tableView reloadData];
     [self.delegate dismissPopover];
 }
 
