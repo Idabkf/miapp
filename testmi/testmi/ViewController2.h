@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController2 : UITableViewController
+@interface ViewController2 : UITableViewController{
+    UISwitch *toggleSwitch;
+
+}
+
+@property (nonatomic,retain) IBOutlet UISwitch *toggleSwitch;
+
+-(IBAction) switchValueChanged;
 @property NSMutableDictionary *semestersdicView;
+@property (nonatomic, assign) BOOL alternativeGrades;
 @property (nonatomic, strong) NSArray *gradeArray;
 @property (nonatomic, strong) NSMutableDictionary *GradesAndLectures;
 

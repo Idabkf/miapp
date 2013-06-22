@@ -13,7 +13,7 @@
 @end
 
 @implementation ViewController2
-@synthesize semestersdicView, gradeArray, GradesAndLectures;
+@synthesize semestersdicView, gradeArray, GradesAndLectures, toggleSwitch;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -23,6 +23,18 @@
     }
     return self;
 }
+
+-(IBAction) switchValueChanged{
+    if (toggleSwitch.on) {
+        [self setAlternativeGrades:YES];
+        [self updateTable];
+    } else {
+        [self setAlternativeGrades:NO];
+        [self updateTable];
+    }
+}
+
+
 
 - (void) updateTable
 {
@@ -42,7 +54,9 @@
     self.gradeArray = [[NSArray alloc] initWithObjects:@"1.0",@"1.3",@"1.7",@"2.0",@"2.3",@"2.7",@"3.0",@"3.3",@"3.7",@"4.0",@"Noch keine Note",@"Unbenotete Fächer",nil];
     
     self.GradesAndLectures = [NSMutableDictionary dictionaryWithObjects: [NSArray arrayWithObjects: [NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],nil]
-                                                           forKeys: gradeArray];
+                  
+                                                                forKeys: gradeArray];
+  
     //iterate all semesters
     for(id key in semestersdicView){
         
@@ -79,20 +93,37 @@
                     
                     
                 {
-                    
+                    BOOL otherGradeFound = NO;
+                    //show modified grades
+                    for (int k= 0; k < gradeArray.count; k++){
+                            if([[lecturesArray objectAtIndex:i] [@"otherGrade"] isEqualToString:[gradeArray objectAtIndex:k]] && self.alternativeGrades){
+                               
+                            NSMutableArray *lecturesArray1 = [self.GradesAndLectures objectForKey:[gradeArray objectAtIndex:k]];
+                            [lecturesArray1 addObject:[lecturesArray objectAtIndex:i]];
+                                otherGradeFound = YES;
+                            }
+                        }
+ 
+                    if(!otherGradeFound || !self.alternativeGrades){
                     NSMutableArray *lecturesArray1 = [self.GradesAndLectures objectForKey:[gradeArray objectAtIndex:j]];
                     [lecturesArray1 addObject:[lecturesArray objectAtIndex:i]];
+                    }
                 }
             
-                if([[lecturesArray objectAtIndex:i] [@"otherGrade"] isEqualToString:[gradeArray objectAtIndex:j]])
+                //show normal grades
+                if([[lecturesArray objectAtIndex:i] [@"otherGrade"] isEqualToString:[gradeArray objectAtIndex:j]] && !self.alternativeGrades)
                 {
                     NSMutableArray *lecturesArray1 = [self.GradesAndLectures objectForKey:[gradeArray objectAtIndex:j]];
                     [lecturesArray1 removeObject:[lecturesArray objectAtIndex:i]];
                 }
                 
+
+                
             }
         }
     }
+   
+    
     [self.tableView reloadData];
     
 }
@@ -153,7 +184,7 @@
 
     cell.textLabel.text = [lectures objectAtIndex:indexPath.row][@"title"];
 
-    if(![[lectures objectAtIndex:indexPath.row][@"otherGrade"] isEqualToString:@""]){
+    if(![[lectures objectAtIndex:indexPath.row][@"otherGrade"] isEqualToString:@""] &&self.alternativeGrades){
         cell.contentView.backgroundColor=[UIColor lightGrayColor];
         cell.textLabel.backgroundColor = [UIColor lightGrayColor];
     }else {
@@ -188,17 +219,33 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     //get the selected lecture
         NSMutableDictionary *lecture = [lecturesWithGradeX objectAtIndex:sourceIndexPath.row];
     
-    //grade is set as otherGrade because it's not the real grade
-        [lecture setObject: [gradeArray objectAtIndex:destinationIndexPath.section] forKey:@"otherGrade"];
-        NSLog(@"new lecture grade %@", lecture);
-
-    //removed from the other list
-        [lecturesWithGradeX removeObject:lecture];
     
-        NSMutableArray *lecturesWithGradeY = [self.GradesAndLectures objectForKey:[gradeArray objectAtIndex:destinationIndexPath.section]];
-    [lecturesWithGradeY insertObject:lecture atIndex:destinationIndexPath.row];
-
     
+    //iterate all semesters
+    for(id key in semestersdicView){
+        
+        NSMutableDictionary *semester = semestersdicView[key];
+        NSMutableArray *lecturesArray = [semester objectForKey:@"lectures"];
+        
+        //iterate all lectures
+        for(int i= 0; i < lecturesArray.count; i++){
+            if([[lecturesArray objectAtIndex:i] [@"title"] isEqualToString: lecture [@"title"]]){
+                
+                //set as other grade because not real grade
+                [[lecturesArray objectAtIndex:i] setObject: [gradeArray objectAtIndex:destinationIndexPath.section] forKey:@"otherGrade"];
+            }
+        }
+        
+    }
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
+    [self.semestersdicView writeToFile:plistLocation atomically: YES];
+
+    self.alternativeGrades = YES;
+    [self.toggleSwitch setOn:YES];
+    [self updateTable];
     [tableView endUpdates];
     
 }

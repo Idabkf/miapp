@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController2.m"
-         timestampString = "393590519.528499"
+         timestampString = "393595456.73348"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "189"
-         endingLineNumber = "189"
+         startingLineNumber = "220"
+         endingLineNumber = "220"
          landmarkName = "-tableView:moveRowAtIndexPath:toIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>

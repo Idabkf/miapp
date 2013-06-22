@@ -298,7 +298,6 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0c4-zd-RJE">
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="33" id="csh-wp-zh8"/>
                                         <constraint firstAttribute="width" constant="38" id="yQV-Qw-9pg"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -314,13 +313,21 @@
                                         <action selector="Edit:" destination="jjT-ZU-HoM" eventType="touchUpInside" id="xoT-9z-k2s"/>
                                     </connections>
                                 </button>
+                                <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dsj-U0-Wn9">
+                                    <connections>
+                                        <action selector="switchValueChanged" destination="jcJ-iB-sVJ" eventType="valueChanged" id="MRH-HP-PpP"/>
+                                    </connections>
+                                </switch>
                             </subviews>
                             <color key="backgroundColor" cyan="0.15094662410000001" magenta="0.0" yellow="0.24774749090000001" black="0.0" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="0c4-zd-RJE" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="2ES-sf-Eez"/>
-                                <constraint firstItem="R3U-WM-iH3" firstAttribute="bottom" secondItem="B4R-Kr-5kB" secondAttribute="bottom" type="default" id="TYE-Y8-X5h"/>
+                                <constraint firstItem="dsj-U0-Wn9" firstAttribute="leading" secondItem="B4R-Kr-5kB" secondAttribute="leading" constant="11" id="3DI-B5-A3d"/>
+                                <constraint firstItem="R3U-WM-iH3" firstAttribute="bottom" secondItem="dsj-U0-Wn9" secondAttribute="bottom" type="default" id="59j-kI-baQ"/>
+                                <constraint firstItem="0c4-zd-RJE" firstAttribute="top" secondItem="dsj-U0-Wn9" secondAttribute="top" type="default" id="Izy-hs-U2j"/>
+                                <constraint firstItem="dsj-U0-Wn9" firstAttribute="top" secondItem="B4R-Kr-5kB" secondAttribute="top" constant="11" id="RdY-4V-qg4"/>
                                 <constraint firstItem="R3U-WM-iH3" firstAttribute="centerX" secondItem="B4R-Kr-5kB" secondAttribute="centerX" type="default" id="Wbt-71-t0i"/>
-                                <constraint firstItem="0c4-zd-RJE" firstAttribute="bottom" secondItem="B4R-Kr-5kB" secondAttribute="bottom" type="default" id="WhZ-oy-fdZ"/>
+                                <constraint firstItem="0c4-zd-RJE" firstAttribute="bottom" secondItem="B4R-Kr-5kB" secondAttribute="bottom" type="default" id="eoK-Pr-WZE"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -342,6 +349,7 @@
                     <navigationItem key="navigationItem" id="B3e-ee-9vy"/>
                     <connections>
                         <outlet property="edit" destination="0c4-zd-RJE" id="slt-6z-COl"/>
+                        <outlet property="toggleSwitch" destination="dsj-U0-Wn9" id="oTX-sU-bNa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67p-vj-HPZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
