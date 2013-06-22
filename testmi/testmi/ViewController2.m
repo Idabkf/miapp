@@ -233,6 +233,13 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
                 
                 //set as other grade because not real grade
                 [[lecturesArray objectAtIndex:i] setObject: [gradeArray objectAtIndex:destinationIndexPath.section] forKey:@"otherGrade"];
+                
+                if([[lecturesArray objectAtIndex:i][@"grade"] isEqualToString:[gradeArray objectAtIndex:destinationIndexPath.section]]){
+                    [[lecturesArray objectAtIndex:i] setObject: @"" forKey:@"otherGrade"];
+                }
+                if(destinationIndexPath.section == 10){
+                    [[lecturesArray objectAtIndex:i] setObject: @"" forKey:@"otherGrade"];
+                }
             }
         }
         
