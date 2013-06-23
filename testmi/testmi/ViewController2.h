@@ -25,5 +25,8 @@
 - (IBAction)Edit:(id)sender;
 
 - (void) updateTable;
+- (IBAction)menubt:(id)sender;
+@property (weak, nonatomic) IBOutlet UIView *menu;
+@property (weak, nonatomic) IBOutlet UIButton *bt;
 
 @end

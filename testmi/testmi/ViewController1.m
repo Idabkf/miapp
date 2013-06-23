@@ -373,6 +373,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     return proposedDestinationIndexPath;
 }
 
+
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -461,6 +462,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         
     
 }
+
 - (void)showResetMenu:(UILongPressGestureRecognizer *)gestureRecognizer{
     //if(self.editing)
     //{
@@ -480,13 +482,18 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         self.menu.hidden = NO;}
     else{self.menu .hidden =YES;}
     
-  [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];
-   self.bt = (UIButton *)sender;
+    
+        [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];
+    self.bt = (UIButton *)sender;
     self.bt.selected = !self.bt.selected;
+    
    }
 - (IBAction)Save:(id)sender {
     
      [super setEditing:NO animated:NO];
-    self.menu.hidden = YES;
+   // self.menu.hidden = YES;
+    //[self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow1.png" ]forState:UIControlStateSelected];
+   // self.bt = (UIButton *)sender;
+   // self.bt.selected = !self.bt.selected
 }
 @end

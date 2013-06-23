@@ -128,6 +128,17 @@
     
 }
 
+- (IBAction)menubt:(id)sender {
+    if(self.menu.hidden ==YES){
+        self.menu.hidden = NO;}
+    else{self.menu .hidden =YES;}
+    
+    [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];
+    self.bt = (UIButton *)sender;
+    self.bt.selected = !self.bt.selected;
+    
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [self updateTable];
@@ -136,6 +147,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.menu.hidden= YES;
 
     [self updateTable];
     //self.tableView.backgroundColor=[UIColor colorWithRed:(155.0/255.0) green:(205.0/255.0) blue:(155.0/255.0) alpha:.5];
@@ -180,7 +192,7 @@ self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:
     if ( cell ==nil ){
         cell =[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
+    cell.opaque = NO;
     NSArray *lectures = [GradesAndLectures objectForKey:[gradeArray objectAtIndex:indexPath.section]];
 
     cell.textLabel.text = [lectures objectAtIndex:indexPath.row][@"title"];
@@ -189,8 +201,12 @@ self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:
         cell.contentView.backgroundColor=[UIColor lightGrayColor];
         cell.textLabel.backgroundColor = [UIColor lightGrayColor];
     }else {
-        cell.contentView.backgroundColor=[UIColor whiteColor];
-        cell.textLabel.backgroundColor = [UIColor whiteColor];
+        //cell.contentView.backgroundColor=[UIColor whiteColor];
+        //cell.textLabel.backgroundColor = [UIColor whiteColor];
+        
+       
+        cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.4];
+        cell.textLabel.backgroundColor = [UIColor clearColor];
     }
     
     return cell;

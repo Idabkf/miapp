@@ -30,7 +30,7 @@
 {
     [super viewDidLoad];
     
-    
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
     self.titleLabel.text = self.titleString;
     NSString *path= [[NSBundle mainBundle] pathForResource:@"optionsList" ofType:@"plist"];
     plist = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
@@ -75,7 +75,11 @@
         cell =[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
     }
+     cell.opaque = NO;
     cell.textLabel.text = [lectures objectAtIndex:[indexPath row]][@"lecture"];
+    cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.05];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+
     
     
     return cell;
