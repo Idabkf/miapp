@@ -7,6 +7,7 @@
 //
 
 #import "StartView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface StartView ()<UIAlertViewDelegate>
 
@@ -35,7 +36,7 @@ NSString *semesteranzahl;
 {
     [super viewDidLoad];
 	self.picker.frame = CGRectMake(0, 480, 320, 260);
-    
+        
     /*NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
      Fachlabel.text = [mydefault stringForKey:@"AF"];
     Semesterlabel.text = [mydefault stringForKey:@"SA"];*/
@@ -59,6 +60,7 @@ NSString *semesteranzahl;
     [semester addObject:@"9"];
         picker.delegate = self;
     picker.dataSource = self;
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"pic3.jpg"] ];
     
     
    // picker.hidden = YES;

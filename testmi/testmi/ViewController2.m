@@ -13,7 +13,7 @@
 @end
 
 @implementation ViewController2
-@synthesize gradeArray, dataDictionary, GradesAndLectures;
+@synthesize semestersdicView, gradeArray, GradesAndLectures, toggleSwitch;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -24,63 +24,123 @@
     return self;
 }
 
-- (void)viewDidLoad
+-(IBAction) switchValueChanged{
+    if (toggleSwitch.on) {
+        [self setAlternativeGrades:YES];
+        [self updateTable];
+    } else {
+        [self setAlternativeGrades:NO];
+        [self updateTable];
+    }
+}
+
+
+
+- (void) updateTable
 {
-    [super viewDidLoad];
-
-    NSString *path= [[NSBundle mainBundle] pathForResource:@"Blist" ofType:@"plist"];
     
-    dataDictionary = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+    //get data of plist
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
+    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistLocation];
+    NSPropertyListFormat format;
+    NSString *errorDesc = nil;
+    semestersdicView = (NSMutableDictionary *)[NSPropertyListSerialization
+                                               propertyListFromData:plistXML
+                                               mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                               format:&format
+                                               errorDescription:&errorDesc]; 
+    self.gradeArray = [[NSArray alloc] initWithObjects:@"1.0",@"1.3",@"1.7",@"2.0",@"2.3",@"2.7",@"3.0",@"3.3",@"3.7",@"4.0",@"Noch keine Note",@"Unbenotete Fächer",nil];
     
-    gradeArray = [[NSArray alloc] initWithObjects:@"1.0",@"1.3",@"1.7",@"2.0",@"2.3",@"2.7",@"3.0",@"3.3",@"3.7",@"4.0",@"Noch keine Note",@"Unbenotete Fächer",nil];
-    GradesAndLectures = [NSMutableDictionary dictionaryWithObjects: [NSArray arrayWithObjects: [NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],nil]
-                                                     forKeys: gradeArray];
-
-    
-
-    
-        //iterate all semesters
-        for(id key in dataDictionary){
+    self.GradesAndLectures = [NSMutableDictionary dictionaryWithObjects: [NSArray arrayWithObjects: [NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],[NSMutableArray array],nil]
+                  
+                                                                forKeys: gradeArray];
+  
+    //iterate all semesters
+    for(id key in semestersdicView){
         
-        NSArray *semester = dataDictionary[key];
+        NSMutableDictionary *semester = semestersdicView[key];
+        NSMutableArray *lecturesArray = [semester objectForKey:@"lectures"];
         
-            //iterate all lectures
-        for(int i= 0; i < semester.count; i++){
+        
+        //iterate all lectures
+        for(int i= 0; i < lecturesArray.count; i++){
             
             //iterate all grades
             for (int j= 0; j < gradeArray.count; j++){
                 
-            //NSLog(@"%@",[semester objectAtIndex:i][@"grade"]);
+                
+                //if grade of lecture is 1.0 for example, the name of the lecture is added to the dictionary with key 1.0
+                if(
+                   [[lecturesArray objectAtIndex:i] [@"grade"] isEqualToString:[gradeArray objectAtIndex:j]]
+                   
+                   ||
+                   
+                   //or if not graded yet it's added to key "Noch Keine Note"
+                   ([[lecturesArray objectAtIndex:i] [@"grade"] isEqualToString:@""] &&
+                    [[lecturesArray objectAtIndex:i] [@"passed"] isEqualToString:@"NO"] &&
+                    [@"Noch keine Note" isEqualToString:[gradeArray objectAtIndex:j]])
+                   
+                   ||
+                   
+                   //or if it's passed but no grade
+                   ([[lecturesArray objectAtIndex:i] [@"passed"] isEqualToString:@"YES"] &&
+                    [[lecturesArray objectAtIndex:i] [@"grade"] isEqualToString:@""] &&
+                    [@"Unbenotete Fächer"isEqualToString:[gradeArray objectAtIndex:j]])
+                   
+                   )
+                    
+                    
+                {
+                    BOOL otherGradeFound = NO;
+                    //show modified grades
+                    for (int k= 0; k < gradeArray.count; k++){
+                            if([[lecturesArray objectAtIndex:i] [@"otherGrade"] isEqualToString:[gradeArray objectAtIndex:k]] && self.alternativeGrades){
+                               
+                            NSMutableArray *lecturesArray1 = [self.GradesAndLectures objectForKey:[gradeArray objectAtIndex:k]];
+                            [lecturesArray1 addObject:[lecturesArray objectAtIndex:i]];
+                                otherGradeFound = YES;
+                            }
+                        }
+ 
+                    if(!otherGradeFound || !self.alternativeGrades){
+                    NSMutableArray *lecturesArray1 = [self.GradesAndLectures objectForKey:[gradeArray objectAtIndex:j]];
+                    [lecturesArray1 addObject:[lecturesArray objectAtIndex:i]];
+                    }
+                }
             
-            //if grade of lecture is 1.0 for example, the name of the lecture is added to the dictionary with key 1.0
-            if(
-               [[semester objectAtIndex:i] [@"grade"] isEqualToString:[gradeArray objectAtIndex:j]]
-               
-               ||
-               
-               //or if not graded yet it's added to key "Noch Keine Note"
-               ([[semester objectAtIndex:i] [@"grade"] isEqualToString:@"0"] &&
-                //[(BOOL)[[semester objectAtIndex:i] [@"passed"]] != YES] &&
-                [@"Noch keine Note"isEqualToString:[gradeArray objectAtIndex:j]])
-               
-               ||
-               
-               //or if it's passed but no grade
-               ([[semester objectAtIndex:i] [@"grade"] isEqualToString:@"0"] &&
-                [semester objectAtIndex:i] [@"passed"] &&
-                [@"Unbenotete Fächer"isEqualToString:[gradeArray objectAtIndex:j]])
-               
-               )
-           
-            
-            {
-                NSMutableArray *lecturesArray = [GradesAndLectures objectForKey:[gradeArray objectAtIndex:j]];
-                [lecturesArray addObject:[semester objectAtIndex:i ] [@"lecture"]];
-            }
+                //show normal grades
+                if([[lecturesArray objectAtIndex:i] [@"otherGrade"] isEqualToString:[gradeArray objectAtIndex:j]] && !self.alternativeGrades)
+                {
+                    NSMutableArray *lecturesArray1 = [self.GradesAndLectures objectForKey:[gradeArray objectAtIndex:j]];
+                    [lecturesArray1 removeObject:[lecturesArray objectAtIndex:i]];
+                }
+                
+
+                
             }
         }
     }
+   
     
+    [self.tableView reloadData];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self updateTable];
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    [self updateTable];
+    //self.tableView.backgroundColor=[UIColor colorWithRed:(155.0/255.0) green:(205.0/255.0) blue:(155.0/255.0) alpha:.5];
+
+self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -105,6 +165,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    
     //counts how many lectures for one grade
     NSArray *lectures = [GradesAndLectures objectForKey:[gradeArray objectAtIndex:section]];
     return lectures.count;
@@ -122,8 +183,16 @@
     
     NSArray *lectures = [GradesAndLectures objectForKey:[gradeArray objectAtIndex:indexPath.section]];
 
-    cell.textLabel.text = [lectures objectAtIndex:indexPath.row];
+    cell.textLabel.text = [lectures objectAtIndex:indexPath.row][@"title"];
 
+    if(![[lectures objectAtIndex:indexPath.row][@"otherGrade"] isEqualToString:@""] &&self.alternativeGrades){
+        cell.contentView.backgroundColor=[UIColor lightGrayColor];
+        cell.textLabel.backgroundColor = [UIColor lightGrayColor];
+    }else {
+        cell.contentView.backgroundColor=[UIColor whiteColor];
+        cell.textLabel.backgroundColor = [UIColor whiteColor];
+    }
+    
     return cell;
 }
 
@@ -132,13 +201,6 @@
 
 }
 
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
-    
-    
-    [tableView endUpdates];
-    
-    
-}
 
 - (NSIndexPath *)tableView:(UITableView *)tableView
 targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
@@ -150,6 +212,50 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 {
     
     return YES;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
+    
+        NSMutableArray *lecturesWithGradeX = [self.GradesAndLectures objectForKey:[gradeArray objectAtIndex:sourceIndexPath.section]];
+    //get the selected lecture
+        NSMutableDictionary *lecture = [lecturesWithGradeX objectAtIndex:sourceIndexPath.row];
+    
+    
+    
+    //iterate all semesters
+    for(id key in semestersdicView){
+        
+        NSMutableDictionary *semester = semestersdicView[key];
+        NSMutableArray *lecturesArray = [semester objectForKey:@"lectures"];
+        
+        //iterate all lectures
+        for(int i= 0; i < lecturesArray.count; i++){
+            if([[lecturesArray objectAtIndex:i] [@"title"] isEqualToString: lecture [@"title"]]){
+                
+                //set as other grade because not real grade
+                [[lecturesArray objectAtIndex:i] setObject: [gradeArray objectAtIndex:destinationIndexPath.section] forKey:@"otherGrade"];
+                
+                if([[lecturesArray objectAtIndex:i][@"grade"] isEqualToString:[gradeArray objectAtIndex:destinationIndexPath.section]]){
+                    [[lecturesArray objectAtIndex:i] setObject: @"" forKey:@"otherGrade"];
+                }
+                if(destinationIndexPath.section == 10){
+                    [[lecturesArray objectAtIndex:i] setObject: @"" forKey:@"otherGrade"];
+                }
+            }
+        }
+        
+    }
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
+    [self.semestersdicView writeToFile:plistLocation atomically: YES];
+
+    self.alternativeGrades = YES;
+    [self.toggleSwitch setOn:YES];
+    [self updateTable];
+    [tableView endUpdates];
+    
 }
 
 
@@ -196,6 +302,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

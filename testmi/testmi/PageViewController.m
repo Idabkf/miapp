@@ -30,7 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   //  self.view.backgroundColor=[UIColor colorWithRed:(180.0/255.0) green:(205.0/255.0) blue:(180.0/255.0) alpha:.5];
     //self.view.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
     
     NSDictionary *options =
     [NSDictionary dictionaryWithObject:
@@ -59,6 +61,7 @@
     [self addChildViewController:pageController];
     [[self view] addSubview:[pageController view]];
     [pageController didMoveToParentViewController:self];
+  // self.view.backgroundColor=[UIColor colorWithRed:(155.0/255.0) green:(205.0/255.0) blue:(155.0/255.0) alpha:.8];
 }
 
 - (UIViewController *)viewControllerAtIndex:(NSUInteger)index
@@ -77,6 +80,7 @@
         return ViewController;
     }*/
     else return nil;
+    
 
 }
 

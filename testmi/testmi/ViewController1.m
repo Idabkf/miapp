@@ -16,16 +16,11 @@
 @end
 
 @implementation ViewController1
-@synthesize semester,lecture,blist,arry1,arry2,arry3,arry4,arry5,arry6,arry7,arry8,arry9;
-NSString *s1;
-NSString *s2;
-NSString*s3;
-NSString*s4;
-NSString *s5;
-NSString*s6;
-NSString *s7;
-NSString*s8;
-NSString *s9;
+@synthesize semestersdicView;
+
+
+
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -35,9 +30,30 @@ NSString *s9;
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
+    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistLocation];
+    NSPropertyListFormat format;
+    NSString *errorDesc = nil;
+    self.semestersdicView = (NSMutableDictionary *)[NSPropertyListSerialization
+                                                    propertyListFromData:plistXML
+                                                    mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                                    format:&format
+                                                    errorDescription:&errorDesc];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.menu.hidden = YES;
+    NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+    self.titleLabel1 .text = [mydefault stringForKey:@"AF"];
+    self.titleLabel.text = [mydefault stringForKey:@"SA"];
+
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResetMenu:)];
     [self.view addGestureRecognizer:longPressGesture];
     
@@ -52,33 +68,16 @@ NSString *s9;
     NSPropertyListFormat format;
     NSString *errorDesc = nil;
     NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:self.plistLocation];
-    self.semestersdicView = (NSDictionary *)[NSPropertyListSerialization
+    self.semestersdicView = (NSMutableDictionary *)[NSPropertyListSerialization
                                              propertyListFromData:plistXML
                                              mutabilityOption:NSPropertyListMutableContainersAndLeaves
                                              format:&format
                                              errorDescription:&errorDesc];
     
-    NSURL *url = [NSURL URLWithString:@"http://www.medien.ifi.lmu.de/studierende/semesterplanung/bachelor/mediengestaltung/index.xhtml.de"];
     
-    [self fetchEntries];
-
-   
+  //  self.tableView.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"background1.jpg"] ];
+   // self.tableView.backgroundColor = [UIColor clearColor];
     self.title = @"Semester Plan";
-    NSString *vlFile= [[NSBundle mainBundle] pathForResource:@"Blist" ofType:@"plist"];
-   
-    blist = [[NSMutableDictionary alloc] initWithContentsOfFile:vlFile];
-    //arry =[NSMutableArray arrayWithContentsOfFile:vlFile];
-    //lecturename = [blist objectForKey:@"lecture"];
-    
-    arry1 = blist[@"Semester 1"];
-    arry2 = blist[@"Semester 2"];
-    arry3 = [blist objectForKey:@"Semester 3"];
-    arry4 = [blist objectForKey:@"Semester 4"];
-    arry5 = [blist objectForKey:@"Semester 5"];
-    arry6 = [blist objectForKey:@"Semester 6"];
-    arry7 = [blist objectForKey:@"Semester 7"];
-    arry8 = [blist objectForKey:@"Semester 8"];
-    arry9 = [blist objectForKey:@"Semester 9"];
     
     //UIBarButtonItem *left=[[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(edit)];
    // self.navigationItem.leftBarButtonItem=left;
@@ -98,75 +97,18 @@ NSString *s9;
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 //- (void)tableViewEdit:(id)sender{
   //  [self.tableView setEditing:YES animated:YES];
+   self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+    //self.tableView.backgroundColor=[UIColor colorWithRed:(155.0/255.0) green:(205.0/255.0) blue:(155.0/255.0) alpha:.5];
 }
 
--(void)createPList{
-    
-    
-    
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    
-    
-    
-    
-    [self.semestersdicParser writeToFile:self.plistLocation atomically: YES];
-    
-    NSLog(@"WRITE TO FILE: %@", self.plistLocation);
-    NSLog(@"WRITE: %@", documentsDirectory);
-    
-    NSPropertyListFormat format;
-    NSString *errorDesc = nil;
-    
-    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:self.plistLocation];
-    NSDictionary *temp = (NSDictionary *)[NSPropertyListSerialization
-                                          propertyListFromData:plistXML
-                                          mutabilityOption:NSPropertyListMutableContainersAndLeaves
-                                          format:&format
-                                          errorDescription:&errorDesc];
-    
-    NSLog(@"  plist: %@",   temp);
-    
-    
-    /*//NSString *rootPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-     
-     // NSString *plistPath = [rootPath stringByAppendingPathComponent:@"lecture.plist"];
-     
-     NSString *folderPath = [[NSBundle mainBundle] pathForResource:@"lecture2" ofType:@"plist"];
-     //NSString *documentsDirectory = [folderPath objectAtIndex:0];
-     NSString *plistPath = [folderPath stringByAppendingPathComponent:@"lecture2.plist"];
-     
-     //NSString *test= @"test";
-     BOOL succesful = [self.semestersdic writeToFile:plistPath atomically:YES];
-     //[test writeToFile:plistPath atomically:YES];
-     
-     
-     NSLog(@"WRITE TO FILE: %c", succesful);
-     */
-    /*
-     NSData *myData = [NSKeyedArchiver archivedDataWithRootObject:self.semestersdic];
-     id plist = [NSPropertyListSerialization propertyListWithData:myData options:NSPropertyListMutableContainersAndLeaves format:nil error:&error];
-     NSLog(@"PLIST: %@", plist);
-     */
-    
-    /*
-     NSData *plistData = [NSPropertyListSerialization dataFromPropertyList:self.semestersdic
-     format:NSPropertyListXMLFormat_v1_0
-     errorDescription:&error];
-     
-     if(plistData) {
-     
-     }
-     else {
-     NSLog(@"%@", error);
-     }
-     */
-}
+
 
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    [tableView endUpdates];
     return YES;
 }
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -215,31 +157,7 @@ NSString *s9;
     
     return lecturesArray.count;
     
-    /*
-     switch (section) {
-     case 0:
-     return arry1.count;
-     case 1:
-     return arry2.count;
-     case 2:
-     return [arry3 count];
-     case 3:
-     return arry4.count;
-     case 4:
-     return arry5. count;
-     case 5:
-     return [arry6 count];
-     case 6:
-     return [arry7 count];
-     case 7:
-     return [arry8 count];
-     case 8:
-     return [arry9 count];
-     break;
-     default:
-     break;
-     }
-     */
+
     
 }
 
@@ -255,6 +173,9 @@ NSString *s9;
     }
     
     cell.showsReorderControl =YES;
+    cell.opaque = NO;
+    
+    //self.tableView.backgroundColor = [UIColor clearColor];
     
     NSInteger levelInt = indexPath.section +1;
     NSString *level = [NSString stringWithFormat:@"%i", levelInt];
@@ -263,58 +184,26 @@ NSString *s9;
     NSMutableDictionary *lectureDic = [lecturesArray objectAtIndex:[indexPath row]];
     NSString *title = [lectureDic objectForKey:@"title"];
     cell.textLabel.text = title;
+    cell.textLabel.font = [UIFont fontWithName:@"AppleGothic" size:16.0];
     
-    /*
-     switch (indexPath.section) {
-     case 0:
-     s1 =[arry1 objectAtIndex:[indexPath row]][@"lecture"];
-     cell.textLabel.text = s1;
-     break;
-     case 1:
-     s2=[arry2 objectAtIndex:[indexPath row]][@"lecture"];
-     cell.textLabel.text = s2;
-     break;
-     case 2:
-     s3=[arry3 objectAtIndex:[indexPath row]][@"lecture"];
-     cell.textLabel.text = s3;
-     break;
-     case 3:
-     s4=[arry4 objectAtIndex:[indexPath row]][@"lecture"];
-     cell.textLabel.text = s4;
-     break;
-     case 4:
-     s5=[arry5 objectAtIndex:[indexPath row]][@"lecture"];
-     cell.textLabel.text = s5;
-     break;
-     case 5:
-     s6=[arry6 objectAtIndex:[indexPath row]][@"lecture"];
-     cell.textLabel.text = s6;
-     break;
-     case 6:
-     s7=[arry7 objectAtIndex:[indexPath row]][@"lecture"];
-     cell.textLabel.text = s7;
-     break;
-     case 7:
-     s8=[arry8 objectAtIndex:[indexPath row]][@"lecture"];
-     cell.textLabel.text = s8;
-     break;
-     case 8:
-     s9=[arry9 objectAtIndex:[indexPath row]][@"lecture"];
-     cell.textLabel.text = s9;
-     break;
-     default:
-     break;
-     }
-     */
-    cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
-    cell.textLabel.backgroundColor = [UIColor colorWithRed:0.2 green:0.768 blue:0.45 alpha:1];
+
+    if([[lectureDic objectForKey:@"passed"] isEqualToString:@"YES"]){
+       // cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
+        cell.backgroundColor = [UIColor colorWithRed:(102.0/255.0) green:(205.0/255.0) blue:(170.0/255.0) alpha:.5];
+         cell.textLabel.backgroundColor = [UIColor clearColor];
+    } else {
+        cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.05];
+        //cell.backgroundColor = [UIColor clearColor];
+
+        cell.textLabel.backgroundColor = [UIColor clearColor];
+    }
     
     
     
     return cell;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+/*- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
    // return @"semester";
     switch (section) {
         case 0:
@@ -347,7 +236,56 @@ NSString *s9;
                 default:
             break;
     }
+}*/
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView* myView = [[UIView alloc] init];
+    myView.backgroundColor = [UIColor clearColor];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 220, 25)];
+    titleLabel.textColor=[UIColor colorWithRed:(47.0/255.0) green:(47.0/255.0) blue:(47.0/255.0) alpha:1];
+    titleLabel.backgroundColor = [UIColor clearColor];
+    titleLabel.font = [UIFont fontWithName:@"Georgia" size:20.0];
+   // titleLabel.font = [UIFont boldSystemFontOfSize:20.0];
+    
+    if (section == 0){
+        titleLabel.text =@"Semster 1";
+    }
+    else if (section == 1)
+    {
+        titleLabel.text = @"Semster 2";
+    }
+    if (section == 2){
+        titleLabel.text =@"Semster 3";
+    }
+    if (section == 3){
+        titleLabel.text =@"Semster 4";
+    }
+    if (section == 4){
+        titleLabel.text =@"Semster 5";
+    }
+    if (section == 5){
+        titleLabel.text =@"Semster 6";
+    }
+    if (section == 6){
+        titleLabel.text =@"Semster 7";
+    }
+    if (section == 7){
+        titleLabel.text =@"Semster 8";
+    }
+    if (section == 8){
+        titleLabel.text =@"Semster 9";
+    }
+
+
+           [myView addSubview:titleLabel];
+     
+    
+    return myView;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 40.0;
+}
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -389,11 +327,45 @@ NSString *s9;
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
     
-        
-        [tableView endUpdates];
+    NSInteger levelIntdest = destinationIndexPath.section +1;
+    NSLog(@" start %i",levelIntdest);
+    
+    NSInteger levelIntsource = sourceIndexPath.section +1;
+    NSLog(@"%i",levelIntsource);
+    NSLog(@"zeile : % i",sourceIndexPath.row);
+    
+    //Lecture holen
+    NSMutableDictionary *semesteralt =  [self.semestersdicView objectForKey:[NSString stringWithFormat:@"%i", levelIntsource ]];
+    NSMutableArray *lecturesalt = [semesteralt objectForKey:@"lectures"];
+    NSMutableDictionary *lecturemoved = [lecturesalt  objectAtIndex:sourceIndexPath.row ];
     
     
-    }
+    NSLog(@"%@",[lecturemoved objectForKey:@"title"]);
+    
+    
+    //lecture in richtigen Semester speichern
+    NSMutableDictionary *semesterneu =  [self.semestersdicView objectForKey:[NSString stringWithFormat:@"%i", levelIntdest ]];
+    NSMutableArray *lecturesneu = [semesterneu objectForKey:@"lectures"];
+    [lecturesneu insertObject:lecturemoved atIndex:destinationIndexPath.row];
+    //[lecturesneu addObject:lecturemoved];
+    
+    //alten platz löschen
+    [lecturesalt removeObjectAtIndex:sourceIndexPath.row];
+    
+    NSLog(@"Lectures ALT!!!!!!!!!!!!!!!! %@", lecturesalt);
+    NSMutableDictionary *semester =  [self.semestersdicView objectForKey:[NSString stringWithFormat:@"%i", levelIntdest ]];
+    NSMutableArray *lectures = [semester objectForKey:@"lectures"];
+    NSLog(@"Lectures NEU!!!!!!!!!!!!!!!! %@", lectures);
+        NSLog(@"Lectures NEU!!!!!!!!!!!!!!!! %@", lecturesneu);
+    
+    //write data into plist ***important***
+    [self.semestersdicView writeToFile:self.plistLocation atomically: YES];
+    
+    [self.tableView reloadData];
+    [tableView endUpdates];
+    
+    
+}
 
 - (NSIndexPath *)tableView:(UITableView *)tableView
 targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
@@ -415,7 +387,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     //popover
     
     DetailPopoverViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"popover"];
-    
+    viewController.delegate = self;
     NSInteger levelInt = indexPath.section +1;
     NSString *level = [NSString stringWithFormat:@"%i", levelInt];
     NSMutableDictionary *semesterDic = [self.semestersdicView objectForKey:level];
@@ -423,58 +395,13 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     NSMutableDictionary *lectureDic = [lecturesArray objectAtIndex:[indexPath row]];
     NSString *title = [lectureDic objectForKey:@"title"];
 
-    /*NSString *title;
-     title
-    switch (indexPath.section) {
-        case 0:
-            title =[arry1 objectAtIndex:[indexPath row]][@"lecture"];
-            break;
-        case 1:
-            title =[arry2 objectAtIndex:[indexPath row]][@"lecture"];
-                        break;
-        case 2:
-            title=[arry3 objectAtIndex:[indexPath row]][@"lecture"];
-                       break;
-        case 3:
-            title =[arry4 objectAtIndex:[indexPath row]][@"lecture"];
-                        break;
-        case 4:
-            title=[arry5 objectAtIndex:[indexPath row]][@"lecture"];
-                       break;
-        case 5:
-            title=[arry6 objectAtIndex:[indexPath row]][@"lecture"];
-           break;
-        case 6:
-            title =[arry7 objectAtIndex:[indexPath row]][@"lecture"];
-            break;
-        case 7:
-            title =[arry8 objectAtIndex:[indexPath row]][@"lecture"];
-            break;
-        case 8:
-            title=[arry9 objectAtIndex:[indexPath row]][@"lecture"];
-            break;
-        default:break;
-    }
-    */
+
     
     title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     if([title isEqualToString: @"Seminar zu ausgewählten Themen der Informatik"]){
         
-        PopoverTable *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"table"];
-        viewController.title = nil;
-        viewController.titleString = title;
-        //e[viewController.titleLabel setText:title];
-        
-        FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:viewController];
-        
-        popover.tint = FPPopoverDefaultTint;
-        popover.border = YES;
-        //popover.tint = FPPopoverWhiteTint;
-        
-        popover.contentSize = CGSizeMake(290, 380);
-        
-        popover.arrowDirection = FPPopoverNoArrow;
-        [popover presentPopoverFromPoint: CGPointMake(self.view.center.x, self.view.center.y - 20 - popover.contentSize.height/2) ];
+        [self performSegueWithIdentifier:@"options" sender:self];
+
         return;
         
     }
@@ -483,31 +410,56 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     viewController.titleString = title;
      //e[viewController.titleLabel setText:title];
      
-     FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:viewController];
-     
+     popover = [[FPPopoverController alloc] initWithViewController:viewController];
+     popover.delegate = self;
      popover.tint = FPPopoverDefaultTint;
      popover.border = YES;
      //popover.tint = FPPopoverWhiteTint;
-     
+    
      popover.contentSize = CGSizeMake(290, 380);
      
      popover.arrowDirection = FPPopoverNoArrow;
      [popover presentPopoverFromPoint: CGPointMake(self.view.center.x, self.view.center.y - 20 - popover.contentSize.height/2) ];
-     
+    [self.tableView reloadData];
+     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-- (IBAction)Edit:(id)sender {
+- (void) dismissPopover
+{
+    [self.tableView reloadData];
+    [popover dismissPopoverAnimated:YES];
+}
+
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     
-    if(self.editing)
+    if ([segue.identifier isEqualToString:@"options"])
     {
-        [super setEditing:NO animated:NO];
-       
+        NSIndexPath *selectedRowIndex = [self.tableView indexPathForSelectedRow];
+        NSInteger levelInt = selectedRowIndex.section +1;
+        NSString *level = [NSString stringWithFormat:@"%i", levelInt];
+        NSMutableDictionary *semesterDic = [self.semestersdicView objectForKey:level];
+        NSMutableArray *lecturesArray = [semesterDic objectForKey:@"lectures"];
+        NSMutableDictionary *lectureDic = [lecturesArray objectAtIndex: selectedRowIndex.row];
+        NSString *title = [lectureDic objectForKey:@"title"];
+        title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        
+        PopoverTable *viewController = segue.destinationViewController;
+        title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        viewController.titleString = title;
+
     }
-    else
-    {
+}
+
+
+- (IBAction)Edit:(id)sender {
+
+    
         [super setEditing:YES animated:YES];
         
-    }
+    
 }
 - (void)showResetMenu:(UILongPressGestureRecognizer *)gestureRecognizer{
     //if(self.editing)
@@ -521,201 +473,20 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     //self.button2.backgroundColor = (UIColor *)[ UIImage imageNamed:@"icon 6.png"];
     // }
 }
-- (void)fetchEntries
-{
-    // Create a new data container for the stuff that comes back from the service
-    xmlData = [[NSMutableData alloc] init];
+
+
+- (IBAction)menubtn:(id)sender {
+    if(self.menu.hidden ==YES){
+        self.menu.hidden = NO;}
+    else{self.menu .hidden =YES;}
     
-    // Construct a URL that will ask the service for what you want -
-    // note we can concatenate literal strings together on multiple
-    // lines in this way - this results in a single NSString instance
-    NSURL *url = [NSURL URLWithString:@"http://www.medien.ifi.lmu.de/studierende/semesterplanung/bachelor/mediengestaltung/index.xhtml.de"];
+  [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];
+   self.bt = (UIButton *)sender;
+    self.bt.selected = !self.bt.selected;
+   }
+- (IBAction)Save:(id)sender {
     
-    
-    
-    // For Apple's Hot News feed, replace the line above with
-    // NSURL *url = [NSURL URLWithString:@"http://www.apple.com/pr/feeds/pr.rss"];
-    
-    // Put that URL into an NSURLRequest
-    NSURLRequest *req = [NSURLRequest requestWithURL:url];
-    
-    // Create a connection that will exchange this request for data from the URL
-    connection = [[NSURLConnection alloc] initWithRequest:req
-                                                 delegate:self
-                                         startImmediately:YES];
+     [super setEditing:NO animated:NO];
+    self.menu.hidden = YES;
 }
-
-- (void)connection:(NSURLConnection *)conn didReceiveData:(NSData *)data
-{
-    // Add the incoming chunk of data to the container we are keeping
-    // The data always comes in the correct order
-    [xmlData appendData:data];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)conn
-{
-    // Create the parser object with the data received from the web service
-    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:xmlData];
-    
-    // Give it a delegate
-    [parser setDelegate:self];
-    
-    // Tell it to start parsing - the document will be parsed and
-    // the delegate of NSXMLParser will get all of its delegate messages
-    // sent to it before this line finishes execution - it is blocking
-    [parser parse];
-    
-    [self createPList];
-    
-    // Get rid of the XML data as we no longer need it
-    xmlData = nil;
-    
-    // Get rid of the connection, no longer need it
-    connection = nil;
-    
-    // Reload the table.. for now, the table will be empty.
-    //[[self tableView] reloadData];
-    
-    //NSLog(@"%@\n %@\n %@\n", channel, [channel title], [channel infoString]);
-}
-
-- (void)connection:(NSURLConnection *)conn
-  didFailWithError:(NSError *)error
-{
-    // Release the connection object, we're done with it
-    connection = nil;
-    
-    // Release the xmlData object, we're done with it
-    xmlData = nil;
-    
-    // Grab the description of the error object passed to us
-    NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
-                             [error localizedDescription]];
-    
-    // Create and show an alert view with this error displayed
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                 message:errorString
-                                                delegate:nil
-                                       cancelButtonTitle:@"OK"
-                                       otherButtonTitles:nil];
-    [av show];
-}
-
-
-- (void)parser:(NSXMLParser *)parser
-didStartElement:(NSString *)elementName
-  namespaceURI:(NSString *)namespaceURI
- qualifiedName:(NSString *)qualifiedName
-    attributes:(NSDictionary *)attributeDict
-{
-    //[self.tmp setString:@""];
-    self.tmp = [[NSMutableString alloc] init];
-    
-    if ([elementName isEqual:@"h2"]) {
-        
-        
-        for (int i = 1; i<7; i++) {
-            
-            NSString *idAttr = @"id";
-            
-            //wir prüfen auf ids, da hier unsere semester beginnen
-            NSString *idIs = [attributeDict objectForKey:idAttr];
-            
-            if ([idIs isEqual:[NSString stringWithFormat:@"id-%i.-semester", i ]]) {
-                
-                /*
-                 Semester *s_local = [[Semester alloc] init];
-                 s_local.level = i;
-                 s_local.lectures = [[NSMutableDictionary alloc]init];
-                 */
-                
-                NSMutableDictionary *semesterNew = [[NSMutableDictionary alloc] init];
-                
-                NSMutableArray *lectures = [[NSMutableArray alloc] init];
-                [semesterNew setObject:lectures forKey:@"lectures"];
-                
-                [self.semestersdicParser setObject: semesterNew forKey:[NSString stringWithFormat:@"%i", i]];
-                self.level = i;
-                
-                /*
-                 //in unser dictionary werden mit Semester gefüllt, die wiederum arrays sind
-                 [self.semestersdic setObject: s_local forKey:[NSString stringWithFormat:@"%i", s_local.level]];
-                 self.level = i;
-                 */
-            }
-        }
-    }
-    
-    if ([elementName isEqual:@"tr"]) {
-        if (attributeDict.count <1) {
-            self.tr = true;
-            self.td = 1;
-        }
-    }
-    
-    if ([elementName isEqual:@"td"]) {
-        self.inTd = true;
-    }
-}
-
-- (void) parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
-    [self.tmp appendString:string];
-}
-
--(void) parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
-    
-    
-    if (self.inTd) {
-        if (self.td == 1) {
-            
-            self.currentLecture1 = [[NSMutableDictionary alloc] init];
-            [self.currentLecture1 setObject:self.tmp forKey:@"title"];
-            self.td++;
-            
-            /*
-             self.currentLecture = [[Lecture alloc] init];
-             self.currentLecture.title = self.tmp;
-             self.td++;
-             */
-        }
-        else if (self.td == 2){
-            [self.currentLecture1 setObject:self.tmp forKey:@"kind"];
-            //self.currentLecture.kind = self.tmp;
-            self.td++;
-        }
-        else if (self.td == 3){
-            //self.currentLecture.sws = self.tmp;
-            [self.currentLecture1 setObject:self.tmp forKey:@"sws"];
-            self.td++;
-        }
-        else if (self.td == 4) {
-            //self.currentLecture.ects = self.tmp;
-            [self.currentLecture1 setObject:self.tmp forKey:@"ects"];
-            
-            /*
-             //semester objekt anhand von dic erstellt aber hier sitzt doch nur ein array
-             Semester *semester = [self.semestersdic objectForKey:[NSString stringWithFormat:@"%i",self.level]];
-             [semester.lectures setObject:self.currentLecture forKey:self.currentLecture.title];
-             */
-            self.td = 0;
-            self.inTd = false;
-            
-            NSMutableDictionary *currentSemester = [self.semestersdicParser objectForKey:[NSString stringWithFormat:@"%i",self.level]];
-            NSMutableArray *currentLectures = [currentSemester objectForKey:@"lectures"];
-            [currentLectures addObject:self.currentLecture1];
-            
-            
-            
-            
-            NSLog(@"Im Semester: %i", self.level );
-            NSLog(@"TITEL: %@", [self.currentLecture1 objectForKey:@"title"]);
-            
-            NSLog(@"SWS: %@",  [self.currentLecture1 objectForKey:@"sws"]);
-            NSLog(@"KIND: %@",  [self.currentLecture1 objectForKey:@"kind"]);
-            
-        }
-    }
-}
-
-
-@end;
+@end

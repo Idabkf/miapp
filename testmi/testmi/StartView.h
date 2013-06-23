@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
 #define FachComponent 0
 #define SemesterComponent 1
 
@@ -21,5 +22,6 @@
 @property (strong, nonatomic) NSDictionary *list;
 @property (strong, nonatomic) NSMutableArray *semester;
 @property (strong, nonatomic) NSMutableArray *fach;
+@property (weak, nonatomic) IBOutlet UIImageView *lmu;
 
 @end
