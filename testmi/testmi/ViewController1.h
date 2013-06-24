@@ -35,6 +35,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 - (void) dismissPopover;
+- (void) updatePlist;
 
 @property (weak, nonatomic) IBOutlet UIView *menu;
 

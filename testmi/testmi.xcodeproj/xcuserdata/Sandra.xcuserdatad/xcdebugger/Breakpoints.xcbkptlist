@@ -21,12 +21,64 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController2.m"
-         timestampString = "393595456.73348"
+         timestampString = "393777132.795802"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "220"
-         endingLineNumber = "220"
-         landmarkName = "-tableView:moveRowAtIndexPath:toIndexPath:"
+         startingLineNumber = "304"
+         endingLineNumber = "304"
+         landmarkName = "-calculateAverageOfGrades"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "testmi/ViewController2.m"
+         timestampString = "393777132.795802"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "305"
+         endingLineNumber = "305"
+         landmarkName = "-calculateAverageOfGrades"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "testmi/ViewController2.m"
+         timestampString = "393777132.795802"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "307"
+         endingLineNumber = "307"
+         landmarkName = "-calculateAverageOfGrades"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "testmi/ViewController2.m"
+         timestampString = "393777132.795802"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "308"
+         endingLineNumber = "308"
+         landmarkName = "-calculateAverageOfGrades"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "testmi/ViewController2.m"
+         timestampString = "393777132.795802"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "320"
+         endingLineNumber = "320"
+         landmarkName = "-calculateAverageOfGrades"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

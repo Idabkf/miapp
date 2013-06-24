@@ -30,7 +30,7 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)updatePlist
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -43,6 +43,11 @@
                                                     mutabilityOption:NSPropertyListMutableContainersAndLeaves
                                                     format:&format
                                                     errorDescription:&errorDesc];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self updatePlist];
 }
 
 - (void)viewDidLoad
@@ -177,6 +182,10 @@
     
     //self.tableView.backgroundColor = [UIColor clearColor];
     
+    [self updatePlist];
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResetMenu:)];
+    [cell addGestureRecognizer:longPressGesture];
+    
     NSInteger levelInt = indexPath.section +1;
     NSString *level = [NSString stringWithFormat:@"%i", levelInt];
     NSMutableDictionary *semesterDic = [self.semestersdicView objectForKey:level];
@@ -185,7 +194,7 @@
     NSString *title = [lectureDic objectForKey:@"title"];
     cell.textLabel.text = title;
     cell.textLabel.font = [UIFont fontWithName:@"AppleGothic" size:16.0];
-    
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
 
     if([[lectureDic objectForKey:@"passed"] isEqualToString:@"YES"]){
        // cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
@@ -422,7 +431,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
      popover.arrowDirection = FPPopoverNoArrow;
      [popover presentPopoverFromPoint: CGPointMake(self.view.center.x, self.view.center.y - 20 - popover.contentSize.height/2) ];
     [self.tableView reloadData];
-     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 - (void) dismissPopover
