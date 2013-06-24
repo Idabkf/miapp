@@ -183,6 +183,8 @@
     //self.tableView.backgroundColor = [UIColor clearColor];
     
     [self updatePlist];
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResetMenu:)];
+    [cell addGestureRecognizer:longPressGesture];
     
     NSInteger levelInt = indexPath.section +1;
     NSString *level = [NSString stringWithFormat:@"%i", levelInt];
@@ -192,7 +194,7 @@
     NSString *title = [lectureDic objectForKey:@"title"];
     cell.textLabel.text = title;
     cell.textLabel.font = [UIFont fontWithName:@"AppleGothic" size:16.0];
-    
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
 
     if([[lectureDic objectForKey:@"passed"] isEqualToString:@"YES"]){
        // cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];

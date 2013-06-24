@@ -203,22 +203,50 @@ self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:
     }
     cell.opaque = NO;
     NSArray *lectures = [GradesAndLectures objectForKey:[gradeArray objectAtIndex:indexPath.section]];
+    
+
 
     cell.textLabel.text = [lectures objectAtIndex:indexPath.row][@"title"];
-
+    cell.textLabel.font = [UIFont fontWithName:@"AppleGothic" size:16.0];
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    
     if(![[lectures objectAtIndex:indexPath.row][@"otherGrade"] isEqualToString:@""] &&self.alternativeGrades){
-        cell.contentView.backgroundColor=[UIColor lightGrayColor];
-        cell.textLabel.backgroundColor = [UIColor lightGrayColor];
+        //  cell.contentView.backgroundColor=[UIColor lightGrayColor];
+        cell.backgroundColor=[UIColor colorWithRed:(2554.0/255.0) green:(069.0/255.0) blue:(000.0/255.0) alpha:.4];
+        cell.textLabel.backgroundColor = [UIColor clearColor];
+        //  cell.textLabel.backgroundColor = [UIColor lightGrayColor];
     }else {
         //cell.contentView.backgroundColor=[UIColor whiteColor];
         //cell.textLabel.backgroundColor = [UIColor whiteColor];
         
-       
-        cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.4];
+        
+        cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.05];
         cell.textLabel.backgroundColor = [UIColor clearColor];
     }
     
     return cell;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView* myView = [[UIView alloc] init];
+    myView.backgroundColor = [UIColor clearColor];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 8, 220, 22)];
+    titleLabel.textColor=[UIColor whiteColor];
+    titleLabel.backgroundColor = [UIColor clearColor];
+    titleLabel.font = [UIFont fontWithName:@"Georgia" size:20.0];
+    // titleLabel.font = [UIFont boldSystemFontOfSize:20.0];
+    
+    titleLabel.text =[gradeArray objectAtIndex:section];
+    
+    
+    [myView addSubview:titleLabel];
+    
+    
+    return myView;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 35.0;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{

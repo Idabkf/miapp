@@ -27,11 +27,11 @@
     self.tmp = [[NSMutableString alloc] init];
     
     self.semestersdicParser = [[NSMutableDictionary alloc] init];
-
+    
     [self fetchEntries];
-
+    
     [NSThread sleepForTimeInterval:2];
-  //  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    //  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = mainViewController;
     
 }else{
@@ -220,11 +220,23 @@ didStartElement:(NSString *)elementName
                 [self.semestersdicParser setObject: semesterNew forKey:[NSString stringWithFormat:@"%i", i]];
                 self.level = i;
                 
-                /*
-                 //in unser dictionary werden mit Semester gefüllt, die wiederum arrays sind
-                 [self.semestersdic setObject: s_local forKey:[NSString stringWithFormat:@"%i", s_local.level]];
-                 self.level = i;
-                 */
+                
+                if (i==6) {
+                    for (int k = 7; k<10; k++) {
+                        
+                        
+                        
+                        NSMutableDictionary *semesterNew = [[NSMutableDictionary alloc] init];
+                        
+                        NSMutableArray *lectures = [[NSMutableArray alloc] init];
+                        [semesterNew setObject:lectures forKey:@"lectures"];
+                        
+                        [self.semestersdicParser setObject: semesterNew forKey:[NSString stringWithFormat:@"%i", k]];
+                        //self.level = k;
+                    }
+                    
+                }
+                
             }
         }
     }
@@ -312,7 +324,7 @@ didStartElement:(NSString *)elementName
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
