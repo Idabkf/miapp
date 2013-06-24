@@ -117,13 +117,21 @@
                     [lecturesArray1 removeObject:[lecturesArray objectAtIndex:i]];
                 }
                 
+                if( ![[lecturesArray objectAtIndex:i] [@"grade"] isEqualToString:@""] &&
+                   [[lecturesArray objectAtIndex:i] [@"otherGrade"] isEqualToString: [lecturesArray objectAtIndex:i] [@"grade"]])
+                {
+                    
+                    [[lecturesArray objectAtIndex:i] setObject: @"" forKey:@"otherGrade"];
+                }
+                
 
                 
             }
         }
     }
-   
-    self.averageLabel.text =  [NSString stringWithFormat: @"Dein Schnitt: %@", [self calculateAverageOfGrades]];
+    
+    self.averageLabel.text =  [[NSString alloc] initWithFormat:
+                               @"Dein Schnitt: %.2f",[[self calculateAverageOfGrades] floatValue]];
     [self.tableView reloadData];
     
 }
