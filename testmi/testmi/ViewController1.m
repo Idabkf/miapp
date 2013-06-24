@@ -405,7 +405,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
      popover = [[FPPopoverController alloc] initWithViewController:viewController];
      popover.delegate = self;
      popover.tint = FPPopoverDefaultTint;
-     popover.border = YES;
+     popover.border = NO;
      //popover.tint = FPPopoverWhiteTint;
     
      popover.contentSize = CGSizeMake(290, 380);
