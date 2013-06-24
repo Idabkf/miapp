@@ -20,6 +20,7 @@
 @property (nonatomic, assign) BOOL alternativeGrades;
 @property (nonatomic, strong) NSArray *gradeArray;
 @property (nonatomic, strong) NSMutableDictionary *GradesAndLectures;
+@property (weak, nonatomic) IBOutlet UILabel *averageLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *edit;
 - (IBAction)Edit:(id)sender;

@@ -30,7 +30,7 @@
     return self;
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)updatePlist
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -43,6 +43,11 @@
                                                     mutabilityOption:NSPropertyListMutableContainersAndLeaves
                                                     format:&format
                                                     errorDescription:&errorDesc];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self updatePlist];
 }
 
 - (void)viewDidLoad
@@ -176,6 +181,8 @@
     cell.opaque = NO;
     
     //self.tableView.backgroundColor = [UIColor clearColor];
+    
+    [self updatePlist];
     
     NSInteger levelInt = indexPath.section +1;
     NSString *level = [NSString stringWithFormat:@"%i", levelInt];
@@ -422,7 +429,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
      popover.arrowDirection = FPPopoverNoArrow;
      [popover presentPopoverFromPoint: CGPointMake(self.view.center.x, self.view.center.y - 20 - popover.contentSize.height/2) ];
     [self.tableView reloadData];
-     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 - (void) dismissPopover

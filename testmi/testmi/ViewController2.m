@@ -38,7 +38,7 @@
 
 - (void) updateTable
 {
-    
+
     //get data of plist
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -123,7 +123,7 @@
         }
     }
    
-    
+    self.averageLabel.text =  [NSString stringWithFormat: @"Dein Schnitt: %@", [self calculateAverageOfGrades]];
     [self.tableView reloadData];
     
 }
@@ -141,6 +141,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"will appear");
     [self updateTable];
 }
 
@@ -272,6 +273,56 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     [self updateTable];
     [tableView endUpdates];
     
+}
+
+- (NSDecimalNumber *) calculateAverageOfGrades
+{
+    NSDecimalNumber *ectsSum = [[NSDecimalNumber alloc]initWithString: @"0.00"];
+    NSDecimalNumber *sum = [[NSDecimalNumber alloc]initWithString: @"0.00"];
+    NSDecimalNumber *average = [[NSDecimalNumber alloc]initWithString: @"0.00"];
+    
+    
+    //iterate all semesters
+    for(id key in semestersdicView){
+        
+        NSMutableDictionary *semester = semestersdicView[key];
+        NSMutableArray *lecturesArray = [semester objectForKey:@"lectures"];
+        
+        //iterate all lectures
+        for(int i= 0; i < lecturesArray.count; i++){
+            if(![[lecturesArray objectAtIndex:i] [@"grade"] isEqualToString: @""]){
+                
+                NSString *ects = [lecturesArray objectAtIndex:i] [@"ects"];
+                ects = [ects stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                ects = [NSString stringWithFormat: @"%@.00", ects];
+                NSLog(@"%@", ects);
+                
+                NSString *grade = [lecturesArray objectAtIndex:i] [@"grade"];
+                grade = [grade stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                grade = [NSString stringWithFormat: @"%@0", grade];
+                
+                NSDecimalNumber *ectsNumber = [[NSDecimalNumber alloc]initWithString: ects];
+                NSDecimalNumber *gradeNumber = [[NSDecimalNumber alloc]initWithString: grade];
+                
+                ectsSum = [ectsSum decimalNumberByAdding: ectsNumber];
+                sum =[sum decimalNumberByAdding:[gradeNumber decimalNumberByMultiplyingBy:ectsNumber]];
+                
+                
+
+            }
+        }
+        
+    }
+    
+    NSLog(@"ectsSum: %@", ectsSum.stringValue);
+    if(![ectsSum.stringValue isEqualToString:@"0"]){
+        NSLog(@"ectssum not null");
+    average = [sum decimalNumberByDividingBy:ectsSum];
+    }
+    
+    NSLog(@"AVERAGE: %@", average);
+    
+    return average;
 }
 
 
