@@ -183,8 +183,11 @@
     //self.tableView.backgroundColor = [UIColor clearColor];
     
     [self updatePlist];
+<<<<<<< HEAD
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResetMenu:)];
     [cell addGestureRecognizer:longPressGesture];
+=======
+>>>>>>> 36b20c930d578f9ebcc065f849c88f5a9d88617d
     
     NSInteger levelInt = indexPath.section +1;
     NSString *level = [NSString stringWithFormat:@"%i", levelInt];
