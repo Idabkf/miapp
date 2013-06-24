@@ -33,6 +33,7 @@
 //-(void)createPList;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabelBig;
 
 - (void) dismissPopover;
 - (void) updatePlist;

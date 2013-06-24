@@ -14,6 +14,9 @@
 }
 
 @property (nonatomic,retain) IBOutlet UISwitch *toggleSwitch;
+@property (weak, nonatomic) IBOutlet UIButton *calcBtn;
+- (IBAction)setCalculation:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *calcLabel;
 
 -(IBAction) switchValueChanged;
 @property NSMutableDictionary *semestersdicView;

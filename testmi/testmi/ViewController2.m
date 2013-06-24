@@ -7,6 +7,7 @@
 //
 
 #import "ViewController2.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ViewController2 ()
 
@@ -24,14 +25,31 @@
     return self;
 }
 
--(IBAction) switchValueChanged{
-    if (toggleSwitch.on) {
+- (IBAction)setCalculation:(id)sender {
+    
+    if (self.calcBtn.selected) {
         [self setAlternativeGrades:YES];
         [self updateTable];
+        self.calcLabel.text = @"Echte Noten?";
     } else {
         [self setAlternativeGrades:NO];
         [self updateTable];
+        self.calcLabel.text = @"Verbessern?";
     }
+    
+    self.calcBtn.selected = !self.calcBtn.selected;
+    
+}
+
+- (IBAction)setc:(id)sender {
+    if(self.menu.hidden ==YES){
+        self.menu.hidden = NO;}
+    else{self.menu .hidden =YES;}
+    
+    [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];
+    self.bt = (UIButton *)sender;
+    self.bt.selected = !self.bt.selected;
+    
 }
 
 
@@ -149,17 +167,25 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"will appear");
     [self updateTable];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.alternativeGrades = NO;
+    self.calcBtn.selected = YES;
+    self.menu.backgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
     self.menu.hidden= YES;
 
     [self updateTable];
     //self.tableView.backgroundColor=[UIColor colorWithRed:(155.0/255.0) green:(205.0/255.0) blue:(155.0/255.0) alpha:.5];
+    self.averageLabel.font = [UIFont fontWithName:@"AppleGothic" size:19.0];
+    self.averageLabel.layer.cornerRadius = 8;
+    self.averageLabel.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.averageLabel.layer.borderWidth = 1.0;
+    self.averageLabel.font = [UIFont fontWithName:@"AppleGothic" size:21.0];
 
 self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
     // Uncomment the following line to preserve selection between presentations.
@@ -304,8 +330,11 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
     [self.semestersdicView writeToFile:plistLocation atomically: YES];
 
-    self.alternativeGrades = YES;
-    [self.toggleSwitch setOn:YES];
+
+    self.calcBtn.selected = NO;
+    [self setAlternativeGrades:YES];
+    self.calcLabel.text = @"Echte Noten?";
+    
     [self updateTable];
     [tableView endUpdates];
     
@@ -331,9 +360,16 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
                 NSString *ects = [lecturesArray objectAtIndex:i] [@"ects"];
                 ects = [ects stringByReplacingOccurrencesOfString:@"\n" withString:@""];
                 ects = [NSString stringWithFormat: @"%@.00", ects];
-                NSLog(@"%@", ects);
+                                
+                NSString *grade = @"";
+                grade = [lecturesArray objectAtIndex:i] [@"grade"];
                 
-                NSString *grade = [lecturesArray objectAtIndex:i] [@"grade"];
+                //calculate average with other grades
+                if( ![[lecturesArray objectAtIndex:i] [@"otherGrade"] isEqualToString:@""] &&
+                   self.alternativeGrades){
+                    grade = [lecturesArray objectAtIndex:i] [@"otherGrade"];
+                }
+                
                 grade = [grade stringByReplacingOccurrencesOfString:@"\n" withString:@""];
                 grade = [NSString stringWithFormat: @"%@0", grade];
                 
@@ -350,13 +386,14 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         
     }
     
-    NSLog(@"ectsSum: %@", ectsSum.stringValue);
     if(![ectsSum.stringValue isEqualToString:@"0"]){
-        NSLog(@"ectssum not null");
+        
+    //********** Mülltonnen regel nicht vergessen!! ***********
+        
+    //NSDecimalNumber *bestOf = [[NSDecimalNumber alloc]initWithString: @"0.00"];
     average = [sum decimalNumberByDividingBy:ectsSum];
     }
-    
-    NSLog(@"AVERAGE: %@", average);
+
     
     return average;
 }

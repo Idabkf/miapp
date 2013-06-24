@@ -13,7 +13,7 @@
 @end
 
 @implementation DetailPopoverViewController
-@synthesize semestersdicView, picker, gradeArray, noGradeArray, titleString, delegate;
+@synthesize semestersdicView, picker, gradeArray, noGradeArray, titleLabel, titleString, delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,7 +32,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"grey.jpg"] ];
+    self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.backgroundColor = [UIColor clearColor];
+    self.titleLabel.font = [UIFont fontWithName:@"AppleGothic" size:18.0];
+    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];

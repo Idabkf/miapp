@@ -54,10 +54,30 @@
 {
     [super viewDidLoad];
     
+    self.menu.backgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
     self.menu.hidden = YES;
     NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+    
+    if([[mydefault stringForKey:@"AF"] isEqualToString: @"KW"]){
+        self.titleLabelBig.text = @"Medienwirkung";
+    }
+    if([[mydefault stringForKey:@"AF"] isEqualToString: @"MMI"]){
+        self.titleLabelBig.text = @"Mensch-Maschine- Interaktion";
+    }
+    if([[mydefault stringForKey:@"AF"] isEqualToString: @"MG"]){
+        self.titleLabelBig.text = @"Mediengestaltung";
+    }
+    if([[mydefault stringForKey:@"AF"] isEqualToString: @"BWL"]){
+        self.titleLabelBig.text = @"Medienwirtschaft";
+    }
+    self.titleLabelBig.font = [UIFont fontWithName:@"AppleGothic" size:19.0];
+    self.titleLabelBig.layer.cornerRadius = 8;
+    self.titleLabelBig.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.titleLabelBig.layer.borderWidth = 1.0;
     self.titleLabel1 .text = [mydefault stringForKey:@"AF"];
-    self.titleLabel.text = [mydefault stringForKey:@"SA"];
+    self.titleLabel.text = [NSString stringWithFormat:@"%@. Semester", [mydefault stringForKey:@"SA"]];
+    
+    
 
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResetMenu:)];
     [self.view addGestureRecognizer:longPressGesture];
@@ -212,81 +232,43 @@
     return cell;
 }
 
-/*- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-   // return @"semester";
-    switch (section) {
-        case 0:
-            return @"Semster 1";
-            break;
-        case 1:
-            return @"Semster 2";
-            break;
-        case 2:
-            return @"Semster 3";
-            break;
-        case 3:
-            return @"Semster 4";
-            break;
-        case 4:
-            return @"Semster 5";
-            break;
-        case 5:
-            return @"Semster 6";
-            break;
-        case 6:
-            return @"Semster 7";
-            break;
-        case 7:
-            return @"Semster 8";
-            break;
-        case 8:
-            return @"Semster 9";
-            break;
-                default:
-            break;
-    }
-}*/
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView* myView = [[UIView alloc] init];
     myView.backgroundColor = [UIColor clearColor];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 220, 25)];
-    titleLabel.textColor=[UIColor colorWithRed:(47.0/255.0) green:(47.0/255.0) blue:(47.0/255.0) alpha:1];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 300, 25)];
+    //titleLabel.textColor=[UIColor colorWithRed:(47.0/255.0) green:(47.0/255.0) blue:(47.0/255.0) alpha:1];
+    titleLabel.textColor = [UIColor whiteColor];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.font = [UIFont fontWithName:@"Georgia" size:20.0];
    // titleLabel.font = [UIFont boldSystemFontOfSize:20.0];
     
-    if (section == 0){
-        titleLabel.text =@"Semster 1";
+    NSInteger levelInt = section +1;
+    NSString *level = [NSString stringWithFormat:@"%i", levelInt];
+    NSMutableDictionary *semesterDic = [self.semestersdicView objectForKey:level];
+    NSMutableArray *lecturesArray = [semesterDic objectForKey:@"lectures"];
+    
+    NSDecimalNumber *ectsSum = [[NSDecimalNumber alloc]initWithString: @"0.00"];
+    
+        //iterate all lectures
+        for(int i= 0; i < lecturesArray.count; i++){
+                
+                NSString *ects = [lecturesArray objectAtIndex:i] [@"ects"];
+                ects = [ects stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                ects = [NSString stringWithFormat: @"%@.00", ects];
+                
+                NSDecimalNumber *ectsNumber = [[NSDecimalNumber alloc]initWithString: ects];
+                
+                ectsSum = [ectsSum decimalNumberByAdding: ectsNumber];
+       
+        
     }
-    else if (section == 1)
-    {
-        titleLabel.text = @"Semster 2";
-    }
-    if (section == 2){
-        titleLabel.text =@"Semster 3";
-    }
-    if (section == 3){
-        titleLabel.text =@"Semster 4";
-    }
-    if (section == 4){
-        titleLabel.text =@"Semster 5";
-    }
-    if (section == 5){
-        titleLabel.text =@"Semster 6";
-    }
-    if (section == 6){
-        titleLabel.text =@"Semster 7";
-    }
-    if (section == 7){
-        titleLabel.text =@"Semster 8";
-    }
-    if (section == 8){
-        titleLabel.text =@"Semster 9";
-    }
-
-
-           [myView addSubview:titleLabel];
+    
+    NSString *semester = [NSString stringWithFormat:@"Semester %i                       %2i ECTS", section+1, [ectsSum intValue]];
+    
+    titleLabel.text =semester;
+    [myView addSubview:titleLabel];
      
     
     return myView;
