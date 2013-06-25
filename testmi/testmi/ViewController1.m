@@ -80,6 +80,11 @@
     
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResetMenu:)];
+    [self.view addGestureRecognizer:longPressGesture];
+>>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
 =======
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResetMenu:)];
     [self.view addGestureRecognizer:longPressGesture];
