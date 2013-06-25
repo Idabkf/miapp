@@ -29,14 +29,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+<<<<<<< HEAD
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
     self.titleLabel.text = self.titleString;
+=======
+>>>>>>> 097e67fa89ed0d72bf6d2c0b6dee32a37aa899f0
     NSString *path= [[NSBundle mainBundle] pathForResource:@"optionsList" ofType:@"plist"];
     plist = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
     lectures = plist [titleString];
     
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+    self.titleLabel.text = self.titleString;
+   // self.TextField.frame = CGRectMake(0, 245, 300, 20);
+    self.TextField.hidden = YES;
+    self.save.hidden = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -54,14 +62,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
+
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
+
     // Return the number of rows in the section.
     return [lectures count] ;
 }
@@ -153,4 +161,69 @@
     
 }
 
+- (IBAction)addAction:(id)sender {
+    [self.TextField.layer setCornerRadius:10];
+    self.TextField.hidden = NO;
+    self.TextField.frame = CGRectMake(5, 245, 312, 32);
+   // UIButton *save = [[UIButton alloc]initWithFrame:CGRectMake(260, 245, 20, 32)];
+    //self.save.frame =CGRectMake(260, 245, 20, 32) ;
+
+    self.save.hidden = NO;
+   // [self.save setBackgroundImage:[UIImage imageNamed:@"icon6.png" ]forState:UIControlStateSelected] ;
+    // self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+    self.TextField.textColor = [UIColor blackColor];
+    
+    self.TextField.font = [UIFont fontWithName:@"AppleGothic" size:18.0];
+    
+    self.TextField.delegate = self;
+    
+    self.TextField.backgroundColor = [UIColor whiteColor];
+    
+    
+    self.TextField.returnKeyType = UIReturnKeyDefault;
+    
+    //self.TextView.keyboardType = UIKeyboardAppearanceDefault;
+    
+    self.TextField.scrollEnabled = YES;
+    self.TextField.text = @"";
+    
+    
+    self.TextField.autoresizingMask = UIViewAutoresizingFlexibleHeight;
+    
+    [self.TextField becomeFirstResponder];
+
+}
+#pragma mark - UITextView Delegate Methods
+
+-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+
+{
+    
+    if ([text isEqualToString:@"\n"]) {
+        
+        [textView resignFirstResponder];
+        
+        
+        
+        return NO;
+        
+    }
+    
+    
+    return YES;
+    
+}
+- (IBAction)SaveAction:(id)sender {
+    //self.save .hidden = NO;
+     NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+    NSString *text =self.TextField.text;
+    [mydefault setObject:text forKey:@"Newtext"];
+    [mydefault synchronize];
+    NSString *a = [mydefault objectForKey:@"Newtext"];
+    NSLog(@"%@",a);
+    self.TextField.hidden = YES;
+    self.save .hidden =YES;
+    
+    
+}
 @end
