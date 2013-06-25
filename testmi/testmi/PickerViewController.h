@@ -22,10 +22,12 @@
 - (IBAction)SelectAction:(id)sender;
 - (IBAction)SpeicherAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *speicher;
-@property (weak, nonatomic) IBOutlet UILabel *FachField;
-@property (weak, nonatomic) IBOutlet UILabel *SemesterField;
+//@property (weak, nonatomic) IBOutlet UILabel *FachField;
+//@property (weak, nonatomic) IBOutlet UILabel *SemesterField;
 
 @property (strong, nonatomic) UIWindow *window;
+@property (weak, nonatomic) IBOutlet UITextField *FachField;
 
+@property (weak, nonatomic) IBOutlet UITextField *SemesterField;
 
 @end

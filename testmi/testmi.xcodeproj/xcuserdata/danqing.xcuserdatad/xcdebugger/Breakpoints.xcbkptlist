@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-         timestampString = "393629455.74655"
+         timestampString = "393810404.631683"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "80"
-         endingLineNumber = "80"
+         startingLineNumber = "81"
+         endingLineNumber = "81"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,27 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-<<<<<<< HEAD
-<<<<<<< HEAD
          timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "402"
          endingLineNumber = "402"
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "403"
-         endingLineNumber = "403"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "403"
-         endingLineNumber = "403"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -50,27 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-<<<<<<< HEAD
-<<<<<<< HEAD
          timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "298"
          endingLineNumber = "298"
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "299"
-         endingLineNumber = "299"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "299"
-         endingLineNumber = "299"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
          landmarkName = "@implementation ViewController1"
          landmarkType = "3">
       </FileBreakpoint>
@@ -79,27 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-<<<<<<< HEAD
-<<<<<<< HEAD
          timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "297"
          endingLineNumber = "297"
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "298"
-         endingLineNumber = "298"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "298"
-         endingLineNumber = "298"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
          landmarkName = "@implementation ViewController1"
          landmarkType = "3">
       </FileBreakpoint>
@@ -108,27 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-<<<<<<< HEAD
-<<<<<<< HEAD
          timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "300"
          endingLineNumber = "300"
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "301"
-         endingLineNumber = "301"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "301"
-         endingLineNumber = "301"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
          landmarkName = "@implementation ViewController1"
          landmarkType = "3">
       </FileBreakpoint>
@@ -137,27 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-<<<<<<< HEAD
-<<<<<<< HEAD
          timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "207"
          endingLineNumber = "207"
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "208"
-         endingLineNumber = "208"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "208"
-         endingLineNumber = "208"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -166,27 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-<<<<<<< HEAD
-<<<<<<< HEAD
          timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "207"
          endingLineNumber = "207"
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "208"
-         endingLineNumber = "208"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "208"
-         endingLineNumber = "208"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -195,27 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-<<<<<<< HEAD
-<<<<<<< HEAD
          timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "209"
          endingLineNumber = "209"
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "210"
-         endingLineNumber = "210"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "210"
-         endingLineNumber = "210"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -224,27 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-<<<<<<< HEAD
-<<<<<<< HEAD
          timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "208"
          endingLineNumber = "208"
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "209"
-         endingLineNumber = "209"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "209"
-         endingLineNumber = "209"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -253,30 +125,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-<<<<<<< HEAD
-<<<<<<< HEAD
          timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "420"
          endingLineNumber = "420"
          landmarkName = "-dismissPopover"
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "421"
-         endingLineNumber = "421"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "421"
-         endingLineNumber = "421"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -284,30 +138,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-<<<<<<< HEAD
-<<<<<<< HEAD
          timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "419"
          endingLineNumber = "419"
          landmarkName = "-dismissPopover"
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "420"
-         endingLineNumber = "420"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
-=======
-         timestampString = "393777863.845521"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "420"
-         endingLineNumber = "420"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -326,11 +162,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/PickerViewController.m"
-         timestampString = "393188808.665668"
+         timestampString = "393811968.529579"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "207"
-         endingLineNumber = "207"
+         startingLineNumber = "211"
+         endingLineNumber = "211"
          landmarkName = "-pickerView:didSelectRow:inComponent:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -339,8 +175,6 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-<<<<<<< HEAD
-<<<<<<< HEAD
          timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
@@ -353,17 +187,11 @@
          continueAfterRunningActions = "No"
          filePath = "testmi/PickerViewController.m"
          timestampString = "393811968.529579"
-=======
-         timestampString = "393777863.845521"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
-=======
-         timestampString = "393777863.845521"
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "498"
-         endingLineNumber = "498"
-         landmarkName = "-menubtn:"
+         startingLineNumber = "234"
+         endingLineNumber = "234"
+         landmarkName = "-textFieldDidBeginEditing:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

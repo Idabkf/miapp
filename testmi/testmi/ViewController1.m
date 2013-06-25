@@ -70,6 +70,7 @@
     if([[mydefault stringForKey:@"AF"] isEqualToString: @"BWL"]){
         self.titleLabelBig.text = @"Medienwirtschaft";
     }
+    
     self.titleLabelBig.font = [UIFont fontWithName:@"AppleGothic" size:19.0];
     self.titleLabelBig.layer.cornerRadius = 8;
     self.titleLabelBig.layer.borderColor = [UIColor whiteColor].CGColor;
@@ -79,16 +80,6 @@
     
     
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResetMenu:)];
-    [self.view addGestureRecognizer:longPressGesture];
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
-=======
-    UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResetMenu:)];
-    [self.view addGestureRecognizer:longPressGesture];
->>>>>>> 4cfbe21fd1db5d3cce6b66775ebac2e063dc3d49
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -147,6 +138,7 @@
 {
     [tableView setEditing:YES animated:YES];
     return UITableViewCellEditingStyleDelete;
+    //return UITableViewCellEditingStyleNone;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -412,7 +404,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
      popover = [[FPPopoverController alloc] initWithViewController:viewController];
      popover.delegate = self;
      popover.tint = FPPopoverDefaultTint;
-     popover.border = NO;
+     popover.border = YES;
      //popover.tint = FPPopoverWhiteTint;
     
      popover.contentSize = CGSizeMake(290, 380);

@@ -35,7 +35,29 @@ NSString *semesteranzahl;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	self.picker.frame = CGRectMake(0, 480, 320, 260);
+    self.Titel.backgroundColor = [UIColor clearColor];
+	
+    //self.Welcome.frame = CGRectMake(10, 20, 0, 0);
+   // CGContextRef context = UIGraphicsGetCurrentContext();
+   // [UIView beginAnimations:nil context:context];
+    //[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    //[UIView setAnimationDuration:1];
+    //[self.view exchangeSubviewAtIndex:0 withSubviewAtIndex:1];
+     //self.Welcome.frame = CGRectMake(0,0, 10, 20);
+    
+   self.Titel.frame = CGRectMake(480, 10, 0, 0);
+    CGContextRef context1 = UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context1];
+   [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:2];
+    [self.view exchangeSubviewAtIndex:1 withSubviewAtIndex:2];
+    self.Titel.frame = CGRectMake(245,20, 10, 20);
+    
+    [UIView setAnimationDelegate:self];
+    
+    // [UIView setAnimationDidStopSelector:@selector(animationFinished)];
+    [UIView commitAnimations];
+
         
     /*NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
      Fachlabel.text = [mydefault stringForKey:@"AF"];

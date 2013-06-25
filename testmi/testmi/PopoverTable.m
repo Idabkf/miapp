@@ -142,7 +142,7 @@
     FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:viewController];
     
     popover.tint = FPPopoverDefaultTint;
-    popover.border = NO;
+    popover.border = YES;
     //popover.tint = FPPopoverWhiteTint;
     
     popover.contentSize = CGSizeMake(290, 380);
