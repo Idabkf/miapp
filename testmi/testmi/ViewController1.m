@@ -58,6 +58,8 @@
     self.menu.hidden = YES;
     
     self.titleLabelBig.font = [UIFont fontWithName:@"AppleGothic" size:21.0];
+    self.titleLabelBig.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
+    
     NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
     
     if([[mydefault stringForKey:@"AF"] isEqualToString: @"KW"]){
@@ -224,7 +226,7 @@
         cell.backgroundColor = [UIColor colorWithRed:(102.0/255.0) green:(205.0/255.0) blue:(170.0/255.0) alpha:.5];
          cell.textLabel.backgroundColor = [UIColor clearColor];
     } else {
-        cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.05];
+        cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
         //cell.backgroundColor = [UIColor clearColor];
 
         cell.textLabel.backgroundColor = [UIColor clearColor];

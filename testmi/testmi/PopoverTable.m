@@ -29,18 +29,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-<<<<<<< HEAD
+
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
     self.titleLabel.text = self.titleString;
-=======
->>>>>>> 097e67fa89ed0d72bf6d2c0b6dee32a37aa899f0
+
     NSString *path= [[NSBundle mainBundle] pathForResource:@"optionsList" ofType:@"plist"];
     plist = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
     lectures = plist [titleString];
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+
     self.titleLabel.text = self.titleString;
    // self.TextField.frame = CGRectMake(0, 245, 300, 20);
     self.TextField.hidden = YES;
@@ -86,7 +84,7 @@
     }
      cell.opaque = NO;
     cell.textLabel.text = [lectures objectAtIndex:[indexPath row]][@"lecture"];
-    cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.05];
+    cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
     cell.textLabel.backgroundColor = [UIColor clearColor];
 
     

@@ -899,8 +899,7 @@
         <image name="plus.png" width="128" height="128"/>
         <image name="upArrow1.png" width="22" height="15"/>
     </resources>
-<<<<<<< HEAD
-=======
+
     <classes>
         <class className="DetailPopoverViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailPopoverViewController.h"/>
@@ -983,7 +982,7 @@
             </relationships>
         </class>
     </classes>
->>>>>>> 097e67fa89ed0d72bf6d2c0b6dee32a37aa899f0
+
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
