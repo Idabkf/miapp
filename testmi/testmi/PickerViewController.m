@@ -67,6 +67,35 @@ NSString *semesteranzahl;
     
     picker.hidden = YES;
     
+    NSUserDefaults *mydefaut = [NSUserDefaults standardUserDefaults];
+    int number = [mydefaut integerForKey:@"Bild"];
+    
+    if (number == 1) {
+        self.yes1.hidden = NO;
+        self.yes2.hidden = YES;
+        self.yes3.hidden = YES;
+    }
+    
+    else if (number == 2){
+        self.yes1.hidden = YES;
+        self.yes2.hidden = NO;
+        self.yes3.hidden = YES;
+    }
+    
+    else if (number == 3){
+        self.yes1.hidden = YES;
+        self.yes2.hidden = YES;
+        self.yes3.hidden = NO;
+    }
+    else if (number == 0){
+        self.yes1.hidden = YES;
+        self.yes2.hidden = NO;
+        self.yes3.hidden = YES;
+    }
+
+       
+    
+    
    // [self.view addSubview:picker];
     FachField.backgroundColor = [UIColor whiteColor];
     SemesterField.backgroundColor = [UIColor whiteColor];
@@ -117,8 +146,11 @@ NSString *semesteranzahl;
    // NSString *afach= [self.fach objectAtIndex:fachRow];
     //NSString *asemester = [self.semester objectAtIndex:cemestRow];
     NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+   
+     [mydefault setInteger:self.d forKey:@"Bild"];
     NSString *fach1 = [mydefault stringForKey:@"AF"];
     NSString *sem = [mydefault stringForKey:@"SA"];
+   
     
     NSString *title = [[NSString alloc] initWithFormat:@"Anwndungsfach:%@", fach1];
     NSString *message = [[NSString alloc] initWithFormat:@"%@Semester", sem];
@@ -242,4 +274,31 @@ NSString *semesteranzahl;
 
 
 
+- (IBAction)wood:(id)sender {
+    self.d = 2;
+    self.yes1.hidden = YES;
+    self.yes2.hidden = NO;
+    self.yes3.hidden = YES;
+   // NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+    // [mydefault setInteger:self.d forKey:@"Bild"];
+    }
+
+- (IBAction)green:(id)sender {
+    self.d = 1;
+    self.yes1.hidden = NO;
+    self.yes2.hidden = YES;
+    self.yes3.hidden = YES;
+  //  NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+   // [mydefault setInteger: self.d forKey:@"Bild"];
+
+}
+- (IBAction)Card:(id)sender {
+    self.d = 3;
+    self.yes1.hidden = YES;
+    self.yes2.hidden = YES;
+    self.yes3.hidden = NO;
+  //  NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+   // [mydefault setInteger:self.d forKey:@"Bild"];
+
+}
 @end

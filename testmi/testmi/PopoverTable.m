@@ -29,11 +29,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    
+    //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
+    self.titleLabel.text = self.titleString;
+
     NSString *path= [[NSBundle mainBundle] pathForResource:@"optionsList" ofType:@"plist"];
     plist = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
     lectures = plist [titleString];
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+
     self.titleLabel.text = self.titleString;
    // self.TextField.frame = CGRectMake(0, 245, 300, 20);
     self.TextField.hidden = YES;
@@ -43,6 +48,28 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+    NSUserDefaults *mydefaut = [NSUserDefaults standardUserDefaults];
+    int number = [mydefaut integerForKey:@"Bild"];
+    NSLog(@"%d",number);
+    if (number == 1) {
+        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+            }
+    
+    else if (number == 2){
+        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
+       
+        
+    }
+    
+    else if (number == 3){
+        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"card.jpg"] ];
+    }
+    else if (number == 0){
+        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,7 +106,7 @@
     }
      cell.opaque = NO;
     cell.textLabel.text = [lectures objectAtIndex:[indexPath row]][@"lecture"];
-    cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.05];
+    cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
     cell.textLabel.backgroundColor = [UIColor clearColor];
 
     
@@ -144,7 +171,7 @@
     FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:viewController];
     
     popover.tint = FPPopoverDefaultTint;
-    popover.border = YES;
+    popover.border = NO;
     //popover.tint = FPPopoverWhiteTint;
     
     popover.contentSize = CGSizeMake(290, 380);

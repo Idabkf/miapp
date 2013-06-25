@@ -26,7 +26,17 @@
 
 @property (strong, nonatomic) UIWindow *window;
 @property (weak, nonatomic) IBOutlet UITextField *FachField;
+@property (weak, nonatomic) IBOutlet UIImageView *yes3;
 
+@property (weak, nonatomic) IBOutlet UIImageView *yes2;
+- (IBAction)Card:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *cardbt;
+- (IBAction)wood:(id)sender;
+- (IBAction)green:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *SemesterField;
+@property (weak, nonatomic) IBOutlet UIButton *woodbt;
+@property (weak, nonatomic) IBOutlet UIImageView *yes1;
+@property (weak, nonatomic) IBOutlet UIButton *greenbt;
+@property int d;
 
 @end

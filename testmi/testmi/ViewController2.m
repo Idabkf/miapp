@@ -181,18 +181,44 @@
 
     [self updateTable];
     //self.tableView.backgroundColor=[UIColor colorWithRed:(155.0/255.0) green:(205.0/255.0) blue:(155.0/255.0) alpha:.5];
-    self.averageLabel.font = [UIFont fontWithName:@"AppleGothic" size:19.0];
     self.averageLabel.layer.cornerRadius = 8;
     self.averageLabel.layer.borderColor = [UIColor whiteColor].CGColor;
     self.averageLabel.layer.borderWidth = 1.0;
+    self.averageLabel.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
     self.averageLabel.font = [UIFont fontWithName:@"AppleGothic" size:21.0];
 
-self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+  //  self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+   // self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"woood1.jpg"] ];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
+    
+    NSUserDefaults *mydefaut = [NSUserDefaults standardUserDefaults];
+    int number = [mydefaut integerForKey:@"Bild"];
+   
+    if (number == 1) {
+        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+           }
+    
+    else if (number == 2){
+        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
+     
+        
+    }
+    
+    else if (number == 3){
+        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"card.jpg"] ];
+    }
+
+    else if (number == 0){
+        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
+    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -245,8 +271,7 @@ self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:
         //cell.contentView.backgroundColor=[UIColor whiteColor];
         //cell.textLabel.backgroundColor = [UIColor whiteColor];
         
-        
-        cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.05];
+        cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
         cell.textLabel.backgroundColor = [UIColor clearColor];
     }
     
