@@ -80,8 +80,6 @@
     
     
 
-   /* UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResetMenu:)];
-    [self.view addGestureRecognizer:longPressGesture];*/
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -101,8 +99,7 @@
                                              errorDescription:&errorDesc];
     
     
-  //  self.tableView.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"background1.jpg"] ];
-   // self.tableView.backgroundColor = [UIColor clearColor];
+ 
     self.title = @"Semester Plan";
     
     //UIBarButtonItem *left=[[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStyleBordered target:self action:@selector(edit)];

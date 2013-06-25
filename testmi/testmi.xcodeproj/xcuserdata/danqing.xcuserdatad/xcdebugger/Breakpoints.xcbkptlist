@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-         timestampString = "393810866.628216"
+         timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "405"
-         endingLineNumber = "405"
+         startingLineNumber = "402"
+         endingLineNumber = "402"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-         timestampString = "393810866.628216"
+         timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "301"
-         endingLineNumber = "301"
+         startingLineNumber = "298"
+         endingLineNumber = "298"
          landmarkName = "@implementation ViewController1"
          landmarkType = "3">
       </FileBreakpoint>
@@ -47,7 +47,20 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-         timestampString = "393810866.628216"
+         timestampString = "393832978.002536"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "297"
+         endingLineNumber = "297"
+         landmarkName = "@implementation ViewController1"
+         landmarkType = "3">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "testmi/ViewController1.m"
+         timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "300"
@@ -60,24 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-         timestampString = "393810866.628216"
+         timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "303"
-         endingLineNumber = "303"
-         landmarkName = "@implementation ViewController1"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "testmi/ViewController1.m"
-         timestampString = "393810866.628216"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "210"
-         endingLineNumber = "210"
+         startingLineNumber = "207"
+         endingLineNumber = "207"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-         timestampString = "393810866.628216"
+         timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "210"
-         endingLineNumber = "210"
+         startingLineNumber = "207"
+         endingLineNumber = "207"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-         timestampString = "393810866.628216"
+         timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "212"
-         endingLineNumber = "212"
+         startingLineNumber = "209"
+         endingLineNumber = "209"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-         timestampString = "393810866.628216"
+         timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "211"
-         endingLineNumber = "211"
+         startingLineNumber = "208"
+         endingLineNumber = "208"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -125,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-         timestampString = "393810866.628216"
+         timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "423"
-         endingLineNumber = "423"
+         startingLineNumber = "420"
+         endingLineNumber = "420"
          landmarkName = "-dismissPopover"
          landmarkType = "5">
       </FileBreakpoint>
@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-         timestampString = "393810866.628216"
+         timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "422"
-         endingLineNumber = "422"
+         startingLineNumber = "419"
+         endingLineNumber = "419"
          landmarkName = "-dismissPopover"
          landmarkType = "5">
       </FileBreakpoint>
@@ -175,11 +175,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "testmi/ViewController1.m"
-         timestampString = "393810866.628216"
+         timestampString = "393832978.002536"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "500"
-         endingLineNumber = "500">
+         startingLineNumber = "497"
+         endingLineNumber = "497">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
