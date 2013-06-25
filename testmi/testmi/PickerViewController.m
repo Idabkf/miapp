@@ -9,7 +9,7 @@
 #import "PickerViewController.h"
 #import "ViewController1.h"
 
-@interface PickerViewController ()<UIAlertViewDelegate,UITextFieldDelegate>
+@interface PickerViewController ()<UIAlertViewDelegate> 
 
 @end
 
@@ -18,7 +18,7 @@
 @synthesize list;
 @synthesize semester;
 @synthesize fach;
-//@synthesize select;
+@synthesize select;
 @synthesize speicher,SemesterField,FachField;
 NSString *adfach;
 NSString *semesteranzahl;
@@ -36,10 +36,6 @@ NSString *semesteranzahl;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"grey.jpg"] ];
-    FachField.delegate=self;
-    SemesterField.delegate = self;
    
     self.picker.frame = CGRectMake(0, 480, 320, 260);
     NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
@@ -47,13 +43,13 @@ NSString *semesteranzahl;
     SemesterField.text = [mydefault stringForKey:@"SA"];
     
     fach  = [[NSMutableArray alloc] init];
-   // [fach addObject:@"Fach"];
+    [fach addObject:@"Fach"];
     [fach addObject:@"KW"];
     [fach addObject:@"MMI"];
     [fach addObject:@"MG"];
     [fach addObject:@"BWL"];
     semester  = [[NSMutableArray alloc] init];
-   // [semester addObject:@"Semester"];
+    [semester addObject:@"Semester"];
     [semester addObject:@"1"];
     [semester addObject:@"2"];
     [semester addObject:@"3"];
@@ -91,7 +87,7 @@ NSString *semesteranzahl;
     // Dispose of any resources that can be recreated.
 }
 
-/*- (IBAction)SelectAction:(id)sender {
+- (IBAction)SelectAction:(id)sender {
     picker.hidden = NO;
     
     CGContextRef context = UIGraphicsGetCurrentContext();
@@ -105,7 +101,7 @@ NSString *semesteranzahl;
     
    // [UIView setAnimationDidStopSelector:@selector(animationFinished)];
     [UIView commitAnimations];
-}*/
+}
 
 
 - (IBAction)SpeicherAction:(id)sender {
@@ -219,24 +215,6 @@ NSString *semesteranzahl;
     }
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    // Show UIPickerView
-    
-    return YES;
-}
-
-- (void)textFieldDidBeginEditing:(UITextField *)myTextField{
-    
-    [myTextField resignFirstResponder];
-    
-    picker.hidden = NO;
-    FachField.inputView = picker;
-    SemesterField.inputView = picker;
-    
-    
-    
-    
-}
 
 
 
