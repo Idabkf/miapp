@@ -56,13 +56,17 @@
     
     self.menu.backgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
     self.menu.hidden = YES;
+    
+    self.titleLabelBig.font = [UIFont fontWithName:@"AppleGothic" size:21.0];
     NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
     
     if([[mydefault stringForKey:@"AF"] isEqualToString: @"KW"]){
         self.titleLabelBig.text = @"Medienwirkung";
     }
     if([[mydefault stringForKey:@"AF"] isEqualToString: @"MMI"]){
-        self.titleLabelBig.text = @"Mensch-Maschine- Interaktion";
+        
+        self.titleLabelBig.font = [UIFont fontWithName:@"AppleGothic" size:17.0];
+        self.titleLabelBig.text = @"Mensch-Maschine-Interaktion";
     }
     if([[mydefault stringForKey:@"AF"] isEqualToString: @"MG"]){
         self.titleLabelBig.text = @"Mediengestaltung";
@@ -71,7 +75,6 @@
         self.titleLabelBig.text = @"Medienwirtschaft";
     }
     
-    self.titleLabelBig.font = [UIFont fontWithName:@"AppleGothic" size:19.0];
     self.titleLabelBig.layer.cornerRadius = 8;
     self.titleLabelBig.layer.borderColor = [UIColor whiteColor].CGColor;
     self.titleLabelBig.layer.borderWidth = 1.0;
@@ -120,7 +123,8 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 //- (void)tableViewEdit:(id)sender{
   //  [self.tableView setEditing:YES animated:YES];
-   self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+   //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+   self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
     //self.tableView.backgroundColor=[UIColor colorWithRed:(155.0/255.0) green:(205.0/255.0) blue:(155.0/255.0) alpha:.5];
 }
 
@@ -199,7 +203,7 @@
     cell.showsReorderControl =YES;
     cell.opaque = NO;
     
-    //self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundColor = [UIColor clearColor];
     
     [self updatePlist];
     UILongPressGestureRecognizer *longPressGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showResetMenu:)];
@@ -234,6 +238,8 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    
+    
     UIView* myView = [[UIView alloc] init];
     myView.backgroundColor = [UIColor clearColor];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 300, 25)];
@@ -404,7 +410,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
      popover = [[FPPopoverController alloc] initWithViewController:viewController];
      popover.delegate = self;
      popover.tint = FPPopoverDefaultTint;
-     popover.border = YES;
+     popover.border = NO;
      //popover.tint = FPPopoverWhiteTint;
     
      popover.contentSize = CGSizeMake(290, 380);

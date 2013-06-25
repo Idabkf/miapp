@@ -46,6 +46,7 @@
 		24E1A3A0176BE9AB00250DC8 /* icon6.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E1A39F176BE9AB00250DC8 /* icon6.png */; };
 		24E1A3A3176BEA0A00250DC8 /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E1A3A2176BEA0A00250DC8 /* StartView.m */; };
 		24E1A3A5176BF50400250DC8 /* icon7.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E1A3A4176BF50400250DC8 /* icon7.png */; };
+		B61F1476177A1F180019A45F /* wood1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B61F1475177A1F180019A45F /* wood1.jpg */; };
 		B69DBFFD1778C69900398A73 /* caculator1.png in Resources */ = {isa = PBXBuildFile; fileRef = B69DBFFC1778C69900398A73 /* caculator1.png */; };
 		B69DBFFF1778CA4500398A73 /* forward.png in Resources */ = {isa = PBXBuildFile; fileRef = B69DBFFE1778CA4100398A73 /* forward.png */; };
 		B69DC0011778CFFB00398A73 /* grey.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B69DC0001778CFF800398A73 /* grey.jpg */; };
@@ -72,7 +73,7 @@
 /* Begin PBXFileReference section */
 		245017661777144C00F31A87 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		245017671777144C00F31A87 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
-		245BDEDA177702520030253C /* caculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caculator.png; sourceTree = "<group>"; };
+		245BDEDA177702520030253C /* caculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = caculator.png; path = ../testmi/caculator.png; sourceTree = "<group>"; };
 		245BDEDB177702520030253C /* edit1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit1.png; sourceTree = "<group>"; };
 		2475D57F17766833009B3D44 /* pic1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic1.jpg; sourceTree = "<group>"; };
 		2475D58117766B41009B3D44 /* pic3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pic3.jpg; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 		24E1A3A1176BEA0A00250DC8 /* StartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartView.h; sourceTree = "<group>"; };
 		24E1A3A2176BEA0A00250DC8 /* StartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartView.m; sourceTree = "<group>"; };
 		24E1A3A4176BF50400250DC8 /* icon7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon7.png; sourceTree = "<group>"; };
+		B61F1475177A1F180019A45F /* wood1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wood1.jpg; sourceTree = "<group>"; };
 		B69DBFFC1778C69900398A73 /* caculator1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caculator1.png; sourceTree = "<group>"; };
 		B69DBFFE1778CA4100398A73 /* forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward.png; sourceTree = "<group>"; };
 		B69DC0001778CFF800398A73 /* grey.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = grey.jpg; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 		2493AE8D17653DAD007EAC2E /* testmi */ = {
 			isa = PBXGroup;
 			children = (
+				B61F1475177A1F180019A45F /* wood1.jpg */,
 				B69DC0001778CFF800398A73 /* grey.jpg */,
 				B69DBFFE1778CA4100398A73 /* forward.png */,
 				B69DBFFC1778C69900398A73 /* caculator1.png */,
@@ -204,7 +207,6 @@
 				24AA07B217763A7B008849BD /* icon9.png */,
 				24AA07B317763A7B008849BD /* icon10.png */,
 				24D085F317764F8C00323F59 /* upArrow1.png */,
-				245BDEDA177702520030253C /* caculator.png */,
 				245BDEDB177702520030253C /* edit1.png */,
 				24AA0788177614F2008849BD /* upArrow.png */,
 				248A4C0D1768C6720089623A /* textedit.png */,
@@ -278,6 +280,7 @@
 		B6AB541C1769F2ED002166BA /* Popover */ = {
 			isa = PBXGroup;
 			children = (
+				245BDEDA177702520030253C /* caculator.png */,
 				B6AB5436176B6C00002166BA /* ARCMacros.h */,
 				B6AB5438176B6C07002166BA /* FPPopover.h */,
 				B6AB541F1769F2ED002166BA /* FPPopover.m */,
@@ -387,6 +390,7 @@
 				B69DBFFD1778C69900398A73 /* caculator1.png in Resources */,
 				B69DBFFF1778CA4500398A73 /* forward.png in Resources */,
 				B69DC0011778CFFB00398A73 /* grey.jpg in Resources */,
+				B61F1476177A1F180019A45F /* wood1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

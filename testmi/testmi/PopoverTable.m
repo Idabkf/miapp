@@ -31,6 +31,7 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
     self.titleLabel.text = self.titleString;
     NSString *path= [[NSBundle mainBundle] pathForResource:@"optionsList" ofType:@"plist"];
     plist = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
@@ -142,7 +143,7 @@
     FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:viewController];
     
     popover.tint = FPPopoverDefaultTint;
-    popover.border = YES;
+    popover.border = NO;
     //popover.tint = FPPopoverWhiteTint;
     
     popover.contentSize = CGSizeMake(290, 380);

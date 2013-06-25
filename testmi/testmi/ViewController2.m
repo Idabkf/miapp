@@ -181,13 +181,13 @@
 
     [self updateTable];
     //self.tableView.backgroundColor=[UIColor colorWithRed:(155.0/255.0) green:(205.0/255.0) blue:(155.0/255.0) alpha:.5];
-    self.averageLabel.font = [UIFont fontWithName:@"AppleGothic" size:19.0];
     self.averageLabel.layer.cornerRadius = 8;
     self.averageLabel.layer.borderColor = [UIColor whiteColor].CGColor;
     self.averageLabel.layer.borderWidth = 1.0;
     self.averageLabel.font = [UIFont fontWithName:@"AppleGothic" size:21.0];
 
-self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"woood1.jpg"] ];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
