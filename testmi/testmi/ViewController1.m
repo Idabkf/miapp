@@ -70,7 +70,10 @@
     if([[mydefault stringForKey:@"AF"] isEqualToString: @"BWL"]){
         self.titleLabelBig.text = @"Medienwirtschaft";
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> 97e2d5399231b7f522fe8d4fa27ce2be31ed9068
     self.titleLabelBig.font = [UIFont fontWithName:@"AppleGothic" size:19.0];
     self.titleLabelBig.layer.cornerRadius = 8;
     self.titleLabelBig.layer.borderColor = [UIColor whiteColor].CGColor;
