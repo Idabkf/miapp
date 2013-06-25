@@ -18,6 +18,8 @@
 //- (IBAction)SelectAction:(id)sender;
 
 - (IBAction)StartAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *Titel;
+@property (weak, nonatomic) IBOutlet UILabel *Welcome;
 
 @property (strong, nonatomic) NSDictionary *list;
 @property (strong, nonatomic) NSMutableArray *semester;
