@@ -398,10 +398,7 @@
 				B69DC0011778CFFB00398A73 /* grey.jpg in Resources */,
 				B61F1476177A1F180019A45F /* wood1.jpg in Resources */,
 				B61F1482177A2D4B0019A45F /* card.jpg in Resources */,
-<<<<<<< HEAD
 				2462CCCD177A55200043836E /* yes.png in Resources */,
-=======
->>>>>>> bab3b149a6c01b4be6ad59fbfdd1c77ee1851dc1
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

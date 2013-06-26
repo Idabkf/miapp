@@ -122,7 +122,6 @@
         self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
      
 
-<<<<<<< HEAD
     }
     
     else if (number == 3){
@@ -132,19 +131,6 @@
         self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
     }
    }
-=======
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-//- (void)tableViewEdit:(id)sender{
-  //  [self.tableView setEditing:YES animated:YES];
-   //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
-   self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
-    //self.tableView.backgroundColor=[UIColor colorWithRed:(155.0/255.0) green:(205.0/255.0) blue:(155.0/255.0) alpha:.5];
-}
->>>>>>> bab3b149a6c01b4be6ad59fbfdd1c77ee1851dc1
 
 
 

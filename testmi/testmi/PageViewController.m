@@ -32,7 +32,6 @@
     [super viewDidLoad];
    //  self.view.backgroundColor=[UIColor colorWithRed:(180.0/255.0) green:(205.0/255.0) blue:(180.0/255.0) alpha:.5];
     //self.view.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
-<<<<<<< HEAD
     //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
     //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
     //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
@@ -57,10 +56,6 @@
     else if (number == 0){
         self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
     }
-=======
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
-    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
->>>>>>> bab3b149a6c01b4be6ad59fbfdd1c77ee1851dc1
     
     NSDictionary *options =
     [NSDictionary dictionaryWithObject:
