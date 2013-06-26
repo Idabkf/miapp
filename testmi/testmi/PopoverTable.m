@@ -31,8 +31,13 @@
     [super viewDidLoad];
 
     
+<<<<<<< HEAD
     //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
     //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
+=======
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
+>>>>>>> bab3b149a6c01b4be6ad59fbfdd1c77ee1851dc1
     self.titleLabel.text = self.titleString;
 
     NSString *path= [[NSBundle mainBundle] pathForResource:@"optionsList" ofType:@"plist"];

@@ -1008,6 +1008,93 @@
         <image name="wood1.jpg" width="1440" height="900"/>
         <image name="yes.png" width="64" height="64"/>
     </resources>
+<<<<<<< HEAD
+=======
+
+    <classes>
+        <class className="DetailPopoverViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailPopoverViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveAction:"/>
+                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="save" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="PageViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PageViewController.h"/>
+        </class>
+        <class className="PickerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PickerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="SelectAction:"/>
+                <relationship kind="action" name="SpeicherAction:"/>
+                <relationship kind="outlet" name="FachField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="SemesterField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="select" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="speicher" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="PopoverTable" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PopoverTable.h"/>
+            <relationships>
+                <relationship kind="action" name="SaveAction:"/>
+                <relationship kind="action" name="addAction:"/>
+                <relationship kind="outlet" name="TextField" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="add" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="save" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="StartView" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartView.h"/>
+            <relationships>
+                <relationship kind="action" name="StartAction:"/>
+                <relationship kind="outlet" name="Fachlabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="Semesterlabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="Titel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="Welcome" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lmu" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
+            </relationships>
+        </class>
+        <class className="ViewController1" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController1.h"/>
+            <relationships>
+                <relationship kind="action" name="Edit:"/>
+                <relationship kind="action" name="Save:"/>
+                <relationship kind="action" name="menubtn:"/>
+                <relationship kind="outlet" name="bt" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="edit" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="menu" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabelBig" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ViewController2" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController2.h"/>
+            <relationships>
+                <relationship kind="action" name="Edit:"/>
+                <relationship kind="action" name="menubt:"/>
+                <relationship kind="action" name="setCalculation:"/>
+                <relationship kind="action" name="switchValueChanged"/>
+                <relationship kind="outlet" name="averageLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="bt" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="calcBtn" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="calcLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="edit" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="menu" candidateClass="UIView"/>
+                <relationship kind="outlet" name="toggleSwitch" candidateClass="UISwitch"/>
+            </relationships>
+        </class>
+    </classes>
+
+>>>>>>> bab3b149a6c01b4be6ad59fbfdd1c77ee1851dc1
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

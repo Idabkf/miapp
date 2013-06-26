@@ -187,8 +187,13 @@
     self.averageLabel.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
     self.averageLabel.font = [UIFont fontWithName:@"AppleGothic" size:21.0];
 
+<<<<<<< HEAD
   //  self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
    // self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"woood1.jpg"] ];
+=======
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"woood1.jpg"] ];
+>>>>>>> bab3b149a6c01b4be6ad59fbfdd1c77ee1851dc1
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
