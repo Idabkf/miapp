@@ -70,6 +70,10 @@ NSString *semesteranzahl;
     NSUserDefaults *mydefaut = [NSUserDefaults standardUserDefaults];
     int number = [mydefaut integerForKey:@"Bild"];
     
+    if (number) {
+        self.d = number;
+    }
+    
     if (number == 1) {
         self.yes1.hidden = NO;
         self.yes2.hidden = YES;

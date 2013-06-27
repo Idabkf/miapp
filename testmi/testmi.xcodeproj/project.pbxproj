@@ -47,6 +47,7 @@
 		24E1A3A0176BE9AB00250DC8 /* icon6.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E1A39F176BE9AB00250DC8 /* icon6.png */; };
 		24E1A3A3176BEA0A00250DC8 /* StartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E1A3A2176BEA0A00250DC8 /* StartView.m */; };
 		24E1A3A5176BF50400250DC8 /* icon7.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E1A3A4176BF50400250DC8 /* icon7.png */; };
+		683EA1F4177C948600788D80 /* Ungraded.plist in Resources */ = {isa = PBXBuildFile; fileRef = 683EA1F3177C948600788D80 /* Ungraded.plist */; };
 		B61F1476177A1F180019A45F /* wood1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B61F1475177A1F180019A45F /* wood1.jpg */; };
 		B61F1482177A2D4B0019A45F /* card.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B61F1481177A2D4B0019A45F /* card.jpg */; };
 		B69DBFFD1778C69900398A73 /* caculator1.png in Resources */ = {isa = PBXBuildFile; fileRef = B69DBFFC1778C69900398A73 /* caculator1.png */; };
@@ -122,6 +123,7 @@
 		24E1A3A1176BEA0A00250DC8 /* StartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartView.h; sourceTree = "<group>"; };
 		24E1A3A2176BEA0A00250DC8 /* StartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartView.m; sourceTree = "<group>"; };
 		24E1A3A4176BF50400250DC8 /* icon7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon7.png; sourceTree = "<group>"; };
+		683EA1F3177C948600788D80 /* Ungraded.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Ungraded.plist; sourceTree = "<group>"; };
 		B61F1475177A1F180019A45F /* wood1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wood1.jpg; sourceTree = "<group>"; };
 		B61F1481177A2D4B0019A45F /* card.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = card.jpg; sourceTree = "<group>"; };
 		B69DBFFC1778C69900398A73 /* caculator1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = caculator1.png; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				24E1A39D176BE98B00250DC8 /* lmu.png */,
 				2475D58117766B41009B3D44 /* pic3.jpg */,
 				2493AE9617653DAE007EAC2E /* AppDelegate.h */,
+				683EA1F3177C948600788D80 /* Ungraded.plist */,
 				2493AEB1176545A4007EAC2E /* Blist.plist */,
 				2493AE9717653DAE007EAC2E /* AppDelegate.m */,
 				2493AE9F17653DAF007EAC2E /* MainStoryboard.storyboard */,
@@ -399,6 +402,7 @@
 				B61F1476177A1F180019A45F /* wood1.jpg in Resources */,
 				B61F1482177A2D4B0019A45F /* card.jpg in Resources */,
 				2462CCCD177A55200043836E /* yes.png in Resources */,
+				683EA1F4177C948600788D80 /* Ungraded.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
