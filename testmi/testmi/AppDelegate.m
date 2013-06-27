@@ -251,6 +251,9 @@ didStartElement:(NSString *)elementName
     if ([elementName isEqual:@"td"]) {
         self.inTd = true;
     }
+    if ([elementName isEqual:@"a"]) {
+        self.inA = true;
+    }
 }
 
 - (void) parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
@@ -259,6 +262,10 @@ didStartElement:(NSString *)elementName
 
 -(void) parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
     
+    if(self.inA){
+        self.inA = false;
+        return;
+    }
     
     if (self.inTd) {
         if (self.td == 1) {
