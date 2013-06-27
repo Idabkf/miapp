@@ -367,9 +367,24 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 - (NSDecimalNumber *) calculateAverageOfGrades
 {
-    NSDecimalNumber *ectsSum = [[NSDecimalNumber alloc]initWithString: @"0.00"];
+    NSDecimalNumber *ectsSumGr = [[NSDecimalNumber alloc]initWithString: @"0.00"];
+    NSDecimalNumber *ectsSumUngr = [[NSDecimalNumber alloc]initWithString: @"0.00"];
     NSDecimalNumber *sum = [[NSDecimalNumber alloc]initWithString: @"0.00"];
     NSDecimalNumber *average = [[NSDecimalNumber alloc]initWithString: @"0.00"];
+    
+    NSDecimalNumber *zero = [[NSDecimalNumber alloc]initWithString: @"0.00"];
+    
+    NSMutableDictionary *gradesDic = [[NSMutableDictionary alloc] init];
+    [gradesDic setValue:zero forKey:@"1.00"];
+    [gradesDic setValue:zero forKey:@"1.30"];
+    [gradesDic setValue:zero forKey:@"1.70"];
+    [gradesDic setValue:zero forKey:@"2.00"];
+    [gradesDic setValue:zero forKey:@"2.30"];
+    [gradesDic setValue:zero forKey:@"2.70"];
+    [gradesDic setValue:zero forKey:@"3.00"];
+    [gradesDic setValue:zero forKey:@"3.30"];
+    [gradesDic setValue:zero forKey:@"3.70"];
+    [gradesDic setValue:zero forKey:@"4.00"];
     
     
     //iterate all semesters
@@ -377,11 +392,12 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         
         NSMutableDictionary *semester = semestersdicView[key];
         NSMutableArray *lecturesArray = [semester objectForKey:@"lectures"];
-        
+        NSLog(@"LECTURES ARRAY: %@", lecturesArray);
         //iterate all lectures
         for(int i= 0; i < lecturesArray.count; i++){
-            if(![[lecturesArray objectAtIndex:i] [@"grade"] isEqualToString: @""]){
-                
+           
+            if([lecturesArray objectAtIndex:i] [@"grade"] != nil && ![[lecturesArray objectAtIndex:i] [@"grade"] isEqualToString:@""] ){
+    
                 NSString *ects = [lecturesArray objectAtIndex:i] [@"ects"];
                 ects = [ects stringByReplacingOccurrencesOfString:@"\n" withString:@""];
                 ects = [NSString stringWithFormat: @"%@.00", ects];
@@ -399,26 +415,64 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
                 grade = [NSString stringWithFormat: @"%@0", grade];
                 
                 NSDecimalNumber *ectsNumber = [[NSDecimalNumber alloc]initWithString: ects];
-                NSDecimalNumber *gradeNumber = [[NSDecimalNumber alloc]initWithString: grade];
                 
-                ectsSum = [ectsSum decimalNumberByAdding: ectsNumber];
-                sum =[sum decimalNumberByAdding:[gradeNumber decimalNumberByMultiplyingBy:ectsNumber]];
+                NSDecimalNumber *ectsPerGrade = [gradesDic objectForKey:grade];
+                ectsPerGrade = [ectsPerGrade decimalNumberByAdding:ectsNumber];
+                [gradesDic setValue:ectsPerGrade forKey:grade];
                 
                 
-
+                ectsSumGr = [ectsSumGr decimalNumberByAdding: ectsNumber];
+                NSLog(@"LECTURES ARRAY OBJECT AT INDEX: %@", [lecturesArray objectAtIndex:i] [@"grade"]);
+                NSLog(@"GRADE: %@ ECTS: %@ ECTSPERGRADE: %@ ECTSSUM: %@", grade, ects, ectsPerGrade, ectsSumGr);
+            }
+            
+            else if([[lecturesArray objectAtIndex:i] [@"passed"] isEqualToString:@"YES"] ){
+                NSString *ects = [lecturesArray objectAtIndex:i] [@"ects"];
+                ects = [ects stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                ects = [NSString stringWithFormat: @"%@.00", ects];
+                NSDecimalNumber *ectsNumber = [[NSDecimalNumber alloc]initWithString: ects];
+                ectsSumUngr = [ectsSumUngr decimalNumberByAdding: ectsNumber];
             }
         }
         
     }
     
-    if(![ectsSum.stringValue isEqualToString:@"0"]){
+    //********** Mülltonnenregel ***********
+    NSDecimalNumber *ectsSum = [[NSDecimalNumber alloc]initWithString: @"0.00"];
+    ectsSum = [ectsSumUngr decimalNumberByAdding: ectsSumGr];
+    NSDecimalNumber *trash = [ectsSum decimalNumberByDividingBy:[[NSDecimalNumber alloc]initWithString: @"6.00"]];
+    NSLog(@"ECTS SUMGR BEFORE: %@", ectsSumGr);
+    ectsSumGr = [ectsSumGr decimalNumberBySubtracting:trash];
+    NSLog(@"ECTS SUMGR AFTER: %@", ectsSumGr);
+    NSLog(@"TRASH: %@", trash);
+
+    NSArray *sortedKeys = [[gradesDic allKeys] sortedArrayUsingSelector:@selector(compare:)];
+    
+    for (int i = sortedKeys.count-1; i>=0; i--) {
+        NSString *gradeKey = [sortedKeys objectAtIndex:i];
+        NSDecimalNumber *ectsPerGrade = [gradesDic valueForKey:gradeKey];
+        if ([ectsPerGrade compare:trash] == NSOrderedSame || [ectsPerGrade compare:trash] == NSOrderedDescending) {
+            ectsPerGrade = [ectsPerGrade decimalNumberBySubtracting:trash];
+            trash = [[NSDecimalNumber alloc]initWithString: @"0.00"];
+            [gradesDic setValue:ectsPerGrade forKey:gradeKey];
+        }
+        else {
+            trash = [trash decimalNumberBySubtracting:ectsPerGrade];
+            ectsPerGrade = [[NSDecimalNumber alloc]initWithString: @"0.00"];
+            [gradesDic setValue:ectsPerGrade forKey:gradeKey];
+        }
         
-    //********** Mülltonnen regel nicht vergessen!! ***********
+        NSDecimalNumber *gradeNumber = [[NSDecimalNumber alloc]initWithString: gradeKey];
+        NSDecimalNumber *sumTmp = [gradeNumber decimalNumberByMultiplyingBy:ectsPerGrade];
+        sum =[sum decimalNumberByAdding: sumTmp];
+        NSLog(@"SUM-TMP: %@ at grade %@", sumTmp, gradeKey);
+    }
+    
+    if(![ectsSumGr.stringValue isEqualToString:@"0"]){
         
     //NSDecimalNumber *bestOf = [[NSDecimalNumber alloc]initWithString: @"0.00"];
-    average = [sum decimalNumberByDividingBy:ectsSum];
+    average = [sum decimalNumberByDividingBy:ectsSumGr];
     }
-
     
     return average;
 }
