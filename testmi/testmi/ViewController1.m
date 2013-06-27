@@ -341,7 +341,8 @@
     
     
     NSLog(@"%@",[lecturemoved objectForKey:@"title"]);
-    
+    //alten platz löschen
+    [lecturesalt removeObjectAtIndex:sourceIndexPath.row];
     
     //lecture in richtigen Semester speichern
     NSMutableDictionary *semesterneu =  [self.semestersdicView objectForKey:[NSString stringWithFormat:@"%i", levelIntdest ]];
@@ -349,8 +350,7 @@
     [lecturesneu insertObject:lecturemoved atIndex:destinationIndexPath.row];
     //[lecturesneu addObject:lecturemoved];
     
-    //alten platz löschen
-    [lecturesalt removeObjectAtIndex:sourceIndexPath.row];
+    
     
     NSLog(@"Lectures ALT!!!!!!!!!!!!!!!! %@", lecturesalt);
     NSMutableDictionary *semester =  [self.semestersdicView objectForKey:[NSString stringWithFormat:@"%i", levelIntdest ]];
