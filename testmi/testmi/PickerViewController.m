@@ -69,7 +69,6 @@ NSString *semesteranzahl;
     
     NSUserDefaults *mydefaut = [NSUserDefaults standardUserDefaults];
     int number = [mydefaut integerForKey:@"Bild"];
-    
     if (number) {
         self.d = number;
     }
