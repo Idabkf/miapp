@@ -73,6 +73,9 @@
             NSString *title = [[lecturesArray objectAtIndex:i] [@"title"] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
             if([title isEqualToString:titleString]){
                 
+                
+                
+                
                 if([[lecturesArray objectAtIndex:i] [@"grade"]  isEqualToString: [gradeArray objectAtIndex:j]]){
                     [picker selectRow:j inComponent:0 animated:YES];
                 }

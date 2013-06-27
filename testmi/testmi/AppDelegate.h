@@ -22,6 +22,7 @@
 @property BOOL tr;
 @property int td;
 @property BOOL inTd;
+@property BOOL inA;
 @property Lecture *currentLecture;
 @property NSMutableDictionary *currentLecture1;
 @property NSMutableString *tmp;

@@ -30,17 +30,27 @@
 {
     [super viewDidLoad];
 
-    
-    //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
-    //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
-    self.titleLabel.text = self.titleString;
+        self.titleLabel.text = self.titleString;
 
     NSString *path= [[NSBundle mainBundle] pathForResource:@"optionsList" ofType:@"plist"];
     plist = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
-    lectures = plist [titleString];
+   
+    
+    
+    NSArray *templist = [[NSUserDefaults standardUserDefaults] objectForKey:@"newlist"];
+    
+    if (templist) {
+        
+        lectures = [templist mutableCopy];
+        
+    }else {
+        lectures = plist [titleString];
+        
+    }
+
 
     self.titleLabel.text = self.titleString;
-   // self.TextField.frame = CGRectMake(0, 245, 300, 20);
+    self.TextField.backgroundColor = [UIColor whiteColor];
     self.TextField.hidden = YES;
     self.save.hidden = YES;
     // Uncomment the following line to preserve selection between presentations.
@@ -223,7 +233,7 @@
         
         [textView resignFirstResponder];
         
-        
+         self.TextField.frame = CGRectMake(5, 428, 312, 32);
         
         return NO;
         
@@ -238,11 +248,44 @@
      NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
     NSString *text =self.TextField.text;
     [mydefault setObject:text forKey:@"Newtext"];
+    
+    NSString *path= [[NSBundle mainBundle] pathForResource:@"optionsList" ofType:@"plist"];
+    plist = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+    NSMutableDictionary *lnew = [[NSMutableDictionary alloc] init];
+    [lnew setObject:text forKey:@"lecture"];
+    [lnew setObject:@"" forKey:@"grade"];
+    [lnew setObject:@"0" forKey:@"passed"];
+    [lnew setObject:@"3" forKey:@"ects"];
+    lectures = nil;
+    NSArray *templist = [[NSUserDefaults standardUserDefaults] objectForKey:@"newlist"];
+    
+    if (templist) {
+        
+        lectures = [templist mutableCopy];
+        
+    }else {
+        lectures = plist [titleString];
+        
+    }
+    
+    [lectures insertObject:lnew atIndex:[lectures count]];
+    [mydefault setObject:lectures forKey:@"newlist"];
+    
+    [mydefault setInteger:lectures.count forKey:@"newcount"];
     [mydefault synchronize];
-    NSString *a = [mydefault objectForKey:@"Newtext"];
-    NSLog(@"%@",a);
+    
+       NSLog(@"%@",lectures);
+    NSLog(@"%d",lectures.count);
+    
+    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:lectures.count-1 inSection:0];
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]withRowAnimation:UITableViewRowAnimationFade];
+    
+    
     self.TextField.hidden = YES;
+    
     self.save .hidden =YES;
+    
+
     
     
 }
