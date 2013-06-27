@@ -422,7 +422,6 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
                 
                 
                 ectsSumGr = [ectsSumGr decimalNumberByAdding: ectsNumber];
-                NSLog(@"LECTURES ARRAY OBJECT AT INDEX: %@", [lecturesArray objectAtIndex:i] [@"grade"]);
                 NSLog(@"GRADE: %@ ECTS: %@ ECTSPERGRADE: %@ ECTSSUM: %@", grade, ects, ectsPerGrade, ectsSumGr);
             }
             
@@ -440,7 +439,18 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     //********** Mülltonnenregel ***********
     NSDecimalNumber *ectsSum = [[NSDecimalNumber alloc]initWithString: @"0.00"];
     ectsSum = [ectsSumUngr decimalNumberByAdding: ectsSumGr];
+    
+    NSDecimalNumberHandler *mydnh = [[NSDecimalNumberHandler alloc] initWithRoundingMode:NSRoundPlain
+                                                                                   scale:0
+                                                                        raiseOnExactness:NO
+                                                                         raiseOnOverflow:NO
+                                                                        raiseOnUnderflow:NO
+                                                                     raiseOnDivideByZero:NO];
+    
     NSDecimalNumber *trash = [ectsSum decimalNumberByDividingBy:[[NSDecimalNumber alloc]initWithString: @"6.00"]];
+    trash = [trash decimalNumberByRoundingAccordingToBehavior:mydnh];
+    
+    NSLog(@"ECTS SUMSUMSUMSUM: %@", ectsSum);
     NSLog(@"ECTS SUMGR BEFORE: %@", ectsSumGr);
     ectsSumGr = [ectsSumGr decimalNumberBySubtracting:trash];
     NSLog(@"ECTS SUMGR AFTER: %@", ectsSumGr);
