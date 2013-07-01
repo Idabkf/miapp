@@ -113,6 +113,34 @@
      */
 }
 
+- (void) setUngradedLectures{
+    
+    NSString *path= [[NSBundle mainBundle] pathForResource:@"Ungraded" ofType:@"plist"];
+    NSMutableDictionary *ungradedNotesDic = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+    
+    
+    for (int i = 1; i<7; i++) {
+        NSMutableDictionary *currentSemester = [self.semestersdicParser objectForKey:[NSString stringWithFormat:@"%i",i]];
+        NSMutableArray *currentLectures = [currentSemester objectForKey:@"lectures"];
+        
+        for (int i = 0; i<currentLectures.count; i++) {
+            
+            for (int j = 0; j<ungradedNotesDic.count; j++) {
+                NSString *titleUngraded = [ungradedNotesDic objectForKey:[NSString stringWithFormat:@"%i", j]];
+                NSString *titleLecture = [currentLectures objectAtIndex:i] [@"title"];
+                //titleLecture = [titleLecture stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                //NSLog(@"############# TITLE ungraded: %@ and TITLE lecture: %@", title, [currentLectures objectAtIndex:i] [@"title"]);
+                if ([titleLecture hasPrefix:titleUngraded]) {
+                    [[currentLectures objectAtIndex:i] setValue:@"NO" forKey:@"graded"];
+                }
+            }
+        }
+        
+        [currentSemester setValue:currentLectures forKey:@"lectures"];
+        [self.semestersdicParser setValue:currentSemester forKey:[NSString stringWithFormat:@"%i",i]];
+    }
+}
+
 - (void)fetchEntriesWithUrlId:(int) urlId
 {
     // Create a new data container for the stuff that comes back from the service
@@ -169,6 +197,8 @@
     // the delegate of NSXMLParser will get all of its delegate messages
     // sent to it before this line finishes execution - it is blocking
     [parser parse];
+    
+    [self setUngradedLectures];
     
     [self createPList];
     
@@ -325,6 +355,7 @@ didStartElement:(NSString *)elementName
             [self.currentLecture1 setObject:@"" forKey:@"otherGrade"];
             [self.currentLecture1 setObject:@"" forKey:@"tmpTitle"];
             [self.currentLecture1 setObject:@"NO" forKey:@"passed"];
+            [self.currentLecture1 setObject:@"YES" forKey:@"graded"];            
             
             /*
              //semester objekt anhand von dic erstellt aber hier sitzt doch nur ein array

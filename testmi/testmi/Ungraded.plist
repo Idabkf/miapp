@@ -2,7 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>New item</key>
-	<string></string>
+	<key>0</key>
+	<string>Medientechnik</string>
+	<key>1</key>
+	<string>Soziale und persönliche Kompetenz</string>
+	<key>2</key>
+	<string>Ethik und Recht in der Informatik</string>
+	<key>3</key>
+	<string>Projektkompetenz Multimedia</string>
+	<key>4</key>
+	<string>Grundlagen des farbigen Gestaltens in der Fläche</string>
+	<key>5</key>
+	<string>Grundlagen des grafischen Gestaltens in der Fläche</string>
+	<key>6</key>
+	<string>Grundlagen des Multimedialen Gestaltens am Computer I</string>
+	<key>7</key>
+	<string>Concept Development</string>
+	<key>8</key>
+	<string>Zeichnen und Skizzieren von Szenarien</string>
+	<key>9</key>
+	<string>Teilnahme an 3 Nutzerstudien</string>
 </dict>
 </plist>
