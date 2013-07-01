@@ -400,12 +400,10 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     NSMutableArray *lecturesArray = [semesterDic objectForKey:@"lectures"];
     NSMutableDictionary *lectureDic = [lecturesArray objectAtIndex:[indexPath row]];
     NSString *title = [lectureDic objectForKey:@"title"];
-
-
     
     title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     if([title isEqualToString: @"Seminar zu ausgewählten Themen der Informatik"]){
-        
+        self.modulFlag = 0;
         [self performSegueWithIdentifier:@"options" sender:self];
 
         return;
@@ -414,7 +412,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     
     
     if([title isEqualToString: @"Vertiefende Themen der Medieninformatik für Bachelor I"]){
-        
+        self.modulFlag = 1;
         [self performSegueWithIdentifier:@"options" sender:self];
         
         return;
@@ -422,7 +420,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     }
     
     if([title isEqualToString: @"Vertiefende Themen der Medieninformatik für Bachelor II"]){
-        
+        self.modulFlag = 2;
         [self performSegueWithIdentifier:@"options" sender:self];
         
         return;
@@ -432,6 +430,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     
     viewController.title = nil;
     viewController.titleString = title;
+    //viewController.modulFlag = modulFlag;
      //e[viewController.titleLabel setText:title];
      
      popover = [[FPPopoverController alloc] initWithViewController:viewController];
@@ -473,6 +472,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         PopoverTable *viewController = segue.destinationViewController;
         title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         viewController.titleString = title;
+        viewController.modulFlag = self.modulFlag;
 
     }
 }

@@ -32,6 +32,8 @@
 
         self.titleLabel.text = self.titleString;
     NSLog(self.titleLabel.text);
+    
+    NSLog(@"TITLESTRING IN POPOVER TABLE : %@", self.titleString);
 
     NSString *path= [[NSBundle mainBundle] pathForResource:@"optionsList" ofType:@"plist"];
     plist = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
@@ -177,6 +179,7 @@
     
     viewController.title = nil;
     viewController.titleString = [lectures objectAtIndex:[indexPath row]][@"lecture"];
+    viewController.modulFlag = self.modulFlag;
     //e[viewController.titleLabel setText:title];
     
     FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:viewController];
@@ -189,7 +192,6 @@
     
     popover.arrowDirection = FPPopoverNoArrow;
     [popover presentPopoverFromPoint: CGPointMake(self.view.center.x, self.view.center.y - 20 - popover.contentSize.height/2) ];
-    
 }
 
 - (IBAction)addAction:(id)sender {

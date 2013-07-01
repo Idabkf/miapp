@@ -110,6 +110,19 @@
     
     NSInteger row = [picker selectedRowInComponent:0];
     NSString *resultString = [gradeArray objectAtIndex:row];
+    
+    NSString *tmpTitle = self.titleString;
+    
+    if (self.modulFlag == 0) {
+        titleString = @"Seminar zu ausgewählten Themen der Informatik";
+    }
+    else if (self.modulFlag == 1){
+        titleString = @"Vertiefende Themen der Medieninformatik für Bachelor I";
+    }
+    else if (self.modulFlag == 2){
+        titleString = @"Vertiefende Themen der Medieninformatik für Bachelor II";
+    }
+    
     NSLog(@"result %@", resultString);
     //iterate all semesters
     for(id key in semestersdicView){
@@ -117,11 +130,13 @@
         NSMutableDictionary *semester = semestersdicView[key];
         NSMutableArray *lecturesArray = [semester objectForKey:@"lectures"];
         
+        NSLog(@"TITLESTRING %@", titleString);
         
         //iterate all lectures
         for(int i= 0; i < lecturesArray.count; i++){
             
             NSString *title = [[lecturesArray objectAtIndex:i] [@"title"] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+            //NSLog(@"TITLE: %@", title);
             if([title isEqualToString:titleString]){
                 
  
@@ -137,6 +152,10 @@
                 } else {
                     [[lecturesArray objectAtIndex:i] setObject: resultString forKey:@"grade"];
                     [[lecturesArray objectAtIndex:i] setObject:@"YES" forKey:@"passed"];
+                }
+                
+                if (self.modulFlag == 0 || self.modulFlag == 1 || self.modulFlag == 2) {
+                    [[lecturesArray objectAtIndex:i] setObject:tmpTitle forKey:@"title"];
                 }
                 
                 

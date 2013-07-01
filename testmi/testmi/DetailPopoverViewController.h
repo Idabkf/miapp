@@ -24,5 +24,8 @@
 @property (strong, nonatomic) NSArray *gradeArray;
 @property (strong, nonatomic) NSArray *noGradeArray;
 @property (weak, nonatomic) IBOutlet UIButton *save;
+
+@property int modulFlag;
+
 - (IBAction)saveAction:(id)sender;
 @end

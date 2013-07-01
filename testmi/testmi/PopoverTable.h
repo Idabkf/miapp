@@ -20,4 +20,6 @@
 @property (weak, nonatomic) IBOutlet UITextView *TextField;
 @property(nonatomic,strong) NSMutableDictionary *plist;
 @property (nonatomic,strong) NSMutableArray *lectures;
+
+@property int modulFlag;
 @end
