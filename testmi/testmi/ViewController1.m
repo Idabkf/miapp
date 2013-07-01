@@ -412,6 +412,24 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         
     }
     
+    
+    if([title isEqualToString: @"Vertiefende Themen der Medieninformatik für Bachelor I"]){
+        
+        [self performSegueWithIdentifier:@"options" sender:self];
+        
+        return;
+        
+    }
+    
+    if([title isEqualToString: @"Vertiefende Themen der Medieninformatik für Bachelor II"]){
+        
+        [self performSegueWithIdentifier:@"options" sender:self];
+        
+        return;
+        
+    }
+
+    
     viewController.title = nil;
     viewController.titleString = title;
      //e[viewController.titleLabel setText:title];

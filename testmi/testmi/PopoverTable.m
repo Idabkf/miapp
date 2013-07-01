@@ -31,6 +31,7 @@
     [super viewDidLoad];
 
         self.titleLabel.text = self.titleString;
+    NSLog(self.titleLabel.text);
 
     NSString *path= [[NSBundle mainBundle] pathForResource:@"optionsList" ofType:@"plist"];
     plist = [[NSMutableDictionary alloc] initWithContentsOfFile:path];

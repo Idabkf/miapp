@@ -4,10 +4,292 @@
 <dict>
 	<key>Ethik und Recht in der Informatik</key>
 	<array/>
-	<key>Vertiefende Themen der Medieninformatik für Bachelor II</key>
-	<array/>
 	<key>Vertiefende Themen der Medieninformatik für Bachelor I</key>
-	<array/>
+	<array>
+		<dict>
+			<key>lecture</key>
+			<string>Einführung in Grid-Computing</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>IT-Management</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Datenbanksysteme II</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Knowledge Discovery in Databases I</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Entwurf und Implementierung paralleler Programme</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Blockpraktikum Multimedia-Programmierung</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Praktikum Mobile und Verteilte Systeme</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Praktikum Mobile Business Applications</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Praktikum Software Engineering für Fortgeschrittene</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Praktikum Compilerbau</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Multimediaprogrammierung</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Algorithmische Bioinformatik I</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Praktikum Entwicklung von Mediensystemen</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Blockpraktikum Sketching with Hardware</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+	</array>
+	<key>Vertiefende Themen der Medieninformatik für Bachelor II</key>
+	<array>
+		<dict>
+			<key>lecture</key>
+			<string>Einführung in Grid-Computing</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>IT-Management</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Datenbanksysteme II</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Knowledge Discovery in Databases I</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Entwurf und Implementierung paralleler Programme</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Blockpraktikum Multimedia-Programmierung</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Praktikum Mobile und Verteilte Systeme</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Praktikum Mobile Business Applications</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Praktikum Software Engineering für Fortgeschrittene</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Praktikum Compilerbau</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Multimediaprogrammierung</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Algorithmische Bioinformatik I</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Praktikum Entwicklung von Mediensystemen</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Blockpraktikum Sketching with Hardware</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+	</array>
 	<key>Soziale und persönliche Kompetenz</key>
 	<array/>
 	<key>Seminar zu ausgewählten Themen der Informatik</key>
