@@ -8,6 +8,7 @@
 
 #import "PickerViewController.h"
 #import "ViewController1.h"
+#import "AppDelegate.h"
 
 @interface PickerViewController ()<UIAlertViewDelegate,UITextFieldDelegate>
 
@@ -141,7 +142,6 @@ NSString *semesteranzahl;
 
 
 - (IBAction)SpeicherAction:(id)sender {
-    
        
     NSInteger fachRow = [picker selectedRowInComponent:FachComponent];
     NSInteger cemestRow = [picker selectedRowInComponent:SemesterComponent];
@@ -153,10 +153,33 @@ NSString *semesteranzahl;
      [mydefault setInteger:self.d forKey:@"Bild"];
     NSString *fach1 = [mydefault stringForKey:@"AF"];
     NSString *sem = [mydefault stringForKey:@"SA"];
+    
+    //0: KW
+    //1: MMI
+    //2: MG
+    //3: BWL
+    int urlId = 1;
+    if ([fach1 isEqualToString:@"KW"]) {
+        urlId = 0;
+    }
+    else if ([fach1 isEqualToString:@"MMI"]) {
+        urlId = 1;
+    }
+    else if ([fach1 isEqualToString:@"MG"]) {
+        urlId = 2;
+    }
+    else if ([fach1 isEqualToString:@"BWL"]) {
+        urlId = 3;
+    }
+    
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [appDelegate fetchEntriesWithUrlId:urlId];
+    
+    [NSThread sleepForTimeInterval:2];
    
     
-    NSString *title = [[NSString alloc] initWithFormat:@"Anwndungsfach:%@", fach1];
-    NSString *message = [[NSString alloc] initWithFormat:@"%@Semester", sem];
+    NSString *title = [[NSString alloc] initWithFormat:@"Anwendungsfach: %@", fach1];
+    NSString *message = [[NSString alloc] initWithFormat:@"%@. Semester", sem];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
      
@@ -240,6 +263,8 @@ NSString *semesteranzahl;
        NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
        [mydefault setObject:FachField.text  forKey:@"AF"];
        [mydefault synchronize];
+       
+       
     }
     if (component == SemesterComponent){
       NSInteger cemest = [picker selectedRowInComponent:SemesterComponent];

@@ -34,8 +34,8 @@
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
-    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistLocation];
+    self.plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
+    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:self.plistLocation];
     NSPropertyListFormat format;
     NSString *errorDesc = nil;
     self.semestersdicView = (NSMutableDictionary *)[NSPropertyListSerialization
@@ -43,6 +43,7 @@
                                                     mutabilityOption:NSPropertyListMutableContainersAndLeaves
                                                     format:&format
                                                     errorDescription:&errorDesc];
+    //[self.tableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated

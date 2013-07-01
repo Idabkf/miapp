@@ -27,7 +27,7 @@
 @property NSMutableDictionary *currentLecture1;
 @property NSMutableString *tmp;
 
-- (void)fetchEntries;
+- (void)fetchEntriesWithUrlId:(int) urlId;
 -(void)createPList;
 
 @property (strong, nonatomic) UIWindow *window;

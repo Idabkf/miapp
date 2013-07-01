@@ -8,6 +8,7 @@
 
 #import "StartView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "AppDelegate.h"
 
 @interface StartView ()<UIAlertViewDelegate>
 
@@ -222,6 +223,29 @@ NSString *semesteranzahl;
     [mydefault setObject:adfach forKey:@"AF"];
     [mydefault setObject:semesteranzahl forKey:@"SA"];
     [mydefault synchronize];
+    
+    //0: KW
+    //1: MMI
+    //2: MG
+    //3: BWL
+    int urlId = 1;
+    if ([adfach isEqualToString:@"KW"]) {
+        urlId = 0;
+    }
+    else if ([adfach isEqualToString:@"MMI"]) {
+        urlId = 1;
+    }
+    else if ([adfach isEqualToString:@"MG"]) {
+        urlId = 2;
+    }
+    else if ([adfach isEqualToString:@"BWL"]) {
+        urlId = 3;
+    }
+    
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    [appDelegate fetchEntriesWithUrlId:urlId];
+    
+    [NSThread sleepForTimeInterval:4];
 }
 
 

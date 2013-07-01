@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zsy-Qo-7F9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zsy-Qo-7F9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -1088,7 +1088,6 @@
                 <relationship kind="action" name="Edit:"/>
                 <relationship kind="action" name="menubt:"/>
                 <relationship kind="action" name="setCalculation:"/>
-                <relationship kind="action" name="setc:"/>
                 <relationship kind="action" name="switchValueChanged"/>
                 <relationship kind="outlet" name="averageLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="bt" candidateClass="UIButton"/>
@@ -1106,6 +1105,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="haw-Tc-PLJ"/>
+        <segue reference="996-sQ-8lM"/>
     </inferredMetricsTieBreakers>
 </document>

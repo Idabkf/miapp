@@ -28,9 +28,18 @@
     
     self.semestersdicParser = [[NSMutableDictionary alloc] init];
     
-    [self fetchEntries];
+    /*
+    //0: KW
+    //1: MMI
+    //2: MG
+    //3: BWL
+    [self fetchEntriesWithUrlId:1];
+     
     
     [NSThread sleepForTimeInterval:2];
+     */
+    
+    
     //  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = mainViewController;
     
@@ -49,7 +58,7 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    
+    self.plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
     
     [self.semestersdicParser writeToFile:self.plistLocation atomically: YES];
     
@@ -104,7 +113,7 @@
      */
 }
 
-- (void)fetchEntries
+- (void)fetchEntriesWithUrlId:(int) urlId
 {
     // Create a new data container for the stuff that comes back from the service
     xmlData = [[NSMutableData alloc] init];
@@ -112,12 +121,25 @@
     // Construct a URL that will ask the service for what you want -
     // note we can concatenate literal strings together on multiple
     // lines in this way - this results in a single NSString instance
+    
+    
     NSURL *url = [NSURL URLWithString:@"http://www.medien.ifi.lmu.de/studierende/semesterplanung/bachelor/mediengestaltung/index.xhtml.de"];
-    
-    
-    
-    // For Apple's Hot News feed, replace the line above with
-    // NSURL *url = [NSURL URLWithString:@"http://www.apple.com/pr/feeds/pr.rss"];
+    //0: KW
+    //1: MMI
+    //2: MG
+    //3: BWL
+    if (urlId == 0) {
+        url = [NSURL URLWithString:@"http://www.medien.ifi.lmu.de/studierende/semesterplanung/bachelor/medienwirkung/index.xhtml.de"];
+    }
+    else if (urlId == 1) {
+        url = [NSURL URLWithString:@"http://www.medien.ifi.lmu.de/studierende/semesterplanung/bachelor/mmi/index.xhtml.de"];
+    }
+    else if (urlId == 2) {
+        url = [NSURL URLWithString:@"http://www.medien.ifi.lmu.de/studierende/semesterplanung/bachelor/mediengestaltung/index.xhtml.de"];
+    }
+    else if (urlId == 3) {
+        url = [NSURL URLWithString:@"http://www.medien.ifi.lmu.de/studierende/semesterplanung/bachelor/medienwirtschaft/index.xhtml.de"];
+    }
     
     // Put that URL into an NSURLRequest
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
