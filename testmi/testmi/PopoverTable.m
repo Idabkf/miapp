@@ -15,7 +15,7 @@
 @end
 
 @implementation PopoverTable
-@synthesize titleLabel, plist, titleString, lectures;
+@synthesize titleLabel, plist, titleString, lectures, chosenLecture;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,7 +30,10 @@
 {
     [super viewDidLoad];
 
-        self.titleLabel.text = self.titleString;
+    self.titleLabel.text = self.titleString;
+    self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.backgroundColor = [UIColor clearColor];
+    self.titleLabel.font = [UIFont fontWithName:@"Georgia" size:20.0];
     NSLog(self.titleLabel.text);
     
     NSLog(@"TITLESTRING IN POPOVER TABLE : %@", self.titleString);
@@ -51,8 +54,6 @@
         
     }
 
-
-    self.titleLabel.text = self.titleString;
     self.TextField.backgroundColor = [UIColor whiteColor];
     self.TextField.hidden = YES;
     self.save.hidden = YES;
@@ -112,17 +113,29 @@
     static NSString *CellIdentifier = @"CellPopover";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+
     // Configure the cell...
     if ( cell ==nil ){
         cell =[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
     }
      cell.opaque = NO;
-    cell.textLabel.text = [lectures objectAtIndex:[indexPath row]][@"lecture"];
-    cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
-    cell.textLabel.backgroundColor = [UIColor clearColor];
-
+    self.tableView.backgroundColor = [UIColor clearColor];
     
+    cell.textLabel.text = [lectures objectAtIndex:[indexPath row]][@"lecture"];
+    cell.textLabel.font = [UIFont fontWithName:@"AppleGothic" size:16.0];
+
+
+    if([cell.textLabel.text isEqualToString: chosenLecture]){
+        // cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
+        cell.backgroundColor = [UIColor colorWithRed:(102.0/255.0) green:(205.0/255.0) blue:(170.0/255.0) alpha:.5];
+        cell.textLabel.backgroundColor = [UIColor clearColor];
+    } else {
+        cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
+        //cell.backgroundColor = [UIColor clearColor];
+        
+        cell.textLabel.backgroundColor = [UIColor clearColor];
+    }
     
     return cell;
 }
@@ -179,11 +192,13 @@
     
     viewController.title = nil;
     viewController.titleString = [lectures objectAtIndex:[indexPath row]][@"lecture"];
+    viewController.seminarTitle = titleString;
     viewController.modulFlag = self.modulFlag;
+    viewController.delegate2 = self;
     //e[viewController.titleLabel setText:title];
     
-    FPPopoverController *popover = [[FPPopoverController alloc] initWithViewController:viewController];
-    
+    popover = [[FPPopoverController alloc] initWithViewController:viewController];
+    popover.delegate = self;
     popover.tint = FPPopoverDefaultTint;
     popover.border = NO;
     //popover.tint = FPPopoverWhiteTint;
@@ -192,6 +207,13 @@
     
     popover.arrowDirection = FPPopoverNoArrow;
     [popover presentPopoverFromPoint: CGPointMake(self.view.center.x, self.view.center.y - 20 - popover.contentSize.height/2) ];
+
+}
+
+- (void) dismissPopover
+{
+    [self.tableView reloadData];
+    [popover dismissPopoverAnimated:YES];
 }
 
 - (IBAction)addAction:(id)sender {

@@ -9,15 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "FPPopoverController.h"
 #import "ViewController1.h"
+#import "PopoverTable.h"
 
 @interface DetailPopoverViewController : UIViewController <UIPickerViewDelegate, UIPickerViewDataSource>{
     //AFPickerView *defaultPickerView;
 }
 
 @property(nonatomic,assign) ViewController1 *delegate;
-    
+@property(nonatomic,assign) PopoverTable *delegate2;
+
 @property NSMutableDictionary *semestersdicView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) NSString *seminarTitle;
 @property (nonatomic, strong) NSString *titleString;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 

@@ -220,7 +220,12 @@
     NSMutableDictionary *semesterDic = [self.semestersdicView objectForKey:level];
     NSMutableArray *lecturesArray = [semesterDic objectForKey:@"lectures"];
     NSMutableDictionary *lectureDic = [lecturesArray objectAtIndex:[indexPath row]];
+    
     NSString *title = [lectureDic objectForKey:@"title"];
+        if(![[lectureDic objectForKey:@"tmpTitle"] isEqualToString:@""]){
+            title = [lectureDic objectForKey:@"tmpTitle"];
+        }
+    
     cell.textLabel.text = title;
     cell.textLabel.font = [UIFont fontWithName:@"AppleGothic" size:16.0];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
@@ -407,7 +412,6 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         
     }
     
-    
     if([title isEqualToString: @"Vertiefende Themen der Medieninformatik für Bachelor I"]){
         self.modulFlag = 2;
         [self performSegueWithIdentifier:@"options" sender:self];
@@ -469,6 +473,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         PopoverTable *viewController = segue.destinationViewController;
         title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
         viewController.titleString = title;
+        viewController.chosenLecture = [lectureDic objectForKey:@"tmpTitle"];
         viewController.modulFlag = self.modulFlag;
 
     }

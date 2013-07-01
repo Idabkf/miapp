@@ -13,7 +13,7 @@
 @end
 
 @implementation DetailPopoverViewController
-@synthesize semestersdicView, picker, gradeArray, noGradeArray, titleLabel, titleString, delegate;
+@synthesize semestersdicView, picker, gradeArray, noGradeArray, titleLabel, titleString, delegate, seminarTitle;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -71,7 +71,9 @@
             for (int j= 0; j < gradeArray.count; j++){
             
             NSString *title = [[lecturesArray objectAtIndex:i] [@"title"] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-            if([title isEqualToString:titleString]){
+            
+            if([title isEqualToString:titleString] ||
+               [title isEqualToString:seminarTitle]){
                 
                 if([[lecturesArray objectAtIndex:i] [@"grade"]  isEqualToString: [gradeArray objectAtIndex:j]]){
                     [picker selectRow:j inComponent:0 animated:YES];
@@ -152,7 +154,7 @@
                 }
                 
                 if (self.modulFlag == 0 || self.modulFlag == 1 || self.modulFlag == 2) {
-                    [[lecturesArray objectAtIndex:i] setObject:tmpTitle forKey:@"title"];
+                    [[lecturesArray objectAtIndex:i] setObject:tmpTitle forKey:@"tmpTitle"];
                 }
                 
                 
@@ -165,8 +167,12 @@
         }
         
     }
+    self.titleString = tmpTitle;
     [self.delegate.tableView reloadData];
     [self.delegate dismissPopover];
+    self.delegate2.chosenLecture = titleString;
+    [self.delegate2.tableView reloadData];
+    [self.delegate2 dismissPopover];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:

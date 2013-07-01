@@ -323,6 +323,7 @@ didStartElement:(NSString *)elementName
             
             [self.currentLecture1 setObject:@"" forKey:@"grade"];
             [self.currentLecture1 setObject:@"" forKey:@"otherGrade"];
+            [self.currentLecture1 setObject:@"" forKey:@"tmpTitle"];
             [self.currentLecture1 setObject:@"NO" forKey:@"passed"];
             
             /*

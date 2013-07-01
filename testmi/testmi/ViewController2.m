@@ -255,10 +255,13 @@
     }
     cell.opaque = NO;
     NSArray *lectures = [GradesAndLectures objectForKey:[gradeArray objectAtIndex:indexPath.section]];
-    
+    self.tableView.backgroundColor = [UIColor clearColor];
 
-
-    cell.textLabel.text = [lectures objectAtIndex:indexPath.row][@"title"];
+    NSString *title = [lectures objectAtIndex:indexPath.row][@"title"];
+    if(![[lectures objectAtIndex:indexPath.row][@"tmpTitle"] isEqualToString:@""]){
+        title = [lectures objectAtIndex:indexPath.row][@"tmpTitle"];
+    }
+    cell.textLabel.text = title;
     cell.textLabel.font = [UIFont fontWithName:@"AppleGothic" size:16.0];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     
