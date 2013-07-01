@@ -100,13 +100,10 @@
  
     if (number == 1) {
         self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
-        
     }
     
     else if (number == 2){
         self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
-     
-
     }
     
     else if (number == 3){
@@ -403,7 +400,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     
     title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
     if([title isEqualToString: @"Seminar zu ausgewählten Themen der Informatik"]){
-        self.modulFlag = 0;
+        self.modulFlag = 1;
         [self performSegueWithIdentifier:@"options" sender:self];
 
         return;
@@ -412,7 +409,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     
     
     if([title isEqualToString: @"Vertiefende Themen der Medieninformatik für Bachelor I"]){
-        self.modulFlag = 1;
+        self.modulFlag = 2;
         [self performSegueWithIdentifier:@"options" sender:self];
         
         return;
@@ -420,7 +417,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     }
     
     if([title isEqualToString: @"Vertiefende Themen der Medieninformatik für Bachelor II"]){
-        self.modulFlag = 2;
+        self.modulFlag = 3;
         [self performSegueWithIdentifier:@"options" sender:self];
         
         return;

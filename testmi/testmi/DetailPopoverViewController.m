@@ -73,9 +73,6 @@
             NSString *title = [[lecturesArray objectAtIndex:i] [@"title"] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
             if([title isEqualToString:titleString]){
                 
-                
-                
-                
                 if([[lecturesArray objectAtIndex:i] [@"grade"]  isEqualToString: [gradeArray objectAtIndex:j]]){
                     [picker selectRow:j inComponent:0 animated:YES];
                 }
@@ -111,15 +108,15 @@
     NSInteger row = [picker selectedRowInComponent:0];
     NSString *resultString = [gradeArray objectAtIndex:row];
     
-    NSString *tmpTitle = self.titleString;
+    NSString *tmpTitle = titleString;
     
-    if (self.modulFlag == 0) {
+    if (self.modulFlag == 1) {
         titleString = @"Seminar zu ausgewählten Themen der Informatik";
     }
-    else if (self.modulFlag == 1){
+    else if (self.modulFlag == 2){
         titleString = @"Vertiefende Themen der Medieninformatik für Bachelor I";
     }
-    else if (self.modulFlag == 2){
+    else if (self.modulFlag == 3){
         titleString = @"Vertiefende Themen der Medieninformatik für Bachelor II";
     }
     
