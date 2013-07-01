@@ -172,6 +172,9 @@
     
     [self createPList];
     
+    NSString *notificationName = @"finishedLoadingData";
+    [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
+    
     // Get rid of the XML data as we no longer need it
     xmlData = nil;
     

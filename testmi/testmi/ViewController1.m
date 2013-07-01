@@ -30,30 +30,14 @@
     return self;
 }
 
-- (void)updatePlist
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    self.plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
-    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:self.plistLocation];
-    NSPropertyListFormat format;
-    NSString *errorDesc = nil;
-    self.semestersdicView = (NSMutableDictionary *)[NSPropertyListSerialization
-                                                    propertyListFromData:plistXML
-                                                    mutabilityOption:NSPropertyListMutableContainersAndLeaves
-                                                    format:&format
-                                                    errorDescription:&errorDesc];
-    //[self.tableView reloadData];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self updatePlist];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Observer
+    NSString *notificationName = @"finishedLoadingData";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishLoadingData) name:notificationName object:nil];
+    
     
     self.menu.backgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
     self.menu.hidden = YES;
@@ -133,8 +117,28 @@
     }
    }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self updatePlist];
+}
 
-
+- (void)updatePlist
+{
+    /*
+     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+     NSString *documentsDirectory = [paths objectAtIndex:0];
+     NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
+     */
+    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:self.plistLocation];
+    NSPropertyListFormat format;
+    NSString *errorDesc = nil;
+    self.semestersdicView = (NSMutableDictionary *)[NSPropertyListSerialization
+                                                    propertyListFromData:plistXML
+                                                    mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                                    format:&format
+                                                    errorDescription:&errorDesc];
+    //[self.tableView reloadData];
+}
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -497,4 +501,9 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
    // self.bt = (UIButton *)sender;
    // self.bt.selected = !self.bt.selected
 }
+-(void)didFinishLoadingData{
+    [self updatePlist];
+    [self.tableView reloadData];
+}
+
 @end

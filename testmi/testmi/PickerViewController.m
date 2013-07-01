@@ -175,7 +175,7 @@ NSString *semesteranzahl;
     AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     [appDelegate fetchEntriesWithUrlId:urlId];
     
-    [NSThread sleepForTimeInterval:2];
+    //[NSThread sleepForTimeInterval:2];
    
     
     NSString *title = [[NSString alloc] initWithFormat:@"Anwendungsfach: %@", fach1];
