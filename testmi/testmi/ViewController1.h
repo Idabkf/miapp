@@ -46,6 +46,7 @@
 @property (weak, nonatomic) IBOutlet UIView *menu;
 
 - (IBAction)menubtn:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 
 @property (weak, nonatomic) IBOutlet UIButton *bt;
 - (IBAction)Save:(id)sender;
@@ -53,6 +54,11 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *edit;
 - (IBAction)Edit:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *setBtn;
+
+@property (weak, nonatomic) IBOutlet UILabel *setLab;
+@property (weak, nonatomic) IBOutlet UILabel *changeLab;
+@property (weak, nonatomic) IBOutlet UILabel *saveLab;
 
 
 @end

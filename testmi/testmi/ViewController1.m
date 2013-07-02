@@ -40,7 +40,13 @@
     self.tableView.delegate = self;
     
     self.menu.backgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
-    self.menu.hidden = YES;
+    self.menu .hidden =YES;
+    self.saveBtn.hidden = YES;
+    self.edit.hidden = YES;
+    self.setBtn.hidden = YES;
+    self.setLab.hidden = YES;
+    self.changeLab.hidden = YES;
+    self.saveLab.hidden = YES;
     
     self.titleLabelBig.font = [UIFont fontWithName:@"AppleGothic" size:21.0];
     self.titleLabelBig.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
@@ -491,8 +497,8 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 - (IBAction)Edit:(id)sender {
 
-    
-        [super setEditing:YES animated:YES];
+    NSLog(@"edit ***********");
+        [self.tableView setEditing:YES animated:YES];
         
     
 }
@@ -513,18 +519,32 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 - (IBAction)menubtn:(id)sender {
     if(self.menu.hidden ==YES){
-        self.menu.hidden = NO;}
-    else{self.menu .hidden =YES;}
+        self.menu.hidden = NO;
+        self.saveBtn.hidden = NO;
+        self.edit.hidden = NO;
+        self.setBtn.hidden = NO;
+        self.setLab.hidden = NO;
+        self.changeLab.hidden = NO;
+        self.saveLab.hidden = NO;
+    //self.
+    }
+    else{self.menu .hidden =YES;
+        self.saveBtn.hidden = YES;
+        self.edit.hidden = YES;
+        self.setBtn.hidden = YES;
+        self.setLab.hidden = YES;
+        self.changeLab.hidden = YES;
+        self.saveLab.hidden = YES;}
     
     
-        [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];
+    [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];
     self.bt = (UIButton *)sender;
     self.bt.selected = !self.bt.selected;
     
    }
 - (IBAction)Save:(id)sender {
     
-     [super setEditing:NO animated:NO];
+     [self.tableView setEditing:NO animated:NO];
    // self.menu.hidden = YES;
     //[self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow1.png" ]forState:UIControlStateSelected];
    // self.bt = (UIButton *)sender;
