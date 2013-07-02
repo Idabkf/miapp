@@ -10,12 +10,13 @@
 #import "Lecture.h"
 #import "Semester.h"
 #import "FPPopoverController.h"
-@interface ViewController1 : UITableViewController<NSXMLParserDelegate, FPPopoverControllerDelegate>
+@interface ViewController1 : UIViewController <UITableViewDataSource, UITableViewDelegate, NSXMLParserDelegate, FPPopoverControllerDelegate>
 {
     NSURLConnection *connection;
     NSMutableData *xmlData;
     FPPopoverController *popover;
 }
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property NSMutableDictionary *semestersdicParser;
 @property NSMutableDictionary *semestersdicView;
 
@@ -34,11 +35,13 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel1;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabelBig;
+@property (weak, nonatomic) IBOutlet UIImageView *backg;
 
 @property int modulFlag;
 
 - (void) dismissPopover;
 - (void) updatePlist;
+
 
 @property (weak, nonatomic) IBOutlet UIView *menu;
 

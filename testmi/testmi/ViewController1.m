@@ -18,17 +18,15 @@
 @implementation ViewController1
 @synthesize semestersdicView;
 
-
-
-
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
     return self;
 }
+
 
 - (void)viewDidLoad
 {
@@ -38,6 +36,8 @@
     NSString *notificationName = @"finishedLoadingData";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishLoadingData) name:notificationName object:nil];
     
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
     
     self.menu.backgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
     self.menu.hidden = YES;
@@ -100,18 +100,27 @@
  
     if (number == 1) {
         self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+        self.backg.image = [UIImage imageNamed:@"green4.jpg"];
     }
     
     else if (number == 2){
         self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
+        self.backg.image = [UIImage imageNamed:@"wood1.jpg"];
+
     }
     
     else if (number == 3){
         self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"card.jpg"] ];
+        self.backg.image = [UIImage imageNamed:@"card.jpg"];
+
     }
     else if (number == 0){
         self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
+        self.backg.image = [UIImage imageNamed:@"wood1.jpg"];
+
     }
+    //self.view.backgroundColor = [UIColor clearColor];
+    
    }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -254,11 +263,11 @@
     UIView* myView = [[UIView alloc] init];
     myView.backgroundColor = [UIColor clearColor];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 300, 25)];
-    //titleLabel.textColor=[UIColor colorWithRed:(47.0/255.0) green:(47.0/255.0) blue:(47.0/255.0) alpha:1];
+    titleLabel.textColor=[UIColor colorWithRed:(47.0/255.0) green:(47.0/255.0) blue:(47.0/255.0) alpha:1];
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.font = [UIFont fontWithName:@"Georgia" size:20.0];
-   // titleLabel.font = [UIFont boldSystemFontOfSize:20.0];
+    //titleLabel.font = [UIFont boldSystemFontOfSize:20.0];
     
     NSInteger levelInt = section +1;
     NSString *level = [NSString stringWithFormat:@"%i", levelInt];
