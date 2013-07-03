@@ -273,7 +273,7 @@
     
     if(![[lectures objectAtIndex:indexPath.row][@"otherGrade"] isEqualToString:@""] &&self.alternativeGrades){
         //  cell.contentView.backgroundColor=[UIColor lightGrayColor];
-        cell.backgroundColor=[UIColor colorWithRed:(2554.0/255.0) green:(069.0/255.0) blue:(000.0/255.0) alpha:.4];
+        cell.backgroundColor=[UIColor colorWithRed:(2554.0/255.0) green:(069.0/255.0) blue:(000.0/255.0) alpha:.3];
         cell.textLabel.backgroundColor = [UIColor clearColor];
         //  cell.textLabel.backgroundColor = [UIColor lightGrayColor];
     }else {
@@ -343,7 +343,9 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         
         //iterate all lectures
         for(int i= 0; i < lecturesArray.count; i++){
-            if([[lecturesArray objectAtIndex:i] [@"title"] isEqualToString: lecture [@"title"]]){
+            if([[lecturesArray objectAtIndex:i] [@"title"] isEqualToString: lecture [@"title"]] &&
+               [[lecturesArray objectAtIndex:i] [@"tmpTitle"] isEqualToString: lecture [@"tmpTitle"]] &&
+               [[lecturesArray objectAtIndex:i] [@"tmpTitle2"] isEqualToString: lecture [@"tmpTitle2"]]){
                 
                 //set as other grade because not real grade
                 [[lecturesArray objectAtIndex:i] setObject: [gradeArray objectAtIndex:destinationIndexPath.section] forKey:@"otherGrade"];
@@ -537,45 +539,17 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     return average;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    [tableView setEditing:NO animated:YES];
+    
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (BOOL)tableView: (UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    return NO;
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 - (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView setEditing:YES animated:YES];
