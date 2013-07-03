@@ -576,6 +576,12 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     return YES;
 }
 */
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView setEditing:YES animated:YES];
+    // return UITableViewCellEditingStyleDelete;
+    return UITableViewCellEditingStyleNone;
+}
 
 #pragma mark - Table view delegate
 
@@ -603,6 +609,14 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         [self.tableView setEditing:YES animated:YES];
         
     }
+}
+- (IBAction)Save:(id)sender {
+    
+    [self.tableView setEditing:NO animated:NO];
+    // self.menu.hidden = YES;
+    //[self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow1.png" ]forState:UIControlStateSelected];
+    // self.bt = (UIButton *)sender;
+    // self.bt.selected = !self.bt.selected
 }
 
 @end

@@ -29,6 +29,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *edit;
 - (IBAction)Edit:(id)sender;
+- (IBAction)Save:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *editLab;
 
 - (void) updateTable;

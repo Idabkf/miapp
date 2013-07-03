@@ -22,6 +22,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
         // Custom initialization
     }
     return self;
@@ -110,12 +111,19 @@
     NSString *image = [mydefault stringForKey:@"BildName"];
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:image] ];
     self.backg.image = [UIImage imageNamed:image];
-    
+
+    [self.tableView setContentOffset:savedOffset];
    }
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self updatePlist];
+    [self.tableView setContentOffset:savedOffset];
+}
+
+- (void) viewWillDisappear:(BOOL)animated{
+    savedOffset = [self.tableView contentOffset];
 }
 
 - (void)updatePlist
@@ -134,6 +142,7 @@
                                                     format:&format
                                                     errorDescription:&errorDesc];
     //[self.tableView reloadData];
+    
 }
 
 
@@ -229,10 +238,16 @@
     cell.textLabel.font = [UIFont fontWithName:@"AppleGothic" size:16.0];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
 
-    if([[lectureDic objectForKey:@"passed"] isEqualToString:@"YES"]){
-       // cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
+    
+    if ([[lectureDic objectForKey:@"passed"] isEqualToString:@"YES"]){
+        // cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
         cell.backgroundColor = [UIColor colorWithRed:(102.0/255.0) green:(205.0/255.0) blue:(170.0/255.0) alpha:.5];
-         cell.textLabel.backgroundColor = [UIColor clearColor];
+        cell.textLabel.backgroundColor = [UIColor clearColor];
+    } else  if([[lectureDic objectForKey:@"attending"] isEqualToString:@"YES"]){
+        // cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
+        NSLog(@"blue");
+        cell.backgroundColor = [UIColor colorWithRed:(100.0/255.0) green:(149.0/255.0) blue:(237.0/255.0) alpha:.5];
+        cell.textLabel.backgroundColor = [UIColor clearColor];
     } else {
         cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
         //cell.backgroundColor = [UIColor clearColor];
@@ -440,6 +455,8 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     
     viewController.title = nil;
     viewController.titleString = title;
+    viewController.semesterIndex = indexPath.section;
+    viewController.lectureIndex = indexPath.row;
     //viewController.modulFlag = modulFlag;
      //e[viewController.titleLabel setText:title];
      

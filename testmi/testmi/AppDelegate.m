@@ -371,7 +371,8 @@ didStartElement:(NSString *)elementName
             [self.currentLecture1 setObject:@"" forKey:@"grade"];
             [self.currentLecture1 setObject:@"" forKey:@"otherGrade"];
             [self.currentLecture1 setObject:@"NO" forKey:@"passed"];
-            [self.currentLecture1 setObject:@"YES" forKey:@"graded"];            
+            [self.currentLecture1 setObject:@"YES" forKey:@"graded"];
+            [self.currentLecture1 setObject:@"NO" forKey:@"attending"];
             
             /*
              //semester objekt anhand von dic erstellt aber hier sitzt doch nur ein array

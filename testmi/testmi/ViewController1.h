@@ -15,6 +15,7 @@
     NSURLConnection *connection;
     NSMutableData *xmlData;
     FPPopoverController *popover;
+    CGPoint savedOffset;
 }
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property NSMutableDictionary *semestersdicParser;
@@ -59,6 +60,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *setLab;
 @property (weak, nonatomic) IBOutlet UILabel *changeLab;
 @property (weak, nonatomic) IBOutlet UILabel *saveLab;
+
 
 
 @end

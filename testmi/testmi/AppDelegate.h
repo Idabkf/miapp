@@ -26,6 +26,7 @@
 @property Lecture *currentLecture;
 @property NSMutableDictionary *currentLecture1;
 @property NSMutableString *tmp;
+@property NSMutableArray *ungradedLectures;
 
 - (void)fetchEntriesWithUrlId:(int) urlId;
 -(void)createPList;
