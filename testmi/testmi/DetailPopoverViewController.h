@@ -21,6 +21,7 @@
 @property NSMutableDictionary *semestersdicView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) NSString *seminarTitle;
+
 @property (nonatomic, strong) NSString *titleString;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 
@@ -29,6 +30,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *save;
 
 @property int modulFlag;
+@property int semesterIndex;
+@property int lectureIndex;
 
 - (IBAction)saveAction:(id)sender;
 @end

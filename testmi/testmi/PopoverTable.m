@@ -52,7 +52,7 @@
    
     
     
-    NSArray *templist = [[NSUserDefaults standardUserDefaults] objectForKey:@"newlist"];
+    NSArray *templist = [[NSUserDefaults standardUserDefaults] objectForKey:titleString];
     
     if (templist) {
         
@@ -77,7 +77,28 @@
     NSString *image = [mydefault stringForKey:@"BildName"];
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:image] ];
     self.backg.image = [UIImage imageNamed:image];
+    [self updateTable];
 
+}
+
+- (void) updateTable
+{
+    
+    //get data of plist
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
+    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistLocation];
+    NSPropertyListFormat format;
+    NSString *errorDesc = nil;
+    self.semestersdicView = (NSMutableDictionary *)[NSPropertyListSerialization
+                                               propertyListFromData:plistXML
+                                               mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                               format:&format
+                                               errorDescription:&errorDesc];
+
+    [self.tableView reloadData];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -119,9 +140,23 @@
     
     cell.textLabel.text = [lectures objectAtIndex:[indexPath row]][@"lecture"];
     cell.textLabel.font = [UIFont fontWithName:@"AppleGothic" size:16.0];
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
 
+    //check if lecture is passed and should be green
 
-    if([cell.textLabel.text isEqualToString: chosenLecture]){
+    int index = self.semesterIndex + 1;
+    NSString *key = [NSString stringWithFormat: @"%i", index];
+    NSLog(@"key %@", key);
+    
+    NSMutableDictionary *semester = self.semestersdicView[key];
+    NSMutableArray *lecturesArray = [semester objectForKey:@"lectures"];
+
+    int i = self.lectureIndex;
+    
+
+    //if([cell.textLabel.text isEqualToString: chosenLecture]){
+    if([[[lecturesArray objectAtIndex:i] objectForKey:@"tmpTitle"] isEqualToString:cell.textLabel.text] ||
+       [[[lecturesArray objectAtIndex:i] objectForKey:@"tmpTitle2"] isEqualToString:cell.textLabel.text]){
         // cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
         cell.backgroundColor = [UIColor colorWithRed:(102.0/255.0) green:(205.0/255.0) blue:(170.0/255.0) alpha:.5];
         cell.textLabel.backgroundColor = [UIColor clearColor];
@@ -152,8 +187,39 @@
     viewController.titleString = [lectures objectAtIndex:[indexPath row]][@"lecture"];
     viewController.seminarTitle = titleString;
     viewController.modulFlag = self.modulFlag;
+    viewController.semesterIndex = self.semesterIndex;
+    viewController.lectureIndex = self.lectureIndex;
+    NSLog(@"semesterIndex %i lecture %i", viewController.semesterIndex, viewController.lectureIndex);
     viewController.delegate2 = self;
     //e[viewController.titleLabel setText:title];
+    
+    NSString *title = [lectures objectAtIndex:[indexPath row]][@"lecture"];
+    
+    //    Fachübergreifende Kompetenzen
+    if([title isEqualToString: @"Soziale und persönliche Kompetenz"]){
+        self.titleForSegue = title;
+        [self performSegueWithIdentifier:@"options" sender:self];
+        
+        return;
+        
+    }
+    
+    if([title isEqualToString: @"Ethik und Recht in der Informatik"]){
+        self.titleForSegue = title;
+        [self performSegueWithIdentifier:@"options" sender:self];
+        
+        return;
+        
+    }
+    
+    if([title isEqualToString: @"Projektkompetenz Multimedia"]){
+        self.titleForSegue = title;
+        [self performSegueWithIdentifier:@"options" sender:self];
+        
+        return;
+        
+    }
+
     
     popover = [[FPPopoverController alloc] initWithViewController:viewController];
     popover.delegate = self;
@@ -166,6 +232,23 @@
     popover.arrowDirection = FPPopoverNoArrow;
     [popover presentPopoverFromPoint: CGPointMake(self.view.center.x, self.view.center.y - 20 - popover.contentSize.height/2) ];
 
+}
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+    if ([segue.identifier isEqualToString:@"options"])
+    {
+        PopoverTable *viewController = segue.destinationViewController;
+        viewController.titleString = self.titleForSegue;
+        viewController.semesterIndex = self.semesterIndex;
+        viewController.lectureIndex = self.lectureIndex;
+        viewController.modulFlag = self.modulFlag;
+        //viewController.chosenLecture = [lectureDic objectForKey:@"tmpTitle"];
+        //viewController.modulFlag = self.modulFlag;
+        
+    }
 }
 
 - (void) dismissPopover
@@ -228,6 +311,9 @@
 }
 - (IBAction)SaveAction:(id)sender {
     //self.save .hidden = NO;
+    NSLog(@"alt %@",lectures);
+    NSLog(@"alt %d",lectures.count);
+    
      NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
     NSString *text =self.TextField.text;
     [mydefault setObject:text forKey:@"Newtext"];
@@ -240,7 +326,7 @@
     [lnew setObject:@"0" forKey:@"passed"];
     [lnew setObject:@"3" forKey:@"ects"];
     lectures = nil;
-    NSArray *templist = [[NSUserDefaults standardUserDefaults] objectForKey:@"newlist"];
+    NSArray *templist = [[NSUserDefaults standardUserDefaults] objectForKey:titleString];
     
     if (templist) {
         
@@ -252,7 +338,7 @@
     }
     
     [lectures insertObject:lnew atIndex:[lectures count]];
-    [mydefault setObject:lectures forKey:@"newlist"];
+    [mydefault setObject:lectures forKey:titleString];
     
     [mydefault setInteger:lectures.count forKey:@"newcount"];
     [mydefault synchronize];

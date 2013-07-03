@@ -83,7 +83,7 @@
     self.titleLabel.text = [NSString stringWithFormat:@"%@. Semester", [mydefault stringForKey:@"SA"]];
     
     
-
+    self.modulFlag = -1;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -403,6 +403,16 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     NSString *title = [lectureDic objectForKey:@"title"];
     
     title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    
+    //    Fachübergreifende Kompetenzen
+    if([title isEqualToString: @"Fachübergreifende Kompetenzen"]){
+        self.modulFlag = 4;
+        [self performSegueWithIdentifier:@"options" sender:self];
+        
+        return;
+        
+    }
+
     if([title isEqualToString: @"Seminar zu ausgewählten Themen der Informatik"]){
         self.modulFlag = 1;
         [self performSegueWithIdentifier:@"options" sender:self];
@@ -471,6 +481,9 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         
         PopoverTable *viewController = segue.destinationViewController;
         title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        
+        viewController.semesterIndex = selectedRowIndex.section;
+        viewController.lectureIndex = selectedRowIndex.row;
         viewController.titleString = title;
         viewController.chosenLecture = [lectureDic objectForKey:@"tmpTitle"];
         viewController.modulFlag = self.modulFlag;

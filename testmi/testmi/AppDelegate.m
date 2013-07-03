@@ -233,10 +233,11 @@
     // Grab the description of the error object passed to us
     NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
                              [error localizedDescription]];
+    NSString *message = [NSString stringWithFormat:@"Bitte verbinde dich mit dem Internet."];
     
     // Create and show an alert view with this error displayed
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                 message:errorString
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Fehler"
+                                                 message:message
                                                 delegate:nil
                                        cancelButtonTitle:@"OK"
                                        otherButtonTitles:nil];
@@ -355,9 +356,20 @@ didStartElement:(NSString *)elementName
             //self.currentLecture.ects = self.tmp;
             [self.currentLecture1 setObject:self.tmp forKey:@"ects"];
             
+            if([[self.currentLecture1 objectForKey:@"title"] isEqualToString: @"Soziale und persönliche Kompetenz\n"] ||
+               [[self.currentLecture1 objectForKey:@"title"] isEqualToString: @"Ethik und Recht in der Informatik\n"] ||
+               [[self.currentLecture1 objectForKey:@"title"] isEqualToString: @"Projektkompetenz Multimedia\n"] ||
+               [[self.currentLecture1 objectForKey:@"title"] isEqualToString: @"Sprachkurs ComComp\n"] ){
+
+               [self.currentLecture1 setObject:[self.currentLecture1 objectForKey:@"title"] forKey:@"tmpTitle"];
+               [self.currentLecture1 setObject:@"Fachübergreifende Kompetenzen" forKey:@"title"];
+            } else {
+                [self.currentLecture1 setObject:@"" forKey:@"tmpTitle"];
+            }
+            
+            [self.currentLecture1 setObject:@"" forKey:@"tmpTitle2"];
             [self.currentLecture1 setObject:@"" forKey:@"grade"];
             [self.currentLecture1 setObject:@"" forKey:@"otherGrade"];
-            [self.currentLecture1 setObject:@"" forKey:@"tmpTitle"];
             [self.currentLecture1 setObject:@"NO" forKey:@"passed"];
             [self.currentLecture1 setObject:@"YES" forKey:@"graded"];            
             

@@ -2,8 +2,118 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Fachübergreifende Kompetenzen</key>
+	<array>
+		<dict>
+			<key>lecture</key>
+			<string>Soziale und persönliche Kompetenz</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Ethik und Recht in der Informatik</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Projektkompetenz Multimedia</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Sprachkurs ComComp</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>Soziale und persönliche Kompetenz</key>
+	<array>
+		<dict>
+			<key>lecture</key>
+			<string>Tutortätigkeit</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Seminar Geschäftsplanung</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+	</array>
 	<key>Ethik und Recht in der Informatik</key>
-	<array/>
+	<array>
+		<dict>
+			<key>lecture</key>
+			<string>Intellectual Property &amp; Information Technology</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+	</array>
+	<key>Projektkompetenz Multimedia</key>
+	<array>
+		<dict>
+			<key>lecture</key>
+			<string>Praktikum/Werkstudententätigkeit</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Blockpraktikum PMG</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Blockpraktikum PEM</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+	</array>
 	<key>Vertiefende Themen der Medieninformatik für Bachelor I</key>
 	<array>
 		<dict>
@@ -290,8 +400,6 @@
 			<integer>6</integer>
 		</dict>
 	</array>
-	<key>Soziale und persönliche Kompetenz</key>
-	<array/>
 	<key>Seminar zu ausgewählten Themen der Informatik</key>
 	<array>
 		<dict>
@@ -302,7 +410,7 @@
 			<key>grade</key>
 			<string></string>
 			<key>ects</key>
-			<integer>6</integer>
+			<integer>3</integer>
 		</dict>
 		<dict>
 			<key>lecture</key>
@@ -312,7 +420,7 @@
 			<key>grade</key>
 			<string></string>
 			<key>ects</key>
-			<integer>6</integer>
+			<integer>3</integer>
 		</dict>
 	</array>
 </dict>
