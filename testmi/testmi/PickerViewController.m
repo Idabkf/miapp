@@ -70,6 +70,9 @@ NSString *semesteranzahl;
     
     NSUserDefaults *mydefaut = [NSUserDefaults standardUserDefaults];
     int number = [mydefaut integerForKey:@"Bild"];
+    NSString *imageName = @"wood1.jpg";
+    [mydefault setObject:imageName forKey:@"BildName"];
+
     if (number) {
         self.d = number;
     }
@@ -150,7 +153,31 @@ NSString *semesteranzahl;
     //NSString *asemester = [self.semester objectAtIndex:cemestRow];
     NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
    
-     [mydefault setInteger:self.d forKey:@"Bild"];
+    
+    if (self.d == 1) {
+        NSString *imageName = @"green4.jpg";
+        [mydefault setObject:imageName forKey:@"BildName"];
+    }
+    
+    else if (self.d == 2){
+        NSString *imageName = @"wood1.jpg";
+        [mydefault setObject:imageName forKey:@"BildName"];
+        
+    }
+    
+    else if (self.d == 3){
+        NSString *imageName = @"card.jpg";
+        [mydefault setObject:imageName forKey:@"BildName"];
+        
+    }
+    else if (self.d == 0){
+        NSString *imageName = @"wood1.jpg";
+        [mydefault setObject:imageName forKey:@"BildName"];
+    }
+    
+    [mydefault setInteger:self.d forKey:@"Bild"];
+
+
     NSString *fach1 = [mydefault stringForKey:@"AF"];
     NSString *sem = [mydefault stringForKey:@"SA"];
     

@@ -27,6 +27,13 @@
     return self;
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    NSLog(@"Checking orientation %d", interfaceOrientation);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];

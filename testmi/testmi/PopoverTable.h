@@ -8,15 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "FPPopoverController.h"
-@interface PopoverTable : UITableViewController<UITextViewDelegate, FPPopoverControllerDelegate>{
+@interface PopoverTable : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextViewDelegate, FPPopoverControllerDelegate>{
         FPPopoverController *popover;
 }
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *add;
 - (IBAction)addAction:(id)sender;
 //@property (weak,nonatomic) UITextField *TextField;
 - (IBAction)SaveAction:(id)sender;
 - (void) dismissPopover;
+@property (weak, nonatomic) IBOutlet UIImageView *backg;
 
 @property (nonatomic, strong) NSString *titleString;
 @property (nonatomic, strong) NSString *chosenLecture;

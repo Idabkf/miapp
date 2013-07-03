@@ -16,7 +16,7 @@
 @end
 
 @implementation ViewController1
-@synthesize semestersdicView;
+@synthesize semestersdicView, backg;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -25,6 +25,13 @@
         // Custom initialization
     }
     return self;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    NSLog(@"Checking orientation %d", interfaceOrientation);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 
@@ -38,6 +45,7 @@
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.tableView.backgroundColor = [UIColor clearColor];
     
     self.menu.backgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
     self.menu .hidden =YES;
@@ -99,33 +107,9 @@
     self.title = @"Semester Plan";
     //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
 
-    
-    
-    NSUserDefaults *mydefaut = [NSUserDefaults standardUserDefaults];
-    int number = [mydefaut integerForKey:@"Bild"];
- 
-    if (number == 1) {
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
-        self.backg.image = [UIImage imageNamed:@"green4.jpg"];
-    }
-    
-    else if (number == 2){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
-        self.backg.image = [UIImage imageNamed:@"wood1.jpg"];
-
-    }
-    
-    else if (number == 3){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"card.jpg"] ];
-        self.backg.image = [UIImage imageNamed:@"card.jpg"];
-
-    }
-    else if (number == 0){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
-        self.backg.image = [UIImage imageNamed:@"wood1.jpg"];
-
-    }
-    //self.view.backgroundColor = [UIColor clearColor];
+    NSString *image = [mydefault stringForKey:@"BildName"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:image] ];
+    self.backg.image = [UIImage imageNamed:image];
     
    }
 

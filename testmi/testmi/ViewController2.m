@@ -14,11 +14,11 @@
 @end
 
 @implementation ViewController2
-@synthesize semestersdicView, gradeArray, GradesAndLectures, toggleSwitch;
+@synthesize semestersdicView, gradeArray, GradesAndLectures, backg;
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -41,16 +41,13 @@
     
 }
 
-- (IBAction)setc:(id)sender {
-    if(self.menu.hidden ==YES){
-        self.menu.hidden = NO;}
-    else{self.menu .hidden =YES;}
-    
-    [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];
-    self.bt = (UIButton *)sender;
-    self.bt.selected = !self.bt.selected;
-    
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    NSLog(@"Checking orientation %d", interfaceOrientation);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
 
 
 
@@ -156,8 +153,22 @@
 
 - (IBAction)menubt:(id)sender {
     if(self.menu.hidden ==YES){
-        self.menu.hidden = NO;}
-    else{self.menu .hidden =YES;}
+        self.menu.hidden = NO;
+        self.saveBtn.hidden = NO;
+        self.edit.hidden = NO;
+        self.calcBtn.hidden = NO;
+        self.saveLab.hidden = NO;
+        self.calcLab.hidden = NO;
+        self.editLab.hidden = NO;
+        //self.
+    }
+    else{self.menu .hidden =YES;
+        self.saveBtn.hidden = YES;
+        self.edit.hidden = YES;
+        self.calcBtn.hidden = YES;
+        self.saveLab.hidden = YES;
+        self.calcLab.hidden = YES;
+        self.editLab.hidden = YES;}
     
     [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];
     self.bt = (UIButton *)sender;
@@ -178,6 +189,12 @@
     self.calcBtn.selected = YES;
     self.menu.backgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
     self.menu.hidden= YES;
+    self.saveBtn.hidden = YES;
+    self.edit.hidden = YES;
+    self.calcBtn.hidden = YES;
+    self.saveLab.hidden = YES;
+    self.calcLab.hidden = YES;
+    self.editLab.hidden = YES;
 
     [self updateTable];
     //self.tableView.backgroundColor=[UIColor colorWithRed:(155.0/255.0) green:(205.0/255.0) blue:(155.0/255.0) alpha:.5];
@@ -187,6 +204,9 @@
     self.averageLabel.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
     self.averageLabel.font = [UIFont fontWithName:@"AppleGothic" size:21.0];
 
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
   //  self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
    // self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"woood1.jpg"] ];
     // Uncomment the following line to preserve selection between presentations.
@@ -195,28 +215,13 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.bounces = YES;
     
-    
-    NSUserDefaults *mydefaut = [NSUserDefaults standardUserDefaults];
-    int number = [mydefaut integerForKey:@"Bild"];
-   
-    if (number == 1) {
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
-           }
-    
-    else if (number == 2){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
-     
-        
-    }
-    
-    else if (number == 3){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"card.jpg"] ];
-    }
-
-    else if (number == 0){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
-    }
+    NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+    NSString *image = [mydefault stringForKey:@"BildName"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:image] ];
+    self.backg.image = [UIImage imageNamed:image];
     
     
 }
@@ -247,7 +252,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell2";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     if ( cell ==nil ){
@@ -255,7 +260,7 @@
     }
     cell.opaque = NO;
     NSArray *lectures = [GradesAndLectures objectForKey:[gradeArray objectAtIndex:indexPath.section]];
-    self.tableView.backgroundColor = [UIColor clearColor];
+
 
     NSString *title = [lectures objectAtIndex:indexPath.row][@"title"];
     if(![[lectures objectAtIndex:indexPath.row][@"tmpTitle"] isEqualToString:@""]){
@@ -364,7 +369,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     self.calcLabel.text = @"Echte Noten?";
     
     [self updateTable];
-    [tableView endUpdates];
+    [self.tableView endUpdates];
     
 }
 
@@ -534,7 +539,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -548,12 +553,12 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     
     if(self.editing)
     {
-        [super setEditing:NO animated:NO];
+        [self.tableView setEditing:NO animated:NO];
         
     }
     else
     {
-        [super setEditing:YES animated:YES];
+        [self.tableView setEditing:YES animated:YES];
         
     }
 }

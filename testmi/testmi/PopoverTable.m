@@ -17,13 +17,20 @@
 @implementation PopoverTable
 @synthesize titleLabel, plist, titleString, lectures, chosenLecture;
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
     return self;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    NSLog(@"Checking orientation %d", interfaceOrientation);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (void)viewDidLoad
@@ -34,6 +41,8 @@
     self.titleLabel.textColor = [UIColor whiteColor];
     self.titleLabel.backgroundColor = [UIColor clearColor];
     self.titleLabel.font = [UIFont fontWithName:@"Georgia" size:20.0];
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
     NSLog(self.titleLabel.text);
     
     NSLog(@"TITLESTRING IN POPOVER TABLE : %@", self.titleString);
@@ -63,26 +72,11 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    
-    NSUserDefaults *mydefaut = [NSUserDefaults standardUserDefaults];
-    int number = [mydefaut integerForKey:@"Bild"];
-    NSLog(@"%d",number);
-    if (number == 1) {
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
-            }
-    
-    else if (number == 2){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
-       
-        
-    }
-    
-    else if (number == 3){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"card.jpg"] ];
-    }
-    else if (number == 0){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
-    }
+    //sets background picture
+    NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+    NSString *image = [mydefault stringForKey:@"BildName"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:image] ];
+    self.backg.image = [UIImage imageNamed:image];
 
 }
 
@@ -111,7 +105,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"CellPopover";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
 
     // Configure the cell...
@@ -120,7 +114,8 @@
         
     }
      cell.opaque = NO;
-    self.tableView.backgroundColor = [UIColor clearColor];
+
+    
     
     cell.textLabel.text = [lectures objectAtIndex:[indexPath row]][@"lecture"];
     cell.textLabel.font = [UIFont fontWithName:@"AppleGothic" size:16.0];
@@ -140,44 +135,7 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Table view delegate
 

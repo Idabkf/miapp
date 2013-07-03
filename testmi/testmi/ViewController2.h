@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController2 : UITableViewController{
+@interface ViewController2 : UIViewController <UITableViewDataSource, UITableViewDelegate> {
     UISwitch *toggleSwitch;
 
 }
+@property (weak, nonatomic) IBOutlet UIImageView *backg;
 
-@property (nonatomic,retain) IBOutlet UISwitch *toggleSwitch;
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *calcBtn;
 - (IBAction)setCalculation:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *calcLabel;
+@property (weak, nonatomic) IBOutlet UILabel *calcLab;
 
--(IBAction) switchValueChanged;
 @property NSMutableDictionary *semestersdicView;
 @property (nonatomic, assign) BOOL alternativeGrades;
 @property (nonatomic, strong) NSArray *gradeArray;
@@ -27,10 +28,16 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *edit;
 - (IBAction)Edit:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *editLab;
 
 - (void) updateTable;
 - (IBAction)menubt:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *menu;
+
 @property (weak, nonatomic) IBOutlet UIButton *bt;
+@property (weak, nonatomic) IBOutlet UIButton *saveBtn;
+@property (weak, nonatomic) IBOutlet UILabel *saveLab;
+
+
 
 @end
