@@ -19,6 +19,7 @@
 - (IBAction)setCalculation:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *calcLabel;
 @property (weak, nonatomic) IBOutlet UILabel *calcLab;
+@property (weak, nonatomic) IBOutlet UILabel *ectsLabel;
 
 @property NSMutableDictionary *semestersdicView;
 @property (nonatomic, assign) BOOL alternativeGrades;

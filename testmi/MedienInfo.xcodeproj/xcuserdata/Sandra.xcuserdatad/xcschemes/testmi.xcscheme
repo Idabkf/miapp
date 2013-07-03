@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2493AE8317653DAD007EAC2E"
                BuildableName = "testmi.app"
-               BlueprintName = "testmi"
-               ReferencedContainer = "container:testmi.xcodeproj">
+               BlueprintName = "MedienInfo"
+               ReferencedContainer = "container:MedienInfo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2493AE8317653DAD007EAC2E"
             BuildableName = "testmi.app"
-            BlueprintName = "testmi"
-            ReferencedContainer = "container:testmi.xcodeproj">
+            BlueprintName = "MedienInfo"
+            ReferencedContainer = "container:MedienInfo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -53,8 +53,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2493AE8317653DAD007EAC2E"
             BuildableName = "testmi.app"
-            BlueprintName = "testmi"
-            ReferencedContainer = "container:testmi.xcodeproj">
+            BlueprintName = "MedienInfo"
+            ReferencedContainer = "container:MedienInfo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -71,8 +71,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2493AE8317653DAD007EAC2E"
             BuildableName = "testmi.app"
-            BlueprintName = "testmi"
-            ReferencedContainer = "container:testmi.xcodeproj">
+            BlueprintName = "MedienInfo"
+            ReferencedContainer = "container:MedienInfo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

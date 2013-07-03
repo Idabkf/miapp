@@ -17,7 +17,7 @@
                BlueprintIdentifier = "B6AB540B1769F20E002166BA"
                BuildableName = "popover.dylib"
                BlueprintName = "popover"
-               ReferencedContainer = "container:testmi.xcodeproj">
+               ReferencedContainer = "container:MedienInfo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

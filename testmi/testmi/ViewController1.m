@@ -106,7 +106,7 @@
  
     self.title = @"Semester Plan";
     //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
-
+    
     NSString *image = [mydefault stringForKey:@"BildName"];
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:image] ];
     self.backg.image = [UIImage imageNamed:image];

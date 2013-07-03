@@ -146,7 +146,8 @@
     }
     
     self.averageLabel.text =  [[NSString alloc] initWithFormat:
-                               @"Dein Schnitt: %.2f",[[self calculateAverageOfGrades] floatValue]];
+                               @"Dein Schnitt: %.2f\n%i ECTS",[[self calculateAverageOfGrades] floatValue], [[self getAmountEcts]intValue]];
+
     [self.tableView reloadData];
     
 }
@@ -202,7 +203,7 @@
     self.averageLabel.layer.borderColor = [UIColor whiteColor].CGColor;
     self.averageLabel.layer.borderWidth = 1.0;
     self.averageLabel.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
-    self.averageLabel.font = [UIFont fontWithName:@"AppleGothic" size:21.0];
+    self.averageLabel.font = [UIFont fontWithName:@"AppleGothic" size:18.0];
 
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -372,6 +373,47 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     [self.tableView endUpdates];
     
 }
+
+- (NSDecimalNumber *) getAmountEcts
+{
+    NSDecimalNumber *ectsSumGr = [[NSDecimalNumber alloc]initWithString: @"0.00"];
+
+    //iterate all semesters
+    for(id key in semestersdicView){
+        
+        NSMutableDictionary *semester = semestersdicView[key];
+        NSMutableArray *lecturesArray = [semester objectForKey:@"lectures"];
+        NSLog(@"LECTURES ARRAY: %@", lecturesArray);
+        //iterate all lectures
+        for(int i= 0; i < lecturesArray.count; i++){
+            
+            if([lecturesArray objectAtIndex:i] [@"grade"] != nil && ![[lecturesArray objectAtIndex:i] [@"grade"] isEqualToString:@""] ){
+                
+                NSString *ects = [lecturesArray objectAtIndex:i] [@"ects"];
+                ects = [ects stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                ects = [NSString stringWithFormat: @"%@.00", ects];
+                
+                
+                NSDecimalNumber *ectsNumber = [[NSDecimalNumber alloc]initWithString: ects];
+                
+                ectsSumGr = [ectsSumGr decimalNumberByAdding: ectsNumber];
+
+            }
+            
+            else if([[lecturesArray objectAtIndex:i] [@"passed"] isEqualToString:@"YES"] ){
+                NSString *ects = [lecturesArray objectAtIndex:i] [@"ects"];
+                ects = [ects stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                ects = [NSString stringWithFormat: @"%@.00", ects];
+                NSDecimalNumber *ectsNumber = [[NSDecimalNumber alloc]initWithString: ects];
+                ectsSumGr = [ectsSumGr decimalNumberByAdding: ectsNumber];
+            }
+        }
+        
+    }
+
+    return ectsSumGr;
+}
+
 
 - (NSDecimalNumber *) calculateAverageOfGrades
 {

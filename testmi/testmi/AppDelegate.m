@@ -16,6 +16,10 @@
 {if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstStart"]){
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstStart"];
     
+    NSUserDefaults *mydefaut = [NSUserDefaults standardUserDefaults];
+    NSString *imageName = @"wood1.jpg";
+    [mydefaut setObject:imageName forKey:@"BildName"];
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     
     UIViewController *mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"view4"];
