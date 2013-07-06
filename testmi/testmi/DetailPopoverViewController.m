@@ -115,12 +115,14 @@
     
 
     self.ectsLabel.text = [NSString stringWithFormat: @"%@ ECTS", lecture [@"ects"]];
-    if([lecture [@"passed"] isEqualToString:@"YES"]){
+    if([lecture [@"passed"] isEqualToString:@"YES"] &&
+       [lecture [@"tmpTitle"] isEqualToString:titleString]){
         self.bestandenSwitch.on = YES;
         self.noteLabel.hidden = NO;
         self.noteField.hidden = NO;
         self.noteField.text = lecture [@"grade"];}
-    if([lecture [@"attending"] isEqualToString:@"YES"]){
+    if([lecture [@"attending"] isEqualToString:@"YES"]&&
+       [lecture [@"tmpAttending"] isEqualToString:titleString]){
         self.belegtSwitch.on = YES;
     }
     
@@ -238,10 +240,18 @@ numberOfRowsInComponent:(NSInteger)component
 - (IBAction)belegen:(id)sender {
     if(self.belegtSwitch.on){
         [lecture setObject:@"YES" forKey:@"attending"];
+        if (self.modulFlag == 4 || self.modulFlag == 1 || self.modulFlag == 2 || self.modulFlag == 3) {
+            [lecture setObject:titleString forKey:@"tmpAttending"];
+            [lecture setObject:self.seminarTitle forKey:@"tmpAttending2"];
+        }
 
     }
     else {
         [lecture setObject:@"NO" forKey:@"attending"];
+        if (self.modulFlag == 4 || self.modulFlag == 1 || self.modulFlag == 2 || self.modulFlag == 3) {
+            [lecture setObject:@"" forKey:@"tmpAttending"];
+            [lecture setObject:@"" forKey:@"tmpAttending2"];
+        }
         
     }
     [self saveToPlist];
@@ -252,11 +262,15 @@ numberOfRowsInComponent:(NSInteger)component
         
         self.noteLabel.hidden = NO;
         self.noteField.hidden = NO;
-        
+        NSString *tmpTitle = titleString;
         if([lecture [@"graded"]  isEqualToString: @"NO"]){
             self.noteLabel.hidden =YES;
             self.noteField.hidden = YES;
             [lecture setObject:@"YES" forKey:@"passed"];
+            if (self.modulFlag == 4 || self.modulFlag == 1 || self.modulFlag == 2 || self.modulFlag == 3) {
+                [lecture setObject:tmpTitle forKey:@"tmpTitle"];
+                [lecture setObject:self.seminarTitle forKey:@"tmpTitle2"];
+            }
         }
 
     }
@@ -265,6 +279,10 @@ numberOfRowsInComponent:(NSInteger)component
         [lecture setObject:@"" forKey:@"grade"];
         self.noteLabel.hidden = YES;
         self.noteField.hidden = YES;
+        if (self.modulFlag == 4 || self.modulFlag == 1 || self.modulFlag == 2 || self.modulFlag == 3) {
+            [lecture setObject:@"" forKey:@"tmpTitle"];
+            [lecture setObject:@"" forKey:@"tmpTitle2"];
+        }
     }
     [self saveToPlist];
 }

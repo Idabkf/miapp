@@ -194,7 +194,7 @@
                         <outlet property="setLab" destination="2ph-pI-Mh5" id="0jR-y4-5qC"/>
                         <outlet property="tableView" destination="dNq-vz-qYl" id="Cpz-Is-K10"/>
                         <outlet property="titleLabelBig" destination="9OH-UI-lSV" id="4x6-I0-PLW"/>
-                        <segue destination="2Rf-5G-1q7" kind="modal" identifier="options" id="z41-Dk-xKb"/>
+                        <segue destination="2Rf-5G-1q7" kind="modal" identifier="options" modalTransitionStyle="coverVertical" animates="NO" id="z41-Dk-xKb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPb-ze-r0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1024,7 +1024,7 @@
                                                 </view>
                                                 <gestureRecognizers/>
                                                 <connections>
-                                                    <segue destination="2Rf-5G-1q7" kind="modal" identifier="options" id="9Ud-qi-paY"/>
+                                                    <segue destination="2Rf-5G-1q7" kind="modal" identifier="options" modalTransitionStyle="coverVertical" animates="NO" id="9Ud-qi-paY"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -1100,7 +1100,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="O72-Kg-jC9" kind="modal" id="kLe-Xs-fdM"/>
+                                    <action selector="back:" destination="2Rf-5G-1q7" eventType="touchUpInside" id="WDv-dy-as2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1127,6 +1127,7 @@
                         <outlet property="save" destination="Eq2-gs-GgU" id="Bke-S0-4aO"/>
                         <outlet property="tableView" destination="xia-C4-udF" id="Jc2-Fj-S64"/>
                         <outlet property="titleLabel" destination="Sbc-fI-swM" id="1UQ-z0-a8s"/>
+                        <segue destination="O72-Kg-jC9" kind="modal" identifier="back" modalTransitionStyle="coverVertical" animates="NO" id="kjM-5H-flJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fm-k5-0yk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1201,6 +1202,7 @@
             <relationships>
                 <relationship kind="action" name="SaveAction:"/>
                 <relationship kind="action" name="addAction:"/>
+                <relationship kind="action" name="back:"/>
                 <relationship kind="outlet" name="TextField" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="add" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="backg" candidateClass="UIImageView"/>
@@ -1271,7 +1273,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="kjM-5H-flJ"/>
         <segue reference="z41-Dk-xKb"/>
-        <segue reference="996-sQ-8lM"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -134,7 +134,8 @@
                 NSString *titleLecture = [currentLectures objectAtIndex:i] [@"title"];
                 //titleLecture = [titleLecture stringByReplacingOccurrencesOfString:@"\n" withString:@""];
                 //NSLog(@"############# TITLE ungraded: %@ and TITLE lecture: %@", title, [currentLectures objectAtIndex:i] [@"title"]);
-                if ([titleLecture hasPrefix:titleUngraded]) {
+                if ([titleLecture hasPrefix:titleUngraded] ||
+                    [[currentLectures objectAtIndex:i] [@"tmpTitle"]hasPrefix:titleUngraded]) {
                     [[currentLectures objectAtIndex:i] setValue:@"NO" forKey:@"graded"];
                 }
             }
@@ -368,6 +369,8 @@ didStartElement:(NSString *)elementName
             }
             
             [self.currentLecture1 setObject:@"" forKey:@"tmpTitle2"];
+            [self.currentLecture1 setObject:@"" forKey:@"tmpAttending"];
+            [self.currentLecture1 setObject:@"" forKey:@"tmpAttending2"];
             [self.currentLecture1 setObject:@"" forKey:@"grade"];
             [self.currentLecture1 setObject:@"" forKey:@"otherGrade"];
             [self.currentLecture1 setObject:@"NO" forKey:@"passed"];

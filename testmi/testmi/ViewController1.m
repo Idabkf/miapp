@@ -232,6 +232,8 @@
     NSString *title = [lectureDic objectForKey:@"title"];
         if(![[lectureDic objectForKey:@"tmpTitle"] isEqualToString:@""]){
             title = [lectureDic objectForKey:@"tmpTitle"];
+        } else if (![[lectureDic objectForKey:@"tmpAttending"] isEqualToString:@""]) {
+            title = [lectureDic objectForKey:@"tmpAttending"];
         }
     
     cell.textLabel.text = title;

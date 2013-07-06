@@ -30,9 +30,11 @@
 @property (weak, nonatomic) IBOutlet UITextView *TextField;
 @property(nonatomic,strong) NSMutableDictionary *plist;
 @property (nonatomic,strong) NSMutableArray *lectures;
+- (IBAction)back:(id)sender;
 
 @property int semesterIndex;
 @property int lectureIndex;
 
 @property int modulFlag;
+@property BOOL secondTable;
 @end
