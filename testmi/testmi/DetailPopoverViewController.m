@@ -116,13 +116,15 @@
 
     self.ectsLabel.text = [NSString stringWithFormat: @"%@ ECTS", lecture [@"ects"]];
     if([lecture [@"passed"] isEqualToString:@"YES"] &&
-       [lecture [@"tmpTitle"] isEqualToString:titleString]){
+       ([lecture [@"tmpTitle"] isEqualToString:@""] ||
+        [lecture [@"tmpTitle"] isEqualToString:titleString] )){
         self.bestandenSwitch.on = YES;
         self.noteLabel.hidden = NO;
         self.noteField.hidden = NO;
         self.noteField.text = lecture [@"grade"];}
     if([lecture [@"attending"] isEqualToString:@"YES"]&&
-       [lecture [@"tmpAttending"] isEqualToString:titleString]){
+       ([lecture [@"tmpAttending"] isEqualToString:@""] ||
+        [lecture [@"tmpAttending"] isEqualToString:titleString] )){
         self.belegtSwitch.on = YES;
     }
     

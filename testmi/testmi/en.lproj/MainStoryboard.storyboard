@@ -194,7 +194,7 @@
                         <outlet property="setLab" destination="2ph-pI-Mh5" id="0jR-y4-5qC"/>
                         <outlet property="tableView" destination="dNq-vz-qYl" id="Cpz-Is-K10"/>
                         <outlet property="titleLabelBig" destination="9OH-UI-lSV" id="4x6-I0-PLW"/>
-                        <segue destination="2Rf-5G-1q7" kind="modal" identifier="options" modalTransitionStyle="coverVertical" animates="NO" id="z41-Dk-xKb"/>
+                        <segue destination="2Rf-5G-1q7" kind="modal" identifier="options" modalTransitionStyle="coverVertical" id="z41-Dk-xKb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fPb-ze-r0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -680,9 +680,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="-" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wKu-NI-npm">
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="63" id="Jgj-Dw-0qF"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -691,7 +688,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Momentan belegt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJ3-f1-Ync">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Belegt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BJ3-f1-Ync">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="172" id="Zb2-4U-qLM"/>
                                 </constraints>
@@ -699,7 +696,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bereits bestanden" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wc-5f-PXl">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Bestanden" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wc-5f-PXl">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -739,30 +736,31 @@
                         </accessibility>
                         <constraints>
                             <constraint firstItem="Ins-MD-6g2" firstAttribute="leading" secondItem="maU-Ed-S8v" secondAttribute="leading" type="default" id="2mf-xG-uLr"/>
-                            <constraint firstItem="oIs-Lj-lc2" firstAttribute="top" secondItem="BJ3-f1-Ync" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ADp-aj-TE4"/>
-                            <constraint firstItem="oIs-Lj-lc2" firstAttribute="trailing" secondItem="eSd-x6-00k" secondAttribute="trailing" type="default" id="BlY-vP-hO9"/>
                             <constraint firstItem="maU-Ed-S8v" firstAttribute="leading" secondItem="OB2-ef-Vye" secondAttribute="leading" constant="18" id="BpB-Ga-u2m"/>
+                            <constraint firstItem="wKu-NI-npm" firstAttribute="leading" secondItem="oIs-Lj-lc2" secondAttribute="leading" type="default" id="CsE-vH-341"/>
                             <constraint firstItem="VKQ-F0-Ixd" firstAttribute="trailing" secondItem="9IK-yO-XZD" secondAttribute="trailing" type="default" id="Czg-QS-le5"/>
                             <constraint firstItem="Ins-MD-6g2" firstAttribute="top" secondItem="OB2-ef-Vye" secondAttribute="top" constant="68" id="DcZ-gT-CQ7"/>
-                            <constraint firstItem="1Wc-5f-PXl" firstAttribute="bottom" secondItem="oIs-Lj-lc2" secondAttribute="bottom" type="default" id="HV9-YM-BSs"/>
+                            <constraint firstItem="D2R-Hl-bqh" firstAttribute="leading" secondItem="oIs-Lj-lc2" secondAttribute="leading" type="default" id="Hpp-js-JE7"/>
                             <constraint firstAttribute="bottom" secondItem="9IK-yO-XZD" secondAttribute="bottom" constant="14" id="IUM-qU-NNO"/>
                             <constraint firstItem="D2R-Hl-bqh" firstAttribute="top" secondItem="OB2-ef-Vye" secondAttribute="top" constant="134" id="J1c-bp-wHJ"/>
                             <constraint firstItem="BJ3-f1-Ync" firstAttribute="leading" secondItem="Ins-MD-6g2" secondAttribute="leading" type="default" id="MET-Vv-oC5"/>
                             <constraint firstItem="rZO-iS-Y4e" firstAttribute="leading" secondItem="OB2-ef-Vye" secondAttribute="leading" constant="32" id="Mbz-BA-tdD"/>
-                            <constraint firstItem="wKu-NI-npm" firstAttribute="leading" secondItem="OB2-ef-Vye" secondAttribute="leading" constant="88" id="Mnf-6t-zBg"/>
-                            <constraint firstItem="D2R-Hl-bqh" firstAttribute="leading" secondItem="oIs-Lj-lc2" secondAttribute="leading" type="default" id="NkP-9U-NgK"/>
+                            <constraint firstItem="D2R-Hl-bqh" firstAttribute="bottom" secondItem="rZO-iS-Y4e" secondAttribute="bottom" type="default" id="Sct-kf-elM"/>
                             <constraint firstItem="Sr7-HL-RXy" firstAttribute="leading" secondItem="1Wc-5f-PXl" secondAttribute="leading" type="default" id="SwQ-mx-65n"/>
                             <constraint firstItem="1Wc-5f-PXl" firstAttribute="leading" secondItem="BJ3-f1-Ync" secondAttribute="leading" type="default" id="Yf3-P1-ZFQ"/>
                             <constraint firstItem="wKu-NI-npm" firstAttribute="top" secondItem="OB2-ef-Vye" secondAttribute="top" constant="214" id="aY7-Zr-pl2"/>
                             <constraint firstItem="eSd-x6-00k" firstAttribute="centerX" secondItem="9IK-yO-XZD" secondAttribute="centerX" type="default" id="bTp-k9-B6v"/>
+                            <constraint firstItem="1Wc-5f-PXl" firstAttribute="bottom" secondItem="oIs-Lj-lc2" secondAttribute="bottom" type="default" id="dQE-TK-Vqk"/>
                             <constraint firstItem="eSd-x6-00k" firstAttribute="top" secondItem="OB2-ef-Vye" secondAttribute="top" constant="70" id="hWJ-6W-XnY"/>
                             <constraint firstItem="eSd-x6-00k" firstAttribute="leading" secondItem="OB2-ef-Vye" secondAttribute="leading" type="default" id="iFW-IL-ZgX"/>
-                            <constraint firstItem="oIs-Lj-lc2" firstAttribute="top" secondItem="D2R-Hl-bqh" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="l1r-lZ-TFr"/>
+                            <constraint firstItem="oIs-Lj-lc2" firstAttribute="top" secondItem="OB2-ef-Vye" secondAttribute="top" constant="173" id="kYo-nf-RQy"/>
                             <constraint firstItem="VKQ-F0-Ixd" firstAttribute="bottom" secondItem="OB2-ef-Vye" secondAttribute="bottom" type="default" id="npU-ee-QF0"/>
                             <constraint firstItem="Sr7-HL-RXy" firstAttribute="baseline" secondItem="wKu-NI-npm" secondAttribute="baseline" type="default" id="oiA-Go-X2X"/>
-                            <constraint firstItem="BJ3-f1-Ync" firstAttribute="bottom" secondItem="rZO-iS-Y4e" secondAttribute="bottom" type="default" id="p1Z-kj-3J0"/>
+                            <constraint firstItem="wKu-NI-npm" firstAttribute="trailing" secondItem="oIs-Lj-lc2" secondAttribute="trailing" type="default" id="qiF-HM-oUN"/>
                             <constraint firstItem="maU-Ed-S8v" firstAttribute="top" secondItem="OB2-ef-Vye" secondAttribute="top" constant="4" id="sFT-P4-Cui"/>
-                            <constraint firstItem="wKu-NI-npm" firstAttribute="centerY" secondItem="Sr7-HL-RXy" secondAttribute="centerY" type="default" id="zGl-AG-7OL"/>
+                            <constraint firstItem="Sr7-HL-RXy" firstAttribute="centerY" secondItem="wKu-NI-npm" secondAttribute="centerY" type="default" id="tWl-WZ-hPO"/>
+                            <constraint firstItem="BJ3-f1-Ync" firstAttribute="bottom" secondItem="rZO-iS-Y4e" secondAttribute="bottom" type="default" id="xyI-eF-E0q"/>
+                            <constraint firstAttribute="trailing" secondItem="D2R-Hl-bqh" secondAttribute="trailing" constant="52" id="ztk-Rp-apr"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -1127,7 +1125,7 @@
                         <outlet property="save" destination="Eq2-gs-GgU" id="Bke-S0-4aO"/>
                         <outlet property="tableView" destination="xia-C4-udF" id="Jc2-Fj-S64"/>
                         <outlet property="titleLabel" destination="Sbc-fI-swM" id="1UQ-z0-a8s"/>
-                        <segue destination="O72-Kg-jC9" kind="modal" identifier="back" modalTransitionStyle="coverVertical" animates="NO" id="kjM-5H-flJ"/>
+                        <segue destination="O72-Kg-jC9" kind="modal" identifier="back" modalTransitionStyle="coverVertical" id="kjM-5H-flJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5fm-k5-0yk" userLabel="First Responder" sceneMemberID="firstResponder"/>
