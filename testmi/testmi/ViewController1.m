@@ -49,13 +49,23 @@
     self.tableView.backgroundColor = [UIColor clearColor];
     
     self.menu.backgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
-    self.menu .hidden =YES;
-    self.saveBtn.hidden = YES;
-    self.edit.hidden = YES;
-    self.setBtn.hidden = YES;
-    self.setLab.hidden = YES;
-    self.changeLab.hidden = YES;
-    self.saveLab.hidden = YES;
+    self.menu .hidden =NO;
+    if(self.menu.hidden ==NO){
+        self.saveBtn.hidden = NO;
+        self.edit.hidden = NO;
+        self.setBtn.hidden = NO;
+        self.setLab.hidden = NO;
+        self.changeLab.hidden = NO;
+        self.saveLab.hidden = NO;
+        //self.
+    }
+    else{
+        self.saveBtn.hidden = YES;
+        self.edit.hidden = YES;
+        self.setBtn.hidden = YES;
+        self.setLab.hidden = YES;
+        self.changeLab.hidden = YES;
+        self.saveLab.hidden = YES;}
     
     self.titleLabelBig.font = [UIFont fontWithName:@"AppleGothic" size:21.0];
     self.titleLabelBig.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
@@ -120,6 +130,17 @@
 {
     [self updatePlist];
     [self.tableView setContentOffset:savedOffset];
+    self.menu .hidden =NO;
+    if(self.menu.hidden ==NO){
+        self.saveBtn.hidden = NO;
+        self.edit.hidden = NO;
+        self.setBtn.hidden = NO;
+        self.setLab.hidden = NO;
+        self.changeLab.hidden = NO;
+        self.saveLab.hidden = NO;
+        //self.
+    }
+
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
@@ -551,6 +572,26 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         self.setLab.hidden = YES;
         self.changeLab.hidden = YES;
         self.saveLab.hidden = YES;}
+    
+    if(self.menu.hidden == NO){
+        
+        CGRect rect = CGRectMake(self.bt.frame.origin.x, self.bt.frame.origin.y+54.0f, self.bt.frame.size.width, self.bt.frame.size.height);
+        self.bt.frame = rect;
+        rect = CGRectMake(self.titleLabelBig.frame.origin.x, self.titleLabelBig.frame.origin.y+54.0f, self.titleLabelBig.frame.size.width, self.titleLabelBig.frame.size.height);
+        self.titleLabelBig.frame = rect;
+        rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y+54.0f, self.containerView.frame.size.width, self.containerView.frame.size.height-54.0f);
+        self.containerView.frame = rect;
+        
+    } else {
+        CGRect rect = CGRectMake(self.bt.frame.origin.x, self.bt.frame.origin.y-54.0f, self.bt.frame.size.width, self.bt.frame.size.height);
+        self.bt.frame = rect;
+        rect = CGRectMake(self.titleLabelBig.frame.origin.x, self.titleLabelBig.frame.origin.y-54.0f, self.titleLabelBig.frame.size.width, self.titleLabelBig.frame.size.height);
+        self.titleLabelBig.frame = rect;
+        rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y-54.0f, self.containerView.frame.size.width, self.containerView.frame.size.height+54.0f);
+        self.containerView.frame = rect;
+        
+        
+    }
     
     
     [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];

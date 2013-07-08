@@ -199,18 +199,19 @@ NSString *semesteranzahl;
         urlId = 3;
     }
     
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
-    [appDelegate fetchEntriesWithUrlId:urlId];
-    
-    //[NSThread sleepForTimeInterval:2];
-   
-    
     NSString *title = [[NSString alloc] initWithFormat:@"Anwendungsfach: %@", fach1];
     NSString *message = [[NSString alloc] initWithFormat:@"%@. Semester", sem];
-    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
-     
+    
     [alert show];
+    
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+
+    [appDelegate fetchEntriesWithUrlId:urlId];
+
+    
+    [NSThread sleepForTimeInterval:2];
+   
     
     
 }

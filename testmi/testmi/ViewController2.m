@@ -30,11 +30,11 @@
     if (self.calcBtn.selected) {
         [self setAlternativeGrades:YES];
         [self updateTable];
-        self.calcLabel.text = @"Echte Noten?";
+        self.calcLab.text = @"Echte Noten?";
     } else {
         [self setAlternativeGrades:NO];
         [self updateTable];
-        self.calcLabel.text = @"Verbessern?";
+        self.calcLab.text = @"Verbessern?";
     }
     
     self.calcBtn.selected = !self.calcBtn.selected;
@@ -171,6 +171,26 @@
         self.calcLab.hidden = YES;
         self.editLab.hidden = YES;}
     
+    if(self.menu.hidden == NO){
+        
+        CGRect rect = CGRectMake(self.bt.frame.origin.x, self.bt.frame.origin.y+54.0f, self.bt.frame.size.width, self.bt.frame.size.height);
+        self.bt.frame = rect;
+        rect = CGRectMake(self.averageLabel.frame.origin.x, self.averageLabel.frame.origin.y+54.0f, self.averageLabel.frame.size.width, self.averageLabel.frame.size.height);
+        self.averageLabel.frame = rect;
+        rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y+54.0f, self.containerView.frame.size.width, self.containerView.frame.size.height-54.0f);
+        self.containerView.frame = rect;
+        
+    } else {
+        CGRect rect = CGRectMake(self.bt.frame.origin.x, self.bt.frame.origin.y-54.0f, self.bt.frame.size.width, self.bt.frame.size.height);
+        self.bt.frame = rect;
+        rect = CGRectMake(self.averageLabel.frame.origin.x, self.averageLabel.frame.origin.y-54.0f, self.averageLabel.frame.size.width, self.averageLabel.frame.size.height);
+        self.averageLabel.frame = rect;
+        rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y-54.0f, self.containerView.frame.size.width, self.containerView.frame.size.height+54.0f);
+        self.containerView.frame = rect;
+        
+        
+    }
+    
     [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];
     self.bt = (UIButton *)sender;
     self.bt.selected = !self.bt.selected;
@@ -180,6 +200,17 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self updateTable];
+    self.menu.hidden= NO;
+    if(self.menu.hidden ==NO){
+        self.menu.hidden = NO;
+        self.saveBtn.hidden = NO;
+        self.edit.hidden = NO;
+        self.calcBtn.hidden = NO;
+        self.saveLab.hidden = NO;
+        self.calcLab.hidden = NO;
+        self.editLab.hidden = NO;
+        //self.
+    }
 }
 
 - (void)viewDidLoad
@@ -189,13 +220,24 @@
     self.alternativeGrades = NO;
     self.calcBtn.selected = YES;
     self.menu.backgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
-    self.menu.hidden= YES;
-    self.saveBtn.hidden = YES;
-    self.edit.hidden = YES;
-    self.calcBtn.hidden = YES;
-    self.saveLab.hidden = YES;
-    self.calcLab.hidden = YES;
-    self.editLab.hidden = YES;
+    self.menu.hidden= NO;
+    if(self.menu.hidden ==NO){
+        self.menu.hidden = NO;
+        self.saveBtn.hidden = NO;
+        self.edit.hidden = NO;
+        self.calcBtn.hidden = NO;
+        self.saveLab.hidden = NO;
+        self.calcLab.hidden = NO;
+        self.editLab.hidden = NO;
+        //self.
+    }
+    else{self.menu .hidden =YES;
+        self.saveBtn.hidden = YES;
+        self.edit.hidden = YES;
+        self.calcBtn.hidden = YES;
+        self.saveLab.hidden = YES;
+        self.calcLab.hidden = YES;
+        self.editLab.hidden = YES;}
 
     [self updateTable];
     //self.tableView.backgroundColor=[UIColor colorWithRed:(155.0/255.0) green:(205.0/255.0) blue:(155.0/255.0) alpha:.5];
@@ -226,6 +268,8 @@
     
     
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -369,7 +413,7 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
     self.calcBtn.selected = NO;
     [self setAlternativeGrades:YES];
-    self.calcLabel.text = @"Echte Noten?";
+    self.calcLab.text = @"Echte Noten?";
     
     [self updateTable];
     [self.tableView endUpdates];

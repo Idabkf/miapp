@@ -17,9 +17,9 @@
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *calcBtn;
 - (IBAction)setCalculation:(id)sender;
-@property (weak, nonatomic) IBOutlet UILabel *calcLabel;
-@property (weak, nonatomic) IBOutlet UILabel *calcLab;
+
 @property (weak, nonatomic) IBOutlet UILabel *ectsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *calcLab;
 
 @property NSMutableDictionary *semestersdicView;
 @property (nonatomic, assign) BOOL alternativeGrades;
@@ -39,6 +39,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *bt;
 @property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 @property (weak, nonatomic) IBOutlet UILabel *saveLab;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 
 

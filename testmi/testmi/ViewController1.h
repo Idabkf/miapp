@@ -45,6 +45,7 @@
 
 
 @property (weak, nonatomic) IBOutlet UIView *menu;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 - (IBAction)menubtn:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *saveBtn;

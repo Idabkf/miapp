@@ -149,6 +149,7 @@
 - (void)fetchEntriesWithUrlId:(int) urlId
 {
     // Create a new data container for the stuff that comes back from the service
+    
     xmlData = [[NSMutableData alloc] init];
     
     // Construct a URL that will ask the service for what you want -
