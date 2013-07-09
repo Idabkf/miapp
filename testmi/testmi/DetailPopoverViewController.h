@@ -30,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UISwitch *bestandenSwitch;
 @property (weak, nonatomic) IBOutlet UILabel *noteLabel;
 @property (weak, nonatomic) IBOutlet UITextField *noteField;
+@property (strong, nonatomic) IBOutlet UILabel *ungradedLabel;
 @property (weak, nonatomic) IBOutlet UIPickerView *picker;
 
 - (IBAction)belegen:(id)sender;

@@ -48,11 +48,17 @@
     self.bestandenLabel.textColor = [UIColor whiteColor];
     self.bestandenLabel.font = [UIFont fontWithName:@"AppleGothic" size:18.0];
     
-    self.noteLabel.hidden =YES;
     self.noteField.hidden = YES;
+    self.noteField.delegate = self;
+    
+    self.noteLabel.hidden =YES;
     self.noteLabel.textColor = [UIColor whiteColor];
     self.noteLabel.font = [UIFont fontWithName:@"AppleGothic" size:18.0];
-    self.noteField.delegate = self;
+    
+    self.ungradedLabel.hidden = YES;
+    self.ungradedLabel.textColor = [UIColor whiteColor];
+    self.ungradedLabel.font = [UIFont fontWithName:@"AppleGothic" size:18.0];
+    
     self.picker.hidden = YES;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -264,10 +270,12 @@ numberOfRowsInComponent:(NSInteger)component
         
         self.noteLabel.hidden = NO;
         self.noteField.hidden = NO;
+        self.ungradedLabel.hidden = YES;
         NSString *tmpTitle = titleString;
         if([lecture [@"graded"]  isEqualToString: @"NO"]){
-            self.noteLabel.hidden =YES;
+            self.noteLabel.hidden = NO;
             self.noteField.hidden = YES;
+            self.ungradedLabel.hidden = NO;
             [lecture setObject:@"YES" forKey:@"passed"];
             if (self.modulFlag == 4 || self.modulFlag == 1 || self.modulFlag == 2 || self.modulFlag == 3) {
                 [lecture setObject:tmpTitle forKey:@"tmpTitle"];
@@ -284,6 +292,7 @@ numberOfRowsInComponent:(NSInteger)component
         
         self.noteLabel.hidden = YES;
         self.noteField.hidden = YES;
+        self.ungradedLabel.hidden = YES;
         if (self.modulFlag == 4 || self.modulFlag == 1 || self.modulFlag == 2 || self.modulFlag == 3) {
             [lecture setObject:@"" forKey:@"tmpTitle"];
             [lecture setObject:@"" forKey:@"tmpTitle2"];

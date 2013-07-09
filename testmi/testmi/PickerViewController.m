@@ -322,7 +322,7 @@ NSString *semesteranzahl;
 - (void)textFieldDidBeginEditing:(UITextField *)myTextField{
     
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"WARNUNG"
-                                                      message:@"Beim Ändern des Anwendungsfach, werden deine Noten gelöscht!"
+                                                      message:@"Beim Ändern des Anwendungsfaches, werden alle Eintragungen gelöscht!"
                                                      delegate:nil
                                             cancelButtonTitle:@"OK"
                                             otherButtonTitles:nil];
