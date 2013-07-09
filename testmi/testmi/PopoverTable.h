@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backg;
 
 @property (nonatomic, strong) NSString *titleString;
+@property (weak, nonatomic) IBOutlet UILabel *kompetenzenBla;
 @property (nonatomic, strong) NSString *titleForSegue;
 @property (nonatomic, strong) NSString *chosenLecture;
 @property (weak, nonatomic) IBOutlet UIButton *save;
