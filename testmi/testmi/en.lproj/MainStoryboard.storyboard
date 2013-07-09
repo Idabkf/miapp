@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zsy-Qo-7F9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zsy-Qo-7F9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -129,6 +129,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="Edit:" destination="O5Q-gv-UfV" eventType="touchUpInside" id="0ax-8h-0xe"/>
                                     <action selector="Save:" destination="O5Q-gv-UfV" eventType="touchUpInside" id="D6N-zP-v8i"/>
                                 </connections>
                             </button>
@@ -187,7 +188,6 @@
                         <outlet property="bt" destination="xxf-QE-eph" id="IE7-ER-8dv"/>
                         <outlet property="changeLab" destination="vKh-e3-J8A" id="aUN-5F-raW"/>
                         <outlet property="containerView" destination="vzV-uf-V4A" id="eQT-AE-oZE"/>
-                        <outlet property="edit" destination="Ou7-4P-Fhq" id="tKj-Wc-wZB"/>
                         <outlet property="menu" destination="Qww-7t-mj8" id="LL3-Sq-uIl"/>
                         <outlet property="saveBtn" destination="ocK-xf-xYf" id="Ho1-El-rVt"/>
                         <outlet property="saveLab" destination="R7t-lW-Ews" id="YnL-uK-Cmg"/>
@@ -1008,10 +1008,10 @@
                                         <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell2" id="Jao-VA-RRO">
-                                                <rect key="frame" x="0.0" y="46" width="319" height="46"/>
+                                                <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                    <rect key="frame" x="10" y="1" width="299" height="43"/>
+                                                    <rect key="frame" x="10" y="1" width="300" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </view>
@@ -1026,6 +1026,16 @@
                                             <outlet property="delegate" destination="2Rf-5G-1q7" id="Yyh-nO-Q1O"/>
                                         </connections>
                                     </tableView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="XIH-0O-HIe">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="290" id="Koa-ah-X9X"/>
+                                            <constraint firstAttribute="height" constant="124" id="QGA-7j-b6v"/>
+                                        </constraints>
+                                        <string key="text">Das Modul "Fachübergreifende Kompetenzen" umfasst 4 Teilmodule mit jeweils 3 ECTS. Von diesen müssen aber nur 3 absolviert werden.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Qz-1k-PdS">
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -1038,14 +1048,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="1Qz-1k-PdS" firstAttribute="centerX" secondItem="1ox-lz-b9m" secondAttribute="centerX" type="default" id="95d-cm-kzF"/>
-                                    <constraint firstItem="1ox-lz-b9m" firstAttribute="trailing" secondItem="xPu-SY-D8i" secondAttribute="trailing" type="default" id="B48-tk-f2B"/>
+                                    <constraint firstItem="XIH-0O-HIe" firstAttribute="centerX" secondItem="xia-C4-udF" secondAttribute="centerX" type="default" id="1kY-KY-WRE"/>
+                                    <constraint firstItem="xia-C4-udF" firstAttribute="trailing" secondItem="xPu-SY-D8i" secondAttribute="trailing" type="default" id="4MG-up-UnA"/>
                                     <constraint firstItem="1ox-lz-b9m" firstAttribute="leading" secondItem="xPu-SY-D8i" secondAttribute="leading" type="default" id="I57-gF-N8q"/>
-                                    <constraint firstItem="1Qz-1k-PdS" firstAttribute="centerX" secondItem="xia-C4-udF" secondAttribute="centerX" type="default" id="Md3-Cr-XpF"/>
+                                    <constraint firstItem="XIH-0O-HIe" firstAttribute="top" secondItem="xPu-SY-D8i" secondAttribute="top" constant="209" id="Omd-nz-TGq"/>
                                     <constraint firstItem="xia-C4-udF" firstAttribute="leading" secondItem="xPu-SY-D8i" secondAttribute="leading" type="default" id="RSo-J8-zgu"/>
                                     <constraint firstItem="xia-C4-udF" firstAttribute="top" secondItem="xPu-SY-D8i" secondAttribute="top" type="default" id="TBZ-RJ-9SY"/>
+                                    <constraint firstItem="1Qz-1k-PdS" firstAttribute="leading" secondItem="xPu-SY-D8i" secondAttribute="leading" constant="5" id="Zw4-g8-FVc"/>
                                     <constraint firstItem="1ox-lz-b9m" firstAttribute="top" secondItem="xPu-SY-D8i" secondAttribute="top" type="default" id="dTj-cN-5TC"/>
                                     <constraint firstItem="1Qz-1k-PdS" firstAttribute="bottom" secondItem="xPu-SY-D8i" secondAttribute="bottom" type="default" id="so6-Il-l8r"/>
+                                    <constraint firstItem="1ox-lz-b9m" firstAttribute="trailing" secondItem="xPu-SY-D8i" secondAttribute="trailing" type="default" id="v16-LO-gcy"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Seminar" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="305" translatesAutoresizingMaskIntoConstraints="NO" id="Sbc-fI-swM">
@@ -1114,20 +1126,21 @@
                             <constraint firstItem="xPu-SY-D8i" firstAttribute="leading" secondItem="NDg-Lh-Sdb" secondAttribute="leading" type="default" id="3oK-v4-xxo"/>
                             <constraint firstItem="wPS-bN-DC8" firstAttribute="leading" secondItem="NDg-Lh-Sdb" secondAttribute="leading" constant="15" id="Bfo-8l-6SF"/>
                             <constraint firstItem="dQ7-al-e4D" firstAttribute="centerY" secondItem="Eq2-gs-GgU" secondAttribute="centerY" type="default" id="F8J-4z-Kzo"/>
-                            <constraint firstItem="Sbc-fI-swM" firstAttribute="leading" secondItem="NDg-Lh-Sdb" secondAttribute="leading" constant="10" id="JZY-Tw-sp5"/>
+                            <constraint firstItem="Eq2-gs-GgU" firstAttribute="leading" secondItem="NDg-Lh-Sdb" secondAttribute="leading" constant="129" id="NCd-4H-EF6"/>
                             <constraint firstItem="wPS-bN-DC8" firstAttribute="centerY" secondItem="Eq2-gs-GgU" secondAttribute="centerY" type="default" id="NcK-33-paY"/>
-                            <constraint firstItem="Eq2-gs-GgU" firstAttribute="leading" secondItem="NDg-Lh-Sdb" secondAttribute="leading" constant="129" id="c51-aO-GNw"/>
                             <constraint firstItem="wPS-bN-DC8" firstAttribute="top" secondItem="NDg-Lh-Sdb" secondAttribute="top" type="default" id="ccY-PN-xFo"/>
                             <constraint firstAttribute="trailing" secondItem="dQ7-al-e4D" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="gZa-nH-T33"/>
-                            <constraint firstItem="xPu-SY-D8i" firstAttribute="top" secondItem="Sbc-fI-swM" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="lmj-Ua-tox"/>
-                            <constraint firstItem="Sbc-fI-swM" firstAttribute="top" secondItem="NDg-Lh-Sdb" secondAttribute="top" constant="56" id="lzQ-Ng-K6z"/>
+                            <constraint firstItem="Sbc-fI-swM" firstAttribute="top" secondItem="NDg-Lh-Sdb" secondAttribute="top" constant="43" id="v8A-O4-zmI"/>
                             <constraint firstAttribute="bottom" secondItem="xPu-SY-D8i" secondAttribute="bottom" constant="4" id="vbH-je-9ZK"/>
+                            <constraint firstItem="Sbc-fI-swM" firstAttribute="leading" secondItem="NDg-Lh-Sdb" secondAttribute="leading" constant="10" id="xDj-9Y-11q"/>
+                            <constraint firstItem="xPu-SY-D8i" firstAttribute="top" secondItem="NDg-Lh-Sdb" secondAttribute="top" constant="113" id="xVP-Os-IUa"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="TextField" destination="1Qz-1k-PdS" id="6Ty-JE-XAD"/>
                         <outlet property="add" destination="dQ7-al-e4D" id="QgG-Yp-4Gl"/>
                         <outlet property="backg" destination="1ox-lz-b9m" id="NhP-du-7vn"/>
+                        <outlet property="kompetenzenBla" destination="XIH-0O-HIe" id="CLd-b5-DX8"/>
                         <outlet property="save" destination="Eq2-gs-GgU" id="Bke-S0-4aO"/>
                         <outlet property="tableView" destination="xia-C4-udF" id="Jc2-Fj-S64"/>
                         <outlet property="titleLabel" destination="Sbc-fI-swM" id="1UQ-z0-a8s"/>
@@ -1210,6 +1223,7 @@
                 <relationship kind="outlet" name="TextField" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="add" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="backg" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="kompetenzenBla" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="save" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
@@ -1278,7 +1292,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="996-sQ-8lM"/>
+        <segue reference="kjM-5H-flJ"/>
         <segue reference="z41-Dk-xKb"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -35,10 +35,6 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(void)viewDidAppear:(BOOL)animated{
-    CGRect rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y, self.containerView.bounds.size.width, self.containerView.bounds.size.height-54.0f);
-    self.tableView.frame =rect;
-}
 
 - (void)viewDidLoad
 {

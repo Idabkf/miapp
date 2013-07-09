@@ -42,6 +42,13 @@
     self.titleLabel.backgroundColor = [UIColor clearColor];
     self.titleLabel.font = [UIFont fontWithName:@"Georgia" size:20.0];
     self.tableView.backgroundColor = [UIColor clearColor];
+    self.kompetenzenBla.hidden = YES;
+    
+    if([titleString isEqualToString:@"Fachübergreifende Kompetenzen"]){
+        self.kompetenzenBla.textColor = [UIColor whiteColor];
+        self.kompetenzenBla.font = [UIFont fontWithName:@"Georgia" size:16.0];
+        self.kompetenzenBla.hidden = NO;
+    }
     
     NSLog(self.titleLabel.text);
     
