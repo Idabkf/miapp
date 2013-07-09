@@ -47,6 +47,8 @@ NSString *semesteranzahl;
     FachField .text = [mydefault stringForKey:@"AF"];
     SemesterField.text = [mydefault stringForKey:@"SA"];
     
+    self.oldFach = [mydefault stringForKey:@"AF"];
+    
     fach  = [[NSMutableArray alloc] init];
    // [fach addObject:@"Fach"];
     [fach addObject:@"KW"];
@@ -181,36 +183,40 @@ NSString *semesteranzahl;
     NSString *fach1 = [mydefault stringForKey:@"AF"];
     NSString *sem = [mydefault stringForKey:@"SA"];
     
-    //0: KW
-    //1: MMI
-    //2: MG
-    //3: BWL
-    int urlId = 1;
-    if ([fach1 isEqualToString:@"KW"]) {
-        urlId = 0;
-    }
-    else if ([fach1 isEqualToString:@"MMI"]) {
-        urlId = 1;
-    }
-    else if ([fach1 isEqualToString:@"MG"]) {
-        urlId = 2;
-    }
-    else if ([fach1 isEqualToString:@"BWL"]) {
-        urlId = 3;
-    }
-    
-    NSString *title = [[NSString alloc] initWithFormat:@"Anwendungsfach: %@", fach1];
-    NSString *message = [[NSString alloc] initWithFormat:@"%@. Semester", sem];
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
-    
-    [alert show];
-    
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    if (![fach1 isEqualToString:self.oldFach ]) {
+        //0: KW
+        //1: MMI
+        //2: MG
+        //3: BWL
+        int urlId = 1;
+        if ([fach1 isEqualToString:@"KW"]) {
+            urlId = 0;
+        }
+        else if ([fach1 isEqualToString:@"MMI"]) {
+            urlId = 1;
+        }
+        else if ([fach1 isEqualToString:@"MG"]) {
+            urlId = 2;
+        }
+        else if ([fach1 isEqualToString:@"BWL"]) {
+            urlId = 3;
+        }
 
-    [appDelegate fetchEntriesWithUrlId:urlId];
-
+        AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+        [appDelegate fetchEntriesWithUrlId:urlId];
+        
+        NSString *title = [[NSString alloc] initWithFormat:@"Anwendungsfach: %@", fach1];
+        NSString *message = [[NSString alloc] initWithFormat:@"%@. Semester", sem];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
+        
+        [alert show];
+    }
     
-    [NSThread sleepForTimeInterval:2];
+       
+   
+    
+    
+    //[NSThread sleepForTimeInterval:2];
    
     
     
