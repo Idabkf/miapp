@@ -39,4 +39,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *greenbt;
 @property int d;
 
+@property NSString *oldFach;
+
 @end

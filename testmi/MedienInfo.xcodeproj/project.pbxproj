@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		245017681777144C00F31A87 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 245017661777144C00F31A87 /* back.png */; };
 		245017691777144C00F31A87 /* plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 245017671777144C00F31A87 /* plus.png */; };
+		2452298F178C21BD007A4052 /* logo1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2452298E178C21BD007A4052 /* logo1.png */; };
 		245BDEDC177702520030253C /* caculator.png in Resources */ = {isa = PBXBuildFile; fileRef = 245BDEDA177702520030253C /* caculator.png */; };
 		245BDEDD177702520030253C /* edit1.png in Resources */ = {isa = PBXBuildFile; fileRef = 245BDEDB177702520030253C /* edit1.png */; };
 		2462CCCD177A55200043836E /* yes.png in Resources */ = {isa = PBXBuildFile; fileRef = 2462CCCC177A55200043836E /* yes.png */; };
@@ -77,6 +78,7 @@
 /* Begin PBXFileReference section */
 		245017661777144C00F31A87 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		245017671777144C00F31A87 /* plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus.png; sourceTree = "<group>"; };
+		2452298E178C21BD007A4052 /* logo1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo1.png; sourceTree = "<group>"; };
 		245BDEDA177702520030253C /* caculator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = caculator.png; path = ../testmi/caculator.png; sourceTree = "<group>"; };
 		245BDEDB177702520030253C /* edit1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit1.png; sourceTree = "<group>"; };
 		2462CCCC177A55200043836E /* yes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yes.png; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 		2493AE7B17653DAD007EAC2E = {
 			isa = PBXGroup;
 			children = (
+				2452298E178C21BD007A4052 /* logo1.png */,
 				B6EDA51D178441F70004E4A7 /* Frauenkirche-1.png */,
 				B6ED49DA176F148100AB0CD5 /* QuartzCore.framework */,
 				2493AE8D17653DAD007EAC2E /* testmi */,
@@ -407,6 +410,7 @@
 				2462CCCD177A55200043836E /* yes.png in Resources */,
 				683EA1F4177C948600788D80 /* Ungraded.plist in Resources */,
 				B6EDA51E178441F80004E4A7 /* Frauenkirche-1.png in Resources */,
+				2452298F178C21BD007A4052 /* logo1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
