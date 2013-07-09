@@ -35,6 +35,10 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    CGRect rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y, self.containerView.bounds.size.width, self.containerView.bounds.size.height-54.0f);
+    self.tableView.frame =rect;
+}
 
 - (void)viewDidLoad
 {
@@ -121,7 +125,8 @@
     NSString *image = [mydefault stringForKey:@"BildName"];
     self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:image] ];
     self.backg.image = [UIImage imageNamed:image];
-
+    CGRect rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y, self.containerView.bounds.size.width, self.containerView.bounds.size.height);
+    self.tableView.frame =rect;
     [self.tableView setContentOffset:savedOffset];
    }
 
@@ -581,6 +586,10 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         self.titleLabelBig.frame = rect;
         rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y+54.0f, self.containerView.frame.size.width, self.containerView.frame.size.height-54.0f);
         self.containerView.frame = rect;
+        rect = CGRectMake(self.tableView.bounds.origin.x, self.tableView.bounds.origin.y,  self.tableView.bounds.size.width, self.tableView.bounds.size.height - 54.0f);
+        rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y, self.containerView.bounds.size.width, self.containerView.bounds.size.height);
+        self.tableView.frame =rect;
+        
         
     } else {
         CGRect rect = CGRectMake(self.bt.frame.origin.x, self.bt.frame.origin.y-54.0f, self.bt.frame.size.width, self.bt.frame.size.height);
@@ -589,7 +598,9 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         self.titleLabelBig.frame = rect;
         rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y-54.0f, self.containerView.frame.size.width, self.containerView.frame.size.height+54.0f);
         self.containerView.frame = rect;
-        
+        rect = CGRectMake(self.tableView.bounds.origin.x, self.tableView.bounds.origin.y,  self.tableView.bounds.size.width, self.tableView.bounds.size.height + 54.0f);
+        rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y, self.containerView.bounds.size.width, self.containerView.bounds.size.height);
+        self.tableView.frame =rect;
         
     }
     
