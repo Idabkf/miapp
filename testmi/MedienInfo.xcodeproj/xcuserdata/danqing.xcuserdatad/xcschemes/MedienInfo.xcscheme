@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2493AE8317653DAD007EAC2E"
-               BuildableName = "testmi.app"
-               BlueprintName = "testmi"
-               ReferencedContainer = "container:testmi.xcodeproj">
+               BuildableName = "MedienInfo.app"
+               BlueprintName = "MedienInfo"
+               ReferencedContainer = "container:MedienInfo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2493AE8317653DAD007EAC2E"
-            BuildableName = "testmi.app"
-            BlueprintName = "testmi"
-            ReferencedContainer = "container:testmi.xcodeproj">
+            BuildableName = "MedienInfo.app"
+            BlueprintName = "MedienInfo"
+            ReferencedContainer = "container:MedienInfo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2493AE8317653DAD007EAC2E"
-            BuildableName = "testmi.app"
-            BlueprintName = "testmi"
-            ReferencedContainer = "container:testmi.xcodeproj">
+            BuildableName = "MedienInfo.app"
+            BlueprintName = "MedienInfo"
+            ReferencedContainer = "container:MedienInfo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2493AE8317653DAD007EAC2E"
-            BuildableName = "testmi.app"
-            BlueprintName = "testmi"
-            ReferencedContainer = "container:testmi.xcodeproj">
+            BuildableName = "MedienInfo.app"
+            BlueprintName = "MedienInfo"
+            ReferencedContainer = "container:MedienInfo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

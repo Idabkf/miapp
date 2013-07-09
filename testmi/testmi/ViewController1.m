@@ -16,46 +16,56 @@
 @end
 
 @implementation ViewController1
-@synthesize semestersdicView;
+@synthesize semestersdicView, backg;
 
-
-
-
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
         // Custom initialization
     }
     return self;
 }
 
-- (void)updatePlist
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
-    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistLocation];
-    NSPropertyListFormat format;
-    NSString *errorDesc = nil;
-    self.semestersdicView = (NSMutableDictionary *)[NSPropertyListSerialization
-                                                    propertyListFromData:plistXML
-                                                    mutabilityOption:NSPropertyListMutableContainersAndLeaves
-                                                    format:&format
-                                                    errorDescription:&errorDesc];
+    // Return YES for supported orientations
+    NSLog(@"Checking orientation %d", interfaceOrientation);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [self updatePlist];
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    //Observer
+    NSString *notificationName = @"finishedLoadingData";
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishLoadingData) name:notificationName object:nil];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.backgroundColor = [UIColor clearColor];
+    
     self.menu.backgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
-    self.menu.hidden = YES;
+    self.menu .hidden =NO;
+    if(self.menu.hidden ==NO){
+        self.saveBtn.hidden = NO;
+        self.edit.hidden = NO;
+        self.setBtn.hidden = NO;
+        self.setLab.hidden = NO;
+        self.changeLab.hidden = NO;
+        self.saveLab.hidden = NO;
+        //self.
+    }
+    else{
+        self.saveBtn.hidden = YES;
+        self.edit.hidden = YES;
+        self.setBtn.hidden = YES;
+        self.setLab.hidden = YES;
+        self.changeLab.hidden = YES;
+        self.saveLab.hidden = YES;}
     
     self.titleLabelBig.font = [UIFont fontWithName:@"AppleGothic" size:21.0];
     self.titleLabelBig.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
@@ -84,7 +94,7 @@
     self.titleLabel.text = [NSString stringWithFormat:@"%@. Semester", [mydefault stringForKey:@"SA"]];
     
     
-
+    self.modulFlag = -1;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
@@ -107,33 +117,54 @@
  
     self.title = @"Semester Plan";
     //self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
+    
+    NSString *image = [mydefault stringForKey:@"BildName"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:image] ];
+    self.backg.image = [UIImage imageNamed:image];
 
-    
-    
-    NSUserDefaults *mydefaut = [NSUserDefaults standardUserDefaults];
-    int number = [mydefaut integerForKey:@"Bild"];
- 
-    if (number == 1) {
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
-        
-    }
-    
-    else if (number == 2){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
-     
-
-    }
-    
-    else if (number == 3){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"card.jpg"] ];
-    }
-    else if (number == 0){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
-    }
+    [self.tableView setContentOffset:savedOffset];
    }
 
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self updatePlist];
+    [self.tableView setContentOffset:savedOffset];
+    self.menu .hidden =NO;
+    if(self.menu.hidden ==NO){
+        self.saveBtn.hidden = NO;
+        self.edit.hidden = NO;
+        self.setBtn.hidden = NO;
+        self.setLab.hidden = NO;
+        self.changeLab.hidden = NO;
+        self.saveLab.hidden = NO;
+        //self.
+    }
 
+}
+
+- (void) viewWillDisappear:(BOOL)animated{
+    savedOffset = [self.tableView contentOffset];
+}
+
+- (void)updatePlist
+{
+    /*
+     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+     NSString *documentsDirectory = [paths objectAtIndex:0];
+     NSString *plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
+     */
+    NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:self.plistLocation];
+    NSPropertyListFormat format;
+    NSString *errorDesc = nil;
+    self.semestersdicView = (NSMutableDictionary *)[NSPropertyListSerialization
+                                                    propertyListFromData:plistXML
+                                                    mutabilityOption:NSPropertyListMutableContainersAndLeaves
+                                                    format:&format
+                                                    errorDescription:&errorDesc];
+    //[self.tableView reloadData];
+    
+}
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -218,15 +249,28 @@
     NSMutableDictionary *semesterDic = [self.semestersdicView objectForKey:level];
     NSMutableArray *lecturesArray = [semesterDic objectForKey:@"lectures"];
     NSMutableDictionary *lectureDic = [lecturesArray objectAtIndex:[indexPath row]];
+    
     NSString *title = [lectureDic objectForKey:@"title"];
+        if(![[lectureDic objectForKey:@"tmpTitle"] isEqualToString:@""]){
+            title = [lectureDic objectForKey:@"tmpTitle"];
+        } else if (![[lectureDic objectForKey:@"tmpAttending"] isEqualToString:@""]) {
+            title = [lectureDic objectForKey:@"tmpAttending"];
+        }
+    
     cell.textLabel.text = title;
     cell.textLabel.font = [UIFont fontWithName:@"AppleGothic" size:16.0];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
 
-    if([[lectureDic objectForKey:@"passed"] isEqualToString:@"YES"]){
-       // cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
+    
+    if ([[lectureDic objectForKey:@"passed"] isEqualToString:@"YES"]){
+        // cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
         cell.backgroundColor = [UIColor colorWithRed:(102.0/255.0) green:(205.0/255.0) blue:(170.0/255.0) alpha:.5];
-         cell.textLabel.backgroundColor = [UIColor clearColor];
+        cell.textLabel.backgroundColor = [UIColor clearColor];
+    } else  if([[lectureDic objectForKey:@"attending"] isEqualToString:@"YES"]){
+        // cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
+        NSLog(@"blue");
+        cell.backgroundColor = [UIColor colorWithRed:(100.0/255.0) green:(149.0/255.0) blue:(237.0/255.0) alpha:.5];
+        cell.textLabel.backgroundColor = [UIColor clearColor];
     } else {
         cell.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
         //cell.backgroundColor = [UIColor clearColor];
@@ -247,11 +291,11 @@
     UIView* myView = [[UIView alloc] init];
     myView.backgroundColor = [UIColor clearColor];
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 15, 300, 25)];
-    //titleLabel.textColor=[UIColor colorWithRed:(47.0/255.0) green:(47.0/255.0) blue:(47.0/255.0) alpha:1];
+    titleLabel.textColor=[UIColor colorWithRed:(47.0/255.0) green:(47.0/255.0) blue:(47.0/255.0) alpha:1];
     titleLabel.textColor = [UIColor whiteColor];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.font = [UIFont fontWithName:@"Georgia" size:20.0];
-   // titleLabel.font = [UIFont boldSystemFontOfSize:20.0];
+    //titleLabel.font = [UIFont boldSystemFontOfSize:20.0];
     
     NSInteger levelInt = section +1;
     NSString *level = [NSString stringWithFormat:@"%i", levelInt];
@@ -395,20 +439,48 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     NSMutableArray *lecturesArray = [semesterDic objectForKey:@"lectures"];
     NSMutableDictionary *lectureDic = [lecturesArray objectAtIndex:[indexPath row]];
     NSString *title = [lectureDic objectForKey:@"title"];
-
-
     
     title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
-    if([title isEqualToString: @"Seminar zu ausgewählten Themen der Informatik"]){
+    
+    //    Fachübergreifende Kompetenzen
+    if([title isEqualToString: @"Fachübergreifende Kompetenzen"]){
+        self.modulFlag = 4;
+        [self performSegueWithIdentifier:@"options" sender:self];
         
+        return;
+        
+    }
+
+    if([title isEqualToString: @"Seminar zu ausgewählten Themen der Informatik"]){
+        self.modulFlag = 1;
         [self performSegueWithIdentifier:@"options" sender:self];
 
         return;
         
     }
     
+    if([title isEqualToString: @"Vertiefende Themen der Medieninformatik für Bachelor I"]){
+        self.modulFlag = 2;
+        [self performSegueWithIdentifier:@"options" sender:self];
+        
+        return;
+        
+    }
+    
+    if([title isEqualToString: @"Vertiefende Themen der Medieninformatik für Bachelor II"]){
+        self.modulFlag = 3;
+        [self performSegueWithIdentifier:@"options" sender:self];
+        
+        return;
+        
+    }
+
+    
     viewController.title = nil;
     viewController.titleString = title;
+    viewController.semesterIndex = indexPath.section;
+    viewController.lectureIndex = indexPath.row;
+    //viewController.modulFlag = modulFlag;
      //e[viewController.titleLabel setText:title];
      
      popover = [[FPPopoverController alloc] initWithViewController:viewController];
@@ -449,7 +521,12 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         
         PopoverTable *viewController = segue.destinationViewController;
         title = [title stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+        
+        viewController.semesterIndex = selectedRowIndex.section;
+        viewController.lectureIndex = selectedRowIndex.row;
         viewController.titleString = title;
+        viewController.chosenLecture = [lectureDic objectForKey:@"tmpTitle"];
+        viewController.modulFlag = self.modulFlag;
 
     }
 }
@@ -457,8 +534,8 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 - (IBAction)Edit:(id)sender {
 
-    
-        [super setEditing:YES animated:YES];
+    NSLog(@"edit ***********");
+        [self.tableView setEditing:YES animated:YES];
         
     
 }
@@ -479,21 +556,60 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 - (IBAction)menubtn:(id)sender {
     if(self.menu.hidden ==YES){
-        self.menu.hidden = NO;}
-    else{self.menu .hidden =YES;}
+        self.menu.hidden = NO;
+        self.saveBtn.hidden = NO;
+        self.edit.hidden = NO;
+        self.setBtn.hidden = NO;
+        self.setLab.hidden = NO;
+        self.changeLab.hidden = NO;
+        self.saveLab.hidden = NO;
+    //self.
+    }
+    else{self.menu .hidden =YES;
+        self.saveBtn.hidden = YES;
+        self.edit.hidden = YES;
+        self.setBtn.hidden = YES;
+        self.setLab.hidden = YES;
+        self.changeLab.hidden = YES;
+        self.saveLab.hidden = YES;}
+    
+    if(self.menu.hidden == NO){
+        
+        CGRect rect = CGRectMake(self.bt.frame.origin.x, self.bt.frame.origin.y+54.0f, self.bt.frame.size.width, self.bt.frame.size.height);
+        self.bt.frame = rect;
+        rect = CGRectMake(self.titleLabelBig.frame.origin.x, self.titleLabelBig.frame.origin.y+54.0f, self.titleLabelBig.frame.size.width, self.titleLabelBig.frame.size.height);
+        self.titleLabelBig.frame = rect;
+        rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y+54.0f, self.containerView.frame.size.width, self.containerView.frame.size.height-54.0f);
+        self.containerView.frame = rect;
+        
+    } else {
+        CGRect rect = CGRectMake(self.bt.frame.origin.x, self.bt.frame.origin.y-54.0f, self.bt.frame.size.width, self.bt.frame.size.height);
+        self.bt.frame = rect;
+        rect = CGRectMake(self.titleLabelBig.frame.origin.x, self.titleLabelBig.frame.origin.y-54.0f, self.titleLabelBig.frame.size.width, self.titleLabelBig.frame.size.height);
+        self.titleLabelBig.frame = rect;
+        rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y-54.0f, self.containerView.frame.size.width, self.containerView.frame.size.height+54.0f);
+        self.containerView.frame = rect;
+        
+        
+    }
     
     
-        [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];
+    [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];
     self.bt = (UIButton *)sender;
     self.bt.selected = !self.bt.selected;
     
    }
 - (IBAction)Save:(id)sender {
     
-     [super setEditing:NO animated:NO];
+     [self.tableView setEditing:NO animated:NO];
    // self.menu.hidden = YES;
     //[self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow1.png" ]forState:UIControlStateSelected];
    // self.bt = (UIButton *)sender;
    // self.bt.selected = !self.bt.selected
 }
+-(void)didFinishLoadingData{
+    [self updatePlist];
+    [self.tableView reloadData];
+}
+
 @end

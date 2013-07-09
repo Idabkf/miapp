@@ -14,11 +14,11 @@
 @end
 
 @implementation ViewController2
-@synthesize semestersdicView, gradeArray, GradesAndLectures, toggleSwitch;
+@synthesize semestersdicView, gradeArray, GradesAndLectures, backg;
 
-- (id)initWithStyle:(UITableViewStyle)style
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithStyle:style];
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
     }
@@ -30,27 +30,24 @@
     if (self.calcBtn.selected) {
         [self setAlternativeGrades:YES];
         [self updateTable];
-        self.calcLabel.text = @"Echte Noten?";
+        self.calcLab.text = @"Echte Noten?";
     } else {
         [self setAlternativeGrades:NO];
         [self updateTable];
-        self.calcLabel.text = @"Verbessern?";
+        self.calcLab.text = @"Verbessern?";
     }
     
     self.calcBtn.selected = !self.calcBtn.selected;
     
 }
 
-- (IBAction)setc:(id)sender {
-    if(self.menu.hidden ==YES){
-        self.menu.hidden = NO;}
-    else{self.menu .hidden =YES;}
-    
-    [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];
-    self.bt = (UIButton *)sender;
-    self.bt.selected = !self.bt.selected;
-    
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    NSLog(@"Checking orientation %d", interfaceOrientation);
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
 
 
 
@@ -149,15 +146,50 @@
     }
     
     self.averageLabel.text =  [[NSString alloc] initWithFormat:
-                               @"Dein Schnitt: %.2f",[[self calculateAverageOfGrades] floatValue]];
+                               @"Dein Schnitt: %.2f\n%i ECTS",[[self calculateAverageOfGrades] floatValue], [[self getAmountEcts]intValue]];
+
     [self.tableView reloadData];
     
 }
 
 - (IBAction)menubt:(id)sender {
     if(self.menu.hidden ==YES){
-        self.menu.hidden = NO;}
-    else{self.menu .hidden =YES;}
+        self.menu.hidden = NO;
+        self.saveBtn.hidden = NO;
+        self.edit.hidden = NO;
+        self.calcBtn.hidden = NO;
+        self.saveLab.hidden = NO;
+        self.calcLab.hidden = NO;
+        self.editLab.hidden = NO;
+        //self.
+    }
+    else{self.menu .hidden =YES;
+        self.saveBtn.hidden = YES;
+        self.edit.hidden = YES;
+        self.calcBtn.hidden = YES;
+        self.saveLab.hidden = YES;
+        self.calcLab.hidden = YES;
+        self.editLab.hidden = YES;}
+    
+    if(self.menu.hidden == NO){
+        
+        CGRect rect = CGRectMake(self.bt.frame.origin.x, self.bt.frame.origin.y+54.0f, self.bt.frame.size.width, self.bt.frame.size.height);
+        self.bt.frame = rect;
+        rect = CGRectMake(self.averageLabel.frame.origin.x, self.averageLabel.frame.origin.y+54.0f, self.averageLabel.frame.size.width, self.averageLabel.frame.size.height);
+        self.averageLabel.frame = rect;
+        rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y+54.0f, self.containerView.frame.size.width, self.containerView.frame.size.height-54.0f);
+        self.containerView.frame = rect;
+        
+    } else {
+        CGRect rect = CGRectMake(self.bt.frame.origin.x, self.bt.frame.origin.y-54.0f, self.bt.frame.size.width, self.bt.frame.size.height);
+        self.bt.frame = rect;
+        rect = CGRectMake(self.averageLabel.frame.origin.x, self.averageLabel.frame.origin.y-54.0f, self.averageLabel.frame.size.width, self.averageLabel.frame.size.height);
+        self.averageLabel.frame = rect;
+        rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y-54.0f, self.containerView.frame.size.width, self.containerView.frame.size.height+54.0f);
+        self.containerView.frame = rect;
+        
+        
+    }
     
     [self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow.png" ]forState:UIControlStateSelected];
     self.bt = (UIButton *)sender;
@@ -168,6 +200,17 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self updateTable];
+    self.menu.hidden= NO;
+    if(self.menu.hidden ==NO){
+        self.menu.hidden = NO;
+        self.saveBtn.hidden = NO;
+        self.edit.hidden = NO;
+        self.calcBtn.hidden = NO;
+        self.saveLab.hidden = NO;
+        self.calcLab.hidden = NO;
+        self.editLab.hidden = NO;
+        //self.
+    }
 }
 
 - (void)viewDidLoad
@@ -177,7 +220,24 @@
     self.alternativeGrades = NO;
     self.calcBtn.selected = YES;
     self.menu.backgroundColor = [[UIColor alloc] initWithRed:0.0 green:0.0 blue:0.0 alpha:0.5];
-    self.menu.hidden= YES;
+    self.menu.hidden= NO;
+    if(self.menu.hidden ==NO){
+        self.menu.hidden = NO;
+        self.saveBtn.hidden = NO;
+        self.edit.hidden = NO;
+        self.calcBtn.hidden = NO;
+        self.saveLab.hidden = NO;
+        self.calcLab.hidden = NO;
+        self.editLab.hidden = NO;
+        //self.
+    }
+    else{self.menu .hidden =YES;
+        self.saveBtn.hidden = YES;
+        self.edit.hidden = YES;
+        self.calcBtn.hidden = YES;
+        self.saveLab.hidden = YES;
+        self.calcLab.hidden = YES;
+        self.editLab.hidden = YES;}
 
     [self updateTable];
     //self.tableView.backgroundColor=[UIColor colorWithRed:(155.0/255.0) green:(205.0/255.0) blue:(155.0/255.0) alpha:.5];
@@ -185,8 +245,11 @@
     self.averageLabel.layer.borderColor = [UIColor whiteColor].CGColor;
     self.averageLabel.layer.borderWidth = 1.0;
     self.averageLabel.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
-    self.averageLabel.font = [UIFont fontWithName:@"AppleGothic" size:21.0];
+    self.averageLabel.font = [UIFont fontWithName:@"AppleGothic" size:18.0];
 
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    
   //  self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
    // self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"woood1.jpg"] ];
     // Uncomment the following line to preserve selection between presentations.
@@ -195,31 +258,18 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.bounces = YES;
     
-    
-    NSUserDefaults *mydefaut = [NSUserDefaults standardUserDefaults];
-    int number = [mydefaut integerForKey:@"Bild"];
-   
-    if (number == 1) {
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"green4.jpg"] ];
-           }
-    
-    else if (number == 2){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
-     
-        
-    }
-    
-    else if (number == 3){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"card.jpg"] ];
-    }
-
-    else if (number == 0){
-        self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:@"wood1.jpg"] ];
-    }
+    NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+    NSString *image = [mydefault stringForKey:@"BildName"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage: [UIImage imageNamed:image] ];
+    self.backg.image = [UIImage imageNamed:image];
     
     
 }
+
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -247,7 +297,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell2";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
     if ( cell ==nil ){
@@ -255,16 +305,19 @@
     }
     cell.opaque = NO;
     NSArray *lectures = [GradesAndLectures objectForKey:[gradeArray objectAtIndex:indexPath.section]];
-    
 
 
-    cell.textLabel.text = [lectures objectAtIndex:indexPath.row][@"title"];
+    NSString *title = [lectures objectAtIndex:indexPath.row][@"title"];
+    if(![[lectures objectAtIndex:indexPath.row][@"tmpTitle"] isEqualToString:@""]){
+        title = [lectures objectAtIndex:indexPath.row][@"tmpTitle"];
+    }
+    cell.textLabel.text = title;
     cell.textLabel.font = [UIFont fontWithName:@"AppleGothic" size:16.0];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     
     if(![[lectures objectAtIndex:indexPath.row][@"otherGrade"] isEqualToString:@""] &&self.alternativeGrades){
         //  cell.contentView.backgroundColor=[UIColor lightGrayColor];
-        cell.backgroundColor=[UIColor colorWithRed:(2554.0/255.0) green:(069.0/255.0) blue:(000.0/255.0) alpha:.4];
+        cell.backgroundColor=[UIColor colorWithRed:(2554.0/255.0) green:(069.0/255.0) blue:(000.0/255.0) alpha:.3];
         cell.textLabel.backgroundColor = [UIColor clearColor];
         //  cell.textLabel.backgroundColor = [UIColor lightGrayColor];
     }else {
@@ -334,7 +387,9 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         
         //iterate all lectures
         for(int i= 0; i < lecturesArray.count; i++){
-            if([[lecturesArray objectAtIndex:i] [@"title"] isEqualToString: lecture [@"title"]]){
+            if([[lecturesArray objectAtIndex:i] [@"title"] isEqualToString: lecture [@"title"]] &&
+               [[lecturesArray objectAtIndex:i] [@"tmpTitle"] isEqualToString: lecture [@"tmpTitle"]] &&
+               [[lecturesArray objectAtIndex:i] [@"tmpTitle2"] isEqualToString: lecture [@"tmpTitle2"]]){
                 
                 //set as other grade because not real grade
                 [[lecturesArray objectAtIndex:i] setObject: [gradeArray objectAtIndex:destinationIndexPath.section] forKey:@"otherGrade"];
@@ -358,12 +413,53 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
     self.calcBtn.selected = NO;
     [self setAlternativeGrades:YES];
-    self.calcLabel.text = @"Echte Noten?";
+    self.calcLab.text = @"Echte Noten?";
     
     [self updateTable];
-    [tableView endUpdates];
+    [self.tableView endUpdates];
     
 }
+
+- (NSDecimalNumber *) getAmountEcts
+{
+    NSDecimalNumber *ectsSumGr = [[NSDecimalNumber alloc]initWithString: @"0.00"];
+
+    //iterate all semesters
+    for(id key in semestersdicView){
+        
+        NSMutableDictionary *semester = semestersdicView[key];
+        NSMutableArray *lecturesArray = [semester objectForKey:@"lectures"];
+        NSLog(@"LECTURES ARRAY: %@", lecturesArray);
+        //iterate all lectures
+        for(int i= 0; i < lecturesArray.count; i++){
+            
+            if([lecturesArray objectAtIndex:i] [@"grade"] != nil && ![[lecturesArray objectAtIndex:i] [@"grade"] isEqualToString:@""] ){
+                
+                NSString *ects = [lecturesArray objectAtIndex:i] [@"ects"];
+                ects = [ects stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                ects = [NSString stringWithFormat: @"%@.00", ects];
+                
+                
+                NSDecimalNumber *ectsNumber = [[NSDecimalNumber alloc]initWithString: ects];
+                
+                ectsSumGr = [ectsSumGr decimalNumberByAdding: ectsNumber];
+
+            }
+            
+            else if([[lecturesArray objectAtIndex:i] [@"passed"] isEqualToString:@"YES"] ){
+                NSString *ects = [lecturesArray objectAtIndex:i] [@"ects"];
+                ects = [ects stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                ects = [NSString stringWithFormat: @"%@.00", ects];
+                NSDecimalNumber *ectsNumber = [[NSDecimalNumber alloc]initWithString: ects];
+                ectsSumGr = [ectsSumGr decimalNumberByAdding: ectsNumber];
+            }
+        }
+        
+    }
+
+    return ectsSumGr;
+}
+
 
 - (NSDecimalNumber *) calculateAverageOfGrades
 {
@@ -487,51 +583,29 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     return average;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    [tableView setEditing:NO animated:YES];
+    
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+- (BOOL)tableView: (UITableView *)tableView shouldIndentWhileEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    return NO;
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    [tableView setEditing:YES animated:YES];
+    // return UITableViewCellEditingStyleDelete;
+    return UITableViewCellEditingStyleNone;
 }
-*/
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -545,14 +619,22 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
     
     if(self.editing)
     {
-        [super setEditing:NO animated:NO];
+        [self.tableView setEditing:NO animated:NO];
         
     }
     else
     {
-        [super setEditing:YES animated:YES];
+        [self.tableView setEditing:YES animated:YES];
         
     }
+}
+- (IBAction)Save:(id)sender {
+    
+    [self.tableView setEditing:NO animated:NO];
+    // self.menu.hidden = YES;
+    //[self.bt setBackgroundImage:[UIImage imageNamed:@"upArrow1.png" ]forState:UIControlStateSelected];
+    // self.bt = (UIButton *)sender;
+    // self.bt.selected = !self.bt.selected
 }
 
 @end

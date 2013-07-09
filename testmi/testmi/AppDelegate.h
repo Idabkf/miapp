@@ -26,8 +26,9 @@
 @property Lecture *currentLecture;
 @property NSMutableDictionary *currentLecture1;
 @property NSMutableString *tmp;
+@property NSMutableArray *ungradedLectures;
 
-- (void)fetchEntries;
+- (void)fetchEntriesWithUrlId:(int) urlId;
 -(void)createPList;
 
 @property (strong, nonatomic) UIWindow *window;

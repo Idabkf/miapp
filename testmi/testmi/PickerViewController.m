@@ -8,6 +8,7 @@
 
 #import "PickerViewController.h"
 #import "ViewController1.h"
+#import "AppDelegate.h"
 
 @interface PickerViewController ()<UIAlertViewDelegate,UITextFieldDelegate>
 
@@ -69,6 +70,9 @@ NSString *semesteranzahl;
     
     NSUserDefaults *mydefaut = [NSUserDefaults standardUserDefaults];
     int number = [mydefaut integerForKey:@"Bild"];
+    NSString *imageName = @"wood1.jpg";
+    [mydefault setObject:imageName forKey:@"BildName"];
+
     if (number) {
         self.d = number;
     }
@@ -141,7 +145,6 @@ NSString *semesteranzahl;
 
 
 - (IBAction)SpeicherAction:(id)sender {
-    
        
     NSInteger fachRow = [picker selectedRowInComponent:FachComponent];
     NSInteger cemestRow = [picker selectedRowInComponent:SemesterComponent];
@@ -150,17 +153,65 @@ NSString *semesteranzahl;
     //NSString *asemester = [self.semester objectAtIndex:cemestRow];
     NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
    
-     [mydefault setInteger:self.d forKey:@"Bild"];
+    
+    if (self.d == 1) {
+        NSString *imageName = @"green4.jpg";
+        [mydefault setObject:imageName forKey:@"BildName"];
+    }
+    
+    else if (self.d == 2){
+        NSString *imageName = @"wood1.jpg";
+        [mydefault setObject:imageName forKey:@"BildName"];
+        
+    }
+    
+    else if (self.d == 3){
+        NSString *imageName = @"card.jpg";
+        [mydefault setObject:imageName forKey:@"BildName"];
+        
+    }
+    else if (self.d == 0){
+        NSString *imageName = @"wood1.jpg";
+        [mydefault setObject:imageName forKey:@"BildName"];
+    }
+    
+    [mydefault setInteger:self.d forKey:@"Bild"];
+
+
     NSString *fach1 = [mydefault stringForKey:@"AF"];
     NSString *sem = [mydefault stringForKey:@"SA"];
-   
     
-    NSString *title = [[NSString alloc] initWithFormat:@"Anwndungsfach:%@", fach1];
-    NSString *message = [[NSString alloc] initWithFormat:@"%@Semester", sem];
+    //0: KW
+    //1: MMI
+    //2: MG
+    //3: BWL
+    int urlId = 1;
+    if ([fach1 isEqualToString:@"KW"]) {
+        urlId = 0;
+    }
+    else if ([fach1 isEqualToString:@"MMI"]) {
+        urlId = 1;
+    }
+    else if ([fach1 isEqualToString:@"MG"]) {
+        urlId = 2;
+    }
+    else if ([fach1 isEqualToString:@"BWL"]) {
+        urlId = 3;
+    }
     
+    NSString *title = [[NSString alloc] initWithFormat:@"Anwendungsfach: %@", fach1];
+    NSString *message = [[NSString alloc] initWithFormat:@"%@. Semester", sem];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil,nil];
-     
+    
     [alert show];
+    
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+
+    [appDelegate fetchEntriesWithUrlId:urlId];
+
+    
+    [NSThread sleepForTimeInterval:2];
+   
     
     
 }
@@ -240,6 +291,8 @@ NSString *semesteranzahl;
        NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
        [mydefault setObject:FachField.text  forKey:@"AF"];
        [mydefault synchronize];
+       
+       
     }
     if (component == SemesterComponent){
       NSInteger cemest = [picker selectedRowInComponent:SemesterComponent];

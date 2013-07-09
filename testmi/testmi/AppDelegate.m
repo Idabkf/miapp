@@ -16,6 +16,10 @@
 {if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstStart"]){
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstStart"];
     
+    NSUserDefaults *mydefaut = [NSUserDefaults standardUserDefaults];
+    NSString *imageName = @"wood1.jpg";
+    [mydefaut setObject:imageName forKey:@"BildName"];
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     
     UIViewController *mainViewController = [storyboard instantiateViewControllerWithIdentifier:@"view4"];
@@ -28,9 +32,18 @@
     
     self.semestersdicParser = [[NSMutableDictionary alloc] init];
     
-    [self fetchEntries];
+    /*
+    //0: KW
+    //1: MMI
+    //2: MG
+    //3: BWL
+    [self fetchEntriesWithUrlId:1];
+     
     
     [NSThread sleepForTimeInterval:2];
+     */
+    
+    
     //  self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = mainViewController;
     
@@ -49,7 +62,7 @@
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    
+    self.plistLocation = [documentsDirectory stringByAppendingPathComponent:@"data.plist"];
     
     [self.semestersdicParser writeToFile:self.plistLocation atomically: YES];
     
@@ -104,20 +117,63 @@
      */
 }
 
-- (void)fetchEntries
+- (void) setUngradedLectures{
+    
+    NSString *path= [[NSBundle mainBundle] pathForResource:@"Ungraded" ofType:@"plist"];
+    NSMutableDictionary *ungradedNotesDic = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
+    
+    
+    for (int i = 1; i<7; i++) {
+        NSMutableDictionary *currentSemester = [self.semestersdicParser objectForKey:[NSString stringWithFormat:@"%i",i]];
+        NSMutableArray *currentLectures = [currentSemester objectForKey:@"lectures"];
+        
+        for (int i = 0; i<currentLectures.count; i++) {
+            
+            for (int j = 0; j<ungradedNotesDic.count; j++) {
+                NSString *titleUngraded = [ungradedNotesDic objectForKey:[NSString stringWithFormat:@"%i", j]];
+                NSString *titleLecture = [currentLectures objectAtIndex:i] [@"title"];
+                //titleLecture = [titleLecture stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                //NSLog(@"############# TITLE ungraded: %@ and TITLE lecture: %@", title, [currentLectures objectAtIndex:i] [@"title"]);
+                if ([titleLecture hasPrefix:titleUngraded] ||
+                    [[currentLectures objectAtIndex:i] [@"tmpTitle"]hasPrefix:titleUngraded]) {
+                    [[currentLectures objectAtIndex:i] setValue:@"NO" forKey:@"graded"];
+                }
+            }
+        }
+        
+        [currentSemester setValue:currentLectures forKey:@"lectures"];
+        [self.semestersdicParser setValue:currentSemester forKey:[NSString stringWithFormat:@"%i",i]];
+    }
+}
+
+- (void)fetchEntriesWithUrlId:(int) urlId
 {
     // Create a new data container for the stuff that comes back from the service
+    
     xmlData = [[NSMutableData alloc] init];
     
     // Construct a URL that will ask the service for what you want -
     // note we can concatenate literal strings together on multiple
     // lines in this way - this results in a single NSString instance
+    
+    
     NSURL *url = [NSURL URLWithString:@"http://www.medien.ifi.lmu.de/studierende/semesterplanung/bachelor/mediengestaltung/index.xhtml.de"];
-    
-    
-    
-    // For Apple's Hot News feed, replace the line above with
-    // NSURL *url = [NSURL URLWithString:@"http://www.apple.com/pr/feeds/pr.rss"];
+    //0: KW
+    //1: MMI
+    //2: MG
+    //3: BWL
+    if (urlId == 0) {
+        url = [NSURL URLWithString:@"http://www.medien.ifi.lmu.de/studierende/semesterplanung/bachelor/medienwirkung/index.xhtml.de"];
+    }
+    else if (urlId == 1) {
+        url = [NSURL URLWithString:@"http://www.medien.ifi.lmu.de/studierende/semesterplanung/bachelor/mmi/index.xhtml.de"];
+    }
+    else if (urlId == 2) {
+        url = [NSURL URLWithString:@"http://www.medien.ifi.lmu.de/studierende/semesterplanung/bachelor/mediengestaltung/index.xhtml.de"];
+    }
+    else if (urlId == 3) {
+        url = [NSURL URLWithString:@"http://www.medien.ifi.lmu.de/studierende/semesterplanung/bachelor/medienwirtschaft/index.xhtml.de"];
+    }
     
     // Put that URL into an NSURLRequest
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
@@ -148,7 +204,12 @@
     // sent to it before this line finishes execution - it is blocking
     [parser parse];
     
+    [self setUngradedLectures];
+    
     [self createPList];
+    
+    NSString *notificationName = @"finishedLoadingData";
+    [[NSNotificationCenter defaultCenter] postNotificationName:notificationName object:nil];
     
     // Get rid of the XML data as we no longer need it
     xmlData = nil;
@@ -174,15 +235,18 @@
     // Grab the description of the error object passed to us
     NSString *errorString = [NSString stringWithFormat:@"Fetch failed: %@",
                              [error localizedDescription]];
+    NSString *message = [NSString stringWithFormat:@"Bitte verbinde dich mit dem Internet."];
     
     // Create and show an alert view with this error displayed
-    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                 message:errorString
+    UIAlertView *av = [[UIAlertView alloc] initWithTitle:@"Fehler"
+                                                 message:message
                                                 delegate:nil
                                        cancelButtonTitle:@"OK"
                                        otherButtonTitles:nil];
     [av show];
 }
+
+
 
 
 - (void)parser:(NSXMLParser *)parser
@@ -294,9 +358,25 @@ didStartElement:(NSString *)elementName
             //self.currentLecture.ects = self.tmp;
             [self.currentLecture1 setObject:self.tmp forKey:@"ects"];
             
+            if([[self.currentLecture1 objectForKey:@"title"] isEqualToString: @"Soziale und persönliche Kompetenz\n"] ||
+               [[self.currentLecture1 objectForKey:@"title"] isEqualToString: @"Ethik und Recht in der Informatik\n"] ||
+               [[self.currentLecture1 objectForKey:@"title"] isEqualToString: @"Projektkompetenz Multimedia\n"] ||
+               [[self.currentLecture1 objectForKey:@"title"] isEqualToString: @"Sprachkurs ComComp\n"] ){
+
+               [self.currentLecture1 setObject:[self.currentLecture1 objectForKey:@"title"] forKey:@"tmpTitle"];
+               [self.currentLecture1 setObject:@"Fachübergreifende Kompetenzen" forKey:@"title"];
+            } else {
+                [self.currentLecture1 setObject:@"" forKey:@"tmpTitle"];
+            }
+            
+            [self.currentLecture1 setObject:@"" forKey:@"tmpTitle2"];
+            [self.currentLecture1 setObject:@"" forKey:@"tmpAttending"];
+            [self.currentLecture1 setObject:@"" forKey:@"tmpAttending2"];
             [self.currentLecture1 setObject:@"" forKey:@"grade"];
             [self.currentLecture1 setObject:@"" forKey:@"otherGrade"];
             [self.currentLecture1 setObject:@"NO" forKey:@"passed"];
+            [self.currentLecture1 setObject:@"YES" forKey:@"graded"];
+            [self.currentLecture1 setObject:@"NO" forKey:@"attending"];
             
             /*
              //semester objekt anhand von dic erstellt aber hier sitzt doch nur ein array
