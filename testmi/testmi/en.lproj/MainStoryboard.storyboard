@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zsy-Qo-7F9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="zsy-Qo-7F9">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -730,6 +730,14 @@
                                     <outlet property="delegate" destination="rCz-bs-yk9" id="FhH-mH-dBu"/>
                                 </connections>
                             </pickerView>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="unbenotet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nMK-wK-Rwl">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="wWj-qe-1vH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.93725496529999996" green="0.97254908080000002" blue="0.91372555489999996" alpha="1" colorSpace="deviceRGB"/>
                         <accessibility key="accessibilityConfiguration">
@@ -737,8 +745,9 @@
                         </accessibility>
                         <constraints>
                             <constraint firstItem="Ins-MD-6g2" firstAttribute="leading" secondItem="maU-Ed-S8v" secondAttribute="leading" type="default" id="2mf-xG-uLr"/>
+                            <constraint firstItem="nMK-wK-Rwl" firstAttribute="leading" secondItem="wKu-NI-npm" secondAttribute="leading" type="default" id="6r5-bf-T9h"/>
+                            <constraint firstItem="nMK-wK-Rwl" firstAttribute="leading" secondItem="oIs-Lj-lc2" secondAttribute="leading" type="default" id="8Im-Pl-rdN"/>
                             <constraint firstItem="maU-Ed-S8v" firstAttribute="leading" secondItem="OB2-ef-Vye" secondAttribute="leading" constant="18" id="BpB-Ga-u2m"/>
-                            <constraint firstItem="wKu-NI-npm" firstAttribute="leading" secondItem="oIs-Lj-lc2" secondAttribute="leading" type="default" id="CsE-vH-341"/>
                             <constraint firstItem="VKQ-F0-Ixd" firstAttribute="trailing" secondItem="9IK-yO-XZD" secondAttribute="trailing" type="default" id="Czg-QS-le5"/>
                             <constraint firstItem="Ins-MD-6g2" firstAttribute="top" secondItem="OB2-ef-Vye" secondAttribute="top" constant="68" id="DcZ-gT-CQ7"/>
                             <constraint firstItem="D2R-Hl-bqh" firstAttribute="leading" secondItem="oIs-Lj-lc2" secondAttribute="leading" type="default" id="Hpp-js-JE7"/>
@@ -748,20 +757,21 @@
                             <constraint firstItem="rZO-iS-Y4e" firstAttribute="leading" secondItem="OB2-ef-Vye" secondAttribute="leading" constant="32" id="Mbz-BA-tdD"/>
                             <constraint firstItem="D2R-Hl-bqh" firstAttribute="bottom" secondItem="rZO-iS-Y4e" secondAttribute="bottom" type="default" id="Sct-kf-elM"/>
                             <constraint firstItem="Sr7-HL-RXy" firstAttribute="leading" secondItem="1Wc-5f-PXl" secondAttribute="leading" type="default" id="SwQ-mx-65n"/>
+                            <constraint firstItem="eSd-x6-00k" firstAttribute="leading" secondItem="OB2-ef-Vye" secondAttribute="leading" constant="60" id="UYt-BH-uWE"/>
                             <constraint firstItem="1Wc-5f-PXl" firstAttribute="leading" secondItem="BJ3-f1-Ync" secondAttribute="leading" type="default" id="Yf3-P1-ZFQ"/>
                             <constraint firstItem="wKu-NI-npm" firstAttribute="top" secondItem="OB2-ef-Vye" secondAttribute="top" constant="214" id="aY7-Zr-pl2"/>
-                            <constraint firstItem="eSd-x6-00k" firstAttribute="top" secondItem="OB2-ef-Vye" secondAttribute="top" constant="70" id="bX9-Dv-vNl"/>
                             <constraint firstItem="1Wc-5f-PXl" firstAttribute="bottom" secondItem="oIs-Lj-lc2" secondAttribute="bottom" type="default" id="dQE-TK-Vqk"/>
+                            <constraint firstAttribute="trailing" secondItem="nMK-wK-Rwl" secondAttribute="trailing" constant="9" id="ec8-dK-IZA"/>
                             <constraint firstItem="oIs-Lj-lc2" firstAttribute="top" secondItem="OB2-ef-Vye" secondAttribute="top" constant="173" id="kYo-nf-RQy"/>
+                            <constraint firstItem="nMK-wK-Rwl" firstAttribute="baseline" secondItem="Sr7-HL-RXy" secondAttribute="baseline" type="default" id="lUd-2L-kjm"/>
                             <constraint firstItem="VKQ-F0-Ixd" firstAttribute="bottom" secondItem="OB2-ef-Vye" secondAttribute="bottom" type="default" id="npU-ee-QF0"/>
                             <constraint firstItem="Sr7-HL-RXy" firstAttribute="baseline" secondItem="wKu-NI-npm" secondAttribute="baseline" type="default" id="oiA-Go-X2X"/>
-                            <constraint firstItem="eSd-x6-00k" firstAttribute="leading" secondItem="OB2-ef-Vye" secondAttribute="leading" type="default" id="qCm-E8-Z6M"/>
                             <constraint firstItem="wKu-NI-npm" firstAttribute="trailing" secondItem="oIs-Lj-lc2" secondAttribute="trailing" type="default" id="qiF-HM-oUN"/>
+                            <constraint firstItem="nMK-wK-Rwl" firstAttribute="centerY" secondItem="wKu-NI-npm" secondAttribute="centerY" type="default" id="rcB-WZ-tud"/>
+                            <constraint firstItem="eSd-x6-00k" firstAttribute="top" secondItem="wKu-NI-npm" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="s2Z-zK-fd5"/>
                             <constraint firstItem="maU-Ed-S8v" firstAttribute="top" secondItem="OB2-ef-Vye" secondAttribute="top" constant="4" id="sFT-P4-Cui"/>
-                            <constraint firstItem="Sr7-HL-RXy" firstAttribute="centerY" secondItem="wKu-NI-npm" secondAttribute="centerY" type="default" id="tWl-WZ-hPO"/>
+                            <constraint firstItem="9IK-yO-XZD" firstAttribute="leading" secondItem="OB2-ef-Vye" secondAttribute="leading" constant="112" id="tyQ-mD-IN9"/>
                             <constraint firstItem="BJ3-f1-Ync" firstAttribute="bottom" secondItem="rZO-iS-Y4e" secondAttribute="bottom" type="default" id="xyI-eF-E0q"/>
-                            <constraint firstItem="eSd-x6-00k" firstAttribute="centerX" secondItem="9IK-yO-XZD" secondAttribute="centerX" type="default" id="yGu-4g-DHZ"/>
-                            <constraint firstAttribute="trailing" secondItem="D2R-Hl-bqh" secondAttribute="trailing" constant="52" id="ztk-Rp-apr"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -777,6 +787,7 @@
                         <outlet property="picker" destination="eSd-x6-00k" id="1s1-rz-hTd"/>
                         <outlet property="save" destination="9IK-yO-XZD" id="T6d-6s-ep8"/>
                         <outlet property="titleLabel" destination="maU-Ed-S8v" id="gab-Vn-qFT"/>
+                        <outlet property="ungradedLabel" destination="nMK-wK-Rwl" id="QWo-kT-BX7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iyV-Qc-Rpx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1168,124 +1179,6 @@
         <image name="wood1.jpg" width="329" height="528"/>
         <image name="yes.png" width="64" height="64"/>
     </resources>
-    <classes>
-        <class className="DetailPopoverViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DetailPopoverViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="belegen:"/>
-                <relationship kind="action" name="bestanden:"/>
-                <relationship kind="action" name="saveAction:"/>
-                <relationship kind="outlet" name="belegtLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="belegtSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="bestandenLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="bestandenSwitch" candidateClass="UISwitch"/>
-                <relationship kind="outlet" name="ectsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="noteField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="noteLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="save" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="PageViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PageViewController.h"/>
-        </class>
-        <class className="PickerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PickerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="Card:"/>
-                <relationship kind="action" name="SelectAction:"/>
-                <relationship kind="action" name="SpeicherAction:"/>
-                <relationship kind="action" name="green:"/>
-                <relationship kind="action" name="wood:"/>
-                <relationship kind="outlet" name="FachField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="SemesterField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="cardbt" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="greenbt" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
-                <relationship kind="outlet" name="select" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="speicher" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="woodbt" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="yes1" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="yes2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="yes3" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="PopoverTable" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/PopoverTable.h"/>
-            <relationships>
-                <relationship kind="action" name="SaveAction:"/>
-                <relationship kind="action" name="addAction:"/>
-                <relationship kind="action" name="back:"/>
-                <relationship kind="outlet" name="TextField" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="add" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="backg" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="kompetenzenBla" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="save" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="StartView" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/StartView.h"/>
-            <relationships>
-                <relationship kind="action" name="StartAction:"/>
-                <relationship kind="outlet" name="Fachlabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="Semesterlabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="Titel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="Welcome" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="lmu" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
-            </relationships>
-        </class>
-        <class className="ViewController1" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController1.h"/>
-            <relationships>
-                <relationship kind="action" name="Edit:"/>
-                <relationship kind="action" name="Save:"/>
-                <relationship kind="action" name="menubtn:"/>
-                <relationship kind="outlet" name="backg" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="bt" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="changeLab" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="edit" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="menu" candidateClass="UIView"/>
-                <relationship kind="outlet" name="saveBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="saveLab" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="setBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="setLab" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabel1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="titleLabelBig" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="ViewController2" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController2.h"/>
-            <relationships>
-                <relationship kind="action" name="Edit:"/>
-                <relationship kind="action" name="Save:"/>
-                <relationship kind="action" name="menubt:"/>
-                <relationship kind="action" name="setCalculation:"/>
-                <relationship kind="outlet" name="averageLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="backg" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="bt" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="calcBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="calcLab" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="ectsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="edit" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editLab" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="menu" candidateClass="UIView"/>
-                <relationship kind="outlet" name="saveBtn" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="saveLab" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
