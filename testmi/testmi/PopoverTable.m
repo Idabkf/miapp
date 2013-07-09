@@ -63,7 +63,7 @@
         
     }
 
-    self.TextField.backgroundColor = [UIColor whiteColor];
+   // self.TextField.backgroundColor = [UIColor whiteColor];
     self.TextField.hidden = YES;
     self.save.hidden = YES;
     // Uncomment the following line to preserve selection between presentations.
