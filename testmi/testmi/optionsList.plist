@@ -80,6 +80,16 @@
 			<key>ects</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Juristisches IT-Projektmanagement</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
 	</array>
 	<key>Projektkompetenz Multimedia</key>
 	<array>
@@ -106,6 +116,26 @@
 		<dict>
 			<key>lecture</key>
 			<string>Blockpraktikum PEM</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Projektkompetenz Multimedia: Unreal Development</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Praktikum Mediengestaltung</string>
 			<key>passed</key>
 			<false/>
 			<key>grade</key>
@@ -256,6 +286,86 @@
 			<key>ects</key>
 			<integer>6</integer>
 		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Parallel Computing: Grundlagen und Anwendungen</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>IT Sicherheit</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Methoden des Softwareengineering</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Methoden des Softwareengineering</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Komplexitätstheorie</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Praktikum Rechnernetze</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Rechnerbetriebspraktikum</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>iPhone-Praktikum</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
 	</array>
 	<key>Vertiefende Themen der Medieninformatik für Bachelor II</key>
 	<array>
@@ -399,9 +509,139 @@
 			<key>ects</key>
 			<integer>6</integer>
 		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Parallel Computing: Grundlagen und Anwendungen</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>IT Sicherheit</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Methoden des Softwareengineering</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Methoden des Softwareengineering</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Komplexitätstheorie</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Praktikum Rechnernetze</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Rechnerbetriebspraktikum</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>iPhone-Praktikum</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>6</integer>
+		</dict>
 	</array>
 	<key>Seminar zu ausgewählten Themen der Informatik</key>
 	<array>
+		<dict>
+			<key>lecture</key>
+			<string>E-Learning</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Trends in Mobilen und verteilten Systemen</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Urgent Computing</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Engineering Intelligent Distributed Systems</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Typbasierte Programmanalyse</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
 		<dict>
 			<key>lecture</key>
 			<string>Proseminar Medieninformatik</string>
@@ -414,7 +654,47 @@
 		</dict>
 		<dict>
 			<key>lecture</key>
-			<string>Seminar &quot;Typbasierte Programmanalyse&quot;</string>
+			<string>Ausgewählte Kapitel der Informatik</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Verteilte und Parallele Algorithmen</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Maschinelle Übersetzung</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>SAT Solving</string>
+			<key>passed</key>
+			<false/>
+			<key>grade</key>
+			<string></string>
+			<key>ects</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>lecture</key>
+			<string>Modellierung dynamischer und adaptiver Systeme</string>
 			<key>passed</key>
 			<false/>
 			<key>grade</key>
