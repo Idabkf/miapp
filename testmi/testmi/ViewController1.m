@@ -44,8 +44,9 @@
 {
     [super viewDidLoad];
     
-    //Observer
+       //Observer
     NSString *notificationName = @"finishedLoadingData";
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishLoadingData) name:notificationName object:nil];
     
     self.tableView.dataSource = self;
@@ -74,7 +75,7 @@
     self.titleLabelBig.font = [UIFont fontWithName:@"AppleGothic" size:21.0];
     self.titleLabelBig.backgroundColor=[UIColor colorWithRed:(224.0/255.0) green:(238.0/255.0) blue:(224.0/255.0) alpha:.15];
     
-    NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+   NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
     
     if([[mydefault stringForKey:@"AF"] isEqualToString: @"KW"]){
         self.titleLabelBig.text = @"Medienwirkung";
@@ -90,7 +91,7 @@
     if([[mydefault stringForKey:@"AF"] isEqualToString: @"BWL"]){
         self.titleLabelBig.text = @"Medienwirtschaft";
     }
-    
+        
     self.titleLabelBig.layer.cornerRadius = 8;
     self.titleLabelBig.layer.borderColor = [UIColor whiteColor].CGColor;
     self.titleLabelBig.layer.borderWidth = 1.0;
@@ -128,6 +129,8 @@
     CGRect rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y, self.containerView.bounds.size.width, self.containerView.bounds.size.height);
     self.tableView.frame =rect;
     [self.tableView setContentOffset:savedOffset];
+    
+    
    }
 
 
@@ -143,9 +146,12 @@
         self.setLab.hidden = NO;
         self.changeLab.hidden = NO;
         self.saveLab.hidden = NO;
+        
         //self.
     }
-
+    
+    
+  [self scrollToCurrentSemester];
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
@@ -237,6 +243,7 @@
     // Configure the cell...
     if ( cell ==nil ){
         cell =[[UITableViewCell alloc] initWithStyle: UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+       
         
     }
     
@@ -281,6 +288,7 @@
         //cell.backgroundColor = [UIColor clearColor];
 
         cell.textLabel.backgroundColor = [UIColor clearColor];
+    
     }
     
     
@@ -618,9 +626,29 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
    // self.bt = (UIButton *)sender;
    // self.bt.selected = !self.bt.selected
 }
+-(void) scrollToCurrentSemester{
+    NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+    NSString *sem = [mydefault stringForKey:@"SA"];
+    NSInteger semesterInt = [sem intValue] - 1;
+    if (semesterInt < 0) {
+        semesterInt = 0;
+    }
+    if (semesterInt > 5) {
+        semesterInt = 5;
+    }
+    NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:semesterInt];
+   
+    
+    if ([self.tableView numberOfRowsInSection:semesterInt]>0) {
+        [self.tableView scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+}
+
 -(void)didFinishLoadingData{
     [self updatePlist];
     [self.tableView reloadData];
+    
+    [self scrollToCurrentSemester];
 }
 
 @end
