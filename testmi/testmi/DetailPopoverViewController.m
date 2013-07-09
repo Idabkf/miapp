@@ -279,6 +279,9 @@ numberOfRowsInComponent:(NSInteger)component
     else {
         [lecture setObject:@"NO" forKey:@"passed"];
         [lecture setObject:@"" forKey:@"grade"];
+        self.noteField.text = @"-";
+        [picker selectRow:0 inComponent:0 animated:YES];
+        
         self.noteLabel.hidden = YES;
         self.noteField.hidden = YES;
         if (self.modulFlag == 4 || self.modulFlag == 1 || self.modulFlag == 2 || self.modulFlag == 3) {
