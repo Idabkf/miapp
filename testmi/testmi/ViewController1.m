@@ -134,18 +134,29 @@
    }
 
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
     [self updatePlist];
     [self.tableView setContentOffset:savedOffset];
-    self.menu .hidden =NO;
-    if(self.menu.hidden ==NO){
+    
+    if(self.menu.hidden == YES){
+        self.menu.hidden = NO;
         self.saveBtn.hidden = NO;
         self.edit.hidden = NO;
         self.setBtn.hidden = NO;
         self.setLab.hidden = NO;
         self.changeLab.hidden = NO;
         self.saveLab.hidden = NO;
+        
+        CGRect rect = CGRectMake(self.bt.frame.origin.x, self.bt.frame.origin.y+54.0f, self.bt.frame.size.width, self.bt.frame.size.height);
+        self.bt.frame = rect;
+        rect = CGRectMake(self.titleLabelBig.frame.origin.x, self.titleLabelBig.frame.origin.y+54.0f, self.titleLabelBig.frame.size.width, self.titleLabelBig.frame.size.height);
+        self.titleLabelBig.frame = rect;
+        rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y+54.0f, self.containerView.frame.size.width, self.containerView.frame.size.height-54.0f);
+        self.containerView.frame = rect;
+        rect = CGRectMake(self.tableView.bounds.origin.x, self.tableView.bounds.origin.y,  self.tableView.bounds.size.width, self.tableView.bounds.size.height - 54.0f);
+        rect = CGRectMake(self.containerView.frame.origin.x, self.containerView.frame.origin.y, self.containerView.bounds.size.width, self.containerView.bounds.size.height);
+        self.tableView.frame =rect;
         
         //self.
     }
