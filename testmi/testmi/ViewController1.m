@@ -31,7 +31,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
-    NSLog(@"Checking orientation %d", interfaceOrientation);
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 /*
@@ -291,7 +290,7 @@
         cell.textLabel.backgroundColor = [UIColor clearColor];
     } else  if([[lectureDic objectForKey:@"attending"] isEqualToString:@"YES"]){
         // cell.contentView.backgroundColor=[UIColor colorWithRed:0.02 green:0.768 blue:0.45 alpha:1];
-        NSLog(@"blue");
+        
         cell.backgroundColor = [UIColor colorWithRed:(100.0/255.0) green:(149.0/255.0) blue:(237.0/255.0) alpha:.5];
         cell.textLabel.backgroundColor = [UIColor clearColor];
     } else {
@@ -396,19 +395,14 @@
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
     
     NSInteger levelIntdest = destinationIndexPath.section +1;
-    NSLog(@" start %i",levelIntdest);
     
     NSInteger levelIntsource = sourceIndexPath.section +1;
-    NSLog(@"%i",levelIntsource);
-    NSLog(@"zeile : % i",sourceIndexPath.row);
     
     //Lecture holen
     NSMutableDictionary *semesteralt =  [self.semestersdicView objectForKey:[NSString stringWithFormat:@"%i", levelIntsource ]];
     NSMutableArray *lecturesalt = [semesteralt objectForKey:@"lectures"];
     NSMutableDictionary *lecturemoved = [lecturesalt  objectAtIndex:sourceIndexPath.row ];
     
-    
-    NSLog(@"%@",[lecturemoved objectForKey:@"title"]);
     //alten platz löschen
     [lecturesalt removeObjectAtIndex:sourceIndexPath.row];
     
@@ -418,13 +412,9 @@
     [lecturesneu insertObject:lecturemoved atIndex:destinationIndexPath.row];
     //[lecturesneu addObject:lecturemoved];
     
-    
-    
-    NSLog(@"Lectures ALT!!!!!!!!!!!!!!!! %@", lecturesalt);
     NSMutableDictionary *semester =  [self.semestersdicView objectForKey:[NSString stringWithFormat:@"%i", levelIntdest ]];
     NSMutableArray *lectures = [semester objectForKey:@"lectures"];
-    NSLog(@"Lectures NEU!!!!!!!!!!!!!!!! %@", lectures);
-        NSLog(@"Lectures NEU!!!!!!!!!!!!!!!! %@", lecturesneu);
+
     
     //write data into plist ***important***
     [self.semestersdicView writeToFile:self.plistLocation atomically: YES];
@@ -558,7 +548,6 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
 - (IBAction)Edit:(id)sender {
 
-    NSLog(@"edit ***********");
         [self.tableView setEditing:YES animated:YES];
         
     

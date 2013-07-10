@@ -251,6 +251,7 @@ numberOfRowsInComponent:(NSInteger)component
         if (self.modulFlag == 4 || self.modulFlag == 1 || self.modulFlag == 2 || self.modulFlag == 3) {
             [lecture setObject:titleString forKey:@"tmpAttending"];
             [lecture setObject:self.seminarTitle forKey:@"tmpAttending2"];
+            NSLog(@"belegt %@", lecture);
         }
 
     }

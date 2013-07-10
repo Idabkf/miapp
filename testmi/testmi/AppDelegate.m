@@ -135,7 +135,7 @@
                 //titleLecture = [titleLecture stringByReplacingOccurrencesOfString:@"\n" withString:@""];
                 //NSLog(@"############# TITLE ungraded: %@ and TITLE lecture: %@", title, [currentLectures objectAtIndex:i] [@"title"]);
                 if ([titleLecture hasPrefix:titleUngraded] ||
-                    [[currentLectures objectAtIndex:i] [@"tmpTitle"]hasPrefix:titleUngraded]) {
+                    [[currentLectures objectAtIndex:i] [@"tmpAttending"]hasPrefix:titleUngraded]) {
                     [[currentLectures objectAtIndex:i] setValue:@"NO" forKey:@"graded"];
                 }
             }
@@ -363,14 +363,14 @@ didStartElement:(NSString *)elementName
                [[self.currentLecture1 objectForKey:@"title"] isEqualToString: @"Projektkompetenz Multimedia\n"] ||
                [[self.currentLecture1 objectForKey:@"title"] isEqualToString: @"Sprachkurs ComComp\n"] ){
 
-               [self.currentLecture1 setObject:[self.currentLecture1 objectForKey:@"title"] forKey:@"tmpTitle"];
+               [self.currentLecture1 setObject:[self.currentLecture1 objectForKey:@"title"] forKey:@"tmpAttending"];
                [self.currentLecture1 setObject:@"Fachübergreifende Kompetenzen" forKey:@"title"];
             } else {
-                [self.currentLecture1 setObject:@"" forKey:@"tmpTitle"];
+                [self.currentLecture1 setObject:@"" forKey:@"tmpAttending"];
             }
             
+            [self.currentLecture1 setObject:@"" forKey:@"tmpTitle"];
             [self.currentLecture1 setObject:@"" forKey:@"tmpTitle2"];
-            [self.currentLecture1 setObject:@"" forKey:@"tmpAttending"];
             [self.currentLecture1 setObject:@"" forKey:@"tmpAttending2"];
             [self.currentLecture1 setObject:@"" forKey:@"grade"];
             [self.currentLecture1 setObject:@"" forKey:@"otherGrade"];
