@@ -446,6 +446,20 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
 
             }
             
+            else if([lecturesArray objectAtIndex:i] [@"otherGrade"] != nil && ![[lecturesArray objectAtIndex:i] [@"otherGrade"] isEqualToString:@""] &&
+                    self.alternativeGrades){
+                
+                NSString *ects = [lecturesArray objectAtIndex:i] [@"ects"];
+                ects = [ects stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                ects = [NSString stringWithFormat: @"%@.00", ects];
+                
+                
+                NSDecimalNumber *ectsNumber = [[NSDecimalNumber alloc]initWithString: ects];
+                
+                ectsSumGr = [ectsSumGr decimalNumberByAdding: ectsNumber];
+                
+            }
+            
             else if([[lecturesArray objectAtIndex:i] [@"passed"] isEqualToString:@"YES"] ){
                 NSString *ects = [lecturesArray objectAtIndex:i] [@"ects"];
                 ects = [ects stringByReplacingOccurrencesOfString:@"\n" withString:@""];
@@ -519,6 +533,29 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
                 
                 ectsSumGr = [ectsSumGr decimalNumberByAdding: ectsNumber];
                 NSLog(@"GRADE: %@ ECTS: %@ ECTSPERGRADE: %@ ECTSSUM: %@", grade, ects, ectsPerGrade, ectsSumGr);
+            }
+            
+            else if([lecturesArray objectAtIndex:i] [@"otherGrade"] != nil && ![[lecturesArray objectAtIndex:i] [@"otherGrade"] isEqualToString:@""] &&
+                    self.alternativeGrades){
+                
+                NSString *ects = [lecturesArray objectAtIndex:i] [@"ects"];
+                ects = [ects stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                ects = [NSString stringWithFormat: @"%@.00", ects];
+                
+                NSString *grade = @"";
+                grade = [lecturesArray objectAtIndex:i] [@"otherGrade"];
+                
+                grade = [grade stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                grade = [NSString stringWithFormat: @"%@0", grade];
+                
+                NSDecimalNumber *ectsNumber = [[NSDecimalNumber alloc]initWithString: ects];
+                
+                NSDecimalNumber *ectsPerGrade = [gradesDic objectForKey:grade];
+                ectsPerGrade = [ectsPerGrade decimalNumberByAdding:ectsNumber];
+                [gradesDic setValue:ectsPerGrade forKey:grade];
+                
+                
+                ectsSumGr = [ectsSumGr decimalNumberByAdding: ectsNumber];
             }
             
             else if([[lecturesArray objectAtIndex:i] [@"passed"] isEqualToString:@"YES"] ){
