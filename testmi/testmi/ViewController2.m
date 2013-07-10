@@ -310,7 +310,11 @@
     NSString *title = [lectures objectAtIndex:indexPath.row][@"title"];
     if(![[lectures objectAtIndex:indexPath.row][@"tmpTitle"] isEqualToString:@""]){
         title = [lectures objectAtIndex:indexPath.row][@"tmpTitle"];
+    }else if (![[[lectures objectAtIndex:indexPath.row] objectForKey:@"tmpAttending"] isEqualToString:@""]) {
+        title = [[lectures objectAtIndex:indexPath.row] objectForKey:@"tmpAttending"];
     }
+    
+
     cell.textLabel.text = title;
     cell.textLabel.font = [UIFont fontWithName:@"AppleGothic" size:16.0];
     cell.selectionStyle=UITableViewCellSelectionStyleNone;
