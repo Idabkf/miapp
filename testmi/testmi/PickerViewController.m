@@ -322,13 +322,70 @@ NSString *semesteranzahl;
 - (void)textFieldDidBeginEditing:(UITextField *)myTextField{
     
     [myTextField resignFirstResponder];
-    
+
     picker.hidden = NO;
+    
+    NSUserDefaults *mydefault = [NSUserDefaults standardUserDefaults];
+    NSString *fach1 = [mydefault stringForKey:@"AF"];
+    NSString *sem = [mydefault stringForKey:@"SA"];
+    
+    int fachInt = 0;
+    int semInt = 0;
+    
+    if ([fach1 isEqualToString:@"KW"]) {
+        fachInt = 0;
+    }
+    else if ([fach1 isEqualToString:@"MMI"]) {
+        fachInt = 1;
+    }
+    else if ([fach1 isEqualToString:@"MG"]) {
+        fachInt = 2;
+    }
+    else if ([fach1 isEqualToString:@"BWL"]) {
+        fachInt = 3;
+    }
+    
+    /*Semester*/
+    if ([sem isEqualToString:@"1"]) {
+        semInt = 0;
+    }
+    else if ([sem isEqualToString:@"2"]) {
+        semInt = 1;
+    }
+    else if ([sem isEqualToString:@"3"]) {
+        semInt = 2;
+    }
+    else if ([sem isEqualToString:@"4"]) {
+        semInt = 3;
+    }
+    else if ([sem isEqualToString:@"5"]) {
+        semInt = 4;
+    }
+    else if ([sem isEqualToString:@"6"]) {
+        semInt = 5;
+    }
+    else if ([sem isEqualToString:@"7"]) {
+        semInt = 6;
+    }
+    else if ([sem isEqualToString:@"8"]) {
+        semInt = 7;
+    }
+    else if ([sem isEqualToString:@"9"]) {
+        semInt = 8;
+    }
+    
+    [picker selectRow:fachInt inComponent:FachComponent animated:YES];
+    [picker selectRow:semInt inComponent:SemesterComponent animated:YES];
     FachField.inputView = picker;
     SemesterField.inputView = picker;
     
     
-    
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"WARNUNG"
+                                                      message:@"Beim Ändern des Anwendungsfaches werden alle Eintragungen gelöscht!"
+                                                     delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+    [message show];
     
 }
 
