@@ -393,7 +393,8 @@ targetIndexPathForMoveFromRowAtIndexPath:(NSIndexPath *)sourceIndexPath
         for(int i= 0; i < lecturesArray.count; i++){
             if([[lecturesArray objectAtIndex:i] [@"title"] isEqualToString: lecture [@"title"]] &&
                [[lecturesArray objectAtIndex:i] [@"tmpTitle"] isEqualToString: lecture [@"tmpTitle"]] &&
-               [[lecturesArray objectAtIndex:i] [@"tmpTitle2"] isEqualToString: lecture [@"tmpTitle2"]]){
+               [[lecturesArray objectAtIndex:i] [@"tmpTitle2"] isEqualToString: lecture [@"tmpTitle2"]]&&
+               [[lecturesArray objectAtIndex:i] [@"tmpAttending"] isEqualToString: lecture [@"tmpAttending"]]){
                 
                 //set as other grade because not real grade
                 [[lecturesArray objectAtIndex:i] setObject: [gradeArray objectAtIndex:destinationIndexPath.section] forKey:@"otherGrade"];
